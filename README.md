@@ -1,6 +1,14 @@
-# DaisyUI.Avalonia.NET
+<div align="center">
 
-A C# port of the popular [DaisyUI](https://daisyui.com/) component library for [Avalonia UI](https://avaloniaui.net/).
+# 🌼 DaisyUI.Avalonia.NET
+
+**A C# port of the popular [DaisyUI](https://daisyui.com/) component library for [Avalonia UI](https://avaloniaui.net/).**
+
+[![NuGet](https://img.shields.io/nuget/v/DaisyUI.Avalonia.NET?style=flat-square)](https://www.nuget.org/packages/DaisyUI.Avalonia.NET)
+[![License](https://img.shields.io/github/license/tobitege/DaisyUI.Avalonia.NET?style=flat-square)](LICENSE)
+[![Avalonia](https://img.shields.io/badge/Avalonia-11.0+-purple?style=flat-square)](https://avaloniaui.net/)
+
+</div>
 
 This library provides native Avalonia controls that mimic the utility-first, semantic class naming of DaisyUI, making it easy to build beautiful, themed UIs in Avalonia.
 
@@ -11,6 +19,7 @@ This library provides native Avalonia controls that mimic the utility-first, sem
 - **Runtime Theme Switching**: Use `DaisyThemeDropdown` to switch themes at runtime.
 - **Variants**: Supports `Primary`, `Secondary`, `Accent`, `Ghost`, etc.
 - **Framework Support**: Library targets `netstandard2.0` for maximum compatibility.
+- **Gallery App**: Includes a full demo application (`DaisyUI.Avalonia.Gallery`) showcasing all controls and features.
 
 ## Installation
 
@@ -20,7 +29,7 @@ This library provides native Avalonia controls that mimic the utility-first, sem
 
 ```xml
 <Application ...
-             xmlns:daisy="clr-namespace:DaisyUI.Avalonia;assembly=DaisyUI.Avalonia.NET.NET">
+             xmlns:daisy="clr-namespace:DaisyUI.Avalonia;assembly=DaisyUI.Avalonia.NET">
     <Application.Styles>
         <FluentTheme />
         <daisy:DaisyUITheme />
@@ -29,6 +38,8 @@ This library provides native Avalonia controls that mimic the utility-first, sem
 ```
 
 ## Usage Example
+
+The best way to explore the controls is to run the included **Gallery App**. It demonstrates every component, theme switching, and various configuration options.
 
 ```xml
 <daisy:DaisyButton Content="Primary Button" Variant="Primary" />
@@ -39,67 +50,85 @@ This library provides native Avalonia controls that mimic the utility-first, sem
 ## Components
 
 ### Actions
-*   **Button** (`DaisyButton`): Buttons with variants (Primary, Secondary, Accent, Ghost, Link) and sizes (Large, Normal, Small, Tiny). Supports Outline and Active states.
-*   **Modal** (`DaisyModal`): Dialog box with backdrop overlay.
-*   **Swap**: (Use `ToggleButton` with custom content or `DaisyToggle`).
+
+- **Button** (`DaisyButton`): Buttons with variants (Primary, Secondary, Accent, Ghost, Link) and sizes (Large, Normal, Small, Tiny). Supports Outline and Active states.
+- **Fab** (`DaisyFab`): Floating Action Button (Speed Dial) with support for multiple actions.
+- **Modal** (`DaisyModal`): Dialog box with backdrop overlay.
+- **Swap**: (Use `ToggleButton`with custom content or`DaisyToggle`).
 
 ### Data Display
-*   **Alert** (`DaisyAlert`): Feedback messages (Info, Success, Warning, Error).
-*   **Avatar** (`DaisyAvatar`): User profile image container (Circle, Square) with online/offline status indicators.
-*   **Badge** (`DaisyBadge`): Small status indicators (Primary, Secondary, Outline, etc.).
-*   **Card** (`DaisyCard`): Content container with padding and shadow.
-*   **Carousel** (`DaisyCarousel`): Scrollable container for items.
-*   **Chat Bubble** (`DaisyChatBubble`): Message bubbles with header, footer, and alignment (Start/End).
-*   **Collapse** (`DaisyCollapse`): Accordion/Expander with animated arrow or plus/minus icon.
-*   **Countdown** (`DaisyCountdown`): Monospace digit display.
-*   **Diff** (`DaisyDiff`): Image comparison slider (Before/After).
-*   **Kbd** (`DaisyKbd`): Keyboard key visual style.
-*   **Stat** (`DaisyStat`): Statistics block with Title, Value, and Description.
-*   **Table** (`DaisyTable`): Styled items control for tabular data.
-*   **Timeline** (`DaisyTimeline`): Vertical list of events with connecting lines.
+
+- **Accordion** (`DaisyAccordion`): Group of collapse items that ensures only one item is expanded at a time.
+- **Alert** (`DaisyAlert`): Feedback messages (Info, Success, Warning, Error).
+- **Avatar** (`DaisyAvatar`): User profile image container (Circle, Square) with online/offline status indicators.
+- **Badge** (`DaisyBadge`): Small status indicators (Primary, Secondary, Outline, etc.).
+- **Card** (`DaisyCard`): Content container with padding and shadow.
+- **Carousel** (`DaisyCarousel`): Scrollable container for items.
+- **Chat Bubble** (`DaisyChatBubble`): Message bubbles with header, footer, and alignment (Start/End).
+- **Collapse** (`DaisyCollapse`): Accordion/Expander with animated arrow or plus/minus icon.
+- **Countdown** (`DaisyCountdown`): Monospace digit display.
+- **Diff** (`DaisyDiff`): Image comparison slider (Before/After).
+- **Hover Gallery** (`DaisyHoverGallery`): Image/Content gallery driven by mouse hover position.
+- **Kbd** (`DaisyKbd`): Keyboard key visual style.
+- **Stat** (`DaisyStat`): Statistics block with Title, Value, and Description.
+- **Table** (`DaisyTable`): Styled items control for tabular data.
+- **Timeline** (`DaisyTimeline`): Vertical list of events with connecting lines.
 
 ### Data Input
-*   **Checkbox** (`DaisyCheckBox`): Checkbox with themed colors.
-*   **File Input** (`DaisyFileInput`): Styled button/label for file selection.
-*   **Input** (`DaisyInput`): Text input field with variants (Bordered, Ghost, Primary, etc.).
-*   **Radio** (`DaisyRadio`): Radio button with themed colors.
-*   **Range** (`DaisyRange`): Slider control.
-*   **Rating** (`DaisyRating`): Star rating control with interactivity and partial fill support.
-*   **Select** (`DaisySelect`): ComboBox with themed styles.
-*   **Textarea** (`DaisyTextArea`): Multiline text input.
-*   **Toggle** (`DaisyToggle`): Switch toggle control.
+
+- **Checkbox** (`DaisyCheckBox`): Checkbox with themed colors.
+- **File Input** (`DaisyFileInput`): Styled button/label for file selection.
+- **Input** (`DaisyInput`): Text input field with variants (Bordered, Ghost, Primary, etc.).
+- **Radio** (`DaisyRadio`): Radio button with themed colors.
+- **Range** (`DaisyRange`): Slider control.
+- **Rating** (`DaisyRating`): Star rating control with interactivity and partial fill support.
+- **Select** (`DaisySelect`): ComboBox with themed styles.
+- **Textarea** (`DaisyTextArea`): Multiline text input.
+- **Toggle** (`DaisyToggle`): Switch toggle control.
 
 ### Layout
-*   **Divider** (`DaisyDivider`): Separation line with optional text.
-*   **Drawer** (`DaisyDrawer`): Sidebar navigation with overlay (inherits `SplitView`).
-*   **Hero** (`DaisyHero`): Large banner component.
-*   **Join** (`DaisyJoin`): container that groups children (buttons/inputs) by merging their borders.
-*   **Stack** (`DaisyStack`): container that stacks children visually with offsets.
+
+- **Divider** (`DaisyDivider`): Separation line with optional text.
+- **Drawer** (`DaisyDrawer`): Sidebar navigation with overlay (inherits `SplitView`).
+- **Hero** (`DaisyHero`): Large banner component.
+- **Join** (`DaisyJoin`): container that groups children (buttons/inputs) by merging their borders.
+- **Stack** (`DaisyStack`): container that stacks children visually with offsets.
 
 ### Navigation
-*   **Breadcrumbs** (`DaisyBreadcrumbs`): Navigation path with separators.
-*   **Menu** (`DaisyMenu`): Vertical or horizontal list of links/actions.
-*   **Navbar** (`DaisyNavbar`): Top navigation bar container.
-*   **Pagination** (`DaisyPagination`): Group of buttons for page navigation.
-*   **Steps** (`DaisySteps`): Progress tracker steps.
-*   **Tabs** (`DaisyTabs`): Tabbed navigation (Bordered, Lifted, Boxed).
+
+- **Breadcrumbs** (`DaisyBreadcrumbs`): Navigation path with separators.
+- **Menu** (`DaisyMenu`): Vertical or horizontal list of links/actions.
+- **Navbar** (`DaisyNavbar`): Top navigation bar container.
+- **Pagination** (`DaisyPagination`): Group of buttons for page navigation.
+- **Steps** (`DaisySteps`): Progress tracker steps.
+- **Tabs** (`DaisyTabs`): Tabbed navigation (Bordered, Lifted, Boxed).
 
 ### Feedback & Utils
-*   **Indicator** (`DaisyIndicator`): Utility to place a badge on the corner of another element.
-*   **Loading** (`DaisyLoading`): Animated loading indicators (Spinner, Dots, Ring).
-*   **Mask** (`DaisyMask`): Applies shapes (Squircle, Heart, Hexagon, etc.) to content.
-*   **Mockup** (`DaisyMockup`): Frames for Code, Window, or Browser.
-*   **Progress** (`DaisyProgress`): Linear progress bar.
-*   **Radial Progress** (`DaisyRadialProgress`): Circular progress indicator.
-*   **Skeleton** (`DaisySkeleton`): Animated placeholder for loading states.
-*   **Toast** (`DaisyToast`): Container for stacking alerts (fixed positioning).
-*   **Tooltip**: Themed standard Avalonia `ToolTip`.
+
+- **Indicator** (`DaisyIndicator`): Utility to place a badge on the corner of another element.
+- **Loading** (`DaisyLoading`): Animated loading indicators (Spinner, Dots, Ring).
+- **Mask** (`DaisyMask`): Applies shapes (Squircle, Heart, Hexagon, etc.) to content.
+- **Mockup** (`DaisyMockup`): Frames for Code, Window, or Browser.
+- **Progress** (`DaisyProgress`): Linear progress bar.
+- **Radial Progress** (`DaisyRadialProgress`): Circular progress indicator.
+- **Skeleton** (`DaisySkeleton`): Animated placeholder for loading states.
+- **Toast** (`DaisyToast`): Container for stacking alerts (fixed positioning).
+- **Tooltip**: Themed standard Avalonia `ToolTip`.
+
+### Custom Controls (Avalonia-specific)
+
+These controls are not part of the original DaisyUI CSS specification but are provided as high-level conveniences for building .NET apps.
+
+- **Component Sidebar** (`DaisyComponentSidebar`): A pre-built documentation/admin sidebar with categories, search support, and navigation events.
+- **Modifier Keys** (`DaisyModifierKeys`): Visualizes the state of keyboard modifiers (Shift, Ctrl, Alt) and locks (Caps, Num, Scroll).
 
 ### Theme Controls
-*   **Theme Swap** (`DaisyThemeSwap`): Toggle button to switch between light and dark themes with animated sun/moon icons.
-*   **Theme Dropdown** (`DaisyThemeDropdown`): Dropdown to select from all 35 available DaisyUI themes at runtime.
-*   **Theme Controller** (`DaisyThemeController`): Flexible theme toggle with multiple presentation modes (Toggle, Checkbox, Swap, ToggleWithText, ToggleWithIcons). Automatically syncs with theme changes app-wide.
-*   **Theme Manager** (`DaisyThemeManager`): Centralized static class for theme management. Provides `ApplyTheme()`, `CurrentThemeName`, `AvailableThemes`, and `ThemeChanged` event for app-wide synchronization.
+
+- **Theme Swap** (`DaisyThemeSwap`): Toggle button to switch between light and dark themes with animated sun/moon icons.
+- **Theme Dropdown** (`DaisyThemeDropdown`): Dropdown to select from all 35 available DaisyUI themes at runtime.
+- **Theme Radio** (`DaisyThemeRadio`): Radio button to select a specific theme.
+- **Theme Controller** (`DaisyThemeController`): Flexible theme toggle with multiple presentation modes (Toggle, Checkbox, Swap, ToggleWithText, ToggleWithIcons). Automatically syncs with theme changes app-wide.
+- **Theme Manager** (`DaisyThemeManager`): Centralized static class for theme management. Provides `ApplyTheme()`, `CurrentThemeName`, `AvailableThemes`, and `ThemeChanged` event for app-wide synchronization.
 
 ## Available Themes
 
@@ -130,7 +159,7 @@ The `DaisyThemeController` provides multiple ways to toggle between two themes, 
 <controls:DaisyThemeController Mode="ToggleWithIcons" />
 ```
 
-When the app's theme changes (e.g., via `DaisyThemeDropdown`), the controller automatically updates its `CheckedTheme` and `CheckedLabel` to reflect the new theme.
+When the app's theme changes (e.g., via `DaisyThemeDropdown`), the controller automatically updates its `CheckedTheme`and`CheckedLabel` to reflect the new theme.
 
 ## Theme Manager
 
@@ -244,6 +273,27 @@ var hex = ColorConverter.OklchToHex("65.69% 0.196 275.75");
 var (r, g, b) = ColorConverter.HexToRgb("#5B21B6");
 ```
 
+## Technical Requirements
+
+To use the library in your project:
+
+- **.NET Standard 2.0** compatible framework (.NET Core 2.0+, .NET Framework 4.6.1+, .NET 5/6/7/8+).
+- **Avalonia UI 11.0+**.
+
+To build and run the source code/gallery:
+
+- **.NET 8.0 SDK** or later.
+- **Visual Studio 2022**, JetBrains Rider, or VS Code.
+- Supports Windows, macOS, and Linux.
+
 ## License
 
 MIT
+
+## Credits & References
+
+This project is built upon and inspired by the following amazing projects:
+
+- [**Avalonia UI**](https://avaloniaui.net/) - The cross-platform UI framework.
+- [**DaisyUI**](https://daisyui.com/) - The original Tailwind CSS component library that inspired this port.
+- [**Avalonia.Fonts.Inter**](https://www.nuget.org/packages/Avalonia.Fonts.Inter) - The font used in the gallery.
