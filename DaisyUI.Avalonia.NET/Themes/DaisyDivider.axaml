@@ -15,54 +15,53 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type controls:DaisyDivider}" TargetType="controls:DaisyDivider">
-        <Setter Property="Background" Value="{DynamicResource DaisyBase300Brush}" /> <!-- Line color -->
+        <Setter Property="Background" Value="{DynamicResource DaisyBaseContentBrush}" /> <!-- Line color - uses content color for auto-contrast -->
         <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
-        <Setter Property="Opacity" Value="0.6" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="MinHeight" Value="20" />
-        
+
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="*, Auto, *">
-                    <!-- Left Line -->
-                    <Border Height="1" Background="{TemplateBinding Background}" VerticalAlignment="Center" Margin="0,0,8,0" />
-                    
-                    <!-- Content -->
-                    <ContentPresenter Grid.Column="1" 
+                    <!-- Left Line (10% opacity per official DaisyUI CSS) -->
+                    <Border Height="2" Background="{TemplateBinding Background}" Opacity="0.1" VerticalAlignment="Center" Margin="0,0,8,0" />
+
+                    <!-- Content (full opacity) -->
+                    <ContentPresenter Grid.Column="1"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}"
                                       VerticalAlignment="Center"
                                       HorizontalAlignment="Center" />
-                    
-                    <!-- Right Line -->
-                    <Border Grid.Column="2" Height="1" Background="{TemplateBinding Background}" VerticalAlignment="Center" Margin="8,0,0,0" />
+
+                    <!-- Right Line (10% opacity per official DaisyUI CSS) -->
+                    <Border Grid.Column="2" Height="2" Background="{TemplateBinding Background}" Opacity="0.1" VerticalAlignment="Center" Margin="8,0,0,0" />
                 </Grid>
             </ControlTemplate>
         </Setter>
-        
-        <!-- If no content, just one line? 
-             We can use triggers to hide middle column and margins. 
-             Avalonia doesn't support DataTriggers in styles easily without binding classes. 
-             But we can use a Converter on ColumnSpan or Visibility. 
-             
+
+        <!-- If no content, just one line?
+             We can use triggers to hide middle column and margins.
+             Avalonia doesn't support DataTriggers in styles easily without binding classes.
+             But we can use a Converter on ColumnSpan or Visibility.
+
              Actually, the simple Grid above always leaves a gap if content is null but margins exist.
              If Content is null, ContentPresenter is collapsed (IsVisible converter above).
              But the margins on Borders are hardcoded.
-             
-             Alternative: Use a Grid with one column if empty. 
-             
-             Let's use a simpler template: Two Borders and Content. 
-             If Content is null, we want a single line. 
-             
-             Better: Use a single DockPanel or Flex. 
-             
-             Let's stick to the grid. If content is empty, the middle column has width Auto (0). 
-             The margins on the lines will meet (16px gap). 
-             This mimics DaisyUI's empty divider often having a gap if used with `divider` class alone? 
-             No, `divider` alone is a line. 
-             
+
+             Alternative: Use a Grid with one column if empty.
+
+             Let's use a simpler template: Two Borders and Content.
+             If Content is null, we want a single line.
+
+             Better: Use a single DockPanel or Flex.
+
+             Let's stick to the grid. If content is empty, the middle column has width Auto (0).
+             The margins on the lines will meet (16px gap).
+             This mimics DaisyUI's empty divider often having a gap if used with `divider` class alone?
+             No, `divider` alone is a line.
+
              Let's change template slightly:
              Use a class or property 'HasContent'.
              Or:
@@ -73,10 +72,10 @@
         <Style Selector="^:empty /template/ ContentPresenter">
              <Setter Property="IsVisible" Value="False" />
         </Style>
-        <!-- The above :empty pseudoclass applies if ContentControl Content is null/empty string? 
-             Avalonia :empty selector works for ItemsControl usually. 
+        <!-- The above :empty pseudoclass applies if ContentControl Content is null/empty string?
+             Avalonia :empty selector works for ItemsControl usually.
              For ContentControl, it might not work.
-             
+
              Let's rely on standard layout. A small gap in the middle of a line is acceptable or we can just fix it later. -->
 
     </ControlTheme>

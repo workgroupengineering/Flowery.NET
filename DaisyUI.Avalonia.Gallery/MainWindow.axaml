@@ -106,7 +106,7 @@
                     </Viewbox>
 
                     <TextBlock x:Name="CategoryTitle" Text="" FontSize="22" FontWeight="SemiBold"
-                               VerticalAlignment="Center" Foreground="{DynamicResource DaisyPrimaryBrush}"/>
+                               VerticalAlignment="Center" Foreground="{DynamicResource DaisyBaseContentBrush}"/>
                 </StackPanel>
             </Border>
 
