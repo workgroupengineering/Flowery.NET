@@ -4,216 +4,286 @@
              xmlns:local="clr-namespace:Flowery.NET.Gallery.Examples"
              x:Class="Flowery.NET.Gallery.Examples.NavigationExamples">
 
-    <ScrollViewer x:Name="MainScrollViewer" HorizontalScrollBarVisibility="Disabled">
-        <StackPanel Spacing="24" Margin="24,0,24,32">
+    <Grid>
+        <ScrollViewer x:Name="MainScrollViewer" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Spacing="24" Margin="24,0,24,32">
 
-            <!-- Breadcrumbs -->
-            <StackPanel Spacing="12">
-                <local:SectionHeader SectionId="breadcrumbs" Title="Breadcrumbs" />
-                <WrapPanel Orientation="Horizontal">
-                    <!-- Basic breadcrumbs -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Basic" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyBreadcrumbs>
-                            <controls:DaisyBreadcrumbItem Content="Home" />
-                            <controls:DaisyBreadcrumbItem Content="Documents" />
-                            <controls:DaisyBreadcrumbItem Content="Add Document" />
-                        </controls:DaisyBreadcrumbs>
-                    </StackPanel>
+                <!-- Breadcrumbs -->
+                <StackPanel Spacing="12">
+                    <local:SectionHeader SectionId="breadcrumbs" Title="Breadcrumbs" />
+                    <WrapPanel Orientation="Horizontal">
+                        <!-- Basic breadcrumbs -->
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Basic" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyBreadcrumbs>
+                                <controls:DaisyBreadcrumbItem Content="Home" />
+                                <controls:DaisyBreadcrumbItem Content="Documents" />
+                                <controls:DaisyBreadcrumbItem Content="Add Document" />
+                            </controls:DaisyBreadcrumbs>
+                        </StackPanel>
 
-                    <!-- With custom separator -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Custom Separator (›)" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyBreadcrumbs Separator="›">
-                            <controls:DaisyBreadcrumbItem Content="Home" />
-                            <controls:DaisyBreadcrumbItem Content="Products" />
-                            <controls:DaisyBreadcrumbItem Content="Details" />
-                        </controls:DaisyBreadcrumbs>
-                    </StackPanel>
+                        <!-- With custom separator -->
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Custom Separator (›)" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyBreadcrumbs Separator="›">
+                                <controls:DaisyBreadcrumbItem Content="Home" />
+                                <controls:DaisyBreadcrumbItem Content="Products" />
+                                <controls:DaisyBreadcrumbItem Content="Details" />
+                            </controls:DaisyBreadcrumbs>
+                        </StackPanel>
 
-                    <!-- With chevron separator -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Chevron Separator (»)" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyBreadcrumbs Separator="»" SeparatorOpacity="0.7">
-                            <controls:DaisyBreadcrumbItem Content="Root" />
-                            <controls:DaisyBreadcrumbItem Content="Folder" />
-                            <controls:DaisyBreadcrumbItem Content="File" />
-                        </controls:DaisyBreadcrumbs>
-                    </StackPanel>
+                        <!-- With chevron separator -->
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Chevron Separator (»)" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyBreadcrumbs Separator="»" SeparatorOpacity="0.7">
+                                <controls:DaisyBreadcrumbItem Content="Root" />
+                                <controls:DaisyBreadcrumbItem Content="Folder" />
+                                <controls:DaisyBreadcrumbItem Content="File" />
+                            </controls:DaisyBreadcrumbs>
+                        </StackPanel>
 
-                    <!-- With icons -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="With Icons" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyBreadcrumbs>
-                            <controls:DaisyBreadcrumbItem Content="Home" Icon="{StaticResource DaisyIconHome}" />
-                            <controls:DaisyBreadcrumbItem Content="Folder" Icon="{StaticResource DaisyIconFolder}" />
-                            <controls:DaisyBreadcrumbItem Content="File" Icon="{StaticResource DaisyIconDocument}" />
-                        </controls:DaisyBreadcrumbs>
-                    </StackPanel>
+                        <!-- With icons -->
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="With Icons" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyBreadcrumbs>
+                                <controls:DaisyBreadcrumbItem Content="Home" Icon="{StaticResource DaisyIconHome}" />
+                                <controls:DaisyBreadcrumbItem Content="Folder" Icon="{StaticResource DaisyIconFolder}" />
+                                <controls:DaisyBreadcrumbItem Content="File" Icon="{StaticResource DaisyIconDocument}" />
+                            </controls:DaisyBreadcrumbs>
+                        </StackPanel>
 
-                    <!-- Max-width with scrolling -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="With Max-Width (scrollable)" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyBreadcrumbs MaxWidth="220" MinHeight="80">
-                            <controls:DaisyBreadcrumbItem Content="Long text 1" />
-                            <controls:DaisyBreadcrumbItem Content="Long text 2" />
-                            <controls:DaisyBreadcrumbItem Content="Long text 3" />
-                            <controls:DaisyBreadcrumbItem Content="Long text 4" />
-                            <controls:DaisyBreadcrumbItem Content="Long text 5" />
-                        </controls:DaisyBreadcrumbs>
-                    </StackPanel>
-                </WrapPanel>
+                        <!-- Max-width with scrolling -->
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="With Max-Width (scrollable)" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyBreadcrumbs MaxWidth="220" MinHeight="80">
+                                <controls:DaisyBreadcrumbItem Content="Long text 1" />
+                                <controls:DaisyBreadcrumbItem Content="Long text 2" />
+                                <controls:DaisyBreadcrumbItem Content="Long text 3" />
+                                <controls:DaisyBreadcrumbItem Content="Long text 4" />
+                                <controls:DaisyBreadcrumbItem Content="Long text 5" />
+                            </controls:DaisyBreadcrumbs>
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+
+                <controls:DaisyDivider />
+
+                <!-- Menu -->
+                <StackPanel Spacing="12">
+                    <local:SectionHeader SectionId="menu" Title="Menu" />
+                    <TextBlock Text="Menu supports ActiveForeground and ActiveBackground properties for custom selection styling" Opacity="0.7" FontSize="13"/>
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Default Active Colors" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="200">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem IsSelected="True">Selected Item</ListBoxItem>
+                                <ListBoxItem>Item 3</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Custom Active Colors (Primary)" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="200"
+                                               ActiveForeground="{DynamicResource DaisyPrimaryContentColor}"
+                                               ActiveBackground="{DynamicResource DaisyPrimaryBrush}">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem IsSelected="True">Selected Item</ListBoxItem>
+                                <ListBoxItem>Item 3</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Horizontal Menu" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Orientation="Horizontal"
+                                               ActiveForeground="{DynamicResource DaisyAccentContentColor}"
+                                               ActiveBackground="{DynamicResource DaisyAccentBrush}">
+                                <ListBoxItem>Home</ListBoxItem>
+                                <ListBoxItem IsSelected="True">About</ListBoxItem>
+                                <ListBoxItem>Contact</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+
+                <controls:DaisyDivider />
+
+                <!-- Navbar -->
+                <StackPanel Spacing="12">
+                    <local:SectionHeader SectionId="navbar" Title="Navbar" />
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <controls:DaisyNavbar>
+                                <Grid ColumnDefinitions="Auto, *, Auto">
+                                    <TextBlock Text="daisyUI" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                                    <controls:DaisyMenu Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <ListBoxItem>Item 1</ListBoxItem>
+                                        <ListBoxItem>Item 2</ListBoxItem>
+                                    </controls:DaisyMenu>
+                                    <controls:DaisyButton Grid.Column="2" Content="Get Started" Variant="Primary" Size="Small"/>
+                                </Grid>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+
+                <controls:DaisyDivider />
+
+                <!-- Pagination -->
+                <StackPanel Spacing="12">
+                    <local:SectionHeader SectionId="pagination" Title="Pagination" />
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <controls:DaisyPagination>
+                                <ListBoxItem>1</ListBoxItem>
+                                <ListBoxItem IsSelected="True">2</ListBoxItem>
+                                <ListBoxItem>3</ListBoxItem>
+                                <ListBoxItem>4</ListBoxItem>
+                            </controls:DaisyPagination>
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+
+                <controls:DaisyDivider />
+
+                <!-- Dock -->
+                <StackPanel Spacing="12">
+                    <local:SectionHeader SectionId="dock" Title="Dock" />
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Default Dock" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyDock ItemSelected="OnDockItemSelected">
+                                <Button Tag="Home">
+                                    <StackPanel>
+                                        <PathIcon Data="{StaticResource DaisyIconHome}" />
+                                        <TextBlock Classes="dock-label" Text="Home" />
+                                    </StackPanel>
+                                </Button>
+                                <Button Tag="Files" Classes="dock-active">
+                                    <StackPanel>
+                                        <PathIcon Data="{StaticResource DaisyIconDocument}" />
+                                        <TextBlock Classes="dock-label" Text="Files" />
+                                    </StackPanel>
+                                </Button>
+                                <Button Tag="Settings">
+                                    <StackPanel>
+                                        <PathIcon Data="{StaticResource DaisyIconSettings}" />
+                                        <TextBlock Classes="dock-label" Text="Settings" />
+                                    </StackPanel>
+                                </Button>
+                            </controls:DaisyDock>
+                        </StackPanel>
+
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Small Dock" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyDock Size="Small" ItemSelected="OnDockItemSelected">
+                                <Button Tag="Home">
+                                    <StackPanel>
+                                        <PathIcon Data="{StaticResource DaisyIconHome}" />
+                                        <TextBlock Classes="dock-label" Text="Home" />
+                                    </StackPanel>
+                                </Button>
+                                <Button Tag="Files" Classes="dock-active">
+                                    <StackPanel>
+                                        <PathIcon Data="{StaticResource DaisyIconDocument}" />
+                                        <TextBlock Classes="dock-label" Text="Files" />
+                                    </StackPanel>
+                                </Button>
+                            </controls:DaisyDock>
+                        </StackPanel>
+
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Extra Small Dock (Icons only)" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyDock Size="ExtraSmall" ItemSelected="OnDockItemSelected">
+                                <Button Tag="Home">
+                                    <PathIcon Data="{StaticResource DaisyIconHome}" />
+                                </Button>
+                                <Button Classes="dock-active" Tag="Files">
+                                    <PathIcon Data="{StaticResource DaisyIconDocument}" />
+                                </Button>
+                                <Button Tag="Settings">
+                                    <PathIcon Data="{StaticResource DaisyIconSettings}" />
+                                </Button>
+                            </controls:DaisyDock>
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+
+                <controls:DaisyDivider />
+
+                <!-- Steps -->
+                <StackPanel Spacing="12">
+                    <local:SectionHeader SectionId="steps" Title="Steps" />
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20" Width="300">
+                            <controls:DaisySteps SelectedIndex="1">
+                                <TextBlock Text="Register" />
+                                <TextBlock Text="Plan" />
+                                <TextBlock Text="Purchase" />
+                            </controls:DaisySteps>
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+
+                <controls:DaisyDivider />
+
+                <!-- Tabs -->
+                <StackPanel Spacing="12">
+                    <local:SectionHeader SectionId="tabs" Title="Tabs" />
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,20,10">
+                            <TextBlock Text="None" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyTabs Variant="None">
+                                <TabItem Header="Tab 1">
+                                    <TextBlock Text="Content 1" Padding="10"/>
+                                </TabItem>
+                                <TabItem Header="Tab 2">
+                                    <TextBlock Text="Content 2" Padding="10"/>
+                                </TabItem>
+                            </controls:DaisyTabs>
+                        </StackPanel>
+
+                        <StackPanel Spacing="10" Margin="0,0,20,10">
+                            <TextBlock Text="Bordered" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyTabs Variant="Bordered">
+                                <TabItem Header="Tab 1">
+                                    <TextBlock Text="Content 1" Padding="10"/>
+                                </TabItem>
+                                <TabItem Header="Tab 2">
+                                    <TextBlock Text="Content 2" Padding="10"/>
+                                </TabItem>
+                            </controls:DaisyTabs>
+                        </StackPanel>
+
+                        <StackPanel Spacing="10" Margin="0,0,20,10">
+                            <TextBlock Text="Lifted" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyTabs Variant="Lifted">
+                                <TabItem Header="Tab 1">
+                                    <TextBlock Text="Content 1" Padding="10"/>
+                                </TabItem>
+                                <TabItem Header="Tab 2">
+                                    <TextBlock Text="Content 2" Padding="10"/>
+                                </TabItem>
+                            </controls:DaisyTabs>
+                        </StackPanel>
+
+                        <StackPanel Spacing="10" Margin="0,0,20,10">
+                            <TextBlock Text="Boxed" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyTabs Variant="Boxed">
+                                <TabItem Header="Tab 1">
+                                    <TextBlock Text="Content 1" Padding="10"/>
+                                </TabItem>
+                                <TabItem Header="Tab 2">
+                                    <TextBlock Text="Content 2" Padding="10"/>
+                                </TabItem>
+                            </controls:DaisyTabs>
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+
             </StackPanel>
+        </ScrollViewer>
 
-            <controls:DaisyDivider />
-
-            <!-- Menu -->
-            <StackPanel Spacing="12">
-                <local:SectionHeader SectionId="menu" Title="Menu" />
-                <TextBlock Text="Menu supports ActiveForeground and ActiveBackground properties for custom selection styling" Opacity="0.7" FontSize="13"/>
-                <WrapPanel Orientation="Horizontal">
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Default Active Colors" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyMenu Width="200">
-                            <ListBoxItem>Item 1</ListBoxItem>
-                            <ListBoxItem IsSelected="True">Selected Item</ListBoxItem>
-                            <ListBoxItem>Item 3</ListBoxItem>
-                        </controls:DaisyMenu>
-                    </StackPanel>
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Custom Active Colors (Primary)" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyMenu Width="200"
-                                           ActiveForeground="{DynamicResource DaisyPrimaryContentColor}"
-                                           ActiveBackground="{DynamicResource DaisyPrimaryBrush}">
-                            <ListBoxItem>Item 1</ListBoxItem>
-                            <ListBoxItem IsSelected="True">Selected Item</ListBoxItem>
-                            <ListBoxItem>Item 3</ListBoxItem>
-                        </controls:DaisyMenu>
-                    </StackPanel>
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Horizontal Menu" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyMenu Orientation="Horizontal"
-                                           ActiveForeground="{DynamicResource DaisyAccentContentColor}"
-                                           ActiveBackground="{DynamicResource DaisyAccentBrush}">
-                            <ListBoxItem>Home</ListBoxItem>
-                            <ListBoxItem IsSelected="True">About</ListBoxItem>
-                            <ListBoxItem>Contact</ListBoxItem>
-                        </controls:DaisyMenu>
-                    </StackPanel>
-                </WrapPanel>
-            </StackPanel>
-
-            <controls:DaisyDivider />
-
-            <!-- Navbar -->
-            <StackPanel Spacing="12">
-                <local:SectionHeader SectionId="navbar" Title="Navbar" />
-                <WrapPanel Orientation="Horizontal">
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <controls:DaisyNavbar>
-                            <Grid ColumnDefinitions="Auto, *, Auto">
-                                <TextBlock Text="daisyUI" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                                <controls:DaisyMenu Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-                                    <ListBoxItem>Item 1</ListBoxItem>
-                                    <ListBoxItem>Item 2</ListBoxItem>
-                                </controls:DaisyMenu>
-                                <controls:DaisyButton Grid.Column="2" Content="Get Started" Variant="Primary" Size="Small"/>
-                            </Grid>
-                        </controls:DaisyNavbar>
-                    </StackPanel>
-                </WrapPanel>
-            </StackPanel>
-
-            <controls:DaisyDivider />
-
-            <!-- Pagination -->
-            <StackPanel Spacing="12">
-                <local:SectionHeader SectionId="pagination" Title="Pagination" />
-                <WrapPanel Orientation="Horizontal">
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <controls:DaisyPagination>
-                            <ListBoxItem>1</ListBoxItem>
-                            <ListBoxItem IsSelected="True">2</ListBoxItem>
-                            <ListBoxItem>3</ListBoxItem>
-                            <ListBoxItem>4</ListBoxItem>
-                        </controls:DaisyPagination>
-                    </StackPanel>
-                </WrapPanel>
-            </StackPanel>
-
-            <controls:DaisyDivider />
-
-            <!-- Steps -->
-            <StackPanel Spacing="12">
-                <local:SectionHeader SectionId="steps" Title="Steps" />
-                <WrapPanel Orientation="Horizontal">
-                    <StackPanel Spacing="10" Margin="0,0,40,20" Width="300">
-                        <controls:DaisySteps SelectedIndex="1">
-                            <TextBlock Text="Register" />
-                            <TextBlock Text="Plan" />
-                            <TextBlock Text="Purchase" />
-                        </controls:DaisySteps>
-                    </StackPanel>
-                </WrapPanel>
-            </StackPanel>
-
-            <controls:DaisyDivider />
-
-            <!-- Tabs -->
-            <StackPanel Spacing="12">
-                <local:SectionHeader SectionId="tabs" Title="Tabs" />
-                <WrapPanel Orientation="Horizontal">
-                    <StackPanel Spacing="10" Margin="0,0,20,10">
-                        <TextBlock Text="None" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyTabs Variant="None">
-                            <TabItem Header="Tab 1">
-                                <TextBlock Text="Content 1" Padding="10"/>
-                            </TabItem>
-                            <TabItem Header="Tab 2">
-                                <TextBlock Text="Content 2" Padding="10"/>
-                            </TabItem>
-                        </controls:DaisyTabs>
-                    </StackPanel>
-
-                    <StackPanel Spacing="10" Margin="0,0,20,10">
-                        <TextBlock Text="Bordered" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyTabs Variant="Bordered">
-                            <TabItem Header="Tab 1">
-                                <TextBlock Text="Content 1" Padding="10"/>
-                            </TabItem>
-                            <TabItem Header="Tab 2">
-                                <TextBlock Text="Content 2" Padding="10"/>
-                            </TabItem>
-                        </controls:DaisyTabs>
-                    </StackPanel>
-
-                    <StackPanel Spacing="10" Margin="0,0,20,10">
-                        <TextBlock Text="Lifted" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyTabs Variant="Lifted">
-                            <TabItem Header="Tab 1">
-                                <TextBlock Text="Content 1" Padding="10"/>
-                            </TabItem>
-                            <TabItem Header="Tab 2">
-                                <TextBlock Text="Content 2" Padding="10"/>
-                            </TabItem>
-                        </controls:DaisyTabs>
-                    </StackPanel>
-
-                    <StackPanel Spacing="10" Margin="0,0,20,10">
-                        <TextBlock Text="Boxed" FontSize="12" Opacity="0.7"/>
-                        <controls:DaisyTabs Variant="Boxed">
-                            <TabItem Header="Tab 1">
-                                <TextBlock Text="Content 1" Padding="10"/>
-                            </TabItem>
-                            <TabItem Header="Tab 2">
-                                <TextBlock Text="Content 2" Padding="10"/>
-                            </TabItem>
-                        </controls:DaisyTabs>
-                    </StackPanel>
-                </WrapPanel>
-            </StackPanel>
-
-        </StackPanel>
-    </ScrollViewer>
+        <!-- Toast Container -->
+        <controls:DaisyToast x:Name="NavigationToast" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" />
+    </Grid>
 
 </UserControl>

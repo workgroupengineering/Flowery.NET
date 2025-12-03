@@ -3,7 +3,9 @@ using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Threading;
 using Avalonia.VisualTree;
+using Flowery.Controls;
 
 namespace Flowery.NET.Gallery.Examples;
 
@@ -56,6 +58,36 @@ public partial class ActionsExamples : UserControl, IScrollableExample
             TopLeft = 0, TopRight = 0, BottomLeft = 0, BottomRight = 0,
             Title = "Sharp Corners"
         });
+    }
+
+    private void OnFabItemClick(object? sender, RoutedEventArgs e)
+    {
+        if (sender is Control control && control.Tag is string tag)
+        {
+            ShowToast($"FAB item clicked: {tag}");
+        }
+    }
+
+    private void ShowToast(string message)
+    {
+        var toast = this.FindControl<DaisyToast>("ActionsToast");
+        if (toast != null)
+        {
+            var alert = new DaisyAlert
+            {
+                Content = message,
+                Variant = DaisyAlertVariant.Success,
+                Margin = new Thickness(0, 4)
+            };
+
+            toast.Items.Add(alert);
+
+            // Auto remove after 3 seconds
+            DispatcherTimer.RunOnce(() =>
+            {
+                toast.Items.Remove(alert);
+            }, TimeSpan.FromSeconds(3));
+        }
     }
 
     public void ScrollToSection(string sectionId)

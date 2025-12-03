@@ -343,6 +343,7 @@ namespace Flowery.Controls
                     Items = new ObservableCollection<SidebarItem>
                     {
                         new SidebarItem { Id = "breadcrumbs", Name = "Breadcrumbs", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "dock", Name = "Dock", TabHeader = "Navigation" },
                         new SidebarItem { Id = "menu", Name = "Menu", TabHeader = "Navigation" },
                         new SidebarItem { Id = "navbar", Name = "Navbar", TabHeader = "Navigation" },
                         new SidebarItem { Id = "pagination", Name = "Pagination", TabHeader = "Navigation" },

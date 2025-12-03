@@ -77,4 +77,5 @@
     <StyleInclude Source="/Themes/DaisyToolTip.axaml" />
     <StyleInclude Source="/Themes/DaisyFab.axaml" />
     <StyleInclude Source="/Themes/DaisyComponentSidebar.axaml" />
+    <StyleInclude Source="/Themes/DaisyDock.axaml" />
 </Styles>
