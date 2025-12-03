@@ -11,11 +11,55 @@
             <StackPanel Spacing="12">
                 <local:SectionHeader SectionId="breadcrumbs" Title="Breadcrumbs" />
                 <WrapPanel Orientation="Horizontal">
+                    <!-- Basic breadcrumbs -->
                     <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="Basic" FontSize="12" Opacity="0.7"/>
                         <controls:DaisyBreadcrumbs>
-                            <TextBlock Text="Home" />
-                            <TextBlock Text="Documents" />
-                            <TextBlock Text="Add Document" />
+                            <controls:DaisyBreadcrumbItem Content="Home" />
+                            <controls:DaisyBreadcrumbItem Content="Documents" />
+                            <controls:DaisyBreadcrumbItem Content="Add Document" />
+                        </controls:DaisyBreadcrumbs>
+                    </StackPanel>
+
+                    <!-- With custom separator -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="Custom Separator (›)" FontSize="12" Opacity="0.7"/>
+                        <controls:DaisyBreadcrumbs Separator="›">
+                            <controls:DaisyBreadcrumbItem Content="Home" />
+                            <controls:DaisyBreadcrumbItem Content="Products" />
+                            <controls:DaisyBreadcrumbItem Content="Details" />
+                        </controls:DaisyBreadcrumbs>
+                    </StackPanel>
+
+                    <!-- With chevron separator -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="Chevron Separator (»)" FontSize="12" Opacity="0.7"/>
+                        <controls:DaisyBreadcrumbs Separator="»" SeparatorOpacity="0.7">
+                            <controls:DaisyBreadcrumbItem Content="Root" />
+                            <controls:DaisyBreadcrumbItem Content="Folder" />
+                            <controls:DaisyBreadcrumbItem Content="File" />
+                        </controls:DaisyBreadcrumbs>
+                    </StackPanel>
+
+                    <!-- With icons -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="With Icons" FontSize="12" Opacity="0.7"/>
+                        <controls:DaisyBreadcrumbs>
+                            <controls:DaisyBreadcrumbItem Content="Home" Icon="{StaticResource DaisyIconHome}" />
+                            <controls:DaisyBreadcrumbItem Content="Folder" Icon="{StaticResource DaisyIconFolder}" />
+                            <controls:DaisyBreadcrumbItem Content="File" Icon="{StaticResource DaisyIconDocument}" />
+                        </controls:DaisyBreadcrumbs>
+                    </StackPanel>
+
+                    <!-- Max-width with scrolling -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="With Max-Width (scrollable)" FontSize="12" Opacity="0.7"/>
+                        <controls:DaisyBreadcrumbs MaxWidth="220" MinHeight="80">
+                            <controls:DaisyBreadcrumbItem Content="Long text 1" />
+                            <controls:DaisyBreadcrumbItem Content="Long text 2" />
+                            <controls:DaisyBreadcrumbItem Content="Long text 3" />
+                            <controls:DaisyBreadcrumbItem Content="Long text 4" />
+                            <controls:DaisyBreadcrumbItem Content="Long text 5" />
                         </controls:DaisyBreadcrumbs>
                     </StackPanel>
                 </WrapPanel>

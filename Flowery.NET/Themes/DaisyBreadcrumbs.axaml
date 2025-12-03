@@ -3,46 +3,103 @@
                     xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
 
     <Design.PreviewWith>
-        <Border Padding="20">
-             <controls:DaisyBreadcrumbs>
-                 <TextBlock Text="Home" />
-                 <TextBlock Text="Documents" />
-                 <TextBlock Text="Add Document" />
-             </controls:DaisyBreadcrumbs>
+        <Border Padding="20" Background="#1f2937">
+            <StackPanel Spacing="20">
+                <!-- Basic breadcrumbs -->
+                <controls:DaisyBreadcrumbs>
+                    <controls:DaisyBreadcrumbItem Content="Home" />
+                    <controls:DaisyBreadcrumbItem Content="Documents" />
+                    <controls:DaisyBreadcrumbItem Content="Add Document" />
+                </controls:DaisyBreadcrumbs>
+
+                <!-- With custom separator -->
+                <controls:DaisyBreadcrumbs Separator="›">
+                    <controls:DaisyBreadcrumbItem Content="Home" />
+                    <controls:DaisyBreadcrumbItem Content="Products" />
+                    <controls:DaisyBreadcrumbItem Content="Details" />
+                </controls:DaisyBreadcrumbs>
+
+                <!-- With icons -->
+                <controls:DaisyBreadcrumbs>
+                    <controls:DaisyBreadcrumbItem Content="Home" Icon="{StaticResource DaisyIconHome}" />
+                    <controls:DaisyBreadcrumbItem Content="Folder" Icon="{StaticResource DaisyIconFolder}" />
+                    <controls:DaisyBreadcrumbItem Content="File" Icon="{StaticResource DaisyIconDocument}" />
+                </controls:DaisyBreadcrumbs>
+
+                <!-- Max-width with scroll -->
+                <controls:DaisyBreadcrumbs MaxWidth="200">
+                    <controls:DaisyBreadcrumbItem Content="Long text 1" />
+                    <controls:DaisyBreadcrumbItem Content="Long text 2" />
+                    <controls:DaisyBreadcrumbItem Content="Long text 3" />
+                    <controls:DaisyBreadcrumbItem Content="Long text 4" />
+                    <controls:DaisyBreadcrumbItem Content="Long text 5" />
+                </controls:DaisyBreadcrumbs>
+            </StackPanel>
         </Border>
     </Design.PreviewWith>
 
     <!-- Item theme for DaisyBreadcrumbs -->
     <ControlTheme x:Key="DaisyBreadcrumbItemTheme" TargetType="controls:DaisyBreadcrumbItem">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
+                            TextElement.Foreground="{TemplateBinding Foreground}">
                     <!-- Separator -->
-                    <TextBlock Text="/"
+                    <TextBlock Text="{TemplateBinding Separator}"
                                Margin="8,0"
-                               Opacity="0.5"
+                               Opacity="{TemplateBinding SeparatorOpacity}"
                                FontSize="14"
-                               IsVisible="True"
+                               Foreground="{TemplateBinding Foreground}"
+                               VerticalAlignment="Center"
+                               IsVisible="{TemplateBinding IsFirst, Converter={x:Static BoolConverters.Not}}"
                                Name="PART_Separator"/>
-                    <ContentPresenter Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      VerticalAlignment="Center"/>
+                    <!-- Content with optional icon -->
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="6"
+                                VerticalAlignment="Center"
+                                Name="PART_Content">
+                        <PathIcon Data="{TemplateBinding Icon}"
+                                  Width="16"
+                                  Height="16"
+                                  IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                  Foreground="{TemplateBinding Foreground}"
+                                  VerticalAlignment="Center"/>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}"
+                                          VerticalAlignment="Center"/>
+                    </StackPanel>
                 </StackPanel>
             </ControlTemplate>
         </Setter>
 
-        <!-- Hide separator for the first item -->
-        <Style Selector="^:nth-child(1) /template/ TextBlock#PART_Separator">
-            <Setter Property="IsVisible" Value="False" />
-            <Setter Property="Margin" Value="0" />
+        <!-- Hover style for clickable items (not last) -->
+        <Style Selector="^:not(:disabled) /template/ StackPanel#PART_Content">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^:pointerover:not(:disabled) /template/ StackPanel#PART_Content">
+            <Setter Property="Opacity" Value="0.7" />
+        </Style>
+
+        <!-- Last item style - no hover effect, slightly different appearance -->
+        <Style Selector="^[IsLast=True]">
+            <Setter Property="Cursor" Value="Arrow" />
+            <Setter Property="Opacity" Value="0.7" />
+        </Style>
+        <Style Selector="^[IsLast=True]:pointerover /template/ StackPanel#PART_Content">
+            <Setter Property="Opacity" Value="1" />
         </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type controls:DaisyBreadcrumbs}" TargetType="controls:DaisyBreadcrumbs">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" />
+                    <StackPanel Orientation="Horizontal" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
@@ -54,7 +111,10 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Padding="{TemplateBinding Padding}">
-                    <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                                  VerticalScrollBarVisibility="Disabled">
+                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </ScrollViewer>
                 </Border>
             </ControlTemplate>
         </Setter>
