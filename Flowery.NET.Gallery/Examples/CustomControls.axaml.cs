@@ -13,11 +13,11 @@ using Flowery.Controls.Custom.Weather.Services;
 
 namespace Flowery.NET.Gallery.Examples;
 
-public partial class WeatherExamples : UserControl, IScrollableExample
+public partial class CustomControls : UserControl, IScrollableExample
 {
     private OpenWeatherMapService? _weatherService;
 
-    public WeatherExamples()
+    public CustomControls()
     {
         InitializeComponent();
         InitializeForecastData();

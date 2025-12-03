@@ -1,6 +1,6 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
 
     <Design.PreviewWith>
         <Border Padding="20" Background="{DynamicResource DaisyBase200Brush}">
@@ -19,8 +19,9 @@
         </Border>
     </Design.PreviewWith>
 
-    <!-- ListBoxItem theme for DaisyMenu -->
-    <ControlTheme x:Key="DaisyMenuItemTheme" TargetType="ListBoxItem">
+    <Styles.Resources>
+        <!-- ListBoxItem theme for DaisyMenu -->
+        <ControlTheme x:Key="DaisyMenuItemTheme" TargetType="ListBoxItem">
         <Setter Property="Padding" Value="12,8" />
         <Setter Property="CornerRadius" Value="8" />
         <Setter Property="Background" Value="Transparent" />
@@ -48,10 +49,34 @@
             <Setter Property="Background" Value="{DynamicResource DaisyBase300Brush}" />
         </Style>
 
+        <!-- Disabled State -->
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
+
         <!-- Selected State (Active) - uses ListBoxItem properties so code-behind can override -->
         <Style Selector="^:selected">
             <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
             <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
+        </Style>
+
+        <!-- Menu Title Style -->
+        <Style Selector="^.menu-title">
+            <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
+            <Setter Property="Opacity" Value="0.4" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Padding" Value="12,4" />
+            <Setter Property="MinHeight" Value="0" />
+        </Style>
+
+        <!-- Active Class Style (manual via Classes="menu-active") -->
+        <Style Selector="^.menu-active /template/ Border#PART_LayoutRoot">
+            <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
+        </Style>
+        <Style Selector="^.menu-active">
+             <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
         </Style>
     </ControlTheme>
 
@@ -87,7 +112,7 @@
             <Setter Property="ItemsPanel">
                 <Setter.Value>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Vertical" Spacing="2" />
+                        <StackPanel Orientation="Vertical" Spacing="0" />
                     </ItemsPanelTemplate>
                 </Setter.Value>
             </Setter>
@@ -96,7 +121,7 @@
             <Setter Property="ItemsPanel">
                 <Setter.Value>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" Spacing="2" />
+                        <StackPanel Orientation="Horizontal" Spacing="0" />
                     </ItemsPanelTemplate>
                 </Setter.Value>
             </Setter>
@@ -104,4 +129,60 @@
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
         </Style>
     </ControlTheme>
-</ResourceDictionary>
+    </Styles.Resources>
+
+    <!-- Sizes (must be outside ControlTheme due to child selector restriction) -->
+    <Style Selector="controls|DaisyMenu[Size=ExtraSmall] ListBoxItem">
+        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="FontSize" Value="11" />
+    </Style>
+    <Style Selector="controls|DaisyMenu[Size=Small] ListBoxItem">
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="controls|DaisyMenu[Size=Large] ListBoxItem">
+        <Setter Property="Padding" Value="16,12" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style Selector="controls|DaisyMenu[Size=ExtraLarge] ListBoxItem">
+        <Setter Property="Padding" Value="20,16" />
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+
+    <!-- Nested DaisyMenu (Submenu) -->
+    <Style Selector="controls|DaisyMenu controls|DaisyMenu">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="controls|DaisyMenu controls|DaisyMenu ListBoxItem">
+         <Setter Property="Padding" Value="12,8" />
+    </Style>
+    <!-- Indent submenu items slightly -->
+    <Style Selector="controls|DaisyMenu[Orientation=Vertical] controls|DaisyMenu">
+        <Setter Property="Margin" Value="16,0,0,0" />
+    </Style>
+
+    <!-- Support for Collapsible Submenus (using Expander) -->
+    <Style Selector="controls|DaisyMenu Expander">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="8" />
+    </Style>
+    <Style Selector="controls|DaisyMenu Expander /template/ ToggleButton#PART_toggle">
+        <Setter Property="Padding" Value="12,8" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    </Style>
+    <Style Selector="controls|DaisyMenu Expander /template/ ToggleButton#PART_toggle:pointerover">
+         <Setter Property="Background" Value="{DynamicResource DaisyBase300Brush}" />
+    </Style>
+    <Style Selector="controls|DaisyMenu Expander /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+</Styles>

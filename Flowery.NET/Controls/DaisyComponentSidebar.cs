@@ -429,17 +429,17 @@ namespace Flowery.Controls
                 },
                 new SidebarCategory
                 {
-                    Name = "Custom Widgets",
+                    Name = "Custom Controls",
                     IconKey = "DaisyIconSun",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Id = "modifier-keys", Name = "Modifier Keys", TabHeader = "Weather" },
-                        new SidebarItem { Id = "weather-card", Name = "Weather Card", TabHeader = "Weather" },
-                        new SidebarItem { Id = "current-weather", Name = "Current Weather", TabHeader = "Weather" },
-                        new SidebarItem { Id = "weather-forecast", Name = "Weather Forecast", TabHeader = "Weather" },
-                        new SidebarItem { Id = "weather-metrics", Name = "Weather Metrics", TabHeader = "Weather" },
-                        new SidebarItem { Id = "weather-conditions", Name = "Weather Conditions", TabHeader = "Weather" },
-                        new SidebarItem { Id = "service-integration", Name = "Service Integration", TabHeader = "Weather" }
+                        new SidebarItem { Id = "modifier-keys", Name = "Modifier Keys", TabHeader = "Custom Controls" },
+                        new SidebarItem { Id = "weather-card", Name = "Weather Card", TabHeader = "Custom Controls" },
+                        new SidebarItem { Id = "current-weather", Name = "Current Weather", TabHeader = "Custom Controls" },
+                        new SidebarItem { Id = "weather-forecast", Name = "Weather Forecast", TabHeader = "Custom Controls" },
+                        new SidebarItem { Id = "weather-metrics", Name = "Weather Metrics", TabHeader = "Custom Controls" },
+                        new SidebarItem { Id = "weather-conditions", Name = "Weather Conditions", TabHeader = "Custom Controls" },
+                        new SidebarItem { Id = "service-integration", Name = "Service Integration", TabHeader = "Custom Controls" }
                     }
                 }
             };

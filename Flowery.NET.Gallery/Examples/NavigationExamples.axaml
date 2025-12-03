@@ -71,19 +71,195 @@
                 <!-- Menu -->
                 <StackPanel Spacing="12">
                     <local:SectionHeader SectionId="menu" Title="Menu" />
-                    <TextBlock Text="Menu supports ActiveForeground and ActiveBackground properties for custom selection styling" Opacity="0.7" FontSize="13"/>
+                    <TextBlock Text="Menu is used to display a list of links vertically or horizontally" Opacity="0.7" FontSize="13"/>
+
+                    <!-- Basic Menu -->
+                    <TextBlock Text="Basic Menu" FontWeight="SemiBold" Margin="0,8,0,0"/>
                     <WrapPanel Orientation="Horizontal">
                         <StackPanel Spacing="10" Margin="0,0,40,20">
-                            <TextBlock Text="Default Active Colors" FontSize="12" Opacity="0.7"/>
-                            <controls:DaisyMenu Width="200">
+                            <TextBlock Text="Vertical (default)" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="200" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem>Item 2</ListBoxItem>
+                                <ListBoxItem>Item 3</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Horizontal" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Orientation="Horizontal" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem>Item 2</ListBoxItem>
+                                <ListBoxItem>Item 3</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                    </WrapPanel>
+
+                    <!-- Menu with Icons Only -->
+                    <TextBlock Text="Menu with Icon Only" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Vertical" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>
+                                    <PathIcon Data="{StaticResource DaisyIconHome}" Width="20" Height="20"/>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <PathIcon Data="{StaticResource DaisyIconInfo}" Width="20" Height="20"/>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <PathIcon Data="{StaticResource DaisyIconChart}" Width="20" Height="20"/>
+                                </ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Horizontal" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Orientation="Horizontal" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>
+                                    <PathIcon Data="{StaticResource DaisyIconHome}" Width="20" Height="20"/>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <PathIcon Data="{StaticResource DaisyIconInfo}" Width="20" Height="20"/>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <PathIcon Data="{StaticResource DaisyIconChart}" Width="20" Height="20"/>
+                                </ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                    </WrapPanel>
+
+                    <!-- Menu Sizes -->
+                    <TextBlock Text="Menu Sizes" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Extra Small" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="180" Size="ExtraSmall" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Xsmall 1</ListBoxItem>
+                                <ListBoxItem>Xsmall 2</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Small" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="180" Size="Small" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Small 1</ListBoxItem>
+                                <ListBoxItem>Small 2</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Medium (default)" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="180" Size="Medium" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Medium 1</ListBoxItem>
+                                <ListBoxItem>Medium 2</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Large" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="180" Size="Large" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Large 1</ListBoxItem>
+                                <ListBoxItem>Large 2</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Extra Large" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="180" Size="ExtraLarge" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Xlarge 1</ListBoxItem>
+                                <ListBoxItem>Xlarge 2</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                    </WrapPanel>
+
+                    <!-- Menu with Disabled Items -->
+                    <TextBlock Text="Menu with Disabled Items" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <controls:DaisyMenu Width="200" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Enabled item</ListBoxItem>
+                                <ListBoxItem IsEnabled="False">Disabled item</ListBoxItem>
+                                <ListBoxItem IsEnabled="False">Disabled item</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                    </WrapPanel>
+
+                    <!-- Menu with Icons -->
+                    <TextBlock Text="Menu with Icons" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Vertical with icons" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="200" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <PathIcon Data="{StaticResource DaisyIconHome}" Width="16" Height="16"/>
+                                        <TextBlock Text="Home" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <PathIcon Data="{StaticResource DaisyIconInfo}" Width="16" Height="16"/>
+                                        <TextBlock Text="Details" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <PathIcon Data="{StaticResource DaisyIconChart}" Width="16" Height="16"/>
+                                        <TextBlock Text="Stats" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="With icons and badge" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Orientation="Horizontal" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <PathIcon Data="{StaticResource DaisyIconInbox}" Width="16" Height="16"/>
+                                        <TextBlock Text="Inbox" VerticalAlignment="Center"/>
+                                        <controls:DaisyBadge Content="99+" Size="Small"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <PathIcon Data="{StaticResource DaisyIconInfo}" Width="16" Height="16"/>
+                                        <TextBlock Text="Updates" VerticalAlignment="Center"/>
+                                        <controls:DaisyBadge Content="NEW" Size="ExtraSmall" Variant="Warning"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <TextBlock Text="Stats" VerticalAlignment="Center"/>
+                                        <controls:DaisyBadge Size="ExtraSmall" Variant="Info"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                    </WrapPanel>
+
+                    <!-- Menu with Title -->
+                    <TextBlock Text="Menu with Title" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Title as list item" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="200" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem Classes="menu-title">Title</ListBoxItem>
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem>Item 2</ListBoxItem>
+                                <ListBoxItem>Item 3</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                    </WrapPanel>
+
+                    <!-- Menu with Active Item -->
+                    <TextBlock Text="Menu with Active Item" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Default active colors" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="200" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
                                 <ListBoxItem>Item 1</ListBoxItem>
                                 <ListBoxItem IsSelected="True">Selected Item</ListBoxItem>
                                 <ListBoxItem>Item 3</ListBoxItem>
                             </controls:DaisyMenu>
                         </StackPanel>
                         <StackPanel Spacing="10" Margin="0,0,40,20">
-                            <TextBlock Text="Custom Active Colors (Primary)" FontSize="12" Opacity="0.7"/>
-                            <controls:DaisyMenu Width="200"
+                            <TextBlock Text="Custom active colors (Primary)" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="200" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8"
                                                ActiveForeground="{DynamicResource DaisyPrimaryContentColor}"
                                                ActiveBackground="{DynamicResource DaisyPrimaryBrush}">
                                 <ListBoxItem>Item 1</ListBoxItem>
@@ -92,13 +268,140 @@
                             </controls:DaisyMenu>
                         </StackPanel>
                         <StackPanel Spacing="10" Margin="0,0,40,20">
-                            <TextBlock Text="Horizontal Menu" FontSize="12" Opacity="0.7"/>
-                            <controls:DaisyMenu Orientation="Horizontal"
+                            <TextBlock Text="Accent active colors" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Orientation="Horizontal" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8"
                                                ActiveForeground="{DynamicResource DaisyAccentContentColor}"
                                                ActiveBackground="{DynamicResource DaisyAccentBrush}">
                                 <ListBoxItem>Home</ListBoxItem>
                                 <ListBoxItem IsSelected="True">About</ListBoxItem>
                                 <ListBoxItem>Contact</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Using menu-active class" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="200" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem Classes="menu-active">Active Item</ListBoxItem>
+                                <ListBoxItem>Item 3</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                    </WrapPanel>
+
+                    <!-- Collapsible Submenu -->
+                    <TextBlock Text="Collapsible Submenu" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Using Expander" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Width="220" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <Expander Header="Parent" IsExpanded="True">
+                                    <controls:DaisyMenu>
+                                        <ListBoxItem>Submenu 1</ListBoxItem>
+                                        <ListBoxItem>Submenu 2</ListBoxItem>
+                                        <Expander Header="Nested Parent" IsExpanded="True">
+                                            <controls:DaisyMenu>
+                                                <ListBoxItem>Nested 1</ListBoxItem>
+                                                <ListBoxItem>Nested 2</ListBoxItem>
+                                            </controls:DaisyMenu>
+                                        </Expander>
+                                    </controls:DaisyMenu>
+                                </Expander>
+                                <ListBoxItem>Item 3</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                    </WrapPanel>
+
+                    <!-- File Tree Example -->
+                    <TextBlock Text="File Tree Example" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <controls:DaisyMenu Width="260" Size="ExtraSmall" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <PathIcon Data="{StaticResource DaisyIconDocument}" Width="14" Height="14"/>
+                                        <TextBlock Text="resume.pdf" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <Expander IsExpanded="True">
+                                    <Expander.Header>
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <PathIcon Data="{StaticResource DaisyIconFolder}" Width="14" Height="14"/>
+                                            <TextBlock Text="My Files" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Expander.Header>
+                                    <controls:DaisyMenu Size="ExtraSmall">
+                                        <ListBoxItem>
+                                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                                <PathIcon Data="{StaticResource DaisyIconDocument}" Width="14" Height="14"/>
+                                                <TextBlock Text="Project-final.psd" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </ListBoxItem>
+                                        <Expander IsExpanded="True">
+                                            <Expander.Header>
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <PathIcon Data="{StaticResource DaisyIconFolder}" Width="14" Height="14"/>
+                                                    <TextBlock Text="Images" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                            </Expander.Header>
+                                            <controls:DaisyMenu Size="ExtraSmall">
+                                                <ListBoxItem>
+                                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                                        <PathIcon Data="{StaticResource DaisyIconImage}" Width="14" Height="14"/>
+                                                        <TextBlock Text="Screenshot1.png" VerticalAlignment="Center"/>
+                                                    </StackPanel>
+                                                </ListBoxItem>
+                                                <ListBoxItem>
+                                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                                        <PathIcon Data="{StaticResource DaisyIconImage}" Width="14" Height="14"/>
+                                                        <TextBlock Text="Screenshot2.png" VerticalAlignment="Center"/>
+                                                    </StackPanel>
+                                                </ListBoxItem>
+                                            </controls:DaisyMenu>
+                                        </Expander>
+                                    </controls:DaisyMenu>
+                                </Expander>
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <PathIcon Data="{StaticResource DaisyIconDocument}" Width="14" Height="14"/>
+                                        <TextBlock Text="reports-final.pdf" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                    </WrapPanel>
+
+                    <!-- Horizontal Menu -->
+                    <TextBlock Text="Horizontal Menu" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="Basic horizontal" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Orientation="Horizontal" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>Item 1</ListBoxItem>
+                                <ListBoxItem>Item 2</ListBoxItem>
+                                <ListBoxItem>Item 3</ListBoxItem>
+                            </controls:DaisyMenu>
+                        </StackPanel>
+                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                            <TextBlock Text="With icons" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyMenu Orientation="Horizontal" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8">
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <PathIcon Data="{StaticResource DaisyIconHome}" Width="16" Height="16"/>
+                                        <TextBlock Text="Home" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <PathIcon Data="{StaticResource DaisyIconInfo}" Width="16" Height="16"/>
+                                        <TextBlock Text="About" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <PathIcon Data="{StaticResource DaisyIconSettings}" Width="16" Height="16"/>
+                                        <TextBlock Text="Settings" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </ListBoxItem>
                             </controls:DaisyMenu>
                         </StackPanel>
                     </WrapPanel>
@@ -109,20 +412,264 @@
                 <!-- Navbar -->
                 <StackPanel Spacing="12">
                     <local:SectionHeader SectionId="navbar" Title="Navbar" />
-                    <WrapPanel Orientation="Horizontal">
-                        <StackPanel Spacing="10" Margin="0,0,40,20">
+                    <TextBlock Text="Navbar is used to show a navigation bar on the top of the page. Use NavbarStart, NavbarCenter, and NavbarEnd properties for layout." Opacity="0.7" FontSize="13"/>
+
+                    <!-- Basic Navbars -->
+                    <TextBlock Text="Basic Navbars" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                    <StackPanel Spacing="16">
+                        <!-- Navbar with title only -->
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Title only" FontSize="12" Opacity="0.7"/>
                             <controls:DaisyNavbar>
-                                <Grid ColumnDefinitions="Auto, *, Auto">
-                                    <TextBlock Text="daisyUI" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Margin="0,0,20,0"/>
-                                    <controls:DaisyMenu Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-                                        <ListBoxItem>Item 1</ListBoxItem>
-                                        <ListBoxItem>Item 2</ListBoxItem>
-                                    </controls:DaisyMenu>
-                                    <controls:DaisyButton Grid.Column="2" Content="Get Started" Variant="Primary" Size="Small"/>
-                                </Grid>
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
                             </controls:DaisyNavbar>
                         </StackPanel>
-                    </WrapPanel>
+
+                        <!-- Navbar with title and icon -->
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Title and icon" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar>
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
+                                <controls:DaisyNavbar.NavbarEnd>
+                                    <controls:DaisyButton Variant="Ghost" Shape="Circle">
+                                        <PathIcon Data="{StaticResource DaisyIconEllipsis}" Width="20" Height="20"/>
+                                    </controls:DaisyButton>
+                                </controls:DaisyNavbar.NavbarEnd>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+
+                        <!-- Navbar with icons at start and end -->
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Icons at start and end" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar>
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <controls:DaisyButton Variant="Ghost" Shape="Circle">
+                                            <PathIcon Data="{StaticResource DaisyIconMenu}" Width="20" Height="20"/>
+                                        </controls:DaisyButton>
+                                        <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                    </StackPanel>
+                                </controls:DaisyNavbar.NavbarStart>
+                                <controls:DaisyNavbar.NavbarEnd>
+                                    <controls:DaisyButton Variant="Ghost" Shape="Circle">
+                                        <PathIcon Data="{StaticResource DaisyIconEllipsis}" Width="20" Height="20"/>
+                                    </controls:DaisyButton>
+                                </controls:DaisyNavbar.NavbarEnd>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Navbar with Menu -->
+                    <TextBlock Text="Navbar with Menu" FontWeight="SemiBold" Margin="0,16,0,0"/>
+                    <StackPanel Spacing="16">
+                        <!-- Navbar with horizontal menu -->
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="With horizontal menu" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar>
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
+                                <controls:DaisyNavbar.NavbarEnd>
+                                    <controls:DaisyMenu Orientation="Horizontal">
+                                        <ListBoxItem>Home</ListBoxItem>
+                                        <ListBoxItem>About</ListBoxItem>
+                                        <ListBoxItem>Contact</ListBoxItem>
+                                    </controls:DaisyMenu>
+                                </controls:DaisyNavbar.NavbarEnd>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+
+                        <!-- Navbar with center menu -->
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Center menu with action button" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar>
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
+                                <controls:DaisyNavbar.NavbarCenter>
+                                    <controls:DaisyMenu Orientation="Horizontal">
+                                        <ListBoxItem>Item 1</ListBoxItem>
+                                        <ListBoxItem>Item 2</ListBoxItem>
+                                        <ListBoxItem>Item 3</ListBoxItem>
+                                    </controls:DaisyMenu>
+                                </controls:DaisyNavbar.NavbarCenter>
+                                <controls:DaisyNavbar.NavbarEnd>
+                                    <controls:DaisyButton Variant="Primary" Content="Get Started"/>
+                                </controls:DaisyNavbar.NavbarEnd>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Navbar with Search and Avatar -->
+                    <TextBlock Text="Navbar with Search and Avatar" FontWeight="SemiBold" Margin="0,16,0,0"/>
+                    <StackPanel Spacing="16">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Search input and avatar" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar>
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
+                                <controls:DaisyNavbar.NavbarEnd>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <controls:DaisyInput Watermark="Search..." Width="150" Size="Small"/>
+                                        <controls:DaisyAvatar Size="Small" Shape="Circle">
+                                            <PathIcon Data="{StaticResource DaisyIconUser}" Width="20" Height="20"/>
+                                        </controls:DaisyAvatar>
+                                    </StackPanel>
+                                </controls:DaisyNavbar.NavbarEnd>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Navbar with Dropdown, Center Logo, and Icons -->
+                    <TextBlock Text="Center Logo with Side Icons" FontWeight="SemiBold" Margin="0,16,0,0"/>
+                    <StackPanel Spacing="16">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Menu button, center title, action icons" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar>
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" Shape="Circle">
+                                        <PathIcon Data="{StaticResource DaisyIconMenu}" Width="20" Height="20"/>
+                                    </controls:DaisyButton>
+                                </controls:DaisyNavbar.NavbarStart>
+                                <controls:DaisyNavbar.NavbarCenter>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarCenter>
+                                <controls:DaisyNavbar.NavbarEnd>
+                                    <StackPanel Orientation="Horizontal" Spacing="4">
+                                        <controls:DaisyButton Variant="Ghost" Shape="Circle">
+                                            <PathIcon Data="{StaticResource DaisyIconSearch}" Width="20" Height="20"/>
+                                        </controls:DaisyButton>
+                                        <controls:DaisyIndicator>
+                                            <controls:DaisyIndicator.Badge>
+                                                <controls:DaisyBadge Variant="Primary" Size="ExtraSmall"/>
+                                            </controls:DaisyIndicator.Badge>
+                                            <controls:DaisyButton Variant="Ghost" Shape="Circle">
+                                                <PathIcon Data="{StaticResource DaisyIconBell}" Width="20" Height="20"/>
+                                            </controls:DaisyButton>
+                                        </controls:DaisyIndicator>
+                                    </StackPanel>
+                                </controls:DaisyNavbar.NavbarEnd>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Navbar with Indicator -->
+                    <TextBlock Text="Navbar with Indicator" FontWeight="SemiBold" Margin="0,16,0,0"/>
+                    <StackPanel Spacing="16">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Shopping cart with item count" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar>
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
+                                <controls:DaisyNavbar.NavbarEnd>
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <controls:DaisyIndicator>
+                                            <controls:DaisyIndicator.Badge>
+                                                <controls:DaisyBadge Content="8" Size="Small"/>
+                                            </controls:DaisyIndicator.Badge>
+                                            <controls:DaisyButton Variant="Ghost" Shape="Circle">
+                                                <PathIcon Data="{StaticResource DaisyIconShoppingCart}" Width="20" Height="20"/>
+                                            </controls:DaisyButton>
+                                        </controls:DaisyIndicator>
+                                        <controls:DaisyAvatar Size="Small" Shape="Circle">
+                                            <PathIcon Data="{StaticResource DaisyIconUser}" Width="20" Height="20"/>
+                                        </controls:DaisyAvatar>
+                                    </StackPanel>
+                                </controls:DaisyNavbar.NavbarEnd>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Navbar with Colors -->
+                    <TextBlock Text="Navbar with Colors" FontWeight="SemiBold" Margin="0,16,0,0"/>
+                    <StackPanel Spacing="16">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Neutral background" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar Background="{DynamicResource DaisyNeutralBrush}" Foreground="{DynamicResource DaisyNeutralContentBrush}">
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Base-300 background" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar Background="{DynamicResource DaisyBase300Brush}">
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Primary background" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar Background="{DynamicResource DaisyPrimaryBrush}" Foreground="{DynamicResource DaisyPrimaryContentBrush}">
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Full Width Navbar -->
+                    <TextBlock Text="Full Width Navbar" FontWeight="SemiBold" Margin="0,16,0,0"/>
+                    <StackPanel Spacing="16">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="No corner radius (IsFullWidth=True)" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar IsFullWidth="True">
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
+                                <controls:DaisyNavbar.NavbarCenter>
+                                    <controls:DaisyMenu Orientation="Horizontal">
+                                        <ListBoxItem>Home</ListBoxItem>
+                                        <ListBoxItem>About</ListBoxItem>
+                                        <ListBoxItem>Contact</ListBoxItem>
+                                    </controls:DaisyMenu>
+                                </controls:DaisyNavbar.NavbarCenter>
+                                <controls:DaisyNavbar.NavbarEnd>
+                                    <controls:DaisyButton Variant="Primary" Content="Sign In"/>
+                                </controls:DaisyNavbar.NavbarEnd>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Navbar without Shadow -->
+                    <TextBlock Text="Navbar without Shadow" FontWeight="SemiBold" Margin="0,16,0,0"/>
+                    <StackPanel Spacing="16">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="HasShadow=False" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar HasShadow="False" Background="{DynamicResource DaisyBase200Brush}">
+                                <controls:DaisyNavbar.NavbarStart>
+                                    <controls:DaisyButton Variant="Ghost" FontSize="20" FontWeight="Bold" Content="Flowery"/>
+                                </controls:DaisyNavbar.NavbarStart>
+                                <controls:DaisyNavbar.NavbarEnd>
+                                    <controls:DaisyButton ButtonStyle="Outline" Content="Login"/>
+                                </controls:DaisyNavbar.NavbarEnd>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Simple Content Fallback -->
+                    <TextBlock Text="Simple Content (Fallback)" FontWeight="SemiBold" Margin="0,16,0,0"/>
+                    <StackPanel Spacing="16">
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Using Content property directly (legacy support)" FontSize="12" Opacity="0.7"/>
+                            <controls:DaisyNavbar>
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="Simple Navbar" FontWeight="Bold" FontSize="18" VerticalAlignment="Center"/>
+                                    <controls:DaisyButton Variant="Ghost" Content="Link 1"/>
+                                    <controls:DaisyButton Variant="Ghost" Content="Link 2"/>
+                                </StackPanel>
+                            </controls:DaisyNavbar>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
 
                 <controls:DaisyDivider />

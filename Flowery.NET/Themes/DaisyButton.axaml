@@ -209,6 +209,10 @@
             <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
             <Setter Property="BorderThickness" Value="0" />
         </Style>
+        <!-- Fix for transparent transition flash -->
+        <Style Selector="^[Variant=Ghost] /template/ Border#PART_Background">
+            <Setter Property="Transitions" Value="{x:Null}" />
+        </Style>
         <Style Selector="^[Variant=Ghost]:pointerover /template/ Border#PART_Background">
             <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
         </Style>
@@ -219,6 +223,10 @@
             <Setter Property="Foreground" Value="{DynamicResource DaisyPrimaryBrush}" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Padding" Value="0" />
+        </Style>
+        <!-- Fix for transparent transition flash -->
+        <Style Selector="^[Variant=Link] /template/ Border#PART_Background">
+            <Setter Property="Transitions" Value="{x:Null}" />
         </Style>
         <Style Selector="^[Variant=Link]:pointerover">
             <Setter Property="TextBlock.TextDecorations" Value="Underline" />

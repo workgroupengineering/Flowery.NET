@@ -20,7 +20,6 @@
                 <ResourceInclude Source="/Themes/DaisyRating.axaml" />
                 <ResourceInclude Source="/Themes/DaisyFileInput.axaml" />
                 <ResourceInclude Source="/Themes/DaisyNavbar.axaml" />
-                <ResourceInclude Source="/Themes/DaisyMenu.axaml" />
                 <ResourceInclude Source="/Themes/DaisyDrawer.axaml" />
                 <ResourceInclude Source="/Themes/DaisyBreadcrumbs.axaml" />
                 <ResourceInclude Source="/Themes/DaisySteps.axaml" />
@@ -70,6 +69,7 @@
     </Styles.Resources>
 
     <!-- Styles (Not ResourceDictionaries) -->
+    <StyleInclude Source="/Themes/DaisyMenu.axaml" />
     <StyleInclude Source="/Themes/DaisyTabs.axaml" />
     <StyleInclude Source="/Themes/DaisyThemeDropdown.axaml" />
     <StyleInclude Source="/Themes/DaisyJoin.axaml" />

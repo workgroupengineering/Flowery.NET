@@ -19,6 +19,15 @@ namespace Flowery.Controls
             set => SetValue(OrientationProperty, value);
         }
 
+        public static readonly StyledProperty<DaisySize> SizeProperty =
+            AvaloniaProperty.Register<DaisyMenu, DaisySize>(nameof(Size), DaisySize.Medium);
+
+        public DaisySize Size
+        {
+            get => GetValue(SizeProperty);
+            set => SetValue(SizeProperty, value);
+        }
+
         /// <summary>
         /// Gets or sets the foreground color of active/selected menu items (maps to --menu-active-fg).
         /// </summary>

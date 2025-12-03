@@ -5,10 +5,24 @@
              xmlns:weather="clr-namespace:Flowery.Controls.Custom.Weather;assembly=Flowery.NET"
              xmlns:models="clr-namespace:Flowery.Controls.Custom.Weather.Models;assembly=Flowery.NET"
              xmlns:local="clr-namespace:Flowery.NET.Gallery.Examples"
-             x:Class="Flowery.NET.Gallery.Examples.WeatherExamples">
+             x:Class="Flowery.NET.Gallery.Examples.CustomControls">
 
     <ScrollViewer x:Name="MainScrollViewer" HorizontalScrollBarVisibility="Disabled">
-        <StackPanel Spacing="24" Margin="24,0,24,32">
+        <StackPanel Spacing="24" Margin="24,10,24,32">
+
+            <!-- Modifier Keys -->
+            <StackPanel Spacing="12">
+                <local:SectionHeader SectionId="modifier-keys" Title="Modifier Keys" />
+                <TextBlock Text="Live keyboard state observer - Press Shift, Ctrl, Alt or toggle Caps/Num Lock" FontSize="12" Opacity="0.7"/>
+                <WrapPanel Orientation="Horizontal">
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <custom:DaisyModifierKeys />
+                        <custom:DaisyModifierKeys ShowCapsLock="False" ShowNumLock="False" />
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+
+            <controls:DaisyDivider />
 
             <!-- Weather Card (Full Composite) -->
             <StackPanel Spacing="12">
@@ -191,20 +205,6 @@
                         <TextBlock TextWrapping="Wrap" Opacity="0.8" Text="Get a free API key from openweathermap.org to use the built-in OpenWeatherMapService, or implement IWeatherService for custom providers." />
                     </StackPanel>
                 </controls:DaisyAlert>
-            </StackPanel>
-
-            <controls:DaisyDivider />
-
-            <!-- Modifier Keys -->
-            <StackPanel Spacing="12">
-                <local:SectionHeader SectionId="modifier-keys" Title="Modifier Keys" />
-                <TextBlock Text="Live keyboard state observer - Press Shift, Ctrl, Alt or toggle Caps/Num Lock" FontSize="12" Opacity="0.7"/>
-                <WrapPanel Orientation="Horizontal">
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <custom:DaisyModifierKeys />
-                        <custom:DaisyModifierKeys ShowCapsLock="False" ShowNumLock="False" />
-                    </StackPanel>
-                </WrapPanel>
             </StackPanel>
 
             <controls:DaisyDivider />

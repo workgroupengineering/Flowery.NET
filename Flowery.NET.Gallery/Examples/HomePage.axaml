@@ -79,7 +79,7 @@
                                         <TextBlock Text="🌼" FontSize="48"/>
                                     </StackPanel>
                                 </Border>
-                                <TextBlock Text="DaisyUI" FontSize="22" FontWeight="Bold" Foreground="{DynamicResource DaisyBaseContentBrush}"/>
+                                <TextBlock Text="Flowery" FontSize="22" FontWeight="Bold" Foreground="{DynamicResource DaisyBaseContentBrush}"/>
                                 <TextBlock TextWrapping="Wrap" FontSize="14" Opacity="0.8" Foreground="{DynamicResource DaisyBaseContentBrush}">
                                     The most popular component library for Tailwind CSS. DaisyUI provides
                                     beautiful, semantic component classes that make building UIs a breeze.
