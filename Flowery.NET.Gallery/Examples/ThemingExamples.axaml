@@ -9,7 +9,7 @@
 
             <!-- CSS Theme Converter -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="CSS Theme Converter" />
+                <local:SectionHeader SectionId="css-theme-converter" Title="CSS Theme Converter" />
                 <WrapPanel Orientation="Horizontal">
                     <controls:DaisyCard Width="660" Margin="0,0,20,20">
                         <StackPanel Spacing="15">
@@ -35,9 +35,44 @@
 
             <controls:DaisyDivider />
 
+            <!-- Theme Controller -->
+            <StackPanel Spacing="12">
+                <local:SectionHeader SectionId="theme-controller" Title="Theme Controller" />
+                <WrapPanel Orientation="Horizontal">
+                    <StackPanel Spacing="10" Margin="0,0,40,20" Width="350">
+                        <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto" RowSpacing="10" ColumnSpacing="10">
+                            <StackPanel Spacing="4">
+                                <TextBlock Text="Toggle" FontSize="12" Opacity="0.7"/>
+                                <controls:DaisyThemeController Mode="Toggle" />
+                            </StackPanel>
+                            <StackPanel Spacing="4" Grid.Column="1">
+                                <TextBlock Text="Checkbox" FontSize="12" Opacity="0.7"/>
+                                <controls:DaisyThemeController Mode="Checkbox" />
+                            </StackPanel>
+                            <StackPanel Spacing="4" Grid.Row="1">
+                                <TextBlock Text="Swap" FontSize="12" Opacity="0.7"/>
+                                <controls:DaisyThemeController Mode="Swap" />
+                            </StackPanel>
+                            <StackPanel Spacing="4" Grid.Row="1" Grid.Column="1">
+                                <TextBlock Text="Toggle with Icons" FontSize="12" Opacity="0.7"/>
+                                <controls:DaisyThemeController Mode="ToggleWithIcons" />
+                            </StackPanel>
+                            <StackPanel Spacing="4" Grid.Row="2" Grid.ColumnSpan="2">
+                                <TextBlock Text="Toggle with Text" FontSize="12" Opacity="0.7"/>
+                                <controls:DaisyThemeController Mode="ToggleWithText"
+                                    UncheckedTheme="Light" CheckedTheme="Synthwave"
+                                    UncheckedLabel="Light" CheckedLabel="Synthwave" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+
+            <controls:DaisyDivider />
+
             <!-- Theme Radio -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Theme Radio" />
+                <local:SectionHeader SectionId="theme-radio" Title="Theme Radio" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="200">
                         <TextBlock Text="Radio Input Mode" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>

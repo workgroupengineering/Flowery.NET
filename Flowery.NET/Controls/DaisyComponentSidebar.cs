@@ -31,6 +31,7 @@ namespace Flowery.Controls
 
     public class SidebarItem
     {
+        public string Id { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string TabHeader { get; set; } = string.Empty;
         public string? Badge { get; set; }
@@ -222,16 +223,16 @@ namespace Flowery.Controls
         internal void SelectItem(SidebarItem item, SidebarCategory category)
         {
             SelectedItem = item;
-            SaveState(item.Name);
+            SaveState(item.Id);
             RaiseEvent(new SidebarItemSelectedEventArgs(ItemSelectedEvent, item, category));
         }
 
-        public (string? lastItem, SidebarCategory? category) GetLastViewedItem()
+        public (string? lastItemId, SidebarCategory? category) GetLastViewedItem()
         {
             if (SelectedItem != null)
             {
                 var cat = FindCategoryForItem(SelectedItem);
-                return (SelectedItem.Name, cat);
+                return (SelectedItem.Id, cat);
             }
             return (null, null);
         }
@@ -242,22 +243,22 @@ namespace Flowery.Controls
             {
                 if (!File.Exists(StateFile)) return;
                 var lines = File.ReadAllLines(StateFile);
-                string? lastItem = null;
+                string? lastItemId = null;
                 var collapsed = new HashSet<string>();
                 foreach (var line in lines)
                 {
                     if (line.StartsWith("last:"))
-                        lastItem = line.Substring(5);
+                        lastItemId = line.Substring(5);
                     else if (line.StartsWith("collapsed:"))
                         collapsed.Add(line.Substring(10));
                 }
                 foreach (var cat in _allCategories)
                     cat.IsExpanded = !collapsed.Contains(cat.Name);
-                if (lastItem != null)
+                if (lastItemId != null)
                 {
                     foreach (var cat in _allCategories)
                     {
-                        var item = cat.Items.FirstOrDefault(i => i.Name == lastItem);
+                        var item = cat.Items.FirstOrDefault(i => i.Id == lastItemId);
                         if (item != null)
                         {
                             SelectedItem = item;
@@ -269,14 +270,14 @@ namespace Flowery.Controls
             catch { }
         }
 
-        private void SaveState(string? currentItem)
+        private void SaveState(string? currentItemId)
         {
             try
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(StateFile)!);
                 var lines = new List<string>();
-                if (!string.IsNullOrEmpty(currentItem))
-                    lines.Add("last:" + currentItem);
+                if (!string.IsNullOrEmpty(currentItemId))
+                    lines.Add("last:" + currentItemId);
                 foreach (var cat in _allCategories.Where(c => !c.IsExpanded))
                     lines.Add("collapsed:" + cat.Name);
                 File.WriteAllLines(StateFile, lines);
@@ -294,7 +295,7 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconHome",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "Welcome", TabHeader = "Home" }
+                        new SidebarItem { Id = "welcome", Name = "Welcome", TabHeader = "Home" }
                     }
                 },
                 new SidebarCategory
@@ -303,12 +304,12 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconActions",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "Button", TabHeader = "Actions" },
-                        new SidebarItem { Name = "Dropdown", TabHeader = "Actions" },
-                        new SidebarItem { Name = "FAB / Speed Dial", TabHeader = "Actions", Badge = "new" },
-                        new SidebarItem { Name = "Modal", TabHeader = "Actions" },
-                        new SidebarItem { Name = "Swap", TabHeader = "Actions" },
-                        new SidebarItem { Name = "Theme Controller", TabHeader = "Actions" }
+                        new SidebarItem { Id = "button", Name = "Button", TabHeader = "Actions" },
+                        new SidebarItem { Id = "dropdown", Name = "Dropdown", TabHeader = "Actions" },
+                        new SidebarItem { Id = "fab", Name = "FAB / Speed Dial", TabHeader = "Actions" },
+                        new SidebarItem { Id = "modal", Name = "Modal", TabHeader = "Actions" },
+                        new SidebarItem { Id = "modal-radii", Name = "Modal Corner Radii", TabHeader = "Actions" },
+                        new SidebarItem { Id = "swap", Name = "Swap", TabHeader = "Actions" }
                     }
                 },
                 new SidebarCategory
@@ -317,21 +318,20 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconDataDisplay",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "Accordion", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Avatar", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Badge", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Carousel", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Chat Bubble", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Collapse", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Countdown", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Diff", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Hover Gallery", TabHeader = "Data Display", Badge = "new" },
-                        new SidebarItem { Name = "Kbd", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Modifier Keys", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Stat", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Table", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Text Rotate", TabHeader = "Data Display" },
-                        new SidebarItem { Name = "Timeline", TabHeader = "Data Display" }
+                        new SidebarItem { Id = "accordion", Name = "Accordion", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "avatar", Name = "Avatar", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "badge", Name = "Badge", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "carousel", Name = "Carousel", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "chat-bubble", Name = "Chat Bubble", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "collapse", Name = "Collapse", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "countdown", Name = "Countdown", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "diff", Name = "Diff", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "hover-gallery", Name = "Hover Gallery", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "kbd", Name = "Kbd", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "stat", Name = "Stat", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "table", Name = "Table", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "text-rotate", Name = "Text Rotate", TabHeader = "Data Display" },
+                        new SidebarItem { Id = "timeline", Name = "Timeline", TabHeader = "Data Display" }
                     }
                 },
                 new SidebarCategory
@@ -340,12 +340,12 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconNavigation",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "Breadcrumbs", TabHeader = "Navigation" },
-                        new SidebarItem { Name = "Menu", TabHeader = "Navigation" },
-                        new SidebarItem { Name = "Navbar", TabHeader = "Navigation" },
-                        new SidebarItem { Name = "Pagination", TabHeader = "Navigation" },
-                        new SidebarItem { Name = "Steps", TabHeader = "Navigation" },
-                        new SidebarItem { Name = "Tabs", TabHeader = "Navigation" }
+                        new SidebarItem { Id = "breadcrumbs", Name = "Breadcrumbs", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "menu", Name = "Menu", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "navbar", Name = "Navbar", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "pagination", Name = "Pagination", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "steps", Name = "Steps", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "tabs", Name = "Tabs", TabHeader = "Navigation" }
                     }
                 },
                 new SidebarCategory
@@ -354,13 +354,13 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconFeedback",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "Alert", TabHeader = "Feedback" },
-                        new SidebarItem { Name = "Loading", TabHeader = "Feedback" },
-                        new SidebarItem { Name = "Progress", TabHeader = "Feedback" },
-                        new SidebarItem { Name = "Radial Progress", TabHeader = "Feedback" },
-                        new SidebarItem { Name = "Skeleton", TabHeader = "Feedback" },
-                        new SidebarItem { Name = "Toast", TabHeader = "Feedback" },
-                        new SidebarItem { Name = "Tooltip", TabHeader = "Feedback" }
+                        new SidebarItem { Id = "alert", Name = "Alert", TabHeader = "Feedback" },
+                        new SidebarItem { Id = "loading", Name = "Loading", TabHeader = "Feedback" },
+                        new SidebarItem { Id = "progress", Name = "Progress", TabHeader = "Feedback" },
+                        new SidebarItem { Id = "radial-progress", Name = "Radial Progress", TabHeader = "Feedback" },
+                        new SidebarItem { Id = "skeleton", Name = "Skeleton", TabHeader = "Feedback" },
+                        new SidebarItem { Id = "toast", Name = "Toast", TabHeader = "Feedback" },
+                        new SidebarItem { Id = "tooltip", Name = "Tooltip", TabHeader = "Feedback" }
                     }
                 },
                 new SidebarCategory
@@ -369,7 +369,7 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconCard",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "Card", TabHeader = "Cards" }
+                        new SidebarItem { Id = "card", Name = "Card", TabHeader = "Cards" }
                     }
                 },
                 new SidebarCategory
@@ -378,15 +378,15 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconDataInput",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "Checkbox", TabHeader = "Form Controls" },
-                        new SidebarItem { Name = "File Input", TabHeader = "Form Controls" },
-                        new SidebarItem { Name = "Input", TabHeader = "Form Controls" },
-                        new SidebarItem { Name = "Radio", TabHeader = "Form Controls" },
-                        new SidebarItem { Name = "Range", TabHeader = "Form Controls" },
-                        new SidebarItem { Name = "Rating", TabHeader = "Form Controls" },
-                        new SidebarItem { Name = "Select", TabHeader = "Form Controls" },
-                        new SidebarItem { Name = "TextArea", TabHeader = "Form Controls" },
-                        new SidebarItem { Name = "Toggle", TabHeader = "Form Controls" }
+                        new SidebarItem { Id = "checkbox", Name = "Checkbox", TabHeader = "Form Controls" },
+                        new SidebarItem { Id = "file-input", Name = "File Input", TabHeader = "Form Controls" },
+                        new SidebarItem { Id = "input", Name = "Input", TabHeader = "Form Controls" },
+                        new SidebarItem { Id = "radio", Name = "Radio", TabHeader = "Form Controls" },
+                        new SidebarItem { Id = "range", Name = "Range", TabHeader = "Form Controls" },
+                        new SidebarItem { Id = "rating", Name = "Rating", TabHeader = "Form Controls" },
+                        new SidebarItem { Id = "select", Name = "Select", TabHeader = "Form Controls" },
+                        new SidebarItem { Id = "textarea", Name = "TextArea", TabHeader = "Form Controls" },
+                        new SidebarItem { Id = "toggle", Name = "Toggle", TabHeader = "Form Controls" }
                     }
                 },
                 new SidebarCategory
@@ -395,7 +395,7 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconDivider",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "Divider", TabHeader = "Divider" }
+                        new SidebarItem { Id = "divider", Name = "Divider", TabHeader = "Divider" }
                     }
                 },
                 new SidebarCategory
@@ -404,13 +404,13 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconLayout",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "Drawer", TabHeader = "Layout" },
-                        new SidebarItem { Name = "Hero", TabHeader = "Layout" },
-                        new SidebarItem { Name = "Indicator", TabHeader = "Layout" },
-                        new SidebarItem { Name = "Join", TabHeader = "Layout" },
-                        new SidebarItem { Name = "Mask", TabHeader = "Layout" },
-                        new SidebarItem { Name = "Mockup", TabHeader = "Layout" },
-                        new SidebarItem { Name = "Stack", TabHeader = "Layout" }
+                        new SidebarItem { Id = "drawer", Name = "Drawer", TabHeader = "Layout" },
+                        new SidebarItem { Id = "hero", Name = "Hero", TabHeader = "Layout" },
+                        new SidebarItem { Id = "indicator", Name = "Indicator", TabHeader = "Layout" },
+                        new SidebarItem { Id = "join", Name = "Join", TabHeader = "Layout" },
+                        new SidebarItem { Id = "mask", Name = "Mask", TabHeader = "Layout" },
+                        new SidebarItem { Id = "mockup", Name = "Mockup", TabHeader = "Layout" },
+                        new SidebarItem { Id = "stack", Name = "Stack", TabHeader = "Layout" }
                     }
                 },
                 new SidebarCategory
@@ -419,8 +419,9 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconTheme",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "CSS Theme Converter", TabHeader = "Theming" },
-                        new SidebarItem { Name = "Theme Radio", TabHeader = "Theming" }
+                        new SidebarItem { Id = "css-theme-converter", Name = "CSS Theme Converter", TabHeader = "Theming" },
+                        new SidebarItem { Id = "theme-controller", Name = "Theme Controller", TabHeader = "Theming" },
+                        new SidebarItem { Id = "theme-radio", Name = "Theme Radio", TabHeader = "Theming" }
                     }
                 },
                 new SidebarCategory
@@ -429,12 +430,13 @@ namespace Flowery.Controls
                     IconKey = "DaisyIconSun",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Name = "Weather Card", TabHeader = "Weather", Badge = "new" },
-                        new SidebarItem { Name = "Current Weather", TabHeader = "Weather" },
-                        new SidebarItem { Name = "Weather Forecast", TabHeader = "Weather" },
-                        new SidebarItem { Name = "Weather Metrics", TabHeader = "Weather" },
-                        new SidebarItem { Name = "Weather Conditions", TabHeader = "Weather" },
-                        new SidebarItem { Name = "Service Integration", TabHeader = "Weather" }
+                        new SidebarItem { Id = "modifier-keys", Name = "Modifier Keys", TabHeader = "Weather" },
+                        new SidebarItem { Id = "weather-card", Name = "Weather Card", TabHeader = "Weather" },
+                        new SidebarItem { Id = "current-weather", Name = "Current Weather", TabHeader = "Weather" },
+                        new SidebarItem { Id = "weather-forecast", Name = "Weather Forecast", TabHeader = "Weather" },
+                        new SidebarItem { Id = "weather-metrics", Name = "Weather Metrics", TabHeader = "Weather" },
+                        new SidebarItem { Id = "weather-conditions", Name = "Weather Conditions", TabHeader = "Weather" },
+                        new SidebarItem { Id = "service-integration", Name = "Service Integration", TabHeader = "Weather" }
                     }
                 }
             };

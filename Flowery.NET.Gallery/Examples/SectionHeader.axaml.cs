@@ -8,10 +8,19 @@ public partial class SectionHeader : UserControl
     public static readonly StyledProperty<string> TitleProperty =
         AvaloniaProperty.Register<SectionHeader, string>(nameof(Title), string.Empty);
 
+    public static readonly StyledProperty<string> SectionIdProperty =
+        AvaloniaProperty.Register<SectionHeader, string>(nameof(SectionId), string.Empty);
+
     public string Title
     {
         get => GetValue(TitleProperty);
         set => SetValue(TitleProperty, value);
+    }
+
+    public string SectionId
+    {
+        get => GetValue(SectionIdProperty);
+        set => SetValue(SectionIdProperty, value);
     }
 
     public SectionHeader()

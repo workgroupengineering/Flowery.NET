@@ -9,7 +9,7 @@
 
             <!-- Breadcrumbs -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Breadcrumbs" />
+                <local:SectionHeader SectionId="breadcrumbs" Title="Breadcrumbs" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <controls:DaisyBreadcrumbs>
@@ -25,7 +25,7 @@
 
             <!-- Menu -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Menu" />
+                <local:SectionHeader SectionId="menu" Title="Menu" />
                 <TextBlock Text="Menu supports ActiveForeground and ActiveBackground properties for custom selection styling" Opacity="0.7" FontSize="13"/>
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
@@ -63,7 +63,7 @@
 
             <!-- Navbar -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Navbar" />
+                <local:SectionHeader SectionId="navbar" Title="Navbar" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <controls:DaisyNavbar>
@@ -84,7 +84,7 @@
 
             <!-- Pagination -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Pagination" />
+                <local:SectionHeader SectionId="pagination" Title="Pagination" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <controls:DaisyPagination>
@@ -101,7 +101,7 @@
 
             <!-- Steps -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Steps" />
+                <local:SectionHeader SectionId="steps" Title="Steps" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="300">
                         <controls:DaisySteps SelectedIndex="1">
@@ -117,7 +117,7 @@
 
             <!-- Tabs -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Tabs" />
+                <local:SectionHeader SectionId="tabs" Title="Tabs" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,20,10">
                         <TextBlock Text="None" FontSize="12" Opacity="0.7"/>

@@ -116,10 +116,11 @@
 
         <!-- Modal overlay at window level -->
         <controls:DaisyModal x:Name="DemoModal" Grid.ColumnSpan="2" IsOpen="False">
-            <StackPanel Spacing="10">
-                <TextBlock Text="Hello!" FontSize="20" FontWeight="Bold"/>
-                <TextBlock Text="Press button to close" />
-                <controls:DaisyButton Content="Close" Click="CloseModalBtn_Click" />
+            <StackPanel Spacing="12" MaxWidth="400">
+                <TextBlock x:Name="ModalTitle" Text="Hello!" FontSize="20" FontWeight="Bold"/>
+                <TextBlock Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." TextWrapping="Wrap" Opacity="0.8"/>
+                <TextBlock Text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." TextWrapping="Wrap" Opacity="0.7" FontSize="13"/>
+                <controls:DaisyButton Content="Close" Variant="Primary" Click="CloseModalBtn_Click" HorizontalAlignment="Right" Margin="0,8,0,0"/>
             </StackPanel>
         </controls:DaisyModal>
     </Grid>

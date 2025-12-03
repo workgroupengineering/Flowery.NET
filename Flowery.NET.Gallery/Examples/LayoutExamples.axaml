@@ -9,7 +9,7 @@
 
             <!-- Drawer -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Drawer" />
+                <local:SectionHeader SectionId="drawer" Title="Drawer" />
                 <StackPanel Orientation="Horizontal" Spacing="10">
                     <controls:DaisyButton x:Name="DrawerToggleBtn" Size="Small" Click="DrawerToggleBtn_Click">
                         <StackPanel Orientation="Horizontal" Spacing="6">
@@ -45,7 +45,7 @@
 
             <!-- Hero -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Hero" />
+                <local:SectionHeader SectionId="hero" Title="Hero" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="400">
                         <controls:DaisyHero Background="{DynamicResource DaisyPrimaryBrush}" Height="150" CornerRadius="8">
@@ -62,7 +62,7 @@
 
             <!-- Indicator -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Indicator" />
+                <local:SectionHeader SectionId="indicator" Title="Indicator" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <controls:DaisyIndicator>
@@ -81,7 +81,7 @@
 
             <!-- Join -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Join" />
+                <local:SectionHeader SectionId="join" Title="Join" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <controls:DaisyJoin>
@@ -97,7 +97,7 @@
 
             <!-- Mask -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Mask (Squircle)" />
+                <local:SectionHeader SectionId="mask" Title="Mask (Squircle)" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <controls:DaisyMask Variant="Squircle">
@@ -111,7 +111,7 @@
 
             <!-- Mockup Code -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Mockup (Code)" />
+                <local:SectionHeader SectionId="mockup" Title="Mockup (Code)" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <controls:DaisyMockup Variant="Code" Width="400">
@@ -171,7 +171,7 @@
 
             <!-- Stack -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Stack" />
+                <local:SectionHeader SectionId="stack" Title="Stack" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <controls:DaisyStack Width="100" Height="100">

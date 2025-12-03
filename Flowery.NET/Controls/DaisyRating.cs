@@ -8,6 +8,19 @@ using Avalonia.Layout;
 
 namespace Flowery.Controls
 {
+    /// <summary>
+    /// Specifies how rating values are snapped when clicking.
+    /// </summary>
+    public enum RatingPrecision
+    {
+        /// <summary>Only whole star values (1, 2, 3, 4, 5)</summary>
+        Full,
+        /// <summary>Half-star increments (0.5, 1, 1.5, 2, ...)</summary>
+        Half,
+        /// <summary>One decimal place (0.1 increments)</summary>
+        Precise
+    }
+
     public class DaisyRating : RangeBase
     {
         protected override Type StyleKeyOverride => typeof(DaisyRating);
@@ -15,12 +28,29 @@ namespace Flowery.Controls
         private Control? _foregroundPart;
         private Control? _backgroundPart;
 
+        // Spacing between stars (must match the template's StackPanel Spacing)
+        private const double StarSpacing = 4.0;
+
         public DaisyRating()
         {
             Minimum = 0;
             Maximum = 5;
             Value = 0;
             Cursor = Cursor.Parse("Hand");
+        }
+
+        /// <summary>
+        /// Calculates the actual width occupied by the stars based on count and size.
+        /// Each star's width equals the Height property, with StarSpacing between them.
+        /// </summary>
+        private double GetStarsWidth()
+        {
+            var starCount = (int)Maximum;
+            if (starCount <= 0) return 0;
+
+            var starSize = Height;
+            // Total = (starCount * starSize) + ((starCount - 1) * spacing)
+            return (starCount * starSize) + ((starCount - 1) * StarSpacing);
         }
 
         public static readonly StyledProperty<DaisySize> SizeProperty =
@@ -39,6 +69,19 @@ namespace Flowery.Controls
         {
             get => GetValue(IsReadOnlyProperty);
             set => SetValue(IsReadOnlyProperty, value);
+        }
+
+        public static readonly StyledProperty<RatingPrecision> PrecisionProperty =
+            AvaloniaProperty.Register<DaisyRating, RatingPrecision>(nameof(Precision), RatingPrecision.Full);
+
+        /// <summary>
+        /// Gets or sets how rating values are snapped when clicking.
+        /// Full = whole stars only, Half = 0.5 increments, Precise = 0.1 increments.
+        /// </summary>
+        public RatingPrecision Precision
+        {
+            get => GetValue(PrecisionProperty);
+            set => SetValue(PrecisionProperty, value);
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -97,12 +140,9 @@ namespace Flowery.Controls
             if (percent < 0) percent = 0;
             if (percent > 1) percent = 1;
 
-            // We clip the foreground part
-            var clipWidth = bounds.Width * percent;
-
-            // We can use a RectangleGeometry for clipping
-            // or if the template uses a container with Width, we set that Width.
-            // Setting Width is easier if the alignment is Left.
+            // Use the actual stars width, not the control's bounds
+            var starsWidth = GetStarsWidth();
+            var clipWidth = starsWidth * percent;
 
             _foregroundPart.Width = clipWidth;
         }
@@ -140,29 +180,40 @@ namespace Flowery.Controls
 
         private void UpdateValueFromPoint(Point p)
         {
-            var width = Bounds.Width;
-            if (width <= 0) return;
+            // Use actual stars width instead of control bounds
+            var starsWidth = GetStarsWidth();
+            if (starsWidth <= 0) return;
 
-            var percent = p.X / width;
+            var percent = p.X / starsWidth;
             if (percent < 0) percent = 0;
             if (percent > 1) percent = 1;
 
             var range = Maximum - Minimum;
             var rawValue = (percent * range) + Minimum;
 
-            // Snap logic (optional, default to integer for stars usually)
-            // DaisyUI "rating" is usually steps.
-            // Let's snap to 1.0 for "click", but "partial fills" (display) are supported.
-            // Users usually expect clicking star 3 to give 3.
-
-            var newValue = Math.Ceiling(rawValue);
-            // If we want half stars: Math.Ceiling(rawValue * 2) / 2.0;
-
-            // For now, integer snapping feels most "DaisyUI".
-            // But if the user clicks exactly on 3.5 area?
-            // Let's stick to Integer snapping for interaction, but the Value property can be set to 3.5 programmatically.
+            // Snap value based on Precision setting
+            var newValue = SnapValue(rawValue);
 
             SetCurrentValue(ValueProperty, newValue);
+        }
+
+        private double SnapValue(double rawValue)
+        {
+            switch (Precision)
+            {
+                case RatingPrecision.Half:
+                    // Snap to nearest 0.5
+                    return Math.Ceiling(rawValue * 2) / 2.0;
+
+                case RatingPrecision.Precise:
+                    // Snap to nearest 0.1
+                    return Math.Ceiling(rawValue * 10) / 10.0;
+
+                case RatingPrecision.Full:
+                default:
+                    // Snap to whole number
+                    return Math.Ceiling(rawValue);
+            }
         }
     }
 }

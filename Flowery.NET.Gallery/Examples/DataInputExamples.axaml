@@ -9,7 +9,7 @@
 
             <!-- Checkbox -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Checkbox" />
+                <local:SectionHeader SectionId="checkbox" Title="Checkbox" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="200">
                         <controls:DaisyCheckBox Content="Default" />
@@ -25,7 +25,7 @@
 
             <!-- File Input -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="File Input" />
+                <local:SectionHeader SectionId="file-input" Title="File Input" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="300">
                         <controls:DaisyFileInput />
@@ -39,7 +39,7 @@
 
             <!-- Input -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Input" />
+                <local:SectionHeader SectionId="input" Title="Input" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="250">
                         <controls:DaisyInput Watermark="Default (Bordered)" Margin="0,4"/>
@@ -55,7 +55,7 @@
 
             <!-- Radio -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Radio" />
+                <local:SectionHeader SectionId="radio" Title="Radio" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="200">
                         <controls:DaisyRadio Content="Default" GroupName="G1" />
@@ -69,7 +69,7 @@
 
             <!-- Range -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Range" />
+                <local:SectionHeader SectionId="range" Title="Range" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="250">
                         <TextBlock Text="Basic Variants" FontSize="12" Opacity="0.7"/>
@@ -95,11 +95,14 @@
 
             <!-- Rating -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Rating" />
+                <local:SectionHeader SectionId="rating" Title="Rating" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="200">
-                        <controls:DaisyRating Value="2" Maximum="5" ToolTip.Tip="Interactive Rating" />
-                        <controls:DaisyRating Value="3.5" Size="Large" ToolTip.Tip="Partial Fill (3.5)" />
+                        <TextBlock Text="Full Stars" FontWeight="SemiBold" Margin="0,0,0,4" />
+                        <controls:DaisyRating Value="2" Maximum="5" ToolTip.Tip="Interactive Rating (Full)" />
+                        <TextBlock Text="Half Stars" FontWeight="SemiBold" Margin="0,8,0,4" />
+                        <controls:DaisyRating Value="3.5" Size="Large" Precision="Half" ToolTip.Tip="Half Star Precision (3.5)" />
+                        <TextBlock Text="Read Only" FontWeight="SemiBold" Margin="0,8,0,4" />
                         <controls:DaisyRating Value="1" Size="ExtraSmall" IsReadOnly="True" ToolTip.Tip="Read Only" />
                     </StackPanel>
                 </WrapPanel>
@@ -109,7 +112,7 @@
 
             <!-- Select -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Select" />
+                <local:SectionHeader SectionId="select" Title="Select" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="200">
                         <controls:DaisySelect PlaceholderText="Pick a pizza" SelectedIndex="0">
@@ -133,7 +136,7 @@
 
             <!-- TextArea -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="TextArea" />
+                <local:SectionHeader SectionId="textarea" Title="TextArea" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="250">
                         <controls:DaisyTextArea Watermark="Bio" Height="80"/>
@@ -146,7 +149,7 @@
 
             <!-- Toggle -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Toggle" />
+                <local:SectionHeader SectionId="toggle" Title="Toggle" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="200">
                         <TextBlock Text="Basic Variants" FontSize="12" Opacity="0.7"/>

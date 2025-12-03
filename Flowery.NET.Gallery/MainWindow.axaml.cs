@@ -35,12 +35,12 @@ public partial class MainWindow : Window
 
         // Restore last viewed page or show home
         var sidebar = this.FindControl<DaisyComponentSidebar>("ComponentSidebar");
-        var (lastItem, category) = sidebar?.GetLastViewedItem() ?? (null, null);
-        if (lastItem != null && category != null)
+        var (lastItemId, category) = sidebar?.GetLastViewedItem() ?? (null, null);
+        if (lastItemId != null && category != null)
         {
-            var item = category.Items.FirstOrDefault(i => i.Name == lastItem);
+            var item = category.Items.FirstOrDefault(i => i.Id == lastItemId);
             if (item != null)
-                NavigateToCategory(item.TabHeader, item.Name);
+                NavigateToCategory(item.TabHeader, item.Id);
         }
         else
         {
@@ -59,10 +59,10 @@ public partial class MainWindow : Window
 
     private void OnBrowseComponentsRequested(object? sender, EventArgs e)
     {
-        NavigateToCategory("Actions", "Button");
+        NavigateToCategory("Actions", "button");
     }
 
-    private void NavigateToCategory(string tabHeader, string? itemName = null)
+    private void NavigateToCategory(string tabHeader, string? sectionId = null)
     {
         var content = this.FindControl<ContentControl>("MainContent");
         var title = this.FindControl<TextBlock>("CategoryTitle");
@@ -80,11 +80,11 @@ public partial class MainWindow : Window
             content.Content = newContent;
 
             // Auto-scroll to the specific section after content is loaded
-            if (itemName != null && newContent is IScrollableExample scrollable)
+            if (sectionId != null && newContent is IScrollableExample scrollable)
             {
                 global::Avalonia.Threading.Dispatcher.UIThread.Post(() =>
                 {
-                    scrollable.ScrollToSection(itemName);
+                    scrollable.ScrollToSection(sectionId);
                 }, global::Avalonia.Threading.DispatcherPriority.Loaded);
             }
         }
@@ -96,19 +96,48 @@ public partial class MainWindow : Window
         {
             _actionsExamples = new ActionsExamples();
             _actionsExamples.OpenModalRequested += OnOpenModalRequested;
+            _actionsExamples.OpenModalWithRadiiRequested += OnOpenModalWithRadiiRequested;
         }
         return _actionsExamples;
     }
 
     public void ComponentSidebar_ItemSelected(object? sender, SidebarItemSelectedEventArgs e)
     {
-        NavigateToCategory(e.Item.TabHeader, e.Item.Name);
+        NavigateToCategory(e.Item.TabHeader, e.Item.Id);
     }
 
     public void OnOpenModalRequested(object? sender, EventArgs e)
     {
         var modal = this.FindControl<DaisyModal>("DemoModal");
-        if (modal != null) modal.IsOpen = true;
+        if (modal == null) return;
+
+        // Reset to default corner radii
+        modal.TopLeftRadius = 16;
+        modal.TopRightRadius = 16;
+        modal.BottomLeftRadius = 16;
+        modal.BottomRightRadius = 16;
+        SetModalTitle("Hello!");
+        modal.IsOpen = true;
+    }
+
+    public void OnOpenModalWithRadiiRequested(object? sender, ModalRadiiEventArgs e)
+    {
+        var modal = this.FindControl<DaisyModal>("DemoModal");
+        if (modal == null) return;
+
+        modal.TopLeftRadius = e.TopLeft;
+        modal.TopRightRadius = e.TopRight;
+        modal.BottomLeftRadius = e.BottomLeft;
+        modal.BottomRightRadius = e.BottomRight;
+        SetModalTitle(e.Title);
+        modal.IsOpen = true;
+    }
+
+    private void SetModalTitle(string title)
+    {
+        var modalTitle = this.FindControl<TextBlock>("ModalTitle");
+        if (modalTitle != null)
+            modalTitle.Text = title;
     }
 
     public void CloseModalBtn_Click(object? sender, global::Avalonia.Interactivity.RoutedEventArgs e)

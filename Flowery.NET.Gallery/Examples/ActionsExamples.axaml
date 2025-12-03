@@ -9,7 +9,7 @@
 
             <!-- Button -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Button" />
+                <local:SectionHeader SectionId="button" Title="Button" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <TextBlock Text="Colors" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
@@ -136,7 +136,7 @@
 
             <!-- Dropdown -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Dropdown" />
+                <local:SectionHeader SectionId="dropdown" Title="Dropdown" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="200">
                         <TextBlock Text="Basic Select" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
@@ -157,7 +157,7 @@
 
             <!-- FAB / Speed Dial -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="FAB / Speed Dial" />
+                <local:SectionHeader SectionId="fab" Title="FAB / Speed Dial" />
                 <TextBlock Text="Click the FAB buttons below to expand" FontSize="12" Opacity="0.7"/>
                 <WrapPanel Orientation="Horizontal">
                     <Border Background="{DynamicResource DaisyBase200Brush}" CornerRadius="8" Padding="8" Margin="0,0,8,8" Width="85" Height="220">
@@ -217,7 +217,7 @@
 
             <!-- Modal -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Modal" />
+                <local:SectionHeader SectionId="modal" Title="Modal" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <controls:DaisyButton Content="Open Modal" x:Name="OpenModalBtn" Variant="Primary" Click="OpenModalBtn_Click"/>
@@ -229,36 +229,42 @@
 
             <!-- Modal Corner Radii -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Modal Corner Radii" />
-                <TextBlock Text="Modals support individual corner radius via TopLeftRadius, TopRightRadius, BottomLeftRadius, BottomRightRadius" Opacity="0.7" FontSize="13"/>
+                <local:SectionHeader SectionId="modal-radii" Title="Modal Corner Radii" />
+                <TextBlock Text="Modals support individual corner radius via TopLeftRadius, TopRightRadius, BottomLeftRadius, BottomRightRadius. Click a preview to open!" Opacity="0.7" FontSize="13"/>
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="280">
-                        <TextBlock Text="Default Corners (uniform)" FontSize="12" Opacity="0.7"/>
-                        <Border Background="{DynamicResource DaisyBase200Brush}" Height="150" CornerRadius="8" ClipToBounds="True">
-                            <controls:DaisyModal IsOpen="True">
-                                <TextBlock Text="Default Modal" FontWeight="Bold"/>
-                            </controls:DaisyModal>
-                        </Border>
+                        <TextBlock Text="Default Corners (uniform 16px)" FontSize="12" Opacity="0.7"/>
+                        <Button Padding="0" Background="Transparent" BorderThickness="0" Cursor="Hand" Click="OpenDefaultModal_Click">
+                            <Border Background="{DynamicResource DaisyBase200Brush}" Height="150" Width="280" CornerRadius="8" ClipToBounds="True">
+                                <controls:DaisyModal IsOpen="True">
+                                    <TextBlock Text="Default Modal" FontWeight="Bold"/>
+                                </controls:DaisyModal>
+                            </Border>
+                        </Button>
                     </StackPanel>
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="280">
                         <TextBlock Text="Custom Corners (pill top)" FontSize="12" Opacity="0.7"/>
-                        <Border Background="{DynamicResource DaisyBase200Brush}" Height="150" CornerRadius="8" ClipToBounds="True">
-                            <controls:DaisyModal IsOpen="True"
-                                                TopLeftRadius="24" TopRightRadius="24"
-                                                BottomLeftRadius="8" BottomRightRadius="8">
-                                <TextBlock Text="Pill Top Modal" FontWeight="Bold"/>
-                            </controls:DaisyModal>
-                        </Border>
+                        <Button Padding="0" Background="Transparent" BorderThickness="0" Cursor="Hand" Click="OpenPillTopModal_Click">
+                            <Border Background="{DynamicResource DaisyBase200Brush}" Height="150" Width="280" CornerRadius="8" ClipToBounds="True">
+                                <controls:DaisyModal IsOpen="True"
+                                                    TopLeftRadius="24" TopRightRadius="24"
+                                                    BottomLeftRadius="8" BottomRightRadius="8">
+                                    <TextBlock Text="Pill Top Modal" FontWeight="Bold"/>
+                                </controls:DaisyModal>
+                            </Border>
+                        </Button>
                     </StackPanel>
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="280">
-                        <TextBlock Text="Sharp Corners" FontSize="12" Opacity="0.7"/>
-                        <Border Background="{DynamicResource DaisyBase200Brush}" Height="150" CornerRadius="8" ClipToBounds="True">
-                            <controls:DaisyModal IsOpen="True"
-                                                TopLeftRadius="0" TopRightRadius="0"
-                                                BottomLeftRadius="0" BottomRightRadius="0">
-                                <TextBlock Text="Sharp Modal" FontWeight="Bold"/>
-                            </controls:DaisyModal>
-                        </Border>
+                        <TextBlock Text="Sharp Corners (0px)" FontSize="12" Opacity="0.7"/>
+                        <Button Padding="0" Background="Transparent" BorderThickness="0" Cursor="Hand" Click="OpenSharpModal_Click">
+                            <Border Background="{DynamicResource DaisyBase200Brush}" Height="150" Width="280" CornerRadius="8" ClipToBounds="True">
+                                <controls:DaisyModal IsOpen="True"
+                                                    TopLeftRadius="0" TopRightRadius="0"
+                                                    BottomLeftRadius="0" BottomRightRadius="0">
+                                    <TextBlock Text="Sharp Modal" FontWeight="Bold"/>
+                                </controls:DaisyModal>
+                            </Border>
+                        </Button>
                     </StackPanel>
                 </WrapPanel>
             </StackPanel>
@@ -267,7 +273,7 @@
 
             <!-- Swap -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Swap" />
+                <local:SectionHeader SectionId="swap" Title="Swap" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="12" Margin="0,0,40,20" Width="300">
                         <StackPanel Orientation="Horizontal" Spacing="12">
@@ -325,40 +331,6 @@
                 </WrapPanel>
             </StackPanel>
 
-            <controls:DaisyDivider />
-
-            <!-- Theme Controller -->
-            <StackPanel Spacing="12">
-                <local:SectionHeader Title="Theme Controller" />
-                <WrapPanel Orientation="Horizontal">
-                    <StackPanel Spacing="10" Margin="0,0,40,20" Width="350">
-                        <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto" RowSpacing="10" ColumnSpacing="10">
-                            <StackPanel Spacing="4">
-                                <TextBlock Text="Toggle" FontSize="12" Opacity="0.7"/>
-                                <controls:DaisyThemeController Mode="Toggle" />
-                            </StackPanel>
-                            <StackPanel Spacing="4" Grid.Column="1">
-                                <TextBlock Text="Checkbox" FontSize="12" Opacity="0.7"/>
-                                <controls:DaisyThemeController Mode="Checkbox" />
-                            </StackPanel>
-                            <StackPanel Spacing="4" Grid.Row="1">
-                                <TextBlock Text="Swap" FontSize="12" Opacity="0.7"/>
-                                <controls:DaisyThemeController Mode="Swap" />
-                            </StackPanel>
-                            <StackPanel Spacing="4" Grid.Row="1" Grid.Column="1">
-                                <TextBlock Text="Toggle with Icons" FontSize="12" Opacity="0.7"/>
-                                <controls:DaisyThemeController Mode="ToggleWithIcons" />
-                            </StackPanel>
-                            <StackPanel Spacing="4" Grid.Row="2" Grid.ColumnSpan="2">
-                                <TextBlock Text="Toggle with Text" FontSize="12" Opacity="0.7"/>
-                                <controls:DaisyThemeController Mode="ToggleWithText"
-                                    UncheckedTheme="Light" CheckedTheme="Synthwave"
-                                    UncheckedLabel="Light" CheckedLabel="Synthwave" />
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
-                </WrapPanel>
-            </StackPanel>
 
         </StackPanel>
     </ScrollViewer>

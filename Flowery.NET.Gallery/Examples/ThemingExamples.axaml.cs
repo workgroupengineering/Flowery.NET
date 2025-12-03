@@ -162,7 +162,7 @@ public partial class ThemingExamples : UserControl, IScrollableExample
 
         var sectionHeader = this.GetVisualDescendants()
             .OfType<SectionHeader>()
-            .FirstOrDefault(h => h.Title.StartsWith(sectionName, System.StringComparison.OrdinalIgnoreCase));
+            .FirstOrDefault(h => h.SectionId == sectionName);
 
         if (sectionHeader?.Parent is Visual parent)
         {
@@ -170,7 +170,8 @@ public partial class ThemingExamples : UserControl, IScrollableExample
             if (transform.HasValue)
             {
                 var point = transform.Value.Transform(new Point(0, 0));
-                scrollViewer.Offset = new Vector(0, point.Y);
+                // Add current scroll offset to get absolute position in content
+                scrollViewer.Offset = new Vector(0, point.Y + scrollViewer.Offset.Y);
             }
         }
     }

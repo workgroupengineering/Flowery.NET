@@ -9,7 +9,7 @@
 
             <!-- Alert -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Alert" />
+                <local:SectionHeader SectionId="alert" Title="Alert" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="400">
                         <controls:DaisyAlert Content="Info: New software update available." Variant="Info" Margin="0,4"/>
@@ -24,7 +24,7 @@
 
             <!-- Loading -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Loading" />
+                <local:SectionHeader SectionId="loading" Title="Loading" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <StackPanel Orientation="Horizontal" Spacing="20">
@@ -40,7 +40,7 @@
 
             <!-- Progress (Linear) -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Progress (Linear)" />
+                <local:SectionHeader SectionId="progress" Title="Progress (Linear)" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20" Width="200">
                         <controls:DaisyProgress Value="40" />
@@ -55,7 +55,7 @@
 
             <!-- Progress (Radial) -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Radial Progress" />
+                <local:SectionHeader SectionId="radial-progress" Title="Radial Progress" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <StackPanel Orientation="Horizontal" Spacing="10">
@@ -71,7 +71,7 @@
 
             <!-- Skeleton -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Skeleton" />
+                <local:SectionHeader SectionId="skeleton" Title="Skeleton" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <controls:DaisySkeleton Width="200" Height="20" />
@@ -85,7 +85,7 @@
 
             <!-- Toast -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Toast" />
+                <local:SectionHeader SectionId="toast" Title="Toast" />
                 <TextBlock Text="Toast supports position customization via ToastHorizontalOffset and ToastVerticalOffset properties" Opacity="0.7" FontSize="13"/>
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
@@ -128,7 +128,7 @@
 
             <!-- Tooltip -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Tooltip" />
+                <local:SectionHeader SectionId="tooltip" Title="Tooltip" />
                 <WrapPanel Orientation="Horizontal">
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <Button Content="Hover me (Default)" ToolTip.Tip="I am a tooltip" />

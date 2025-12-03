@@ -1,6 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET"
+             xmlns:custom="clr-namespace:Flowery.Controls.Custom;assembly=Flowery.NET"
              xmlns:weather="clr-namespace:Flowery.Controls.Custom.Weather;assembly=Flowery.NET"
              xmlns:models="clr-namespace:Flowery.Controls.Custom.Weather.Models;assembly=Flowery.NET"
              xmlns:local="clr-namespace:Flowery.NET.Gallery.Examples"
@@ -11,7 +12,7 @@
 
             <!-- Weather Card (Full Composite) -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Weather Card" />
+                <local:SectionHeader SectionId="weather-card" Title="Weather Card" />
                 <TextBlock Text="Complete weather widget with current conditions, forecast, and metrics."
                            FontSize="12" Opacity="0.7" Margin="0,0,0,8"/>
                 <WrapPanel Orientation="Horizontal">
@@ -48,7 +49,7 @@
 
             <!-- Current Weather Component -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Current Weather" />
+                <local:SectionHeader SectionId="current-weather" Title="Current Weather" />
                 <TextBlock Text="Standalone current weather display with temperature, condition, and sun times."
                            FontSize="12" Opacity="0.7" Margin="0,0,0,8"/>
                 <WrapPanel Orientation="Horizontal">
@@ -88,7 +89,7 @@
 
             <!-- Forecast Component -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Weather Forecast" />
+                <local:SectionHeader SectionId="weather-forecast" Title="Weather Forecast" />
                 <TextBlock Text="Horizontal forecast strip showing upcoming days."
                            FontSize="12" Opacity="0.7" Margin="0,0,0,8"/>
                 <WrapPanel Orientation="Horizontal">
@@ -102,7 +103,7 @@
 
             <!-- Metrics Component -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Weather Metrics" />
+                <local:SectionHeader SectionId="weather-metrics" Title="Weather Metrics" />
                 <TextBlock Text="Detailed metrics table showing UV, wind, and humidity."
                            FontSize="12" Opacity="0.7" Margin="0,0,0,8"/>
                 <WrapPanel Orientation="Horizontal">
@@ -124,7 +125,7 @@
 
             <!-- Weather Conditions Gallery -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Weather Conditions" />
+                <local:SectionHeader SectionId="weather-conditions" Title="Weather Conditions" />
                 <TextBlock Text="All available weather condition icons."
                            FontSize="12" Opacity="0.7" Margin="0,0,0,8"/>
                 <WrapPanel Orientation="Horizontal">
@@ -175,7 +176,7 @@
 
             <!-- Service Integration Info -->
             <StackPanel Spacing="12">
-                <local:SectionHeader Title="Service Integration" />
+                <local:SectionHeader SectionId="service-integration" Title="Service Integration" />
                 <controls:DaisyAlert Variant="Info">
                     <StackPanel Spacing="8">
                         <TextBlock Text="Using Weather Services" FontWeight="SemiBold" />
@@ -190,6 +191,20 @@
                         <TextBlock TextWrapping="Wrap" Opacity="0.8" Text="Get a free API key from openweathermap.org to use the built-in OpenWeatherMapService, or implement IWeatherService for custom providers." />
                     </StackPanel>
                 </controls:DaisyAlert>
+            </StackPanel>
+
+            <controls:DaisyDivider />
+
+            <!-- Modifier Keys -->
+            <StackPanel Spacing="12">
+                <local:SectionHeader SectionId="modifier-keys" Title="Modifier Keys" />
+                <TextBlock Text="Live keyboard state observer - Press Shift, Ctrl, Alt or toggle Caps/Num Lock" FontSize="12" Opacity="0.7"/>
+                <WrapPanel Orientation="Horizontal">
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <custom:DaisyModifierKeys />
+                        <custom:DaisyModifierKeys ShowCapsLock="False" ShowNumLock="False" />
+                    </StackPanel>
+                </WrapPanel>
             </StackPanel>
 
             <controls:DaisyDivider />
