@@ -1,91 +1,246 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
 
     <Design.PreviewWith>
         <Border Padding="20">
-             <controls:DaisyPagination>
-                 <ListBoxItem>1</ListBoxItem>
-                 <ListBoxItem IsSelected="True">2</ListBoxItem>
-                 <ListBoxItem>3</ListBoxItem>
-                 <ListBoxItem>4</ListBoxItem>
-             </controls:DaisyPagination>
+            <StackPanel Spacing="20">
+                <controls:DaisyPagination>
+                    <controls:DaisyPaginationItem Content="1" PageNumber="1" />
+                    <controls:DaisyPaginationItem Content="2" PageNumber="2" IsActive="True" />
+                    <controls:DaisyPaginationItem Content="3" PageNumber="3" />
+                    <controls:DaisyPaginationItem Content="4" PageNumber="4" />
+                </controls:DaisyPagination>
+
+                <controls:DaisyPagination Size="Small">
+                    <controls:DaisyPaginationItem Content="«" />
+                    <controls:DaisyPaginationItem Content="Page 22" />
+                    <controls:DaisyPaginationItem Content="»" />
+                </controls:DaisyPagination>
+
+                <controls:DaisyPagination ButtonStyle="Outline">
+                    <controls:DaisyPaginationItem Content="Previous" />
+                    <controls:DaisyPaginationItem Content="Next" />
+                </controls:DaisyPagination>
+            </StackPanel>
         </Border>
     </Design.PreviewWith>
 
-    <!-- Item theme for DaisyPagination -->
-    <ControlTheme x:Key="DaisyPaginationItemTheme" TargetType="ListBoxItem">
-        <Setter Property="Background" Value="{DynamicResource DaisyBase100Brush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource DaisyBase300Brush}" />
-        <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
-        <Setter Property="BorderThickness" Value="1,1,0,1" />
-        <Setter Property="Padding" Value="16,12" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        Padding="{TemplateBinding Padding}">
-                    <ContentPresenter Content="{TemplateBinding Content}"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"/>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-
-        <!-- Last item border fix -->
-        <Style Selector="^:nth-last-child(1)">
-            <Setter Property="BorderThickness" Value="1" />
-        </Style>
-
-        <!-- First item radius -->
-        <Style Selector="^:nth-child(1)">
-            <Setter Property="CornerRadius" Value="8,0,0,8" />
-        </Style>
-        <!-- Last item radius -->
-        <Style Selector="^:nth-last-child(1)">
-            <Setter Property="CornerRadius" Value="0,8,8,0" />
-        </Style>
-
-        <!-- Selected State -->
-        <Style Selector="^:selected">
-            <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource DaisyNeutralBrush}" />
-        </Style>
-
-        <!-- Hover State -->
-        <Style Selector="^:pointerover">
+    <Styles.Resources>
+        <!-- Item theme for DaisyPaginationItem -->
+        <ControlTheme x:Key="{x:Type controls:DaisyPaginationItem}" TargetType="controls:DaisyPaginationItem">
             <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
-        </Style>
-        <Style Selector="^:selected:pointerover">
-            <Setter Property="Background" Value="{DynamicResource DaisyNeutralFocusBrush}" />
-        </Style>
-    </ControlTheme>
+            <Setter Property="BorderBrush" Value="{DynamicResource DaisyBase300Brush}" />
+            <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
+            <Setter Property="BorderThickness" Value="1,1,0,1" />
+            <Setter Property="Padding" Value="16,0" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="MinHeight" Value="48" />
+            <Setter Property="MinWidth" Value="48" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="CornerRadius" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="PART_Background"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
 
-    <ControlTheme x:Key="{x:Type controls:DaisyPagination}" TargetType="controls:DaisyPagination">
+            <!-- Transitions -->
+            <Style Selector="^ /template/ Border#PART_Background">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.15" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.15" />
+                    </Transitions>
+                </Setter>
+            </Style>
+
+            <!-- Hover State -->
+            <Style Selector="^:pointerover /template/ Border#PART_Background">
+                <Setter Property="Background" Value="{DynamicResource DaisyBase300Brush}" />
+            </Style>
+
+            <!-- Active/Selected State -->
+            <Style Selector="^[IsActive=True]">
+                <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DaisyNeutralBrush}" />
+            </Style>
+            <Style Selector="^[IsActive=True]:pointerover /template/ Border#PART_Background">
+                <Setter Property="Background" Value="{DynamicResource DaisyNeutralFocusBrush}" />
+            </Style>
+
+            <!-- Disabled State -->
+            <Style Selector="^:disabled">
+                <Setter Property="Opacity" Value="0.5" />
+                <Setter Property="Cursor" Value="Arrow" />
+            </Style>
+        </ControlTheme>
+
+        <!-- Main DaisyPagination ControlTheme -->
+        <ControlTheme x:Key="{x:Type controls:DaisyPagination}" TargetType="controls:DaisyPagination">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+
+            <!-- Vertical Orientation -->
+            <Style Selector="^[Orientation=Vertical]">
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical" />
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ControlTheme>
+    </Styles.Resources>
+
+    <!-- Corner radius and border fixes applied as global styles -->
+
+    <!-- Horizontal: First item -->
+    <Style Selector="controls|DaisyPagination[Orientation=Horizontal] > controls|DaisyPaginationItem:nth-child(1)">
+        <Setter Property="CornerRadius" Value="8,0,0,8" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <!-- Horizontal: Last item -->
+    <Style Selector="controls|DaisyPagination[Orientation=Horizontal] > controls|DaisyPaginationItem:nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,8,8,0" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <!-- Horizontal: Single item -->
+    <Style Selector="controls|DaisyPagination[Orientation=Horizontal] > controls|DaisyPaginationItem:only-child">
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <!-- Vertical: First item -->
+    <Style Selector="controls|DaisyPagination[Orientation=Vertical] > controls|DaisyPaginationItem:nth-child(1)">
+        <Setter Property="CornerRadius" Value="8,8,0,0" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <!-- Vertical: Middle items -->
+    <Style Selector="controls|DaisyPagination[Orientation=Vertical] > controls|DaisyPaginationItem">
+        <Setter Property="BorderThickness" Value="1,0,1,1" />
+    </Style>
+    <!-- Vertical: Last item -->
+    <Style Selector="controls|DaisyPagination[Orientation=Vertical] > controls|DaisyPaginationItem:nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,0,8,8" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <!-- Vertical: Single item -->
+    <Style Selector="controls|DaisyPagination[Orientation=Vertical] > controls|DaisyPaginationItem:only-child">
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <!-- Sizes: ExtraSmall -->
+    <Style Selector="controls|DaisyPagination[Size=ExtraSmall] > controls|DaisyPaginationItem">
+        <Setter Property="MinHeight" Value="24" />
+        <Setter Property="MinWidth" Value="24" />
+        <Setter Property="Padding" Value="8,0" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=ExtraSmall] > controls|DaisyPaginationItem:nth-child(1)">
+        <Setter Property="CornerRadius" Value="4,0,0,4" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=ExtraSmall] > controls|DaisyPaginationItem:nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,4,4,0" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=ExtraSmall] > controls|DaisyPaginationItem:only-child">
+        <Setter Property="CornerRadius" Value="4" />
+    </Style>
+
+    <!-- Sizes: Small -->
+    <Style Selector="controls|DaisyPagination[Size=Small] > controls|DaisyPaginationItem">
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="MinWidth" Value="32" />
+        <Setter Property="Padding" Value="12,0" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=Small] > controls|DaisyPaginationItem:nth-child(1)">
+        <Setter Property="CornerRadius" Value="6,0,0,6" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=Small] > controls|DaisyPaginationItem:nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,6,6,0" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=Small] > controls|DaisyPaginationItem:only-child">
+        <Setter Property="CornerRadius" Value="6" />
+    </Style>
+
+    <!-- Sizes: Large -->
+    <Style Selector="controls|DaisyPagination[Size=Large] > controls|DaisyPaginationItem">
+        <Setter Property="MinHeight" Value="64" />
+        <Setter Property="MinWidth" Value="64" />
+        <Setter Property="Padding" Value="24,0" />
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=Large] > controls|DaisyPaginationItem:nth-child(1)">
+        <Setter Property="CornerRadius" Value="10,0,0,10" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=Large] > controls|DaisyPaginationItem:nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,10,10,0" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=Large] > controls|DaisyPaginationItem:only-child">
+        <Setter Property="CornerRadius" Value="10" />
+    </Style>
+
+    <!-- Sizes: ExtraLarge -->
+    <Style Selector="controls|DaisyPagination[Size=ExtraLarge] > controls|DaisyPaginationItem">
+        <Setter Property="MinHeight" Value="80" />
+        <Setter Property="MinWidth" Value="80" />
+        <Setter Property="Padding" Value="32,0" />
+        <Setter Property="FontSize" Value="20" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=ExtraLarge] > controls|DaisyPaginationItem:nth-child(1)">
+        <Setter Property="CornerRadius" Value="12,0,0,12" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=ExtraLarge] > controls|DaisyPaginationItem:nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,12,12,0" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[Size=ExtraLarge] > controls|DaisyPaginationItem:only-child">
+        <Setter Property="CornerRadius" Value="12" />
+    </Style>
+
+    <!-- ButtonStyle: Outline -->
+    <Style Selector="controls|DaisyPagination[ButtonStyle=Outline] > controls|DaisyPaginationItem">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="ItemsPanel">
-            <Setter.Value>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="ItemContainerTheme" Value="{StaticResource DaisyPaginationItemTheme}" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
-                </Border>
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-</ResourceDictionary>
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[ButtonStyle=Outline] > controls|DaisyPaginationItem:pointerover /template/ Border#PART_Background">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
+    </Style>
+    <Style Selector="controls|DaisyPagination[ButtonStyle=Outline] > controls|DaisyPaginationItem[IsActive=True]">
+        <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyNeutralBrush}" />
+    </Style>
+
+</Styles>
