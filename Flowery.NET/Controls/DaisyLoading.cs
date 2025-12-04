@@ -1,5 +1,7 @@
 using System;
 using Avalonia;
+using Avalonia.Automation;
+using Avalonia.Automation.Peers;
 using Avalonia.Controls.Primitives;
 
 namespace Flowery.Controls
@@ -30,7 +32,19 @@ namespace Flowery.Controls
         /// <summary>Wave animation - multiple elements creating a wave</summary>
         Wave,
         /// <summary>Bounce animation - bouncing squares</summary>
-        Bounce
+        Bounce,
+        /// <summary>Matrix animation - colon-dotted pattern with wave moving left to right</summary>
+        Matrix,
+        /// <summary>MatrixInward animation - both groups fade from inner to outer dots</summary>
+        MatrixInward,
+        /// <summary>MatrixOutward animation - both groups fade from outer to inner dots</summary>
+        MatrixOutward,
+        /// <summary>MatrixVertical animation - wave moves top to bottom across all dots</summary>
+        MatrixVertical,
+        /// <summary>MatrixRain animation - digital rain of dots falling down</summary>
+        MatrixRain,
+        /// <summary>Hourglass animation - classic hourglass with flowing sand</summary>
+        Hourglass
     }
 
     /// <summary>
@@ -61,10 +75,17 @@ namespace Flowery.Controls
     /// <summary>
     /// A Loading control styled after DaisyUI's Loading component.
     /// Shows an animation to indicate that something is loading.
+    /// Includes proper accessibility support for screen readers.
     /// </summary>
     public class DaisyLoading : TemplatedControl
     {
         protected override Type StyleKeyOverride => typeof(DaisyLoading);
+
+        static DaisyLoading()
+        {
+            // Set default accessible name for screen readers
+            AutomationProperties.NameProperty.OverrideDefaultValue<DaisyLoading>("Loading");
+        }
 
         /// <summary>
         /// Defines the <see cref="Variant"/> property.
@@ -110,5 +131,66 @@ namespace Flowery.Controls
             get => GetValue(ColorProperty);
             set => SetValue(ColorProperty, value);
         }
+
+        /// <summary>
+        /// Defines the <see cref="AccessibleText"/> property.
+        /// </summary>
+        public static readonly StyledProperty<string> AccessibleTextProperty =
+            AvaloniaProperty.Register<DaisyLoading, string>(nameof(AccessibleText), "Loading");
+
+        /// <summary>
+        /// Gets or sets the accessible text announced by screen readers.
+        /// Default is "Loading". Set to a more specific message like "Loading data" or "Please wait".
+        /// </summary>
+        public string AccessibleText
+        {
+            get => GetValue(AccessibleTextProperty);
+            set => SetValue(AccessibleTextProperty, value);
+        }
+
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+
+            // Update automation name when AccessibleText changes
+            if (change.Property == AccessibleTextProperty)
+            {
+                AutomationProperties.SetName(this, change.GetNewValue<string>() ?? "Loading");
+            }
+        }
+
+        protected override AutomationPeer OnCreateAutomationPeer()
+        {
+            return new DaisyLoadingAutomationPeer(this);
+        }
+    }
+
+    /// <summary>
+    /// AutomationPeer for DaisyLoading that exposes it as a ProgressBar to assistive technologies.
+    /// </summary>
+    internal class DaisyLoadingAutomationPeer : ControlAutomationPeer
+    {
+        public DaisyLoadingAutomationPeer(DaisyLoading owner) : base(owner)
+        {
+        }
+
+        protected override AutomationControlType GetAutomationControlTypeCore()
+        {
+            return AutomationControlType.ProgressBar;
+        }
+
+        protected override string GetClassNameCore()
+        {
+            return "DaisyLoading";
+        }
+
+        protected override string? GetNameCore()
+        {
+            var loading = (DaisyLoading)Owner;
+            return loading.AccessibleText;
+        }
+
+        protected override bool IsContentElementCore() => true;
+        protected override bool IsControlElementCore() => true;
     }
 }

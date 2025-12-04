@@ -177,6 +177,102 @@
                         </StackPanel>
                     </StackPanel>
 
+                    <!-- Matrix (colon-dotted pattern) -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="Matrix (colon pattern)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                            <controls:DaisyLoading Variant="Matrix" Size="ExtraSmall" />
+                            <controls:DaisyLoading Variant="Matrix" Size="Small" />
+                            <controls:DaisyLoading Variant="Matrix" Size="Medium" />
+                            <controls:DaisyLoading Variant="Matrix" Size="Large" />
+                            <controls:DaisyLoading Variant="Matrix" Size="ExtraLarge" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Matrix with Colors -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="Matrix with Colors" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                            <controls:DaisyLoading Variant="Matrix" Color="Primary" Size="Large" />
+                            <controls:DaisyLoading Variant="Matrix" Color="Secondary" Size="Large" />
+                            <controls:DaisyLoading Variant="Matrix" Color="Accent" Size="Large" />
+                            <controls:DaisyLoading Variant="Matrix" Color="Info" Size="Large" />
+                            <controls:DaisyLoading Variant="Matrix" Color="Success" Size="Large" />
+                            <controls:DaisyLoading Variant="Matrix" Color="Warning" Size="Large" />
+                            <controls:DaisyLoading Variant="Matrix" Color="Error" Size="Large" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Matrix Inline Usage -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="Matrix Inline Usage" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                        <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                            <TextBlock Text="Processing" VerticalAlignment="Center" FontSize="14"/>
+                            <controls:DaisyLoading Variant="Matrix" Size="Small" Color="Primary" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                            <controls:DaisyLoading Variant="Matrix" Size="Medium" Color="Info" />
+                            <TextBlock Text="Loading data..." VerticalAlignment="Center" FontSize="14" Opacity="0.7"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- MatrixInward (inner to outer) -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="MatrixInward (center→edges)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                            <controls:DaisyLoading Variant="MatrixInward" Size="Medium" />
+                            <controls:DaisyLoading Variant="MatrixInward" Size="Large" Color="Primary" />
+                            <controls:DaisyLoading Variant="MatrixInward" Size="Large" Color="Secondary" />
+                            <controls:DaisyLoading Variant="MatrixInward" Size="Large" Color="Accent" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- MatrixOutward (outer to inner) -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="MatrixOutward (edges→center)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                            <controls:DaisyLoading Variant="MatrixOutward" Size="Medium" />
+                            <controls:DaisyLoading Variant="MatrixOutward" Size="Large" Color="Info" />
+                            <controls:DaisyLoading Variant="MatrixOutward" Size="Large" Color="Success" />
+                            <controls:DaisyLoading Variant="MatrixOutward" Size="Large" Color="Warning" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- MatrixVertical (top to bottom) -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="MatrixVertical (top→bottom)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                            <controls:DaisyLoading Variant="MatrixVertical" Size="Medium" />
+                            <controls:DaisyLoading Variant="MatrixVertical" Size="Large" Color="Primary" />
+                            <controls:DaisyLoading Variant="MatrixVertical" Size="Large" Color="Error" />
+                            <controls:DaisyLoading Variant="MatrixVertical" Size="Large" Color="Success" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- MatrixRain (digital rain) -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="MatrixRain (digital rain)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                            <controls:DaisyLoading Variant="MatrixRain" Size="Medium" />
+                            <controls:DaisyLoading Variant="MatrixRain" Size="Large" />
+                            <controls:DaisyLoading Variant="MatrixRain" Size="ExtraLarge" Color="Success" />
+                            <controls:DaisyLoading Variant="MatrixRain" Size="ExtraLarge" Color="Primary" />
+                            <controls:DaisyLoading Variant="MatrixRain" Size="ExtraLarge" Color="Info" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Hourglass (classic timer) -->
+                    <StackPanel Spacing="10" Margin="0,0,40,20">
+                        <TextBlock Text="Hourglass (classic timer)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                            <controls:DaisyLoading Variant="Hourglass" Size="Medium" />
+                            <controls:DaisyLoading Variant="Hourglass" Size="Large" />
+                            <controls:DaisyLoading Variant="Hourglass" Size="ExtraLarge" Color="Warning" />
+                            <controls:DaisyLoading Variant="Hourglass" Size="ExtraLarge" Color="Secondary" />
+                            <controls:DaisyLoading Variant="Hourglass" Size="ExtraLarge" Color="Accent" />
+                        </StackPanel>
+                    </StackPanel>
+
                     <!-- Terminal variants with colors -->
                     <StackPanel Spacing="10" Margin="0,0,40,20">
                         <TextBlock Text="Terminal Variants with Colors" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>

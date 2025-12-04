@@ -3,7 +3,9 @@
 
 # Overview
 
-DaisyLoading provides animated loading indicators with **11 different animation styles**, **5 size options**, and **9 color variants**. The control includes both standard DaisyUI animations and creative terminal-inspired variants. All animations scale properly across all sizes using Viewbox-based rendering.
+DaisyLoading provides animated loading indicators with **15 different animation styles**, **5 size options**, and **9 color variants**. The control includes standard DaisyUI animations, creative terminal-inspired variants, and unique Matrix/retro variants. All animations scale properly across all sizes using Viewbox-based rendering.
+
+**Key Feature:** DaisyLoading includes built-in accessibility support for screen readers via the `AccessibleText` property and proper automation peers.
 
 ## Animation Variants
 
@@ -27,6 +29,108 @@ DaisyLoading provides animated loading indicators with **11 different animation 
 | **Pulse** | Sonar/heartbeat style - a center dot gently pulses while two rings expand outward and fade, creating a radar ping effect. |
 | **Wave** | Five dots moving in a smooth sine wave pattern with staggered phases, reminiscent of audio equalizers or water ripples. |
 | **Bounce** | Four squares in a 2×2 grid that gently highlight in clockwise sequence. Uses soft opacity transitions (0.25 → 0.7) to avoid harsh flashing. |
+
+### Matrix/Colon-Dot Variants
+
+| Variant | Description |
+|---------|-------------|
+| **Matrix** | Colon-dotted pattern (`::: :::`) with a smooth wave of brightness traveling left to right. Each "colon" is two vertically stacked dots, grouped in sets of 3 with gaps between groups. |
+| **MatrixInward** | Same colon pattern but the wave starts from the center (inner dots) and moves outward to the edges. Creates a "burst from center" effect. |
+| **MatrixOutward** | Same colon pattern but the wave starts from the edges (outer dots) and converges toward the center. Creates a "closing in" effect. |
+| **MatrixVertical** | Same colon pattern but the wave moves vertically - all top dots light up together, then all bottom dots. Creates a vertical "blink" effect. |
+
+### Special Effect Variants
+
+| Variant | Description |
+|---------|-------------|
+| **MatrixRain** | Digital rain inspired by "The Matrix" movie. Four columns of falling dots at different speeds, each with a bright leading dot and dimmer trailing dot. |
+| **Hourglass** | Classic hourglass timer with flowing sand animation. Top sand depletes, stream flows through the middle, bottom sand accumulates. 2-second cycle. |
+
+## Accessibility Support
+
+DaisyLoading is designed to be accessible to users of assistive technologies like screen readers. The visual animation is decorative; the accessibility layer provides meaningful information.
+
+### How It Works
+
+1. **AutomationPeer**: The control exposes itself as a `ProgressBar` to assistive technologies via a custom `DaisyLoadingAutomationPeer`.
+
+2. **Default Accessible Name**: By default, screen readers announce **"Loading"** when encountering this control.
+
+3. **Customizable Text**: Use the `AccessibleText` property to provide context-specific messages.
+
+### The AccessibleText Property
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `AccessibleText` | `string` | `"Loading"` | The text announced by screen readers when the control receives focus or is encountered. |
+
+When you change `AccessibleText`, the control automatically updates its `AutomationProperties.Name` so screen readers pick up the new value.
+
+### Accessibility Examples
+
+```xml
+<!-- Default: screen reader announces "Loading" -->
+<controls:DaisyLoading Variant="Spinner" />
+
+<!-- Contextual message: announces "Loading your profile data" -->
+<controls:DaisyLoading Variant="Dots" AccessibleText="Loading your profile data" />
+
+<!-- Action-specific: announces "Saving your changes" -->
+<controls:DaisyLoading Variant="Ring" AccessibleText="Saving your changes" />
+
+<!-- With full context: announces "Uploading file, please wait" -->
+<controls:DaisyLoading Variant="Bars" AccessibleText="Uploading file, please wait" />
+
+<!-- Processing state: announces "Processing payment" -->
+<controls:DaisyLoading Variant="Pulse" AccessibleText="Processing payment" Color="Primary" Size="Large" />
+```
+
+### Best Practices for Accessible Loading States
+
+1. **Be Specific**: Instead of generic "Loading", describe *what* is loading:
+   - ✅ `"Loading search results"`
+   - ✅ `"Fetching user data"`
+   - ❌ `"Loading"` (too generic when context matters)
+
+2. **Include Progress if Known**: If you know the progress, consider using `DaisyProgress` instead, or append progress info:
+   - `"Uploading file (45% complete)"`
+
+3. **Keep It Concise**: Screen readers read the text aloud, so keep messages short and clear:
+   - ✅ `"Saving changes"`
+   - ❌ `"Please wait while we save your changes to the database"`
+
+4. **Match Visual Context**: If there's visible text near the loader (e.g., "Loading your dashboard..."), use the same text for `AccessibleText`.
+
+5. **Update Dynamically**: If the loading state changes (e.g., from "Connecting" to "Downloading"), update `AccessibleText` accordingly in your ViewModel.
+
+### Technical Implementation Details
+
+The accessibility is implemented via:
+
+```csharp
+// Static constructor sets default accessible name
+static DaisyLoading()
+{
+    AutomationProperties.NameProperty.OverrideDefaultValue<DaisyLoading>("Loading");
+}
+
+// Custom automation peer exposes control as ProgressBar
+protected override AutomationPeer OnCreateAutomationPeer()
+{
+    return new DaisyLoadingAutomationPeer(this);
+}
+
+// DaisyLoadingAutomationPeer returns:
+// - AutomationControlType.ProgressBar (so AT recognizes it as a progress indicator)
+// - The AccessibleText value as the control's Name
+// - IsContentElement = true, IsControlElement = true (so it's discoverable)
+```
+
+This ensures that:
+
+- Screen readers identify the control as a **progress indicator** (not just a generic element)
+- The accessible name is always available and customizable
+- The control participates in the accessibility tree properly
 
 ## Size Options
 
@@ -79,8 +183,18 @@ Use the `Color` property to apply theme colors. All variants support coloring.
 <controls:DaisyLoading Variant="Wave" Color="Warning" />
 <controls:DaisyLoading Variant="Bounce" Color="Error" Size="Large" />
 
-<!-- Combining all options -->
-<controls:DaisyLoading Variant="Orbit" Size="ExtraLarge" Color="Accent" />
+<!-- Matrix/Colon-dot variants -->
+<controls:DaisyLoading Variant="Matrix" Color="Accent" />
+<controls:DaisyLoading Variant="MatrixInward" Color="Primary" Size="Large" />
+<controls:DaisyLoading Variant="MatrixOutward" Color="Info" Size="Large" />
+<controls:DaisyLoading Variant="MatrixVertical" Color="Success" />
+
+<!-- Special effect variants -->
+<controls:DaisyLoading Variant="MatrixRain" Color="Success" Size="Large" />
+<controls:DaisyLoading Variant="Hourglass" Color="Warning" Size="ExtraLarge" />
+
+<!-- With accessibility -->
+<controls:DaisyLoading Variant="Spinner" AccessibleText="Loading dashboard" />
 ```
 
 ## Animation Timing Reference
@@ -98,3 +212,31 @@ Use the `Color` property to apply theme colors. All variants support coloring.
 | Pulse | 1.5s | Ring expansion with 0.5s stagger |
 | Wave | 1.0s | Sine wave with 0.1s phase delay |
 | Bounce | 1.6s | Gentle clockwise sequence (0.4s per square) |
+| Matrix | 1.8s | Smooth wave left-to-right with overlap |
+| MatrixInward | 1.2s | Center-to-edges wave |
+| MatrixOutward | 1.2s | Edges-to-center wave |
+| MatrixVertical | 1.0s | Top-to-bottom blink |
+| MatrixRain | 0.7-1.1s | Variable speeds per column |
+| Hourglass | 2.0s | Full sand flow cycle |
+
+## Property Summary
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `Variant` | `DaisyLoadingVariant` | `Spinner` | Animation style (15 options) |
+| `Size` | `DaisySize` | `Medium` | Control dimensions (5 options) |
+| `Color` | `DaisyLoadingColor` | `Default` | Theme color (9 options) |
+| `AccessibleText` | `string` | `"Loading"` | Screen reader announcement |
+
+## Variant Selection Guide
+
+| Use Case | Recommended Variants |
+|----------|---------------------|
+| General purpose | `Spinner`, `Ring`, `Dots` |
+| Form submission | `Spinner`, `Pulse`, `Hourglass` |
+| Data fetching | `Dots`, `Wave`, `Matrix` |
+| File upload/download | `Bars`, `MatrixRain`, `Hourglass` |
+| Connection/sync | `Orbit`, `Pulse` |
+| Terminal/developer UI | `Snake`, `Matrix`, `MatrixRain` |
+| Gaming/entertainment | `Bounce`, `MatrixRain` |
+| Retro/nostalgic | `Hourglass`, `Matrix`, `Infinity` |
