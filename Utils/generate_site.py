@@ -458,6 +458,31 @@ li {
     margin: 0;
 }
 
+/* LLM documentation link */
+.llm-link {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+}
+
+.llm-link h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.llm-link p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.llm-link a {
+    color: var(--primary);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .layout {
@@ -512,16 +537,20 @@ li {
         """Build sidebar navigation HTML."""
         lines = []
 
+        # Determine if we're in a subdirectory
+        is_subdir = "/" in active
+        prefix = "../" if is_subdir else ""
+
         # Home link
         home_class = ' class="active"' if active == "index" else ""
-        lines.append(f'<a href="index.html"{home_class}>← Home</a>')
+        lines.append(f'<a href="{prefix}index.html"{home_class}>← Home</a>')
 
         # Categories
         lines.append('<h2>Categories</h2>')
         lines.append('<ul>')
         for cat in self.categories:
             cls = ' class="active"' if active == f"categories/{cat['html_name']}" else ""
-            lines.append(f'<li><a href="categories/{cat["html_name"]}"{cls}>{cat["name"]}</a></li>')
+            lines.append(f'<li><a href="{prefix}categories/{cat["html_name"]}"{cls}>{cat["name"]}</a></li>')
         lines.append('</ul>')
 
         # Controls
@@ -530,18 +559,30 @@ li {
         for ctrl in self.controls:
             cls = ' class="active"' if active == f"controls/{ctrl['html_name']}" else ""
             display_name = ctrl['name'].replace('Daisy', '')
-            lines.append(f'<li><a href="controls/{ctrl["html_name"]}"{cls}>{display_name}</a></li>')
+            lines.append(f'<li><a href="{prefix}controls/{ctrl["html_name"]}"{cls}>{display_name}</a></li>')
         lines.append('</ul>')
 
         return '\n'.join(lines)
 
     def _generate_index(self):
         """Generate the main index page."""
-        # Read llms.txt for overview content
+        # Copy llms.txt to output folder for AI assistants
         llms_content = (self.docs_dir / "llms.txt").read_text(encoding='utf-8')
+        (self.output_dir / "llms.txt").write_text(llms_content, encoding='utf-8')
 
         # Convert to HTML
         html_content = self.converter.convert(llms_content)
+
+        # Insert LLM documentation link after Quick Start section
+        llm_link_html = '''<div class="llm-link">
+    <h2>For AI Assistants</h2>
+    <p>📄 <a href="llms.txt"><strong>llms.txt</strong></a> — Machine-readable documentation in plain markdown format, optimized for LLMs and AI code assistants.</p>
+</div>
+'''
+        # Insert after Quick Start (after the first </pre> which closes the code block)
+        if '</pre>' in html_content:
+            insert_pos = html_content.find('</pre>') + len('</pre>')
+            html_content = html_content[:insert_pos] + '\n' + llm_link_html + html_content[insert_pos:]
 
         # Add control cards section
         cards_html = ['<h2>All Controls</h2>', '<div class="cards">']
