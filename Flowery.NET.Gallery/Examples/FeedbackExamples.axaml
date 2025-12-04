@@ -25,266 +25,356 @@
             <!-- Loading -->
             <StackPanel Spacing="12">
                 <local:SectionHeader SectionId="loading" Title="Loading" />
-                <WrapPanel Orientation="Horizontal">
-                    <!-- Loading Spinner -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Loading Spinner" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Spinner" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Spinner" Size="Small" />
-                            <controls:DaisyLoading Variant="Spinner" Size="Medium" />
-                            <controls:DaisyLoading Variant="Spinner" Size="Large" />
-                            <controls:DaisyLoading Variant="Spinner" Size="ExtraLarge" />
-                        </StackPanel>
-                    </StackPanel>
 
-                    <!-- Loading Dots -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Loading Dots" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Dots" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Dots" Size="Small" />
-                            <controls:DaisyLoading Variant="Dots" Size="Medium" />
-                            <controls:DaisyLoading Variant="Dots" Size="Large" />
-                            <controls:DaisyLoading Variant="Dots" Size="ExtraLarge" />
-                        </StackPanel>
+                <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+                <!-- CLASSIC DAISYUI VARIANTS -->
+                <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+                <Border Background="{DynamicResource DaisyBase200Brush}" CornerRadius="8" Padding="16" Margin="0,8,0,0">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="🎨 Classic DaisyUI Variants" FontWeight="Bold" FontSize="16" Opacity="0.95"/>
+                        <TextBlock Text="Original loading animations from DaisyUI component library" FontSize="12" Opacity="0.6" Margin="0,0,0,8"/>
+                        <WrapPanel Orientation="Horizontal">
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Spinner" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Spinner" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Spinner" Size="Small" />
+                                    <controls:DaisyLoading Variant="Spinner" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Spinner" Size="Large" />
+                                    <controls:DaisyLoading Variant="Spinner" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Dots" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Dots" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Dots" Size="Small" />
+                                    <controls:DaisyLoading Variant="Dots" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Dots" Size="Large" />
+                                    <controls:DaisyLoading Variant="Dots" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Ring" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Ring" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Ring" Size="Small" />
+                                    <controls:DaisyLoading Variant="Ring" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Ring" Size="Large" />
+                                    <controls:DaisyLoading Variant="Ring" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Ball" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Ball" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Ball" Size="Small" />
+                                    <controls:DaisyLoading Variant="Ball" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Ball" Size="Large" />
+                                    <controls:DaisyLoading Variant="Ball" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Bars" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Bars" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Bars" Size="Small" />
+                                    <controls:DaisyLoading Variant="Bars" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Bars" Size="Large" />
+                                    <controls:DaisyLoading Variant="Bars" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Infinity" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Infinity" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Infinity" Size="Small" />
+                                    <controls:DaisyLoading Variant="Infinity" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Infinity" Size="Large" />
+                                    <controls:DaisyLoading Variant="Infinity" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Color Variants" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Spinner" Color="Primary" />
+                                    <controls:DaisyLoading Variant="Spinner" Color="Secondary" />
+                                    <controls:DaisyLoading Variant="Spinner" Color="Accent" />
+                                    <controls:DaisyLoading Variant="Spinner" Color="Info" />
+                                    <controls:DaisyLoading Variant="Spinner" Color="Success" />
+                                    <controls:DaisyLoading Variant="Spinner" Color="Warning" />
+                                    <controls:DaisyLoading Variant="Spinner" Color="Error" />
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
                     </StackPanel>
+                </Border>
 
-                    <!-- Loading Ring -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Loading Ring" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Ring" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Ring" Size="Small" />
-                            <controls:DaisyLoading Variant="Ring" Size="Medium" />
-                            <controls:DaisyLoading Variant="Ring" Size="Large" />
-                            <controls:DaisyLoading Variant="Ring" Size="ExtraLarge" />
-                        </StackPanel>
+                <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+                <!-- TERMINAL-STYLE VARIANTS -->
+                <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+                <Border Background="{DynamicResource DaisyBase200Brush}" CornerRadius="8" Padding="16" Margin="0,16,0,0">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="💻 Terminal-Style Variants" FontWeight="Bold" FontSize="16" Opacity="0.95"/>
+                        <TextBlock Text="CLI-inspired animations reminiscent of npm, yarn, and terminal progress indicators" FontSize="12" Opacity="0.6" Margin="0,0,0,8"/>
+                        <WrapPanel Orientation="Horizontal">
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Orbit (npm-style)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Orbit" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Orbit" Size="Small" />
+                                    <controls:DaisyLoading Variant="Orbit" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Orbit" Size="Large" />
+                                    <controls:DaisyLoading Variant="Orbit" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Snake (centipede)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Snake" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Snake" Size="Small" />
+                                    <controls:DaisyLoading Variant="Snake" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Snake" Size="Large" />
+                                    <controls:DaisyLoading Variant="Snake" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Pulse (breathing)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Pulse" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Pulse" Size="Small" />
+                                    <controls:DaisyLoading Variant="Pulse" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Pulse" Size="Large" />
+                                    <controls:DaisyLoading Variant="Pulse" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Wave" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Wave" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Wave" Size="Small" />
+                                    <controls:DaisyLoading Variant="Wave" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Wave" Size="Large" />
+                                    <controls:DaisyLoading Variant="Wave" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Bounce (grid)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Bounce" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Bounce" Size="Small" />
+                                    <controls:DaisyLoading Variant="Bounce" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Bounce" Size="Large" />
+                                    <controls:DaisyLoading Variant="Bounce" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Terminal Colors" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Orbit" Color="Primary" Size="Large" />
+                                    <controls:DaisyLoading Variant="Snake" Color="Secondary" Size="Large" />
+                                    <controls:DaisyLoading Variant="Pulse" Color="Accent" Size="Large" />
+                                    <controls:DaisyLoading Variant="Wave" Color="Info" Size="Large" />
+                                    <controls:DaisyLoading Variant="Bounce" Color="Success" Size="Large" />
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
                     </StackPanel>
+                </Border>
 
-                    <!-- Loading Ball -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Loading Ball" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Ball" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Ball" Size="Small" />
-                            <controls:DaisyLoading Variant="Ball" Size="Medium" />
-                            <controls:DaisyLoading Variant="Ball" Size="Large" />
-                            <controls:DaisyLoading Variant="Ball" Size="ExtraLarge" />
-                        </StackPanel>
+                <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+                <!-- MATRIX VARIANTS -->
+                <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+                <Border Background="{DynamicResource DaisyBase200Brush}" CornerRadius="8" Padding="16" Margin="0,16,0,0">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="⬡ Matrix Colon Patterns" FontWeight="Bold" FontSize="16" Opacity="0.95"/>
+                        <TextBlock Text="Colon-dot patterns ( ::: ::: ) with directional wave animations" FontSize="12" Opacity="0.6" Margin="0,0,0,8"/>
+                        <WrapPanel Orientation="Horizontal">
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Matrix (left→right)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Matrix" Size="ExtraSmall" />
+                                    <controls:DaisyLoading Variant="Matrix" Size="Small" />
+                                    <controls:DaisyLoading Variant="Matrix" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Matrix" Size="Large" />
+                                    <controls:DaisyLoading Variant="Matrix" Size="ExtraLarge" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="MatrixInward (center→edges)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="MatrixInward" Size="Medium" />
+                                    <controls:DaisyLoading Variant="MatrixInward" Size="Large" Color="Primary" />
+                                    <controls:DaisyLoading Variant="MatrixInward" Size="Large" Color="Secondary" />
+                                    <controls:DaisyLoading Variant="MatrixInward" Size="Large" Color="Accent" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="MatrixOutward (edges→center)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="MatrixOutward" Size="Medium" />
+                                    <controls:DaisyLoading Variant="MatrixOutward" Size="Large" Color="Info" />
+                                    <controls:DaisyLoading Variant="MatrixOutward" Size="Large" Color="Success" />
+                                    <controls:DaisyLoading Variant="MatrixOutward" Size="Large" Color="Warning" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="MatrixVertical (top→bottom)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="MatrixVertical" Size="Medium" />
+                                    <controls:DaisyLoading Variant="MatrixVertical" Size="Large" Color="Primary" />
+                                    <controls:DaisyLoading Variant="MatrixVertical" Size="Large" Color="Error" />
+                                    <controls:DaisyLoading Variant="MatrixVertical" Size="Large" Color="Success" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Matrix Colors" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Matrix" Color="Primary" Size="Large" />
+                                    <controls:DaisyLoading Variant="Matrix" Color="Secondary" Size="Large" />
+                                    <controls:DaisyLoading Variant="Matrix" Color="Accent" Size="Large" />
+                                    <controls:DaisyLoading Variant="Matrix" Color="Info" Size="Large" />
+                                    <controls:DaisyLoading Variant="Matrix" Color="Success" Size="Large" />
+                                    <controls:DaisyLoading Variant="Matrix" Color="Warning" Size="Large" />
+                                    <controls:DaisyLoading Variant="Matrix" Color="Error" Size="Large" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Matrix Inline Usage" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                                    <TextBlock Text="Processing" VerticalAlignment="Center" FontSize="14"/>
+                                    <controls:DaisyLoading Variant="Matrix" Size="Small" Color="Primary" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Matrix" Size="Medium" Color="Info" />
+                                    <TextBlock Text="Loading data..." VerticalAlignment="Center" FontSize="14" Opacity="0.7"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
                     </StackPanel>
+                </Border>
 
-                    <!-- Loading Bars -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Loading Bars" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Bars" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Bars" Size="Small" />
-                            <controls:DaisyLoading Variant="Bars" Size="Medium" />
-                            <controls:DaisyLoading Variant="Bars" Size="Large" />
-                            <controls:DaisyLoading Variant="Bars" Size="ExtraLarge" />
-                        </StackPanel>
+                <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+                <!-- DOT-BASED EFFECTS -->
+                <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+                <Border Background="{DynamicResource DaisyBase200Brush}" CornerRadius="8" Padding="16" Margin="0,16,0,0">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="● Dot-Based Effects" FontWeight="Bold" FontSize="16" Opacity="0.95"/>
+                        <TextBlock Text="Animated dot patterns including rain, ripples, bursts, and orbital motions" FontSize="12" Opacity="0.6" Margin="0,0,0,8"/>
+                        <WrapPanel Orientation="Horizontal">
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="MatrixRain (digital rain)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="MatrixRain" Size="Medium" />
+                                    <controls:DaisyLoading Variant="MatrixRain" Size="Large" />
+                                    <controls:DaisyLoading Variant="MatrixRain" Size="ExtraLarge" Color="Success" />
+                                    <controls:DaisyLoading Variant="MatrixRain" Size="ExtraLarge" Color="Primary" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="BitFlip (binary pattern)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="BitFlip" Size="Medium" />
+                                    <controls:DaisyLoading Variant="BitFlip" Size="Large" Color="Primary" />
+                                    <controls:DaisyLoading Variant="BitFlip" Size="ExtraLarge" Color="Accent" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="PacketBurst (network ping)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="PacketBurst" Size="Medium" />
+                                    <controls:DaisyLoading Variant="PacketBurst" Size="Large" Color="Info" />
+                                    <controls:DaisyLoading Variant="PacketBurst" Size="ExtraLarge" Color="Secondary" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="CometTrail (orbiting comet)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="CometTrail" Size="Medium" />
+                                    <controls:DaisyLoading Variant="CometTrail" Size="Large" Color="Warning" />
+                                    <controls:DaisyLoading Variant="CometTrail" Size="ExtraLarge" Color="Accent" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="RippleMatrix (expanding ripple)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="RippleMatrix" Size="Medium" />
+                                    <controls:DaisyLoading Variant="RippleMatrix" Size="Large" Color="Info" />
+                                    <controls:DaisyLoading Variant="RippleMatrix" Size="ExtraLarge" Color="Primary" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="CountdownSpinner (clock tick)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="CountdownSpinner" Size="Medium" />
+                                    <controls:DaisyLoading Variant="CountdownSpinner" Size="Large" Color="Primary" />
+                                    <controls:DaisyLoading Variant="CountdownSpinner" Size="ExtraLarge" Color="Secondary" />
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
                     </StackPanel>
+                </Border>
 
-                    <!-- Loading Infinity -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Loading Infinity" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Infinity" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Infinity" Size="Small" />
-                            <controls:DaisyLoading Variant="Infinity" Size="Medium" />
-                            <controls:DaisyLoading Variant="Infinity" Size="Large" />
-                            <controls:DaisyLoading Variant="Infinity" Size="ExtraLarge" />
-                        </StackPanel>
+                <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+                <!-- SPECIAL EFFECTS -->
+                <!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+                <Border Background="{DynamicResource DaisyBase200Brush}" CornerRadius="8" Padding="16" Margin="0,16,0,0">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="✨ Special Effects" FontWeight="Bold" FontSize="16" Opacity="0.95"/>
+                        <TextBlock Text="Unique animations including hourglass, oscilloscope, EKG pulse, and glitch effects" FontSize="12" Opacity="0.6" Margin="0,0,0,8"/>
+                        <WrapPanel Orientation="Horizontal">
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Hourglass (classic timer)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Hourglass" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Hourglass" Size="Large" />
+                                    <controls:DaisyLoading Variant="Hourglass" Size="ExtraLarge" Color="Warning" />
+                                    <controls:DaisyLoading Variant="Hourglass" Size="ExtraLarge" Color="Accent" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="SignalSweep (oscilloscope)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="SignalSweep" Size="Medium" />
+                                    <controls:DaisyLoading Variant="SignalSweep" Size="Large" Color="Info" />
+                                    <controls:DaisyLoading Variant="SignalSweep" Size="ExtraLarge" Color="Success" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="Heartbeat (EKG pulse)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="Heartbeat" Size="Medium" />
+                                    <controls:DaisyLoading Variant="Heartbeat" Size="Large" Color="Error" />
+                                    <controls:DaisyLoading Variant="Heartbeat" Size="ExtraLarge" Color="Success" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="TunnelZoom (warp tunnel)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="TunnelZoom" Size="Medium" />
+                                    <controls:DaisyLoading Variant="TunnelZoom" Size="Large" Color="Primary" />
+                                    <controls:DaisyLoading Variant="TunnelZoom" Size="ExtraLarge" Color="Info" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="GlitchReveal (terminal glitch)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="GlitchReveal" Size="Medium" />
+                                    <controls:DaisyLoading Variant="GlitchReveal" Size="Large" Color="Success" />
+                                    <controls:DaisyLoading Variant="GlitchReveal" Size="ExtraLarge" Color="Accent" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Spacing="10" Margin="0,0,40,12">
+                                <TextBlock Text="CursorBlink (CLI cursor)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                                    <controls:DaisyLoading Variant="CursorBlink" Size="Medium" />
+                                    <controls:DaisyLoading Variant="CursorBlink" Size="Large" Color="Success" />
+                                    <controls:DaisyLoading Variant="CursorBlink" Size="ExtraLarge" Color="Warning" />
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
                     </StackPanel>
-
-                    <!-- Loading with Colors -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Loading with Colors" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Spinner" Color="Primary" />
-                            <controls:DaisyLoading Variant="Spinner" Color="Secondary" />
-                            <controls:DaisyLoading Variant="Spinner" Color="Accent" />
-                            <controls:DaisyLoading Variant="Spinner" Color="Neutral" />
-                            <controls:DaisyLoading Variant="Spinner" Color="Info" />
-                            <controls:DaisyLoading Variant="Spinner" Color="Success" />
-                            <controls:DaisyLoading Variant="Spinner" Color="Warning" />
-                            <controls:DaisyLoading Variant="Spinner" Color="Error" />
-                        </StackPanel>
-                    </StackPanel>
-                </WrapPanel>
-
-                <!-- Terminal-Style Loading Animations -->
-                <TextBlock Text="Terminal-Style Loading Animations" FontWeight="SemiBold" FontSize="16" Margin="0,16,0,12" Opacity="0.9"/>
-                <WrapPanel Orientation="Horizontal">
-                    <!-- Orbit (npm/yarn style) -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Orbit (npm-style)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Orbit" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Orbit" Size="Small" />
-                            <controls:DaisyLoading Variant="Orbit" Size="Medium" />
-                            <controls:DaisyLoading Variant="Orbit" Size="Large" />
-                            <controls:DaisyLoading Variant="Orbit" Size="ExtraLarge" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Snake (centipede-style) -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Snake (centipede)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Snake" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Snake" Size="Small" />
-                            <controls:DaisyLoading Variant="Snake" Size="Medium" />
-                            <controls:DaisyLoading Variant="Snake" Size="Large" />
-                            <controls:DaisyLoading Variant="Snake" Size="ExtraLarge" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Pulse (breathing) -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Pulse (breathing)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Pulse" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Pulse" Size="Small" />
-                            <controls:DaisyLoading Variant="Pulse" Size="Medium" />
-                            <controls:DaisyLoading Variant="Pulse" Size="Large" />
-                            <controls:DaisyLoading Variant="Pulse" Size="ExtraLarge" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Wave -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Wave" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Wave" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Wave" Size="Small" />
-                            <controls:DaisyLoading Variant="Wave" Size="Medium" />
-                            <controls:DaisyLoading Variant="Wave" Size="Large" />
-                            <controls:DaisyLoading Variant="Wave" Size="ExtraLarge" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Bounce (grid squares) -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Bounce (grid)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Bounce" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Bounce" Size="Small" />
-                            <controls:DaisyLoading Variant="Bounce" Size="Medium" />
-                            <controls:DaisyLoading Variant="Bounce" Size="Large" />
-                            <controls:DaisyLoading Variant="Bounce" Size="ExtraLarge" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Matrix (colon-dotted pattern) -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Matrix (colon pattern)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Matrix" Size="ExtraSmall" />
-                            <controls:DaisyLoading Variant="Matrix" Size="Small" />
-                            <controls:DaisyLoading Variant="Matrix" Size="Medium" />
-                            <controls:DaisyLoading Variant="Matrix" Size="Large" />
-                            <controls:DaisyLoading Variant="Matrix" Size="ExtraLarge" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Matrix with Colors -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Matrix with Colors" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Matrix" Color="Primary" Size="Large" />
-                            <controls:DaisyLoading Variant="Matrix" Color="Secondary" Size="Large" />
-                            <controls:DaisyLoading Variant="Matrix" Color="Accent" Size="Large" />
-                            <controls:DaisyLoading Variant="Matrix" Color="Info" Size="Large" />
-                            <controls:DaisyLoading Variant="Matrix" Color="Success" Size="Large" />
-                            <controls:DaisyLoading Variant="Matrix" Color="Warning" Size="Large" />
-                            <controls:DaisyLoading Variant="Matrix" Color="Error" Size="Large" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Matrix Inline Usage -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Matrix Inline Usage" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
-                            <TextBlock Text="Processing" VerticalAlignment="Center" FontSize="14"/>
-                            <controls:DaisyLoading Variant="Matrix" Size="Small" Color="Primary" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Matrix" Size="Medium" Color="Info" />
-                            <TextBlock Text="Loading data..." VerticalAlignment="Center" FontSize="14" Opacity="0.7"/>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- MatrixInward (inner to outer) -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="MatrixInward (center→edges)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="MatrixInward" Size="Medium" />
-                            <controls:DaisyLoading Variant="MatrixInward" Size="Large" Color="Primary" />
-                            <controls:DaisyLoading Variant="MatrixInward" Size="Large" Color="Secondary" />
-                            <controls:DaisyLoading Variant="MatrixInward" Size="Large" Color="Accent" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- MatrixOutward (outer to inner) -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="MatrixOutward (edges→center)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="MatrixOutward" Size="Medium" />
-                            <controls:DaisyLoading Variant="MatrixOutward" Size="Large" Color="Info" />
-                            <controls:DaisyLoading Variant="MatrixOutward" Size="Large" Color="Success" />
-                            <controls:DaisyLoading Variant="MatrixOutward" Size="Large" Color="Warning" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- MatrixVertical (top to bottom) -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="MatrixVertical (top→bottom)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="MatrixVertical" Size="Medium" />
-                            <controls:DaisyLoading Variant="MatrixVertical" Size="Large" Color="Primary" />
-                            <controls:DaisyLoading Variant="MatrixVertical" Size="Large" Color="Error" />
-                            <controls:DaisyLoading Variant="MatrixVertical" Size="Large" Color="Success" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- MatrixRain (digital rain) -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="MatrixRain (digital rain)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="MatrixRain" Size="Medium" />
-                            <controls:DaisyLoading Variant="MatrixRain" Size="Large" />
-                            <controls:DaisyLoading Variant="MatrixRain" Size="ExtraLarge" Color="Success" />
-                            <controls:DaisyLoading Variant="MatrixRain" Size="ExtraLarge" Color="Primary" />
-                            <controls:DaisyLoading Variant="MatrixRain" Size="ExtraLarge" Color="Info" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Hourglass (classic timer) -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Hourglass (classic timer)" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Hourglass" Size="Medium" />
-                            <controls:DaisyLoading Variant="Hourglass" Size="Large" />
-                            <controls:DaisyLoading Variant="Hourglass" Size="ExtraLarge" Color="Warning" />
-                            <controls:DaisyLoading Variant="Hourglass" Size="ExtraLarge" Color="Secondary" />
-                            <controls:DaisyLoading Variant="Hourglass" Size="ExtraLarge" Color="Accent" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Terminal variants with colors -->
-                    <StackPanel Spacing="10" Margin="0,0,40,20">
-                        <TextBlock Text="Terminal Variants with Colors" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
-                            <controls:DaisyLoading Variant="Orbit" Color="Primary" Size="Large" />
-                            <controls:DaisyLoading Variant="Snake" Color="Secondary" Size="Large" />
-                            <controls:DaisyLoading Variant="Pulse" Color="Accent" Size="Large" />
-                            <controls:DaisyLoading Variant="Wave" Color="Info" Size="Large" />
-                            <controls:DaisyLoading Variant="Bounce" Color="Success" Size="Large" />
-                        </StackPanel>
-                    </StackPanel>
-                </WrapPanel>
+                </Border>
             </StackPanel>
 
             <controls:DaisyDivider />

@@ -2,105 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
 
-    <!-- MatrixRain Variant - Digital rain of dots falling down -->
-    <Style Selector="controls|DaisyLoading[Variant=MatrixRain]">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
-                    <Canvas Width="24" Height="24" ClipToBounds="True">
-                        <!-- Column 1 -->
-                        <Ellipse Classes="drop1a" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="1" Canvas.Top="-3"/>
-                        <Ellipse Classes="drop1b" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="1" Canvas.Top="-3" Opacity="0.5"/>
-                        <!-- Column 2 -->
-                        <Ellipse Classes="drop2a" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="7" Canvas.Top="-3"/>
-                        <Ellipse Classes="drop2b" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="7" Canvas.Top="-3" Opacity="0.5"/>
-                        <!-- Column 3 -->
-                        <Ellipse Classes="drop3a" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="13" Canvas.Top="-3"/>
-                        <Ellipse Classes="drop3b" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="13" Canvas.Top="-3" Opacity="0.5"/>
-                        <!-- Column 4 -->
-                        <Ellipse Classes="drop4a" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="19" Canvas.Top="-3"/>
-                        <Ellipse Classes="drop4b" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="19" Canvas.Top="-3" Opacity="0.5"/>
-                    </Canvas>
-                </Viewbox>
-            </ControlTemplate>
-        </Setter>
-    </Style>
-
-    <!-- MatrixRain Animations - drops fall at different rates with trails -->
-    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop1a">
-        <Style.Animations>
-            <Animation Duration="0:0:0.8" IterationCount="Infinite">
-                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0.3"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop1b">
-        <Style.Animations>
-            <Animation Duration="0:0:0.8" IterationCount="Infinite" Delay="0:0:0.1">
-                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop2a">
-        <Style.Animations>
-            <Animation Duration="0:0:1.1" IterationCount="Infinite" Delay="0:0:0.2">
-                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:1"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0.3"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:1.1"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop2b">
-        <Style.Animations>
-            <Animation Duration="0:0:1.1" IterationCount="Infinite" Delay="0:0:0.3">
-                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:1"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:1.1"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop3a">
-        <Style.Animations>
-            <Animation Duration="0:0:0.9" IterationCount="Infinite" Delay="0:0:0.4">
-                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0.3"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop3b">
-        <Style.Animations>
-            <Animation Duration="0:0:0.9" IterationCount="Infinite" Delay="0:0:0.5">
-                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop4a">
-        <Style.Animations>
-            <Animation Duration="0:0:0.7" IterationCount="Infinite" Delay="0:0:0.15">
-                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.6"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0.3"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop4b">
-        <Style.Animations>
-            <Animation Duration="0:0:0.7" IterationCount="Infinite" Delay="0:0:0.25">
-                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.6"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0"/></KeyFrame>
-                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-
-    <!-- Hourglass Variant - Classic hourglass with flowing sand -->
+    <!-- ==================== HOURGLASS ==================== -->
+    <!-- Hourglass - Classic hourglass with flowing sand -->
     <Style Selector="controls|DaisyLoading[Variant=Hourglass]">
         <Setter Property="Template">
             <ControlTemplate>
@@ -136,7 +39,6 @@
     </Style>
 
     <!-- Hourglass Animations -->
-    <!-- Top sand depletes by translating down (revealing clip) -->
     <Style Selector="controls|DaisyLoading[Variant=Hourglass] /template/ Path.sand-top">
         <Style.Animations>
             <Animation Duration="0:0:2" IterationCount="Infinite">
@@ -157,7 +59,6 @@
             </Animation>
         </Style.Animations>
     </Style>
-    <!-- Bottom sand accumulates by translating up (filling from bottom) -->
     <Style Selector="controls|DaisyLoading[Variant=Hourglass] /template/ Path.sand-bottom">
         <Style.Animations>
             <Animation Duration="0:0:2" IterationCount="Infinite">
@@ -165,6 +66,294 @@
                 <KeyFrame KeyTime="0:0:1.8"><Setter Property="TranslateTransform.Y" Value="0"/></KeyFrame>
                 <KeyFrame KeyTime="0:0:1.9"><Setter Property="TranslateTransform.Y" Value="0"/></KeyFrame>
                 <KeyFrame KeyTime="0:0:2"><Setter Property="TranslateTransform.Y" Value="7"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <!-- ==================== SIGNAL SWEEP ==================== -->
+    <!-- SignalSweep - oscilloscope bar scanning left to right -->
+    <Style Selector="controls|DaisyLoading[Variant=SignalSweep]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
+                    <Canvas Width="24" Height="24" ClipToBounds="True">
+                        <!-- Background grid lines (subtle) -->
+                        <Line StartPoint="0,6" EndPoint="24,6" Stroke="{TemplateBinding Foreground}" StrokeThickness="0.5" Opacity="0.15"/>
+                        <Line StartPoint="0,12" EndPoint="24,12" Stroke="{TemplateBinding Foreground}" StrokeThickness="0.5" Opacity="0.15"/>
+                        <Line StartPoint="0,18" EndPoint="24,18" Stroke="{TemplateBinding Foreground}" StrokeThickness="0.5" Opacity="0.15"/>
+                        <!-- Sweep bar with trail -->
+                        <Border Classes="sweep-trail" Width="8" Height="20" Canvas.Left="-8" Canvas.Top="2"
+                                Opacity="0.3">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0%,50%" EndPoint="100%,50%">
+                                    <GradientStop Offset="0" Color="Transparent"/>
+                                    <GradientStop Offset="1" Color="{DynamicResource DaisyBaseContentColor}"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <Border Classes="sweep-bar" Width="2" Height="20" Canvas.Left="-2" Canvas.Top="2"
+                                Background="{TemplateBinding Foreground}" CornerRadius="1"/>
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="controls|DaisyLoading[Variant=SignalSweep] /template/ Border.sweep-bar">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Left" Value="-2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Canvas.Left" Value="24"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Canvas.Left" Value="-2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=SignalSweep] /template/ Border.sweep-trail">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Left" Value="-8"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Canvas.Left" Value="16"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Canvas.Left" Value="-8"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <!-- ==================== HEARTBEAT ==================== -->
+    <!-- Heartbeat - EKG-style pulse line -->
+    <Style Selector="controls|DaisyLoading[Variant=Heartbeat]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
+                    <Canvas Width="24" Height="24" ClipToBounds="True">
+                        <!-- Baseline -->
+                        <Line StartPoint="0,12" EndPoint="24,12" Stroke="{TemplateBinding Foreground}"
+                              StrokeThickness="1" Opacity="0.2"/>
+                        <!-- Heartbeat path that animates -->
+                        <Path Classes="heartbeat-line" Stroke="{TemplateBinding Foreground}" StrokeThickness="1.5"
+                              StrokeLineCap="Round" StrokeJoin="Round"
+                              Data="M-24,12 L-18,12 L-15,12 L-12,4 L-9,20 L-6,12 L0,12 L6,12 L9,12 L12,4 L15,20 L18,12 L24,12 L30,12 L33,12 L36,4 L39,20 L42,12 L48,12"/>
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="controls|DaisyLoading[Variant=Heartbeat] /template/ Path.heartbeat-line">
+        <Style.Animations>
+            <Animation Duration="0:0:1.5" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="TranslateTransform.X" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.5"><Setter Property="TranslateTransform.X" Value="-24"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <!-- ==================== TUNNEL ZOOM ==================== -->
+    <!-- TunnelZoom - concentric rings expanding outward -->
+    <Style Selector="controls|DaisyLoading[Variant=TunnelZoom]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                    <Ellipse Classes="ring1" Stroke="{TemplateBinding Foreground}" StrokeThickness="1.5"/>
+                    <Ellipse Classes="ring2" Stroke="{TemplateBinding Foreground}" StrokeThickness="1.5"/>
+                    <Ellipse Classes="ring3" Stroke="{TemplateBinding Foreground}" StrokeThickness="1.5"/>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="controls|DaisyLoading[Variant=TunnelZoom] /template/ Ellipse.ring1">
+        <Style.Animations>
+            <Animation Duration="0:0:1.5" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0">
+                    <Setter Property="ScaleTransform.ScaleX" Value="0.1"/>
+                    <Setter Property="ScaleTransform.ScaleY" Value="0.1"/>
+                    <Setter Property="Opacity" Value="1"/>
+                </KeyFrame>
+                <KeyFrame KeyTime="0:0:1.5">
+                    <Setter Property="ScaleTransform.ScaleX" Value="1"/>
+                    <Setter Property="ScaleTransform.ScaleY" Value="1"/>
+                    <Setter Property="Opacity" Value="0"/>
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=TunnelZoom] /template/ Ellipse.ring2">
+        <Style.Animations>
+            <Animation Duration="0:0:1.5" IterationCount="Infinite" Delay="0:0:0.5">
+                <KeyFrame KeyTime="0:0:0">
+                    <Setter Property="ScaleTransform.ScaleX" Value="0.1"/>
+                    <Setter Property="ScaleTransform.ScaleY" Value="0.1"/>
+                    <Setter Property="Opacity" Value="1"/>
+                </KeyFrame>
+                <KeyFrame KeyTime="0:0:1.5">
+                    <Setter Property="ScaleTransform.ScaleX" Value="1"/>
+                    <Setter Property="ScaleTransform.ScaleY" Value="1"/>
+                    <Setter Property="Opacity" Value="0"/>
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=TunnelZoom] /template/ Ellipse.ring3">
+        <Style.Animations>
+            <Animation Duration="0:0:1.5" IterationCount="Infinite" Delay="0:0:1">
+                <KeyFrame KeyTime="0:0:0">
+                    <Setter Property="ScaleTransform.ScaleX" Value="0.1"/>
+                    <Setter Property="ScaleTransform.ScaleY" Value="0.1"/>
+                    <Setter Property="Opacity" Value="1"/>
+                </KeyFrame>
+                <KeyFrame KeyTime="0:0:1.5">
+                    <Setter Property="ScaleTransform.ScaleX" Value="1"/>
+                    <Setter Property="ScaleTransform.ScaleY" Value="1"/>
+                    <Setter Property="Opacity" Value="0"/>
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <!-- ==================== GLITCH REVEAL ==================== -->
+    <!-- GlitchReveal - random columns flash like terminal glitch -->
+    <Style Selector="controls|DaisyLoading[Variant=GlitchReveal]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
+                    <Canvas Width="24" Height="24">
+                        <Border Classes="glitch1" Width="3" Height="24" Canvas.Left="0" Canvas.Top="0"
+                                Background="{TemplateBinding Foreground}" Opacity="0.2"/>
+                        <Border Classes="glitch2" Width="3" Height="24" Canvas.Left="4" Canvas.Top="0"
+                                Background="{TemplateBinding Foreground}" Opacity="0.2"/>
+                        <Border Classes="glitch3" Width="3" Height="24" Canvas.Left="8" Canvas.Top="0"
+                                Background="{TemplateBinding Foreground}" Opacity="0.2"/>
+                        <Border Classes="glitch4" Width="3" Height="24" Canvas.Left="12" Canvas.Top="0"
+                                Background="{TemplateBinding Foreground}" Opacity="0.2"/>
+                        <Border Classes="glitch5" Width="3" Height="24" Canvas.Left="16" Canvas.Top="0"
+                                Background="{TemplateBinding Foreground}" Opacity="0.2"/>
+                        <Border Classes="glitch6" Width="3" Height="24" Canvas.Left="20" Canvas.Top="0"
+                                Background="{TemplateBinding Foreground}" Opacity="0.2"/>
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- GlitchReveal Animations - pseudo-random glitch pattern -->
+    <Style Selector="controls|DaisyLoading[Variant=GlitchReveal] /template/ Border.glitch1">
+        <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.1"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.15"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.85"><Setter Property="Opacity" Value="0.8"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=GlitchReveal] /template/ Border.glitch2">
+        <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.3"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.35"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.55"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.25"><Setter Property="Opacity" Value="0.9"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.3"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=GlitchReveal] /template/ Border.glitch3">
+        <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.25"><Setter Property="Opacity" Value="0.7"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.3"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.95"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.1"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.15"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=GlitchReveal] /template/ Border.glitch4">
+        <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.55"><Setter Property="Opacity" Value="0.8"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.6"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.65"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.5"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.55"><Setter Property="Opacity" Value="0.9"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.6"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=GlitchReveal] /template/ Border.glitch5">
+        <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.15"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.2"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.35"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.4"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.3"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.35"><Setter Property="Opacity" Value="0.7"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.4"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=GlitchReveal] /template/ Border.glitch6">
+        <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.75"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.85"><Setter Property="Opacity" Value="0.6"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.7"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.75"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.85"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.9"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <!-- ==================== CURSOR BLINK ==================== -->
+    <!-- CursorBlink - classic CLI cursor that moves and blinks -->
+    <Style Selector="controls|DaisyLoading[Variant=CursorBlink]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
+                    <Canvas Width="24" Height="24">
+                        <!-- Prompt symbol > -->
+                        <TextBlock Text=">" FontFamily="Consolas,monospace" FontSize="12" FontWeight="Bold"
+                                   Foreground="{TemplateBinding Foreground}" Canvas.Left="2" Canvas.Top="5" Opacity="0.6"/>
+                        <!-- Blinking cursor block -->
+                        <Border Classes="cursor-block" Width="6" Height="12" Canvas.Left="10" Canvas.Top="6"
+                                Background="{TemplateBinding Foreground}"/>
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="controls|DaisyLoading[Variant=CursorBlink] /template/ Border.cursor-block">
+        <Style.Animations>
+            <Animation Duration="0:0:1" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.51"><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Opacity" Value="0"/></KeyFrame>
             </Animation>
         </Style.Animations>
     </Style>

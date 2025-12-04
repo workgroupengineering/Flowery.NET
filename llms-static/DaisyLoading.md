@@ -3,7 +3,7 @@
 
 # Overview
 
-DaisyLoading provides animated loading indicators with **15 different animation styles**, **5 size options**, and **9 color variants**. The control includes standard DaisyUI animations, creative terminal-inspired variants, and unique Matrix/retro variants. All animations scale properly across all sizes using Viewbox-based rendering.
+DaisyLoading provides animated loading indicators with **27 different animation styles**, **5 size options**, and **9 color variants**. The control includes standard DaisyUI animations, creative terminal-inspired variants, Matrix/retro variants, and unique special effect variants. All animations scale properly across all sizes using Viewbox-based rendering.
 
 **Key Feature:** DaisyLoading includes built-in accessibility support for screen readers via the `AccessibleText` property and proper automation peers.
 
@@ -45,6 +45,16 @@ DaisyLoading provides animated loading indicators with **15 different animation 
 |---------|-------------|
 | **MatrixRain** | Digital rain inspired by "The Matrix" movie. Four columns of falling dots at different speeds, each with a bright leading dot and dimmer trailing dot. |
 | **Hourglass** | Classic hourglass timer with flowing sand animation. Top sand depletes, stream flows through the middle, bottom sand accumulates. 2-second cycle. |
+| **SignalSweep** | Oscilloscope-style bar sweeping left to right with a fading gradient trail. Includes subtle horizontal grid lines. |
+| **BitFlip** | 4×2 grid of dots flipping on/off in pseudo-random binary patterns, like data streaming through a register. |
+| **PacketBurst** | Center dot pulses while four particles shoot outward to all edges (left, right, up, down), mimicking network packet transmission. |
+| **CometTrail** | Bright dot orbiting in a circle with three trailing dots that fade behind it, creating a comet-like tail effect. |
+| **Heartbeat** | EKG/heart monitor-style pulse line scrolling horizontally with characteristic heartbeat spikes. |
+| **TunnelZoom** | Three concentric rings expanding outward from center and fading, creating a warp tunnel/zoom effect. |
+| **GlitchReveal** | Six vertical columns flashing in random-seeming patterns, mimicking terminal glitch/interference effects. |
+| **RippleMatrix** | 3×3 dot grid (9 dots) with brightness rippling outward from the center dot to adjacent dots then corner dots. |
+| **CursorBlink** | Classic CLI terminal prompt (`>`) with a blinking block cursor. Simple and nostalgic. |
+| **CountdownSpinner** | 12 dots arranged in a clock face pattern, lighting up sequentially like clock hands ticking. |
 
 ## Accessibility Support
 
@@ -143,7 +153,7 @@ The DaisyLoading theme styles are organized into multiple files for maintainabil
 | `Themes/DaisyLoading/DaisyLoading.Classic.axaml` | Dots, Ring, Ball, Bars, Infinity variants |
 | `Themes/DaisyLoading/DaisyLoading.Terminal.axaml` | Orbit, Snake, Pulse, Wave, Bounce variants |
 | `Themes/DaisyLoading/DaisyLoading.Matrix.axaml` | Matrix, MatrixInward, MatrixOutward, MatrixVertical variants |
-| `Themes/DaisyLoading/DaisyLoading.Special.axaml` | MatrixRain, Hourglass variants |
+| `Themes/DaisyLoading/DaisyLoading.Special.axaml` | MatrixRain, Hourglass, SignalSweep, BitFlip, PacketBurst, CometTrail, Heartbeat, TunnelZoom, GlitchReveal, RippleMatrix, CursorBlink, CountdownSpinner variants |
 
 ### Adding New Variants
 
@@ -215,6 +225,16 @@ Use the `Color` property to apply theme colors. All variants support coloring.
 <!-- Special effect variants -->
 <controls:DaisyLoading Variant="MatrixRain" Color="Success" Size="Large" />
 <controls:DaisyLoading Variant="Hourglass" Color="Warning" Size="ExtraLarge" />
+<controls:DaisyLoading Variant="SignalSweep" Color="Info" Size="Large" />
+<controls:DaisyLoading Variant="BitFlip" Color="Primary" />
+<controls:DaisyLoading Variant="PacketBurst" Color="Secondary" Size="Large" />
+<controls:DaisyLoading Variant="CometTrail" Color="Accent" />
+<controls:DaisyLoading Variant="Heartbeat" Color="Error" Size="Large" />
+<controls:DaisyLoading Variant="TunnelZoom" Color="Info" Size="ExtraLarge" />
+<controls:DaisyLoading Variant="GlitchReveal" Color="Success" />
+<controls:DaisyLoading Variant="RippleMatrix" Color="Primary" Size="Large" />
+<controls:DaisyLoading Variant="CursorBlink" Color="Success" />
+<controls:DaisyLoading Variant="CountdownSpinner" Color="Warning" Size="Large" />
 
 <!-- With accessibility -->
 <controls:DaisyLoading Variant="Spinner" AccessibleText="Loading dashboard" />
@@ -241,12 +261,22 @@ Use the `Color` property to apply theme colors. All variants support coloring.
 | MatrixVertical | 1.0s | Top-to-bottom blink |
 | MatrixRain | 0.7-1.1s | Variable speeds per column |
 | Hourglass | 2.0s | Full sand flow cycle |
+| SignalSweep | 1.2s | Left-to-right sweep with trail |
+| BitFlip | 1.6s | Pseudo-random binary patterns |
+| PacketBurst | 1.2s | Center pulse with 4-direction burst |
+| CometTrail | 1.5s | Full circular orbit with 0.1s trail delays |
+| Heartbeat | 1.5s | Horizontal scroll of EKG pattern |
+| TunnelZoom | 1.5s | Ring expansion with 0.5s stagger |
+| GlitchReveal | 2.0s | Random column flash patterns |
+| RippleMatrix | 1.2s | Center-outward ripple wave |
+| CursorBlink | 1.0s | 50% on, 50% off blink cycle |
+| CountdownSpinner | 1.2s | Sequential 12-position lighting |
 
 ## Property Summary
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `Variant` | `DaisyLoadingVariant` | `Spinner` | Animation style (15 options) |
+| `Variant` | `DaisyLoadingVariant` | `Spinner` | Animation style (27 options) |
 | `Size` | `DaisySize` | `Medium` | Control dimensions (5 options) |
 | `Color` | `DaisyLoadingColor` | `Default` | Theme color (9 options) |
 | `AccessibleText` | `string` | `"Loading"` | Screen reader announcement |
@@ -257,9 +287,12 @@ Use the `Color` property to apply theme colors. All variants support coloring.
 |----------|---------------------|
 | General purpose | `Spinner`, `Ring`, `Dots` |
 | Form submission | `Spinner`, `Pulse`, `Hourglass` |
-| Data fetching | `Dots`, `Wave`, `Matrix` |
-| File upload/download | `Bars`, `MatrixRain`, `Hourglass` |
-| Connection/sync | `Orbit`, `Pulse` |
-| Terminal/developer UI | `Snake`, `Matrix`, `MatrixRain` |
-| Gaming/entertainment | `Bounce`, `MatrixRain` |
-| Retro/nostalgic | `Hourglass`, `Matrix`, `Infinity` |
+| Data fetching | `Dots`, `Wave`, `Matrix`, `RippleMatrix` |
+| File upload/download | `Bars`, `MatrixRain`, `Hourglass`, `SignalSweep` |
+| Connection/sync | `Orbit`, `Pulse`, `PacketBurst` |
+| Terminal/developer UI | `Snake`, `Matrix`, `MatrixRain`, `CursorBlink`, `BitFlip`, `GlitchReveal` |
+| Gaming/entertainment | `Bounce`, `MatrixRain`, `CometTrail`, `TunnelZoom` |
+| Retro/nostalgic | `Hourglass`, `Matrix`, `Infinity`, `CursorBlink` |
+| Health/medical UI | `Heartbeat`, `Pulse` |
+| Sci-fi/futuristic | `TunnelZoom`, `SignalSweep`, `PacketBurst`, `GlitchReveal` |
+| Time-based operations | `Hourglass`, `CountdownSpinner` |

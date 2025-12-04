@@ -33,6 +33,20 @@
                 <StackPanel Orientation="Horizontal" Spacing="20">
                     <controls:DaisyLoading Variant="MatrixRain" />
                     <controls:DaisyLoading Variant="Hourglass" />
+                    <controls:DaisyLoading Variant="SignalSweep" />
+                    <controls:DaisyLoading Variant="BitFlip" />
+                    <controls:DaisyLoading Variant="PacketBurst" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="20">
+                    <controls:DaisyLoading Variant="CometTrail" />
+                    <controls:DaisyLoading Variant="Heartbeat" />
+                    <controls:DaisyLoading Variant="TunnelZoom" />
+                    <controls:DaisyLoading Variant="GlitchReveal" />
+                    <controls:DaisyLoading Variant="RippleMatrix" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="20">
+                    <controls:DaisyLoading Variant="CursorBlink" />
+                    <controls:DaisyLoading Variant="CountdownSpinner" />
                 </StackPanel>
                 <TextBlock Text="Sizes" FontWeight="SemiBold" Foreground="White"/>
                 <StackPanel Orientation="Horizontal" Spacing="20" VerticalAlignment="Center">
@@ -69,6 +83,7 @@
     <StyleInclude Source="/Themes/DaisyLoading/DaisyLoading.Classic.axaml" />
     <StyleInclude Source="/Themes/DaisyLoading/DaisyLoading.Terminal.axaml" />
     <StyleInclude Source="/Themes/DaisyLoading/DaisyLoading.Matrix.axaml" />
+    <StyleInclude Source="/Themes/DaisyLoading/DaisyLoading.Dots.axaml" />
     <StyleInclude Source="/Themes/DaisyLoading/DaisyLoading.Special.axaml" />
 
 </Styles>

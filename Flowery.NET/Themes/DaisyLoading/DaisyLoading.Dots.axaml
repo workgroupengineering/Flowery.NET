@@ -1,0 +1,577 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
+
+    <!-- ==================== MATRIX RAIN ==================== -->
+    <!-- MatrixRain - Digital rain of dots falling down -->
+    <Style Selector="controls|DaisyLoading[Variant=MatrixRain]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
+                    <Canvas Width="24" Height="24" ClipToBounds="True">
+                        <!-- Column 1 -->
+                        <Ellipse Classes="drop1a" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="1" Canvas.Top="-3"/>
+                        <Ellipse Classes="drop1b" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="1" Canvas.Top="-3" Opacity="0.5"/>
+                        <!-- Column 2 -->
+                        <Ellipse Classes="drop2a" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="7" Canvas.Top="-3"/>
+                        <Ellipse Classes="drop2b" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="7" Canvas.Top="-3" Opacity="0.5"/>
+                        <!-- Column 3 -->
+                        <Ellipse Classes="drop3a" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="13" Canvas.Top="-3"/>
+                        <Ellipse Classes="drop3b" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="13" Canvas.Top="-3" Opacity="0.5"/>
+                        <!-- Column 4 -->
+                        <Ellipse Classes="drop4a" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="19" Canvas.Top="-3"/>
+                        <Ellipse Classes="drop4b" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="19" Canvas.Top="-3" Opacity="0.5"/>
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- MatrixRain Animations -->
+    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop1a">
+        <Style.Animations>
+            <Animation Duration="0:0:0.8" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop1b">
+        <Style.Animations>
+            <Animation Duration="0:0:0.8" IterationCount="Infinite" Delay="0:0:0.1">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop2a">
+        <Style.Animations>
+            <Animation Duration="0:0:1.1" IterationCount="Infinite" Delay="0:0:0.2">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.1"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop2b">
+        <Style.Animations>
+            <Animation Duration="0:0:1.1" IterationCount="Infinite" Delay="0:0:0.3">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.1"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop3a">
+        <Style.Animations>
+            <Animation Duration="0:0:0.9" IterationCount="Infinite" Delay="0:0:0.4">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop3b">
+        <Style.Animations>
+            <Animation Duration="0:0:0.9" IterationCount="Infinite" Delay="0:0:0.5">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop4a">
+        <Style.Animations>
+            <Animation Duration="0:0:0.7" IterationCount="Infinite" Delay="0:0:0.15">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.6"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=MatrixRain] /template/ Ellipse.drop4b">
+        <Style.Animations>
+            <Animation Duration="0:0:0.7" IterationCount="Infinite" Delay="0:0:0.25">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.6"><Setter Property="Canvas.Top" Value="24"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Canvas.Top" Value="-3"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <!-- ==================== BIT FLIP ==================== -->
+    <!-- BitFlip - dots flip like binary on/off states (4x2 grid) -->
+    <Style Selector="controls|DaisyLoading[Variant=BitFlip]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
+                    <Canvas Width="24" Height="24">
+                        <!-- Row 1 (top) -->
+                        <Ellipse Classes="bit1" Width="4" Height="4" Fill="{TemplateBinding Foreground}" Canvas.Left="2" Canvas.Top="6"/>
+                        <Ellipse Classes="bit2" Width="4" Height="4" Fill="{TemplateBinding Foreground}" Canvas.Left="8" Canvas.Top="6"/>
+                        <Ellipse Classes="bit3" Width="4" Height="4" Fill="{TemplateBinding Foreground}" Canvas.Left="14" Canvas.Top="6"/>
+                        <Ellipse Classes="bit4" Width="4" Height="4" Fill="{TemplateBinding Foreground}" Canvas.Left="20" Canvas.Top="6"/>
+                        <!-- Row 2 (bottom) -->
+                        <Ellipse Classes="bit5" Width="4" Height="4" Fill="{TemplateBinding Foreground}" Canvas.Left="2" Canvas.Top="14"/>
+                        <Ellipse Classes="bit6" Width="4" Height="4" Fill="{TemplateBinding Foreground}" Canvas.Left="8" Canvas.Top="14"/>
+                        <Ellipse Classes="bit7" Width="4" Height="4" Fill="{TemplateBinding Foreground}" Canvas.Left="14" Canvas.Top="14"/>
+                        <Ellipse Classes="bit8" Width="4" Height="4" Fill="{TemplateBinding Foreground}" Canvas.Left="20" Canvas.Top="14"/>
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- BitFlip Animations - pseudo-random binary pattern -->
+    <Style Selector="controls|DaisyLoading[Variant=BitFlip] /template/ Ellipse.bit1">
+        <Style.Animations>
+            <Animation Duration="0:0:1.6" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.6"><Setter Property="Opacity" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=BitFlip] /template/ Ellipse.bit2">
+        <Style.Animations>
+            <Animation Duration="0:0:1.6" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.4"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.6"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.6"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=BitFlip] /template/ Ellipse.bit3">
+        <Style.Animations>
+            <Animation Duration="0:0:1.6" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.3"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.1"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.3"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.6"><Setter Property="Opacity" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=BitFlip] /template/ Ellipse.bit4">
+        <Style.Animations>
+            <Animation Duration="0:0:1.6" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.4"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.6"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=BitFlip] /template/ Ellipse.bit5">
+        <Style.Animations>
+            <Animation Duration="0:0:1.6" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.1"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.4"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.6"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=BitFlip] /template/ Ellipse.bit6">
+        <Style.Animations>
+            <Animation Duration="0:0:1.6" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.3"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.6"><Setter Property="Opacity" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=BitFlip] /template/ Ellipse.bit7">
+        <Style.Animations>
+            <Animation Duration="0:0:1.6" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.3"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.1"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.6"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=BitFlip] /template/ Ellipse.bit8">
+        <Style.Animations>
+            <Animation Duration="0:0:1.6" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.6"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.4"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.6"><Setter Property="Opacity" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <!-- ==================== PACKET BURST ==================== -->
+    <!-- PacketBurst - dot shoots to edges and returns to center -->
+    <Style Selector="controls|DaisyLoading[Variant=PacketBurst]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
+                    <Canvas Width="24" Height="24">
+                        <!-- Center dot (always visible, pulses) -->
+                        <Ellipse Classes="packet-center" Width="4" Height="4" Fill="{TemplateBinding Foreground}"
+                                 Canvas.Left="10" Canvas.Top="10"/>
+                        <!-- Burst dots (fly out and return) -->
+                        <Ellipse Classes="packet-left" Width="3" Height="3" Fill="{TemplateBinding Foreground}"
+                                 Canvas.Left="10.5" Canvas.Top="10.5" Opacity="0"/>
+                        <Ellipse Classes="packet-right" Width="3" Height="3" Fill="{TemplateBinding Foreground}"
+                                 Canvas.Left="10.5" Canvas.Top="10.5" Opacity="0"/>
+                        <Ellipse Classes="packet-up" Width="3" Height="3" Fill="{TemplateBinding Foreground}"
+                                 Canvas.Left="10.5" Canvas.Top="10.5" Opacity="0"/>
+                        <Ellipse Classes="packet-down" Width="3" Height="3" Fill="{TemplateBinding Foreground}"
+                                 Canvas.Left="10.5" Canvas.Top="10.5" Opacity="0"/>
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="controls|DaisyLoading[Variant=PacketBurst] /template/ Ellipse.packet-center">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="ScaleTransform.ScaleX" Value="1"/><Setter Property="ScaleTransform.ScaleY" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.1"><Setter Property="ScaleTransform.ScaleX" Value="1.5"/><Setter Property="ScaleTransform.ScaleY" Value="1.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.3"><Setter Property="ScaleTransform.ScaleX" Value="0.8"/><Setter Property="ScaleTransform.ScaleY" Value="0.8"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.9"><Setter Property="ScaleTransform.ScaleX" Value="0.8"/><Setter Property="ScaleTransform.ScaleY" Value="0.8"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="ScaleTransform.ScaleX" Value="1.3"/><Setter Property="ScaleTransform.ScaleY" Value="1.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="ScaleTransform.ScaleX" Value="1"/><Setter Property="ScaleTransform.ScaleY" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=PacketBurst] /template/ Ellipse.packet-left">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Left" Value="10.5"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.1"><Setter Property="Canvas.Left" Value="10.5"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.4"><Setter Property="Canvas.Left" Value="0"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Canvas.Left" Value="0"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Canvas.Left" Value="10.5"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=PacketBurst] /template/ Ellipse.packet-right">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Left" Value="10.5"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.1"><Setter Property="Canvas.Left" Value="10.5"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.4"><Setter Property="Canvas.Left" Value="21"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Canvas.Left" Value="21"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Canvas.Left" Value="10.5"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=PacketBurst] /template/ Ellipse.packet-up">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="10.5"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.1"><Setter Property="Canvas.Top" Value="10.5"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.4"><Setter Property="Canvas.Top" Value="0"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Canvas.Top" Value="0"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Canvas.Top" Value="10.5"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=PacketBurst] /template/ Ellipse.packet-down">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Top" Value="10.5"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.1"><Setter Property="Canvas.Top" Value="10.5"/><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.4"><Setter Property="Canvas.Top" Value="21"/><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Canvas.Top" Value="21"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Canvas.Top" Value="10.5"/><Setter Property="Opacity" Value="0"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <!-- ==================== COMET TRAIL ==================== -->
+    <!-- CometTrail - bright dot with fading tail moving in a circle -->
+    <Style Selector="controls|DaisyLoading[Variant=CometTrail]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
+                    <Canvas Width="24" Height="24">
+                        <!-- Trail dots (fading) -->
+                        <Ellipse Classes="trail1" Width="2" Height="2" Fill="{TemplateBinding Foreground}" Opacity="0.15"/>
+                        <Ellipse Classes="trail2" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Opacity="0.3"/>
+                        <Ellipse Classes="trail3" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Opacity="0.5"/>
+                        <!-- Head dot -->
+                        <Ellipse Classes="comet-head" Width="4" Height="4" Fill="{TemplateBinding Foreground}"/>
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- CometTrail Animations - circular motion with trail -->
+    <Style Selector="controls|DaisyLoading[Variant=CometTrail] /template/ Ellipse.comet-head">
+        <Style.Animations>
+            <Animation Duration="0:0:1.5" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Left" Value="10"/><Setter Property="Canvas.Top" Value="2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.375"><Setter Property="Canvas.Left" Value="18"/><Setter Property="Canvas.Top" Value="10"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.75"><Setter Property="Canvas.Left" Value="10"/><Setter Property="Canvas.Top" Value="18"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.125"><Setter Property="Canvas.Left" Value="2"/><Setter Property="Canvas.Top" Value="10"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.5"><Setter Property="Canvas.Left" Value="10"/><Setter Property="Canvas.Top" Value="2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CometTrail] /template/ Ellipse.trail3">
+        <Style.Animations>
+            <Animation Duration="0:0:1.5" IterationCount="Infinite" Delay="0:0:0.1">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Left" Value="10.5"/><Setter Property="Canvas.Top" Value="2.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.375"><Setter Property="Canvas.Left" Value="18.5"/><Setter Property="Canvas.Top" Value="10.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.75"><Setter Property="Canvas.Left" Value="10.5"/><Setter Property="Canvas.Top" Value="18.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.125"><Setter Property="Canvas.Left" Value="2.5"/><Setter Property="Canvas.Top" Value="10.5"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.5"><Setter Property="Canvas.Left" Value="10.5"/><Setter Property="Canvas.Top" Value="2.5"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CometTrail] /template/ Ellipse.trail2">
+        <Style.Animations>
+            <Animation Duration="0:0:1.5" IterationCount="Infinite" Delay="0:0:0.2">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Left" Value="10.75"/><Setter Property="Canvas.Top" Value="2.75"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.375"><Setter Property="Canvas.Left" Value="18.75"/><Setter Property="Canvas.Top" Value="10.75"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.75"><Setter Property="Canvas.Left" Value="10.75"/><Setter Property="Canvas.Top" Value="18.75"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.125"><Setter Property="Canvas.Left" Value="2.75"/><Setter Property="Canvas.Top" Value="10.75"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.5"><Setter Property="Canvas.Left" Value="10.75"/><Setter Property="Canvas.Top" Value="2.75"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CometTrail] /template/ Ellipse.trail1">
+        <Style.Animations>
+            <Animation Duration="0:0:1.5" IterationCount="Infinite" Delay="0:0:0.3">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Canvas.Left" Value="11"/><Setter Property="Canvas.Top" Value="3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.375"><Setter Property="Canvas.Left" Value="19"/><Setter Property="Canvas.Top" Value="11"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.75"><Setter Property="Canvas.Left" Value="11"/><Setter Property="Canvas.Top" Value="19"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.125"><Setter Property="Canvas.Left" Value="3"/><Setter Property="Canvas.Top" Value="11"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.5"><Setter Property="Canvas.Left" Value="11"/><Setter Property="Canvas.Top" Value="3"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <!-- ==================== RIPPLE MATRIX ==================== -->
+    <!-- RippleMatrix - brightness ripples outward from center -->
+    <Style Selector="controls|DaisyLoading[Variant=RippleMatrix]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
+                    <Canvas Width="24" Height="24">
+                        <!-- 3x3 grid of dots -->
+                        <!-- Center -->
+                        <Ellipse Classes="ripple-c" Width="4" Height="4" Fill="{TemplateBinding Foreground}" Canvas.Left="10" Canvas.Top="10"/>
+                        <!-- Ring 1 (adjacent) -->
+                        <Ellipse Classes="ripple-r1" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="10.5" Canvas.Top="3"/>
+                        <Ellipse Classes="ripple-r1" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="10.5" Canvas.Top="18"/>
+                        <Ellipse Classes="ripple-r1" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="3" Canvas.Top="10.5"/>
+                        <Ellipse Classes="ripple-r1" Width="3" Height="3" Fill="{TemplateBinding Foreground}" Canvas.Left="18" Canvas.Top="10.5"/>
+                        <!-- Ring 2 (corners) -->
+                        <Ellipse Classes="ripple-r2" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="3" Canvas.Top="3"/>
+                        <Ellipse Classes="ripple-r2" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="18.5" Canvas.Top="3"/>
+                        <Ellipse Classes="ripple-r2" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="3" Canvas.Top="18.5"/>
+                        <Ellipse Classes="ripple-r2" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="18.5" Canvas.Top="18.5"/>
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="controls|DaisyLoading[Variant=RippleMatrix] /template/ Ellipse.ripple-c">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.2"><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=RippleMatrix] /template/ Ellipse.ripple-r1">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.15"><Setter Property="Opacity" Value="0.6"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.3"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=RippleMatrix] /template/ Ellipse.ripple-r2">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.4"><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="0.6"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.6"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.3"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+    <!-- ==================== COUNTDOWN SPINNER ==================== -->
+    <!-- CountdownSpinner - 12 dots toggle like clock ticking -->
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner]">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Uniform">
+                    <Canvas Width="24" Height="24">
+                        <!-- 12 dots arranged in a circle (clock positions) -->
+                        <Ellipse Classes="cd1" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="10.75" Canvas.Top="1"/>
+                        <Ellipse Classes="cd2" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="15.5" Canvas.Top="2.5"/>
+                        <Ellipse Classes="cd3" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="19" Canvas.Top="6"/>
+                        <Ellipse Classes="cd4" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="20.5" Canvas.Top="10.75"/>
+                        <Ellipse Classes="cd5" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="19" Canvas.Top="15.5"/>
+                        <Ellipse Classes="cd6" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="15.5" Canvas.Top="19"/>
+                        <Ellipse Classes="cd7" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="10.75" Canvas.Top="20.5"/>
+                        <Ellipse Classes="cd8" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="6" Canvas.Top="19"/>
+                        <Ellipse Classes="cd9" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="2.5" Canvas.Top="15.5"/>
+                        <Ellipse Classes="cd10" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="1" Canvas.Top="10.75"/>
+                        <Ellipse Classes="cd11" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="2.5" Canvas.Top="6"/>
+                        <Ellipse Classes="cd12" Width="2.5" Height="2.5" Fill="{TemplateBinding Foreground}" Canvas.Left="6" Canvas.Top="2.5"/>
+                    </Canvas>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- CountdownSpinner Animations - sequential lighting like clock -->
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd1">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.1"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.1"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="1"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd2">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.1"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd3">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.2"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.3"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd4">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.3"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.4"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd5">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.4"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd6">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.6"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd7">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.6"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd8">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.7"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd9">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.8"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd10">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:0.9"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd11">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.1"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="controls|DaisyLoading[Variant=CountdownSpinner] /template/ Ellipse.cd12">
+        <Style.Animations>
+            <Animation Duration="0:0:1.2" IterationCount="Infinite">
+                <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.1"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                <KeyFrame KeyTime="0:0:1.2"><Setter Property="Opacity" Value="0.2"/></KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
+</Styles>

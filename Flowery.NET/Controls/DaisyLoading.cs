@@ -44,7 +44,27 @@ namespace Flowery.Controls
         /// <summary>MatrixRain animation - digital rain of dots falling down</summary>
         MatrixRain,
         /// <summary>Hourglass animation - classic hourglass with flowing sand</summary>
-        Hourglass
+        Hourglass,
+        /// <summary>SignalSweep animation - oscilloscope bar scanning left to right</summary>
+        SignalSweep,
+        /// <summary>BitFlip animation - dots flip like binary on/off states</summary>
+        BitFlip,
+        /// <summary>PacketBurst animation - dot shoots to edges and returns to center</summary>
+        PacketBurst,
+        /// <summary>CometTrail animation - bright dot with fading tail in a loop</summary>
+        CometTrail,
+        /// <summary>Heartbeat animation - EKG-style pulse line</summary>
+        Heartbeat,
+        /// <summary>TunnelZoom animation - concentric rings expanding outward</summary>
+        TunnelZoom,
+        /// <summary>GlitchReveal animation - random columns flash like terminal glitch</summary>
+        GlitchReveal,
+        /// <summary>RippleMatrix animation - brightness ripples outward from center</summary>
+        RippleMatrix,
+        /// <summary>CursorBlink animation - classic CLI cursor that moves and blinks</summary>
+        CursorBlink,
+        /// <summary>CountdownSpinner animation - 12 dots toggle like clock ticking</summary>
+        CountdownSpinner
     }
 
     /// <summary>
