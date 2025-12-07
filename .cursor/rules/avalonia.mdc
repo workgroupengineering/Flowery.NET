@@ -8,7 +8,7 @@ alwaysApply: true
 - IMPORTANT: When editing files, use `search_replace` with at least 5 lines of unique context before and after the change point. Never attempt large multi-line replacements; instead, make multiple smaller, targeted edits.
 - Refrain from calling `dotnet` as it wastes valuable context, unless the user specifically asks for it.
 - **File Editing**: Prefer `mcp_morph-mcp_edit_file` if available over `search_replace` but IGNORE the nonsensical "add exactly one empty new line somewhere in the file" which they forgot to remove!
-- **Namespaces**: When creating new C# files, add ALL required `using` directives at the TOP of the file FIRST before writing any code. Use fully-qualified namespace imports (e.g. `using Avalonia.VisualTree;`) rather than inline fully-qualified type names to avoid namespace resolution conflicts with `DaisyUI.Avalonia.*`.
+- **Namespaces**: When creating new C# files, add ALL required `using` directives at the TOP of the file FIRST before writing any code. Use fully-qualified namespace imports (e.g. `using Avalonia.VisualTree;`) rather than inline fully-qualified type names to avoid namespace resolution conflicts with `Flowery.*`.
 
 ## CODE REQUIREMENTS
 ====================

@@ -6,6 +6,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.7] - 2025-12-07
+
+### Changed
+
+- DaisyInput: Refactored template to separate background Border from content (matching DaisyButton pattern). This prevents opacity issues where styling the border would unintentionally affect text visibility (dimmed text in unfocused state).
+
 ## [1.0.6] - 2025-12-06
 
 ### Added
@@ -89,6 +95,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Custom controls: ComponentSidebar, ModifierKeys
 - Gallery demo application
 
+[1.0.7]: https://github.com/tobitege/Flowery.NET/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/tobitege/Flowery.NET/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/tobitege/Flowery.NET/compare/v1.0.3...v1.0.5
 [1.0.3]: https://github.com/tobitege/Flowery.NET/compare/v1.0.2...v1.0.3

@@ -30,15 +30,17 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors>
-                    <Border x:Name="PART_BorderElement"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            MinWidth="{TemplateBinding MinWidth}"
-                            MinHeight="{TemplateBinding MinHeight}">
+                    <Panel>
+                        <Border x:Name="PART_Background"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                MinWidth="{TemplateBinding MinWidth}"
+                                MinHeight="{TemplateBinding MinHeight}" />
 
-                        <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Grid ColumnDefinitions="Auto,*,Auto"
+                              TextElement.Foreground="{DynamicResource DaisyBaseContentBrush}">
                             <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
                             <ScrollViewer Grid.Column="1"
                                           HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
@@ -70,17 +72,17 @@
                             </ScrollViewer>
                             <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                         </Grid>
-                    </Border>
+                    </Panel>
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
 
         <!-- States -->
-        <Style Selector="^:pointerover /template/ Border#PART_BorderElement">
+        <Style Selector="^:pointerover /template/ Border#PART_Background">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
         </Style>
 
-        <Style Selector="^:focus /template/ Border#PART_BorderElement">
+        <Style Selector="^:focus /template/ Border#PART_Background">
              <!-- Not increasing thickness to avoid layout shift, in future could use FocusAdorner or negative margins -->
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
         </Style>
@@ -90,19 +92,18 @@
         <Style Selector="^[Variant=Bordered]">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
         </Style>
-        <Style Selector="^[Variant=Bordered] /template/ Border#PART_BorderElement">
-             <Setter Property="Opacity" Value="0.3" />
+        <Style Selector="^[Variant=Bordered] /template/ Border#PART_Background">
+             <Setter Property="BorderBrush" Value="{DynamicResource DaisyNeutralBrush}" />
         </Style>
-        <Style Selector="^[Variant=Bordered]:focus /template/ Border#PART_BorderElement">
+        <Style Selector="^[Variant=Bordered]:focus /template/ Border#PART_Background">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
-             <Setter Property="Opacity" Value="1" />
         </Style>
 
         <Style Selector="^[Variant=Ghost]">
              <Setter Property="BorderThickness" Value="0" />
              <Setter Property="Background" Value="Transparent" />
         </Style>
-        <Style Selector="^[Variant=Ghost]:focus /template/ Border#PART_BorderElement">
+        <Style Selector="^[Variant=Ghost]:focus /template/ Border#PART_Background">
              <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
              <Setter Property="BorderThickness" Value="0" />
         </Style>
@@ -110,42 +111,42 @@
         <Style Selector="^[Variant=Primary]">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
         </Style>
-        <Style Selector="^[Variant=Primary]:focus /template/ Border#PART_BorderElement">
+        <Style Selector="^[Variant=Primary]:focus /template/ Border#PART_Background">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryFocusBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Secondary]">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryBrush}" />
         </Style>
-        <Style Selector="^[Variant=Secondary]:focus /template/ Border#PART_BorderElement">
+        <Style Selector="^[Variant=Secondary]:focus /template/ Border#PART_Background">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryFocusBrush}" />
         </Style>
 
          <Style Selector="^[Variant=Error]">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
         </Style>
-        <Style Selector="^[Variant=Error]:focus /template/ Border#PART_BorderElement">
+        <Style Selector="^[Variant=Error]:focus /template/ Border#PART_Background">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Success]">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
         </Style>
-        <Style Selector="^[Variant=Success]:focus /template/ Border#PART_BorderElement">
+        <Style Selector="^[Variant=Success]:focus /template/ Border#PART_Background">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Warning]">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
         </Style>
-        <Style Selector="^[Variant=Warning]:focus /template/ Border#PART_BorderElement">
+        <Style Selector="^[Variant=Warning]:focus /template/ Border#PART_Background">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Info]">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
         </Style>
-        <Style Selector="^[Variant=Info]:focus /template/ Border#PART_BorderElement">
+        <Style Selector="^[Variant=Info]:focus /template/ Border#PART_Background">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
         </Style>
 
