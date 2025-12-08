@@ -20,7 +20,7 @@
                             Width="{TemplateBinding SidebarWidth}">
                         <Grid RowDefinitions="Auto,*">
                             <!-- Search Box -->
-                            <Border Grid.Row="0" Margin="12,12,12,8">
+                            <Border Grid.Row="0" Margin="8,8,20,8">
                                 <controls:DaisyInput x:Name="PART_SearchInput"
                                                      Watermark="Search components..."
                                                      Text="{TemplateBinding SearchText, Mode=TwoWay}"
@@ -51,8 +51,6 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate x:DataType="controls:SidebarCategory">
                                         <StackPanel Margin="0,0,0,4">
-                                            <!-- Category Divider -->
-                                            <Border Height="1" Background="{DynamicResource DaisyBase300Brush}" Margin="16,0,4,8" />
                                             <!-- Collapsible Category -->
                                             <controls:DaisyCollapse Classes="sidebar-category"
                                                                     IsExpanded="{Binding IsExpanded, Mode=TwoWay}"
@@ -67,13 +65,13 @@
                                                                   Data="{Binding IconKey, Converter={x:Static controls:IconKeyConverter.Instance}}" />
                                                         <TextBlock Text="{Binding Name}"
                                                                    FontWeight="SemiBold"
-                                                                   FontSize="14"
+                                                                   FontSize="13"
                                                                    VerticalAlignment="Center"
                                                                    Foreground="{DynamicResource DaisyBaseContentBrush}" />
                                                     </StackPanel>
                                                 </controls:DaisyCollapse.Header>
                                                 <!-- Category Items -->
-                                                <ItemsControl ItemsSource="{Binding Items}" Margin="0,4,0,0">
+                                                <ItemsControl ItemsSource="{Binding Items}" Margin="4,0,0,0">
                                                     <ItemsControl.ItemTemplate>
                                                         <DataTemplate x:DataType="controls:SidebarItem">
                                                             <Button Classes="sidebar-item"
@@ -81,7 +79,7 @@
                                                                     HorizontalAlignment="Stretch"
                                                                     HorizontalContentAlignment="Stretch"
                                                                     Margin="8,1,0,1"
-                                                                    Padding="12,8"
+                                                                    Padding="10,8"
                                                                     Background="Transparent"
                                                                     Foreground="{DynamicResource DaisyBaseContentBrush}"
                                                                     BorderThickness="0"
@@ -141,7 +139,7 @@
         <Setter Property="CornerRadius" Value="0" />
     </Style>
     <Style Selector="controls|DaisyCollapse.sidebar-category /template/ ToggleButton#PART_HeaderButton">
-        <Setter Property="Padding" Value="16,8,8,8" />
+        <Setter Property="Padding" Value="16,8,8,4" />
         <Setter Property="Cursor" Value="Hand" />
     </Style>
     <Style Selector="controls|DaisyCollapse.sidebar-category /template/ ToggleButton#PART_HeaderButton:pointerover">

@@ -1,7 +1,22 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET"
              x:Class="Flowery.NET.Gallery.Examples.SectionHeader">
-    <Border BorderBrush="{DynamicResource DaisyPrimaryBrush}" BorderThickness="4,0,0,0" Padding="12,4,0,4">
-        <TextBlock x:Name="TitleText" FontWeight="Bold" FontSize="20" Foreground="{DynamicResource DaisyBaseContentBrush}"/>
-    </Border>
+    <Panel>
+        <!-- Main header content -->
+        <Border BorderBrush="{DynamicResource DaisyPrimaryBrush}" BorderThickness="4,0,0,0" Padding="12,4,0,4">
+            <TextBlock x:Name="TitleText" FontWeight="Bold" FontSize="20"
+                       VerticalAlignment="Center"
+                       Foreground="{DynamicResource DaisyBaseContentBrush}"/>
+        </Border>
+        <!-- Screenshot button as overlay (doesn't affect layout) -->
+        <controls:DaisyButton x:Name="ScreenshotButton"
+                              Content="📷" Size="Small" Variant="Ghost"
+                              ToolTip.Tip="Copy section screenshot to clipboard"
+                              Padding="6,2"
+                              HorizontalAlignment="Right"
+                              VerticalAlignment="Center"
+                              Margin="0,0,8,0"
+                              Click="OnScreenshotClick"/>
+    </Panel>
 </UserControl>

@@ -495,6 +495,85 @@ tr:hover td {
     backdrop-filter: blur(2px);
 }
 
+/* Tabbed Image Gallery */
+.tabbed-gallery {
+    margin: 1.5rem 0;
+}
+
+.tab-radio {
+    display: none;
+}
+
+.image-tabs {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 0;
+}
+
+.tab-label {
+    padding: 0.5rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 0.5rem 0.5rem 0 0;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    position: relative;
+    top: 1px;
+}
+
+.tab-label:hover {
+    background: var(--bg-code);
+    color: var(--text);
+}
+
+/* Highlight active tab label using radio + label sibling navigation */
+.tab-radio:nth-of-type(1):checked ~ .image-tabs .tab-label:nth-of-type(1),
+.tab-radio:nth-of-type(2):checked ~ .image-tabs .tab-label:nth-of-type(2),
+.tab-radio:nth-of-type(3):checked ~ .image-tabs .tab-label:nth-of-type(3),
+.tab-radio:nth-of-type(4):checked ~ .image-tabs .tab-label:nth-of-type(4),
+.tab-radio:nth-of-type(5):checked ~ .image-tabs .tab-label:nth-of-type(5),
+.tab-radio:nth-of-type(6):checked ~ .image-tabs .tab-label:nth-of-type(6),
+.tab-radio:nth-of-type(7):checked ~ .image-tabs .tab-label:nth-of-type(7),
+.tab-radio:nth-of-type(8):checked ~ .image-tabs .tab-label:nth-of-type(8),
+.tab-radio:nth-of-type(9):checked ~ .image-tabs .tab-label:nth-of-type(9),
+.tab-radio:nth-of-type(10):checked ~ .image-tabs .tab-label:nth-of-type(10) {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    z-index: 1;
+}
+
+.image-panels {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    padding: 1rem;
+    min-height: 200px;
+}
+
+.image-panel {
+    display: none;
+}
+
+/* Show panels based on checked radio */
+.tab-radio:nth-of-type(1):checked ~ .image-panels .image-panel:nth-of-type(1),
+.tab-radio:nth-of-type(2):checked ~ .image-panels .image-panel:nth-of-type(2),
+.tab-radio:nth-of-type(3):checked ~ .image-panels .image-panel:nth-of-type(3),
+.tab-radio:nth-of-type(4):checked ~ .image-panels .image-panel:nth-of-type(4),
+.tab-radio:nth-of-type(5):checked ~ .image-panels .image-panel:nth-of-type(5),
+.tab-radio:nth-of-type(6):checked ~ .image-panels .image-panel:nth-of-type(6),
+.tab-radio:nth-of-type(7):checked ~ .image-panels .image-panel:nth-of-type(7),
+.tab-radio:nth-of-type(8):checked ~ .image-panels .image-panel:nth-of-type(8),
+.tab-radio:nth-of-type(9):checked ~ .image-panels .image-panel:nth-of-type(9),
+.tab-radio:nth-of-type(10):checked ~ .image-panels .image-panel:nth-of-type(10) {
+    display: block;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .shell {
         grid-template-columns: 1fr;
@@ -529,5 +608,13 @@ tr:hover td {
         padding: 1.5rem;
         padding-top: 4rem; /* Space for toggle button */
     }
-}
 
+    .image-tabs {
+        flex-wrap: wrap;
+    }
+
+    .tab-label {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}

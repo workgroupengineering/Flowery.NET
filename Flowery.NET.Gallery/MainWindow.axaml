@@ -71,6 +71,9 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Spacing="16">
+                                <controls:DaisyButton Content="📸" Variant="Ghost" Size="Small"
+                                                      ToolTip.Tip="Capture All Screenshots"
+                                                      Click="CaptureAllScreenshots_Click"/>
                                 <controls:DaisyThemeSwap />
                                 <controls:DaisyThemeDropdown Width="130"/>
                             </StackPanel>

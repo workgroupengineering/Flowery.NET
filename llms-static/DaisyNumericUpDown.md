@@ -3,6 +3,8 @@
 
 # Overview
 
+> **Added in v1.0.8**
+
 `DaisyNumericUpDown` is a numeric input control that extends Avalonia's `NumericUpDown` with DaisyUI styling. It provides increment/decrement buttons (spin buttons) for adjusting numeric values, along with direct text entry support. The control follows the same visual style and variant system as `DaisyInput`.
 
 ## Key Features
@@ -20,10 +22,6 @@
 - Format string support (currency, percentage, etc.)
 - Optional button visibility
 - Same variant and size system as DaisyInput
-
-## Gallery
-
-![NumericUpDown Examples](NumericUpDown_Examples.png)
 
 ## Variant Options
 

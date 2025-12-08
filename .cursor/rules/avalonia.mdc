@@ -11,13 +11,13 @@ alwaysApply: true
 - **Namespaces**: When creating new C# files, add ALL required `using` directives at the TOP of the file FIRST before writing any code. Use fully-qualified namespace imports (e.g. `using Avalonia.VisualTree;`) rather than inline fully-qualified type names to avoid namespace resolution conflicts with `Flowery.*`.
 
 ## CODE REQUIREMENTS
-====================
+
 
 For the documentation generator to correctly extract metadata, code must follow
 these conventions:
 
 C# CONTROL FILES (Flowery.NET/Controls/Daisy*.cs):
---------------------------------------------------
+
 1. Class XML documentation must immediately precede the class definition:
 
    /// <summary>
@@ -48,7 +48,7 @@ C# CONTROL FILES (Flowery.NET/Controls/Daisy*.cs):
    }
 
 AXAML EXAMPLE FILES (Flowery.NET.Gallery/Examples/*Examples.axaml):
--------------------------------------------------------------------
+
 1. Each control section must start with a SectionHeader:
 
    <local:SectionHeader SectionId="button" Title="Button" />
@@ -58,11 +58,13 @@ AXAML EXAMPLE FILES (Flowery.NET.Gallery/Examples/*Examples.axaml):
 
 3. Sub-examples should be labeled with a TextBlock having FontWeight="SemiBold":
 
+```axaml
    <TextBlock Text="Colors" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
    <WrapPanel>
        <controls:DaisyButton Variant="Primary" Content="Primary"/>
        ...
    </WrapPanel>
+```
 
 4. Sections are separated by DaisyDivider:
 
@@ -74,6 +76,7 @@ AXAML EXAMPLE FILES (Flowery.NET.Gallery/Examples/*Examples.axaml):
 
 ADDING NEW CONTROLS:
 --------------------
+
 1. Create the C# control file following the patterns above
 2. Add examples in the appropriate *Examples.axaml file
 3. Add a mapping in _section_to_control() method:
@@ -102,3 +105,153 @@ ADDING NEW CONTROLS:
   2. Wrap `ControlTheme` definitions inside `<Styles.Resources>...</Styles.Resources>`
   3. Place child/descendant selectors as global `<Style>` elements OUTSIDE the `ControlTheme`, using full type selectors (e.g. `controls|MyControl[Property=Value] ChildControl`)
 - **Border Has No Foreground**: `Border` does not have a `Foreground` property. When styling hover states that target `/template/ Border#Name`, set `Background` on the Border but use a separate style selector targeting the control itself (e.g. `^:pointerover`) for `Foreground` changes.
+
+## Avalonia Clipboard Usage
+
+### Image Clipboard (Windows-only)
+
+Avalonia's built-in clipboard API (`DataObject`, `SetDataObjectAsync`) is deprecated and doesn't reliably copy images. For Windows, use **WinForms interop**:
+
+```csharp
+using System.Runtime.Versioning;
+
+[SupportedOSPlatform("windows")]
+private static void SetBitmapClipboardData(byte[] pngBytes)
+{
+    if (pngBytes == null || pngBytes.Length == 0) return;
+    using var stream = new MemoryStream(pngBytes);
+    using var image = System.Drawing.Image.FromStream(stream);
+    System.Windows.Forms.Clipboard.SetImage(image);
+}
+```
+
+### Text Clipboard (Cross-platform)
+
+For text, use Avalonia's built-in clipboard:
+
+```csharp
+var clipboard = TopLevel.GetTopLevel(this)?.Clipboard;
+if (clipboard != null)
+    await clipboard.SetTextAsync(textContent);
+```
+
+### Cross-Platform Project Setup
+
+When a project needs WinForms clipboard on Windows but must remain buildable on other platforms:
+
+1. **Conditional TFM** in `.csproj`:
+
+   ```xml
+   <TargetFramework Condition="$([MSBuild]::IsOSPlatform('Windows'))">net8.0-windows</TargetFramework>
+   <TargetFramework Condition="!$([MSBuild]::IsOSPlatform('Windows'))">net8.0</TargetFramework>
+   ```
+
+2. **Conditional WinForms** in `.csproj`:
+
+   ```xml
+   <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+     <UseWindowsForms>true</UseWindowsForms>
+     <DefineConstants>$(DefineConstants);WINDOWS</DefineConstants>
+   </PropertyGroup>
+   ```
+
+3. **Conditional compilation** in code:
+
+   ```csharp
+   #if WINDOWS
+   if (OperatingSystem.IsWindows())
+   {
+       SetBitmapClipboardData(pngBytes);
+   }
+   else
+   #endif
+   {
+       // Fallback: save to temp file, copy path to clipboard
+       var tempPath = Path.Combine(Path.GetTempPath(), "screenshot.png");
+       await File.WriteAllBytesAsync(tempPath, pngBytes);
+       await clipboard.SetTextAsync(tempPath);
+   }
+   ```
+
+**Key points:**
+
+- `UseWindowsForms` requires `net8.0-windows` TFM (SDK enforced)
+- Use `#if WINDOWS` preprocessor directives to guard WinForms code
+- Mark Windows-specific methods with `[SupportedOSPlatform("windows")]`
+- Always provide a fallback for non-Windows platforms
+
+## File/Folder Dialogs (StorageProvider API)
+
+The old `SaveFileDialog`, `OpenFileDialog`, and `OpenFolderDialog` classes are **deprecated** in Avalonia 11. Use the modern `StorageProvider` API instead.
+
+### Required Import
+
+```csharp
+using Avalonia.Platform.Storage;
+```
+
+### Save File Dialog
+
+```csharp
+var topLevel = TopLevel.GetTopLevel(this);
+var file = await topLevel.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
+{
+    Title = "Save File",
+    SuggestedFileName = "myfile.png",
+    DefaultExtension = "png",
+    FileTypeChoices = new[]
+    {
+        new FilePickerFileType("PNG Images") { Patterns = new[] { "*.png" } },
+        new FilePickerFileType("All Files") { Patterns = new[] { "*.*" } }
+    }
+});
+
+if (file != null)
+{
+    var filePath = file.Path.LocalPath;
+    // Use filePath...
+}
+```
+
+### Open File Dialog
+
+```csharp
+var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
+{
+    Title = "Select File",
+    AllowMultiple = false,
+    FileTypeFilter = new[]
+    {
+        new FilePickerFileType("Images") { Patterns = new[] { "*.png", "*.jpg" } }
+    }
+});
+
+if (files.Count > 0)
+{
+    var filePath = files[0].Path.LocalPath;
+    // Use filePath...
+}
+```
+
+### Folder Picker Dialog
+
+```csharp
+var folders = await topLevel.StorageProvider.OpenFolderPickerAsync(new FolderPickerOpenOptions
+{
+    Title = "Select Folder",
+    AllowMultiple = false
+});
+
+if (folders.Count > 0)
+{
+    var folderPath = folders[0].Path.LocalPath;
+    // Use folderPath...
+}
+```
+
+**Key points:**
+
+- Access via `TopLevel.GetTopLevel(control).StorageProvider`
+- Returns `IStorageFile` / `IStorageFolder` objects; use `.Path.LocalPath` for string path
+- `SaveFilePickerAsync` returns `null` if cancelled
+- `OpenFilePickerAsync` / `OpenFolderPickerAsync` return empty list if cancelled

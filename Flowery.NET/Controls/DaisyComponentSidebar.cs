@@ -90,7 +90,7 @@ namespace Flowery.Controls
         }
 
         public static readonly StyledProperty<double> SidebarWidthProperty =
-            AvaloniaProperty.Register<DaisyComponentSidebar, double>(nameof(SidebarWidth), 220);
+            AvaloniaProperty.Register<DaisyComponentSidebar, double>(nameof(SidebarWidth), 224);
 
         public double SidebarWidth
         {
@@ -289,6 +289,7 @@ namespace Flowery.Controls
         {
             return new ObservableCollection<SidebarCategory>
             {
+                // Home stays at top
                 new SidebarCategory
                 {
                     Name = "Home",
@@ -298,6 +299,7 @@ namespace Flowery.Controls
                         new SidebarItem { Id = "welcome", Name = "Welcome", TabHeader = "Home" }
                     }
                 },
+                // Alphabetically sorted categories
                 new SidebarCategory
                 {
                     Name = "Actions",
@@ -310,6 +312,15 @@ namespace Flowery.Controls
                         new SidebarItem { Id = "modal", Name = "Modal", TabHeader = "Actions" },
                         new SidebarItem { Id = "modal-radii", Name = "Modal Corner Radii", TabHeader = "Actions" },
                         new SidebarItem { Id = "swap", Name = "Swap", TabHeader = "Actions" }
+                    }
+                },
+                new SidebarCategory
+                {
+                    Name = "Cards",
+                    IconKey = "DaisyIconCard",
+                    Items = new ObservableCollection<SidebarItem>
+                    {
+                        new SidebarItem { Id = "card", Name = "Card", TabHeader = "Cards" }
                     }
                 },
                 new SidebarCategory
@@ -338,17 +349,29 @@ namespace Flowery.Controls
                 },
                 new SidebarCategory
                 {
-                    Name = "Navigation",
-                    IconKey = "DaisyIconNavigation",
+                    Name = "Data Input",
+                    IconKey = "DaisyIconDataInput",
                     Items = new ObservableCollection<SidebarItem>
                     {
-                        new SidebarItem { Id = "breadcrumbs", Name = "Breadcrumbs", TabHeader = "Navigation" },
-                        new SidebarItem { Id = "dock", Name = "Dock", TabHeader = "Navigation" },
-                        new SidebarItem { Id = "menu", Name = "Menu", TabHeader = "Navigation" },
-                        new SidebarItem { Id = "navbar", Name = "Navbar", TabHeader = "Navigation" },
-                        new SidebarItem { Id = "pagination", Name = "Pagination", TabHeader = "Navigation" },
-                        new SidebarItem { Id = "steps", Name = "Steps", TabHeader = "Navigation" },
-                        new SidebarItem { Id = "tabs", Name = "Tabs", TabHeader = "Navigation" }
+                        new SidebarItem { Id = "checkbox", Name = "Checkbox", TabHeader = "Data Input" },
+                        new SidebarItem { Id = "file-input", Name = "File Input", TabHeader = "Data Input" },
+                        new SidebarItem { Id = "input", Name = "Input", TabHeader = "Data Input" },
+                        new SidebarItem { Id = "numericupdown", Name = "NumericUpDown", TabHeader = "Data Input" },
+                        new SidebarItem { Id = "radio", Name = "Radio", TabHeader = "Data Input" },
+                        new SidebarItem { Id = "range", Name = "Range", TabHeader = "Data Input" },
+                        new SidebarItem { Id = "rating", Name = "Rating", TabHeader = "Data Input" },
+                        new SidebarItem { Id = "select", Name = "Select", TabHeader = "Data Input" },
+                        new SidebarItem { Id = "textarea", Name = "TextArea", TabHeader = "Data Input" },
+                        new SidebarItem { Id = "toggle", Name = "Toggle", TabHeader = "Data Input" }
+                    }
+                },
+                new SidebarCategory
+                {
+                    Name = "Divider",
+                    IconKey = "DaisyIconDivider",
+                    Items = new ObservableCollection<SidebarItem>
+                    {
+                        new SidebarItem { Id = "divider", Name = "Divider", TabHeader = "Divider" }
                     }
                 },
                 new SidebarCategory
@@ -368,42 +391,6 @@ namespace Flowery.Controls
                 },
                 new SidebarCategory
                 {
-                    Name = "Cards",
-                    IconKey = "DaisyIconCard",
-                    Items = new ObservableCollection<SidebarItem>
-                    {
-                        new SidebarItem { Id = "card", Name = "Card", TabHeader = "Cards" }
-                    }
-                },
-                new SidebarCategory
-                {
-                    Name = "Data Input",
-                    IconKey = "DaisyIconDataInput",
-                    Items = new ObservableCollection<SidebarItem>
-                    {
-                        new SidebarItem { Id = "checkbox", Name = "Checkbox", TabHeader = "Form Controls" },
-                        new SidebarItem { Id = "file-input", Name = "File Input", TabHeader = "Form Controls" },
-                        new SidebarItem { Id = "input", Name = "Input", TabHeader = "Form Controls" },
-                        new SidebarItem { Id = "numericupdown", Name = "NumericUpDown", TabHeader = "Form Controls" },
-                        new SidebarItem { Id = "radio", Name = "Radio", TabHeader = "Form Controls" },
-                        new SidebarItem { Id = "range", Name = "Range", TabHeader = "Form Controls" },
-                        new SidebarItem { Id = "rating", Name = "Rating", TabHeader = "Form Controls" },
-                        new SidebarItem { Id = "select", Name = "Select", TabHeader = "Form Controls" },
-                        new SidebarItem { Id = "textarea", Name = "TextArea", TabHeader = "Form Controls" },
-                        new SidebarItem { Id = "toggle", Name = "Toggle", TabHeader = "Form Controls" }
-                    }
-                },
-                new SidebarCategory
-                {
-                    Name = "Divider",
-                    IconKey = "DaisyIconDivider",
-                    Items = new ObservableCollection<SidebarItem>
-                    {
-                        new SidebarItem { Id = "divider", Name = "Divider", TabHeader = "Divider" }
-                    }
-                },
-                new SidebarCategory
-                {
                     Name = "Layout",
                     IconKey = "DaisyIconLayout",
                     Items = new ObservableCollection<SidebarItem>
@@ -419,6 +406,21 @@ namespace Flowery.Controls
                 },
                 new SidebarCategory
                 {
+                    Name = "Navigation",
+                    IconKey = "DaisyIconNavigation",
+                    Items = new ObservableCollection<SidebarItem>
+                    {
+                        new SidebarItem { Id = "breadcrumbs", Name = "Breadcrumbs", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "dock", Name = "Dock", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "menu", Name = "Menu", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "navbar", Name = "Navbar", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "pagination", Name = "Pagination", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "steps", Name = "Steps", TabHeader = "Navigation" },
+                        new SidebarItem { Id = "tabs", Name = "Tabs", TabHeader = "Navigation" }
+                    }
+                },
+                new SidebarCategory
+                {
                     Name = "Theming",
                     IconKey = "DaisyIconTheme",
                     Items = new ObservableCollection<SidebarItem>
@@ -428,6 +430,7 @@ namespace Flowery.Controls
                         new SidebarItem { Id = "theme-radio", Name = "Theme Radio", TabHeader = "Theming" }
                     }
                 },
+                // Custom Controls and Color Picker stay at bottom
                 new SidebarCategory
                 {
                     Name = "Custom Controls",

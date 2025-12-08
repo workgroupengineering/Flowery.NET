@@ -67,7 +67,7 @@ class MarkdownToHtml:
             # If src is a local file (not http), prepend ../ for controls/ pages
             if not src.startswith(('http://', 'https://', '/')):
                 src = '../' + src
-            return f'<img src="{src}" alt="{alt}" style="max-width:100%;height:auto;">'
+            return f'<img src="{src}" alt="{alt}" style="max-width:800px;width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">'
         html = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', convert_image, html)
 
         # Links - convert [text](url) to <a>
@@ -218,14 +218,17 @@ class SiteGenerator:
         self.output_dir.mkdir(exist_ok=True)
         (self.output_dir / "controls").mkdir(exist_ok=True)
         (self.output_dir / "categories").mkdir(exist_ok=True)
+        (self.output_dir / "images").mkdir(exist_ok=True)
 
         # Collect all controls
-        print("\n[1/4] Scanning control docs...")
+        print("\n[1/5] Scanning control docs...")
         seen_controls = set()
         # Helper/internal classes shown in a separate section
         helper_control_names = {
-            'DaisyPaginationItem',  # Part of DaisyPagination
             'DaisyAccessibility',   # Accessibility utilities
+            'DaisyPaginationItem',  # Part of DaisyPagination
+            'ColorCollection',      # Color collection class
+            'HslColor',             # Color utility struct
         }
 
         if self.use_curated_only:
@@ -239,6 +242,19 @@ class SiteGenerator:
                     'is_helper': name in helper_control_names
                 })
                 seen_controls.add(name)
+
+            # Also include non-Daisy helper files (e.g., HslColor.md)
+            for helper_name in helper_control_names:
+                if helper_name not in seen_controls:
+                    helper_file = self.curated_dir / f"{helper_name}.md"
+                    if helper_file.exists():
+                        self.controls.append({
+                            'name': helper_name,
+                            'file': helper_file,
+                            'html_name': f"{helper_name}.html",
+                            'is_helper': True
+                        })
+                        seen_controls.add(helper_name)
 
             # Then, also include auto-generated docs from llms/controls/ for controls
             # that don't have curated docs (e.g., weather controls, custom controls)
@@ -273,7 +289,7 @@ class SiteGenerator:
         print(f"      Found {len(self.controls)} controls")
 
         # Collect categories (always from llms/categories/)
-        print("\n[2/4] Scanning category docs...")
+        print("\n[2/5] Scanning category docs...")
         categories_dir = self.docs_dir / "categories"
         if categories_dir.exists():
             for md_file in sorted(categories_dir.glob("*.md")):
@@ -307,16 +323,29 @@ class SiteGenerator:
         print(f"Open:   {self.output_dir / 'index.html'}")
 
     def _copy_images(self):
-        """Copy image files from llms-static/ to docs/ for HTML pages."""
+        """Copy image files from llms-static/ and llms-static/images/ to docs/."""
         if not self.curated_dir:
             return
+
         image_extensions = ['*.gif', '*.png', '*.jpg', '*.jpeg', '*.webp', '*.svg']
         copied = 0
+
+        # Copy images from llms-static/ root to docs/ (legacy location)
         for ext in image_extensions:
             for img_file in self.curated_dir.glob(ext):
                 dest = self.output_dir / img_file.name
                 shutil.copy2(img_file, dest)
                 copied += 1
+
+        # Copy images from llms-static/images/ to docs/images/ (new location for screenshots)
+        images_subdir = self.curated_dir / "images"
+        if images_subdir.exists():
+            for ext in image_extensions:
+                for img_file in images_subdir.glob(ext):
+                    dest = self.output_dir / "images" / img_file.name
+                    shutil.copy2(img_file, dest)
+                    copied += 1
+
         print(f"      Copied {copied} image(s)")
 
     def _write_css(self):
@@ -380,7 +409,9 @@ class SiteGenerator:
         # Helpers section (if any)
         if helper_controls:
             sidebar_items.append('<li><h2 class="helpers-header">Helpers</h2></li>')
-            for ctrl in helper_controls:
+            # Sort helpers alphabetically by display name
+            helper_controls_sorted = sorted(helper_controls, key=lambda c: c['name'].replace('Daisy', ''))
+            for ctrl in helper_controls_sorted:
                 display_name = ctrl['name'].replace('Daisy', '')
                 sidebar_items.append(f'<li><a href="controls/{ctrl["html_name"]}" target="viewer">{display_name}</a></li>')
 
@@ -621,6 +652,86 @@ class SiteGenerator:
         lines.append("")
         return '\n'.join(lines)
 
+    def _create_tabbed_gallery(self, control_name: str, images: list[str]) -> str:
+        """
+        Create an HTML tabbed gallery for multiple images.
+        Uses pure CSS tabs (no JavaScript required).
+        Radio buttons must be direct children of gallery for sibling selectors to work.
+        """
+        gallery_id = control_name.replace(' ', '_').lower()
+
+        html = f'\n<div class="tabbed-gallery" id="gallery_{gallery_id}">\n'
+
+        # Radio buttons (at gallery level for CSS sibling selectors)
+        for i, _ in enumerate(images):
+            checked = ' checked' if i == 0 else ''
+            html += f'  <input type="radio" name="{gallery_id}_tabs" id="{gallery_id}_tab{i}" class="tab-radio"{checked}>\n'
+
+        # Tab labels
+        html += '  <div class="image-tabs">\n'
+        for i, _ in enumerate(images):
+            html += f'    <label for="{gallery_id}_tab{i}" class="tab-label">Part {i+1}</label>\n'
+        html += '  </div>\n'
+
+        # Image panels
+        html += '  <div class="image-panels">\n'
+        for i, img_path in enumerate(images):
+            # Prepend ../ for controls/ subfolder
+            src = '../' + img_path
+            html += f'    <div class="image-panel">\n'
+            html += f'      <img src="{src}" alt="{control_name} - Part {i+1}" style="max-width:800px;width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">\n'
+            html += f'    </div>\n'
+        html += '  </div>\n'
+
+        html += '</div>\n'
+        return html
+
+    def _find_control_images(self, control_name: str) -> list[str]:
+        """
+        Find images for a control in llms-static/images/.
+        Returns list of relative image paths for markdown insertion.
+        Handles multiple naming patterns:
+        - DaisyMockup.png (exact match)
+        - DaisyMockup_a.png, _b.png (chunked with letter suffix)
+        - Mockup(Description).png (short name with parenthesized description)
+        """
+        if not self.curated_dir:
+            return []
+
+        images_dir = self.curated_dir / "images"
+        if not images_dir.exists():
+            return []
+
+        found_images = []
+
+        # Check for single image (exact match)
+        single_image = images_dir / f"{control_name}.png"
+        if single_image.exists():
+            found_images.append(f"images/{control_name}.png")
+
+        # Check for chunked images (_a, _b, _c, etc.)
+        for suffix in 'abcdefghij':
+            chunk_image = images_dir / f"{control_name}_{suffix}.png"
+            if chunk_image.exists():
+                found_images.append(f"images/{control_name}_{suffix}.png")
+
+        # Check for descriptive suffix images: ControlName(Description).png
+        # e.g., DaisyMockup(Window).png or Mockup(Window).png
+        short_name = control_name.replace('Daisy', '')  # "Mockup" from "DaisyMockup"
+        for img_file in sorted(images_dir.glob("*.png")):
+            fname = img_file.name
+            # Match patterns like "Mockup(something).png" or "DaisyMockup(something).png"
+            if (fname.startswith(f"{short_name}(") or fname.startswith(f"{control_name}(")) and fname.endswith(").png"):
+                rel_path = f"images/{fname}"
+                if rel_path not in found_images:
+                    found_images.append(rel_path)
+
+        # Debug output
+        if found_images:
+            print(f"      Found images for {control_name}: {found_images}")
+
+        return found_images
+
     def _generate_control_pages(self):
         """Generate HTML pages for each control."""
         # 1. Build map of control -> category
@@ -641,6 +752,50 @@ class SiteGenerator:
             md_content = ctrl['file'].read_text(encoding='utf-8')
             # Strip HTML comments from curated docs
             md_content = re.sub(r'<!--.*?-->', '', md_content, flags=re.DOTALL)
+
+            # Insert images if no image markdown referencing images/ folder exists
+            # (curated docs from llms-static/ don't have images from llms-static/images/ added)
+            # Check for actual image syntax like ![...](images/...) not just prose containing "images/"
+            images = self._find_control_images(ctrl['name'])
+            has_image_folder_ref = bool(re.search(r'!\[[^\]]*\]\(images/', md_content))
+            if images and not has_image_folder_ref:
+                # Build image content - use tabbed gallery for multiple images
+                if len(images) == 1:
+                    image_md = f"\n![{ctrl['name']}]({images[0]})\n"
+                else:
+                    # Create tabbed gallery HTML for multiple images
+                    image_md = self._create_tabbed_gallery(ctrl['name'], images)
+
+                # Find insertion point after first heading (# or ##)
+                # Try "## Overview" first, then "# Overview", then any first heading
+                overview_h2 = re.search(r'(## Overview[^\n]*\n)', md_content)
+                overview_h1 = re.search(r'(# Overview[^\n]*\n)', md_content)
+                any_heading = re.search(r'(^#+ [^\n]+\n)', md_content, re.MULTILINE)
+
+                if overview_h2:
+                    insert_pos = overview_h2.end()
+                    md_content = md_content[:insert_pos] + image_md + md_content[insert_pos:]
+                    print(f"      Inserted {'tabbed gallery' if len(images) > 1 else 'image'} after ## Overview for {ctrl['name']}")
+                elif overview_h1:
+                    insert_pos = overview_h1.end()
+                    md_content = md_content[:insert_pos] + image_md + md_content[insert_pos:]
+                    print(f"      Inserted {'tabbed gallery' if len(images) > 1 else 'image'} after # Overview for {ctrl['name']}")
+                elif any_heading:
+                    # Insert after first heading, then after the following paragraph
+                    heading_end = any_heading.end()
+                    rest = md_content[heading_end:]
+                    para_end = rest.find('\n\n')
+                    if para_end > 0:
+                        insert_pos = heading_end + para_end
+                        md_content = md_content[:insert_pos] + "\n" + image_md + md_content[insert_pos:]
+                        print(f"      Inserted {'tabbed gallery' if len(images) > 1 else 'image'} after first paragraph for {ctrl['name']}")
+                    else:
+                        md_content = md_content[:heading_end] + image_md + md_content[heading_end:]
+                        print(f"      Inserted {'tabbed gallery' if len(images) > 1 else 'image'} after heading for {ctrl['name']}")
+                else:
+                    # No heading found, prepend
+                    md_content = image_md + "\n" + md_content
+                    print(f"      Inserted {'tabbed gallery' if len(images) > 1 else 'image'} at start for {ctrl['name']}")
 
             # Fix Headings: If it starts with "# Overview", demote it and add proper title
             stripped_content = md_content.strip()

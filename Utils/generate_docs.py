@@ -625,6 +625,49 @@ class MarkdownGenerator:
             return content.strip()
         return ""
 
+    def _load_images(self, control_name: str) -> list[str]:
+        """
+        Find images for a control in llms-static/images/.
+        Returns list of relative image paths (e.g., ['images/DaisyButton.png']).
+        Handles multiple naming patterns:
+        - DaisyMockup.png (exact match)
+        - DaisyMockup_a.png, _b.png (chunked with letter suffix)
+        - Mockup(Description).png (short name with parenthesized description)
+        - DaisyGlass(Mode).png (full name with parenthesized description)
+        """
+        if not self.extras_dir:
+            return []
+
+        images_dir = self.extras_dir / "images"
+        if not images_dir.exists():
+            return []
+
+        found_images = []
+
+        # Check for single image (exact match)
+        single_image = images_dir / f"{control_name}.png"
+        if single_image.exists():
+            found_images.append(f"images/{control_name}.png")
+
+        # Check for chunked images (_a, _b, _c, etc.)
+        for suffix in 'abcdefghij':
+            chunk_image = images_dir / f"{control_name}_{suffix}.png"
+            if chunk_image.exists():
+                found_images.append(f"images/{control_name}_{suffix}.png")
+
+        # Check for descriptive suffix images: ControlName(Description).png
+        # e.g., DaisyGlass(BitmapCaptureMode).png or Mockup(Window).png
+        short_name = control_name.replace('Daisy', '')  # "Mockup" from "DaisyMockup"
+        for img_file in sorted(images_dir.glob("*.png")):
+            fname = img_file.name
+            # Match patterns like "Mockup(something).png" or "DaisyMockup(something).png"
+            if (fname.startswith(f"{short_name}(") or fname.startswith(f"{control_name}(")) and fname.endswith(").png"):
+                rel_path = f"images/{fname}"
+                if rel_path not in found_images:
+                    found_images.append(rel_path)
+
+        return found_images
+
     def generate_control_doc(self, control: ControlInfo, examples: list[ExampleSnippet]) -> str:
         """Generate markdown documentation for a control."""
         lines = []
@@ -644,6 +687,19 @@ class MarkdownGenerator:
         # Base class
         lines.append(f"**Inherits from:** `{control.base_class}`")
         lines.append("")
+
+        # Insert images if found in llms-static/images/
+        images = self._load_images(control.name)
+        if images:
+            if len(images) == 1:
+                # Single image
+                lines.append(f"![{control.name}]({images[0]})")
+            else:
+                # Multiple chunks
+                for i, img_path in enumerate(images):
+                    part_num = i + 1
+                    lines.append(f"![{control.name} - Part {part_num}]({img_path})")
+            lines.append("")
 
         # Load and insert supplementary documentation from llms-static/
         extra_content = self._load_extra(control.name)
@@ -1021,7 +1077,7 @@ class DocumentationGenerator:
             'steps': 'DaisySteps',
             'tabs': 'DaisyTabs',
             'statusdot': 'DaisyStatusIndicator',
-            'radialprogressbar': 'DaisyRadialProgress',
+            'radialprogress': 'DaisyRadialProgress',
             'indicator': 'DaisyIndicator',
             'mask': 'DaisyMask',
             'stack': 'DaisyStack',
