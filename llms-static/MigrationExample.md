@@ -1,6 +1,6 @@
 # Migration Guide: Integrating Flowery.NET into Existing Apps
 
-This guide explains when and how to use `CustomThemeApplicator` to integrate Flowery.NET's theme controls into apps with existing theming architectures.
+This guide explains when and how to use `CustomThemeApplicator` to integrate Flowery.NET's theme controls into apps with existing theming architectures. For general theme management, see [DaisyThemeManager](controls/DaisyThemeManager.html).
 
 ## When You Need CustomThemeApplicator
 

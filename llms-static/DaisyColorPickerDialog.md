@@ -3,6 +3,8 @@
 
 # Overview
 
+<img src="../images/DaisyColorPickerDialog.png" alt="DaisyColorPickerDialog" style="max-width:50%;width:50%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+
 DaisyColorPickerDialog is a comprehensive color picker dialog that combines all color picker components into a single, professional interface.
 
 ## Properties
@@ -177,7 +179,7 @@ if (color.HasValue)
 
 ## Typical Layout
 
-```diagram
+```txt
 ┌─────────────────────────────────────────────────────────┐
 │  ┌──────────────┐  ┌─────────────────────────────────┐  │
 │  │              │  │  Color Grid (Palette)           │  │

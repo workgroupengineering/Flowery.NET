@@ -49,6 +49,49 @@ themeToggle.addEventListener('click', () => {
 iframe.addEventListener('load', () => {
     const theme = localStorage.getItem('theme') || 'dark';
     applyTheme(theme);
+
+    // Try to sync sidebar (fallback for when postMessage doesn't work)
+    try {
+        const iframePath = iframe.contentWindow.location.pathname;
+        syncSidebarWithIframe(iframePath);
+    } catch (e) {
+        // Cross-origin access error - rely on postMessage instead
+    }
+});
+
+function syncSidebarWithIframe(iframePath) {
+    // Extract the filename (e.g., "DaisyButton.html" or "MigrationExample.html")
+    const filename = iframePath ? iframePath.split('/').pop() : null;
+
+    if (!filename || filename === 'index.html') return;
+
+    // Find matching sidebar link
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+    sidebarLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (!linkHref) return;
+
+        // Check if this link matches the iframe content
+        const linkFilename = linkHref.split('/').pop();
+        if (linkFilename === filename) {
+            // Update active state
+            sidebarLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+
+            // Update URL hash without triggering navigation
+            const pageName = filename.replace('.html', '');
+            if (window.location.hash !== '#' + pageName) {
+                history.replaceState(null, '', '#' + pageName);
+            }
+        }
+    });
+}
+
+// Listen for page load messages from iframe content
+window.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'pageLoaded') {
+        syncSidebarWithIframe(event.data.path);
+    }
 });
 
 // --- Sidebar Logic ---
@@ -85,3 +128,36 @@ links.forEach(link => {
         }
     });
 });
+
+// --- Hash Navigation ---
+// Handle URL hash to load specific pages (e.g., #MigrationExample)
+function handleHashNavigation() {
+    const hash = window.location.hash.slice(1); // Remove '#'
+    if (hash) {
+        // Try to find a matching page
+        const possiblePaths = [
+            `${hash}.html`,
+            `controls/${hash}.html`,
+            `controls/Daisy${hash}.html`,
+            `categories/${hash}.html`
+        ];
+
+        // Find matching sidebar link and click it
+        for (const path of possiblePaths) {
+            const matchingLink = document.querySelector(`.sidebar a[href="${path}"]`);
+            if (matchingLink) {
+                matchingLink.click();
+                return;
+            }
+        }
+
+        // Fallback: try to load directly
+        iframe.src = `${hash}.html`;
+    }
+}
+
+// Handle initial hash on page load
+handleHashNavigation();
+
+// Handle hash changes (back/forward navigation)
+window.addEventListener('hashchange', handleHashNavigation);

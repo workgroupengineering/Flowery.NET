@@ -12,7 +12,6 @@ alwaysApply: true
 
 ## CODE REQUIREMENTS
 
-
 For the documentation generator to correctly extract metadata, code must follow
 these conventions:
 

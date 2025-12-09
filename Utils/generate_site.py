@@ -231,6 +231,9 @@ class MarkdownToHtml:
 
 class SiteGenerator:
     """Generates static HTML site from markdown docs."""
+    
+    # Custom controls (Avalonia-specific, not in original DaisyUI)
+    CUSTOM_CONTROL_PREFIXES = ('Color', 'Weather', 'ModifierKeys', 'ComponentSidebar', 'NumericUpDown')
 
     def __init__(self, docs_dir: Path, output_dir: Path, curated_dir: Path | None = None):
         self.docs_dir = docs_dir
@@ -455,7 +458,18 @@ class SiteGenerator:
         sidebar_items = []
 
         # Home link
-        sidebar_items.append('<li><a href="home.html" target="viewer" class="active">← Home</a></li>')
+        sidebar_items.append('<li><a href="home.html" target="viewer" class="active">Home</a></li>')
+
+        # Guides section
+        guide_files = ['MigrationExample.md']
+        existing_guides = [g for g in guide_files if (self.curated_dir / g).exists()] if self.curated_dir else []
+        if existing_guides:
+            sidebar_items.append('<li><h2>Guides</h2></li>')
+            for guide in existing_guides:
+                guide_name = guide.replace('.md', '')
+                # Convert camelCase to spaced title (MigrationExample -> Migration Example)
+                display_name = ''.join(' ' + c if c.isupper() else c for c in guide_name).strip()
+                sidebar_items.append(f'<li><a href="{guide_name}.html" target="viewer">{display_name}</a></li>')
 
         # Categories
         if self.categories:
@@ -465,14 +479,12 @@ class SiteGenerator:
 
         # Controls (main controls only, not helpers)
         sidebar_items.append('<li><h2>Controls</h2></li>')
-        # Custom controls (Avalonia-specific, not in original DaisyUI)
-        custom_prefixes = ('Color', 'Weather', 'ModifierKeys', 'ComponentSidebar')
         main_controls = [c for c in self.controls if not c.get('is_helper', False)]
         helper_controls = [c for c in self.controls if c.get('is_helper', False)]
 
         for ctrl in main_controls:
             display_name = ctrl['name'].replace('Daisy', '')
-            is_custom = display_name.startswith(custom_prefixes)
+            is_custom = display_name.startswith(self.CUSTOM_CONTROL_PREFIXES)
             badge = '<sup class="custom-badge">✦</sup>' if is_custom else ''
             sidebar_items.append(f'<li><a href="controls/{ctrl["html_name"]}" target="viewer">{display_name}{badge}</a></li>')
 
@@ -535,7 +547,7 @@ class SiteGenerator:
                     </svg>
                 </button>
             </h1>
-            <p class="subtitle">Avalonia UI Components</p>
+            <p class="subtitle">Beautiful Avalonia UI Components</p>
             <ul>
                 {sidebar_html}
             </ul>
@@ -628,15 +640,13 @@ class SiteGenerator:
         lines.append("| Control | Description |")
         lines.append("|---------|-------------|")
 
-        # Custom controls (Avalonia-specific, not in original DaisyUI)
-        custom_prefixes = ('Color', 'Weather', 'ModifierKeys', 'ComponentSidebar')
         main_controls = [c for c in self.controls if not c.get('is_helper', False)]
         helper_controls = [c for c in self.controls if c.get('is_helper', False)]
 
         for ctrl in sorted(main_controls, key=lambda c: c['name']):
             name = ctrl['name']
             display_name = name.replace('Daisy', '')
-            is_custom = display_name.startswith(custom_prefixes)
+            is_custom = display_name.startswith(self.CUSTOM_CONTROL_PREFIXES)
             badge = ' <sup>✦</sup>' if is_custom else ''
             # Try to extract description from the markdown file
             desc = f"{display_name} control"
@@ -804,6 +814,9 @@ class SiteGenerator:
 
     def _generate_control_pages(self):
         """Generate HTML pages for each control."""
+        # Separate main controls from helpers for navigation
+        main_controls = [c for c in self.controls if not c.get('is_helper', False)]
+
         # 1. Build map of control -> category
         control_category_map = {}
         category_controls_map = {} # cat_name -> list of controls
@@ -823,11 +836,14 @@ class SiteGenerator:
             # Strip HTML comments from curated docs (but preserve them inside code blocks)
             md_content = strip_html_comments_outside_code(md_content)
 
-            # Insert images if no image markdown referencing images/ folder exists
+            # Insert images if no image reference exists in the content
             # (curated docs from llms-static/ don't have images from llms-static/images/ added)
-            # Check for actual image syntax like ![...](images/...) not just prose containing "images/"
+            # Check for markdown syntax ![...](images/...) OR HTML <img src="images/..." or "../images/...">
             images = self._find_control_images(ctrl['name'])
-            has_image_folder_ref = bool(re.search(r'!\[[^\]]*\]\(images/', md_content))
+            has_image_folder_ref = bool(
+                re.search(r'!\[[^\]]*\]\(\.{0,2}/?images/', md_content) or
+                re.search(r'<img[^>]+src=["\']\.{0,2}/?images/', md_content)
+            )
             if images and not has_image_folder_ref:
                 # Build image content - use tabbed gallery for multiple images
                 if len(images) == 1:
@@ -924,16 +940,16 @@ class SiteGenerator:
     <a href="../categories/{category["html_name"]}">{category["name"]}</a>
 </div>''' if category else f'<div class="breadcrumbs"><a href="../home.html">Home</a></div>'
 
+            # Prev/Next navigation - alphabetical across all main controls
             prev_next = ""
-            if category:
-                 siblings = category_controls_map.get(category['name'], [])
-                 if ctrl['name'] in siblings:
-                    idx = siblings.index(ctrl['name'])
-                    prev_link = f'<a href="{siblings[idx-1]}.html">← {siblings[idx-1].replace("Daisy", "")}</a>' if idx > 0 else ""
-                    next_link = f'<a href="{siblings[idx+1]}.html">{siblings[idx+1].replace("Daisy", "")} →</a>' if idx < len(siblings) - 1 else ""
+            all_control_names = sorted([c['name'] for c in main_controls])
+            if ctrl['name'] in all_control_names:
+                idx = all_control_names.index(ctrl['name'])
+                prev_link = f'<a href="{all_control_names[idx-1]}.html">← {all_control_names[idx-1].replace("Daisy", "")}</a>' if idx > 0 else ""
+                next_link = f'<a href="{all_control_names[idx+1]}.html">{all_control_names[idx+1].replace("Daisy", "")} →</a>' if idx < len(all_control_names) - 1 else ""
 
-                    if prev_link or next_link:
-                        prev_next = f'''<div class="doc-nav">
+                if prev_link or next_link:
+                    prev_next = f'''<div class="doc-nav">
     <div class="nav-left">{prev_link}</div>
     <div class="nav-right">{next_link}</div>
 </div>'''
