@@ -57,7 +57,7 @@
         <!-- Selected State (Active) - uses ListBoxItem properties so code-behind can override -->
         <Style Selector="^:selected">
             <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentBrush}" />
         </Style>
 
         <!-- Menu Title Style -->
@@ -76,14 +76,14 @@
             <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
         </Style>
         <Style Selector="^.menu-active">
-             <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
+             <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentBrush}" />
         </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type controls:DaisyMenu}" TargetType="controls:DaisyMenu">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="4" />
-        <Setter Property="ActiveForeground" Value="{DynamicResource DaisyNeutralContentColor}" />
+        <Setter Property="ActiveForeground" Value="{DynamicResource DaisyNeutralContentBrush}" />
         <Setter Property="ActiveBackground" Value="{DynamicResource DaisyNeutralBrush}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />

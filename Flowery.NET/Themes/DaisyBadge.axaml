@@ -46,22 +46,22 @@
         <!-- Variants -->
         <Style Selector="^[Variant=Neutral]">
             <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Primary]">
             <Setter Property="Background" Value="{DynamicResource DaisyPrimaryBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource DaisyPrimaryContentColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource DaisyPrimaryContentBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Secondary]">
             <Setter Property="Background" Value="{DynamicResource DaisySecondaryBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource DaisySecondaryContentColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource DaisySecondaryContentBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Accent]">
             <Setter Property="Background" Value="{DynamicResource DaisyAccentBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource DaisyAccentContentColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource DaisyAccentContentBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Ghost]">
@@ -71,22 +71,22 @@
 
         <Style Selector="^[Variant=Info]">
             <Setter Property="Background" Value="{DynamicResource DaisyInfoBrush}" />
-            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Foreground" Value="{DynamicResource DaisyInfoContentBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Success]">
             <Setter Property="Background" Value="{DynamicResource DaisySuccessBrush}" />
-            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Foreground" Value="{DynamicResource DaisySuccessContentBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Warning]">
             <Setter Property="Background" Value="{DynamicResource DaisyWarningBrush}" />
-            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Foreground" Value="{DynamicResource DaisyWarningContentBrush}" />
         </Style>
 
         <Style Selector="^[Variant=Error]">
             <Setter Property="Background" Value="{DynamicResource DaisyErrorBrush}" />
-            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Foreground" Value="{DynamicResource DaisyErrorContentBrush}" />
         </Style>
 
         <!-- Outline -->

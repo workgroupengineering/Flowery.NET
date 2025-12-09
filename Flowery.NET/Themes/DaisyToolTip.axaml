@@ -1,10 +1,10 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+
     <!-- ToolTip Theme mimicking DaisyUI -->
     <Style Selector="ToolTip">
         <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentBrush}" />
         <Setter Property="CornerRadius" Value="4" />
         <Setter Property="Padding" Value="8,4" />
         <Setter Property="FontSize" Value="12" />
@@ -12,26 +12,26 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Opacity" Value="1" />
     </Style>
-    
-    <!-- DaisyUI Tooltips have arrows (triangle) usually. 
-         Avalonia ToolTip has placement logic but arrow rendering depends on template. 
-         Default Fluent theme has no arrow. 
+
+    <!-- DaisyUI Tooltips have arrows (triangle) usually.
+         Avalonia ToolTip has placement logic but arrow rendering depends on template.
+         Default Fluent theme has no arrow.
          We'll just stick to the rounded dark box look for now. -->
-         
-    <!-- Variants? ToolTip doesn't support Variants property easily. 
+
+    <!-- Variants? ToolTip doesn't support Variants property easily.
          Classes can be used: Classes="primary". -->
-         
+
     <Style Selector="ToolTip.primary">
         <Setter Property="Background" Value="{DynamicResource DaisyPrimaryBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource DaisyPrimaryContentColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyPrimaryContentBrush}" />
     </Style>
     <Style Selector="ToolTip.secondary">
         <Setter Property="Background" Value="{DynamicResource DaisySecondaryBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource DaisySecondaryContentColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisySecondaryContentBrush}" />
     </Style>
     <Style Selector="ToolTip.accent">
         <Setter Property="Background" Value="{DynamicResource DaisyAccentBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource DaisyAccentContentColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyAccentContentBrush}" />
     </Style>
     <Style Selector="ToolTip.info">
         <Setter Property="Background" Value="{DynamicResource DaisyInfoBrush}" />

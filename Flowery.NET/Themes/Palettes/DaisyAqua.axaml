@@ -47,13 +47,21 @@
     <Color x:Key="DaisyInfoColor">#2563EB</Color>
     <SolidColorBrush x:Key="DaisyInfoBrush" Color="{StaticResource DaisyInfoColor}" />
     
+    <Color x:Key="DaisyInfoContentColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="DaisyInfoContentBrush" Color="{StaticResource DaisyInfoContentColor}" />
     <Color x:Key="DaisySuccessColor">#18A34A</Color>
     <SolidColorBrush x:Key="DaisySuccessBrush" Color="{StaticResource DaisySuccessColor}" />
     
+    <Color x:Key="DaisySuccessContentColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="DaisySuccessContentBrush" Color="{StaticResource DaisySuccessContentColor}" />
     <Color x:Key="DaisyWarningColor">#D97708</Color>
     <SolidColorBrush x:Key="DaisyWarningBrush" Color="{StaticResource DaisyWarningColor}" />
     
+    <Color x:Key="DaisyWarningContentColor">#000000</Color>
+    <SolidColorBrush x:Key="DaisyWarningContentBrush" Color="{StaticResource DaisyWarningContentColor}" />
     <Color x:Key="DaisyErrorColor">#FF7265</Color>
     <SolidColorBrush x:Key="DaisyErrorBrush" Color="{StaticResource DaisyErrorColor}" />
     
+    <Color x:Key="DaisyErrorContentColor">#000000</Color>
+    <SolidColorBrush x:Key="DaisyErrorContentBrush" Color="{StaticResource DaisyErrorContentColor}" />
 </ResourceDictionary>

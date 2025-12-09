@@ -83,6 +83,21 @@ def darken_hex(hex_color: str, factor: float = 0.8) -> str:
     return f"#{r:02X}{g:02X}{b:02X}"
 
 
+def get_contrasting_color(hex_color: str) -> str:
+    """Calculate a contrasting text color (black or white) based on perceived brightness."""
+    hex_color = hex_color.lstrip('#')
+    r = int(hex_color[0:2], 16)
+    g = int(hex_color[2:4], 16)
+    b = int(hex_color[4:6], 16)
+
+    # Calculate perceived brightness using the formula:
+    # (0.299 * R + 0.587 * G + 0.114 * B)
+    brightness = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+
+    # Return black for light backgrounds, white for dark backgrounds
+    return '#000000' if brightness > 0.5 else '#FFFFFF'
+
+
 def parse_css_theme(css_content: str) -> dict:
     """Parse DaisyUI CSS theme file and extract colors."""
     theme = {
@@ -214,26 +229,38 @@ def generate_axaml(theme_name: str, theme: dict) -> str:
         lines.append(f'    <SolidColorBrush x:Key="DaisyBaseContentBrush" Color="{{StaticResource DaisyBaseContentColor}}" />')
         lines.append('    ')
 
-    # Info, Success, Warning, Error
+    # Info, Success, Warning, Error (with content colors for proper badge text contrast)
     lines.append('    <!-- Info, Success, Warning, Error -->')
     if 'info' in colors:
         lines.append(f'    <Color x:Key="DaisyInfoColor">{colors["info"]}</Color>')
         lines.append(f'    <SolidColorBrush x:Key="DaisyInfoBrush" Color="{{StaticResource DaisyInfoColor}}" />')
+        content_hex = colors.get('info-content', get_contrasting_color(colors['info']))
+        lines.append(f'    <Color x:Key="DaisyInfoContentColor">{content_hex}</Color>')
+        lines.append(f'    <SolidColorBrush x:Key="DaisyInfoContentBrush" Color="{{StaticResource DaisyInfoContentColor}}" />')
         lines.append('    ')
 
     if 'success' in colors:
         lines.append(f'    <Color x:Key="DaisySuccessColor">{colors["success"]}</Color>')
         lines.append(f'    <SolidColorBrush x:Key="DaisySuccessBrush" Color="{{StaticResource DaisySuccessColor}}" />')
+        content_hex = colors.get('success-content', get_contrasting_color(colors['success']))
+        lines.append(f'    <Color x:Key="DaisySuccessContentColor">{content_hex}</Color>')
+        lines.append(f'    <SolidColorBrush x:Key="DaisySuccessContentBrush" Color="{{StaticResource DaisySuccessContentColor}}" />')
         lines.append('    ')
 
     if 'warning' in colors:
         lines.append(f'    <Color x:Key="DaisyWarningColor">{colors["warning"]}</Color>')
         lines.append(f'    <SolidColorBrush x:Key="DaisyWarningBrush" Color="{{StaticResource DaisyWarningColor}}" />')
+        content_hex = colors.get('warning-content', get_contrasting_color(colors['warning']))
+        lines.append(f'    <Color x:Key="DaisyWarningContentColor">{content_hex}</Color>')
+        lines.append(f'    <SolidColorBrush x:Key="DaisyWarningContentBrush" Color="{{StaticResource DaisyWarningContentColor}}" />')
         lines.append('    ')
 
     if 'error' in colors:
         lines.append(f'    <Color x:Key="DaisyErrorColor">{colors["error"]}</Color>')
         lines.append(f'    <SolidColorBrush x:Key="DaisyErrorBrush" Color="{{StaticResource DaisyErrorColor}}" />')
+        content_hex = colors.get('error-content', get_contrasting_color(colors['error']))
+        lines.append(f'    <Color x:Key="DaisyErrorContentColor">{content_hex}</Color>')
+        lines.append(f'    <SolidColorBrush x:Key="DaisyErrorContentBrush" Color="{{StaticResource DaisyErrorContentColor}}" />')
         lines.append('    ')
 
     lines.append('</ResourceDictionary>')

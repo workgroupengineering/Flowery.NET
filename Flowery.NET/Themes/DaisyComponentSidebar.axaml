@@ -155,7 +155,7 @@
     </Style>
     <Style Selector="Button.sidebar-item:pressed">
         <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentBrush}" />
     </Style>
     <Style Selector="Button.sidebar-item.selected">
         <Setter Property="Background" Value="{DynamicResource DaisyPrimaryBrush}" />

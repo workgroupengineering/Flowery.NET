@@ -325,7 +325,7 @@
                         <StackPanel Spacing="10" Margin="0,0,40,20">
                             <TextBlock Text="Custom active colors (Primary)" FontSize="12" Opacity="0.7"/>
                             <controls:DaisyMenu Width="200" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8"
-                                               ActiveForeground="{DynamicResource DaisyPrimaryContentColor}"
+                                               ActiveForeground="{DynamicResource DaisyPrimaryContentBrush}"
                                                ActiveBackground="{DynamicResource DaisyPrimaryBrush}">
                                 <ListBoxItem>Item 1</ListBoxItem>
                                 <ListBoxItem IsSelected="True">Selected Item</ListBoxItem>
@@ -335,7 +335,7 @@
                         <StackPanel Spacing="10" Margin="0,0,40,20">
                             <TextBlock Text="Accent active colors" FontSize="12" Opacity="0.7"/>
                             <controls:DaisyMenu Orientation="Horizontal" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16" Padding="8"
-                                               ActiveForeground="{DynamicResource DaisyAccentContentColor}"
+                                               ActiveForeground="{DynamicResource DaisyAccentContentBrush}"
                                                ActiveBackground="{DynamicResource DaisyAccentBrush}">
                                 <ListBoxItem>Home</ListBoxItem>
                                 <ListBoxItem IsSelected="True">About</ListBoxItem>

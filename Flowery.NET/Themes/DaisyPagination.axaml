@@ -75,7 +75,7 @@
             <!-- Active/Selected State -->
             <Style Selector="^[IsActive=True]">
                 <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
-                <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentBrush}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource DaisyNeutralBrush}" />
             </Style>
             <Style Selector="^[IsActive=True]:pointerover /template/ Border#PART_Background">
@@ -239,7 +239,7 @@
     </Style>
     <Style Selector="controls|DaisyPagination[ButtonStyle=Outline] > controls|DaisyPaginationItem[IsActive=True]">
         <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DaisyNeutralBrush}" />
     </Style>
 
