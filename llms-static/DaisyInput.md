@@ -23,10 +23,24 @@ DaisyInput is a styled TextBox with **9 variants** and **4 size presets**. It su
 | Medium (default) | 48 | 14 | General usage. |
 | Large | 64 | 18 | Prominent inputs/hero sections. |
 
-## Slots
+## Properties
 
-- `InnerLeftContent` / `InnerRightContent`: Place icons or buttons inside the control (e.g., clear/search actions). Configure via attached content presenters in templates.
-- `Watermark`: Standard placeholder text.
+DaisyInput extends `TextBox` — all standard TextBox properties (`Text`, `Watermark`, `Padding`, `TextAlignment`, `TextWrapping`, `VerticalContentAlignment`, etc.) are supported.
+
+**DaisyInput-specific properties:**
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `Variant` | `DaisyInputVariant` | `Bordered` | Visual style variant (see table above). |
+| `Size` | `DaisySize` | `Medium` | Size preset (see table above). |
+| `InnerLeftContent` | `object` | `null` | Content slot inside left edge (e.g., search icon). |
+| `InnerRightContent` | `object` | `null` | Content slot inside right edge (e.g., clear button). |
+
+## Content Alignment
+
+The `VerticalContentAlignment` property controls vertical positioning of both the watermark and text content:
+- **Center** (default): Text vertically centered — standard for single-line inputs.
+- **Top**: Text aligned to top — used by `DaisyTextArea` for multi-line editing.
 
 ## Quick Examples
 
