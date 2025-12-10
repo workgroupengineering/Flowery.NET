@@ -36,7 +36,7 @@
             <Setter Property="Padding" Value="16,0" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="FontWeight" Value="SemiBold" />
-            <Setter Property="MinHeight" Value="48" />
+            <Setter Property="Height" Value="48" />
             <Setter Property="MinWidth" Value="48" />
             <Setter Property="Cursor" Value="Hand" />
             <Setter Property="CornerRadius" Value="0" />
@@ -163,7 +163,7 @@
 
     <!-- Sizes: ExtraSmall -->
     <Style Selector="controls|DaisyPagination[Size=ExtraSmall] > controls|DaisyPaginationItem">
-        <Setter Property="MinHeight" Value="24" />
+        <Setter Property="Height" Value="24" />
         <Setter Property="MinWidth" Value="24" />
         <Setter Property="Padding" Value="8,0" />
         <Setter Property="FontSize" Value="12" />
@@ -180,7 +180,7 @@
 
     <!-- Sizes: Small -->
     <Style Selector="controls|DaisyPagination[Size=Small] > controls|DaisyPaginationItem">
-        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Height" Value="32" />
         <Setter Property="MinWidth" Value="32" />
         <Setter Property="Padding" Value="12,0" />
         <Setter Property="FontSize" Value="13" />
@@ -197,7 +197,7 @@
 
     <!-- Sizes: Large -->
     <Style Selector="controls|DaisyPagination[Size=Large] > controls|DaisyPaginationItem">
-        <Setter Property="MinHeight" Value="64" />
+        <Setter Property="Height" Value="64" />
         <Setter Property="MinWidth" Value="64" />
         <Setter Property="Padding" Value="24,0" />
         <Setter Property="FontSize" Value="18" />
@@ -214,7 +214,7 @@
 
     <!-- Sizes: ExtraLarge -->
     <Style Selector="controls|DaisyPagination[Size=ExtraLarge] > controls|DaisyPaginationItem">
-        <Setter Property="MinHeight" Value="80" />
+        <Setter Property="Height" Value="80" />
         <Setter Property="MinWidth" Value="80" />
         <Setter Property="Padding" Value="32,0" />
         <Setter Property="FontSize" Value="20" />

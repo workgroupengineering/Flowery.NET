@@ -16,12 +16,15 @@ DaisySelect is a styled ComboBox with **9 variants** and **4 size presets**. It 
 
 ## Size Options
 
-| Size | Min Height | Font Size |
-|------|------------|-----------|
+| Size | Height | Font Size |
+|------|--------|-----------|
 | ExtraSmall | 24 | 10 |
 | Small | 32 | 12 |
 | Medium (default) | 48 | 14 |
 | Large | 64 | 18 |
+
+> [!NOTE]
+> DaisySelect uses **fixed heights** for each size to match DaisyUI's design.
 
 ## Quick Examples
 

@@ -39,13 +39,16 @@ DaisyButton delivers DaisyUI-styled actions with **11 color variants**, **4 visu
 
 ## Size Options
 
-| Size | Min Height | Padding | Typical Use |
-|------|------------|---------|-------------|
+| Size | Height | Padding | Typical Use |
+|------|--------|---------|-------------|
 | ExtraSmall | 24px | 8px horizontal | Dense toolbars, icon circles. |
 | Small | 32px | 12px horizontal | Compact forms, secondary actions. |
 | Medium (default) | 48px | 16px horizontal | General purpose. |
 | Large | 64px | 24px horizontal | Hero sections, primary CTAs. |
 | ExtraLarge | 80px | 32px horizontal | Splash/marketing layouts. |
+
+> [!NOTE]
+> DaisyButton uses **fixed heights** (not MinHeight) for each size to match DaisyUI's design. Buttons will not grow vertically to accommodate multi-line content. If you need a flexible-height button, override `Height="NaN"` on the individual button.
 
 ## Shadows & States
 
@@ -93,3 +96,4 @@ DaisyButton delivers DaisyUI-styled actions with **11 color variants**, **4 visu
 - Outline and Dash styles shine on colored backgrounds where solid fills would clash.
 - Match size/shape to context: Square/Circle for icons, Wide for promotional CTAs, Block for full-width forms.
 - Keep shadow subtle; large blur/offset can look heavy—start with `ShowShadow=True` defaults before customizing.
+- Buttons have **fixed heights** by design. For flexible-height buttons with wrapping text, set `Height="NaN"` to allow vertical growth.

@@ -4,16 +4,33 @@
 
     <Design.PreviewWith>
         <Border Padding="20">
-             <controls:DaisyTextArea Watermark="Bio" Height="100" Width="300"/>
+            <controls:DaisyTextArea Watermark="Bio" Height="100" Width="300"/>
         </Border>
     </Design.PreviewWith>
 
     <!-- Inherits most styles from DaisyInput, but we need to redefine the theme key -->
     <ControlTheme x:Key="{x:Type controls:DaisyTextArea}" TargetType="controls:DaisyTextArea" BasedOn="{StaticResource {x:Type controls:DaisyInput}}">
-        <Setter Property="MinHeight" Value="80" />
-        <Setter Property="Padding" Value="16" />
-        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="MinHeight" Value="{DynamicResource DaisyTextAreaMediumMinHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyTextAreaMediumPadding}" />
+        <Setter Property="VerticalContentAlignment" Value="{DynamicResource DaisyTextAreaVerticalContentAlignment}" />
 
-        <!-- We can override specific padding or behaviors here if needed -->
+        <!-- Size variants -->
+        <Style Selector="^[Size=ExtraLarge]">
+            <Setter Property="MinHeight" Value="{DynamicResource DaisyTextAreaExtraLargeMinHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource DaisyTextAreaExtraLargePadding}" />
+        </Style>
+        <Style Selector="^[Size=Large]">
+            <Setter Property="MinHeight" Value="{DynamicResource DaisyTextAreaLargeMinHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource DaisyTextAreaLargePadding}" />
+        </Style>
+        <!-- Size=Medium is the default -->
+        <Style Selector="^[Size=Small]">
+            <Setter Property="MinHeight" Value="{DynamicResource DaisyTextAreaSmallMinHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource DaisyTextAreaSmallPadding}" />
+        </Style>
+        <Style Selector="^[Size=ExtraSmall]">
+            <Setter Property="MinHeight" Value="{DynamicResource DaisyTextAreaExtraSmallMinHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource DaisyTextAreaExtraSmallPadding}" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

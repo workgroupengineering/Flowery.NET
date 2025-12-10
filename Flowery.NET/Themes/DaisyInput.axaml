@@ -2,51 +2,52 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
 
-    <Design.PreviewWith>
-        <Border Padding="20" Background="{DynamicResource DaisyBase100Brush}">
-            <StackPanel Spacing="10" Width="300">
-                <controls:DaisyInput Watermark="Bordered (Default)" />
-                <controls:DaisyInput Variant="Ghost" Watermark="Ghost" />
-                <controls:DaisyInput Variant="Primary" Watermark="Primary" />
-                <controls:DaisyInput Variant="Secondary" Watermark="Secondary" />
-                <controls:DaisyInput Variant="Error" Watermark="Error" />
-            </StackPanel>
-        </Border>
-    </Design.PreviewWith>
+     <Design.PreviewWith>
+          <Border Padding="20" Background="{DynamicResource DaisyBase100Brush}">
+               <StackPanel Spacing="10" Width="300">
+                    <controls:DaisyInput Watermark="Bordered (Default)" />
+                    <controls:DaisyInput Variant="Ghost" Watermark="Ghost" />
+                    <controls:DaisyInput Variant="Primary" Watermark="Primary" />
+                    <controls:DaisyInput Variant="Secondary" Watermark="Secondary" />
+                    <controls:DaisyInput Variant="Error" Watermark="Error" />
+               </StackPanel>
+          </Border>
+     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type controls:DaisyInput}" TargetType="controls:DaisyInput">
-        <Setter Property="Background" Value="{DynamicResource DaisyBase100Brush}" />
-        <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="16,0" />
-        <Setter Property="CornerRadius" Value="8" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="MinHeight" Value="48" />
-        <Setter Property="SelectionBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
-        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource DaisyPrimaryContentBrush}" />
-        <Setter Property="CaretBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
+          <Setter Property="Background" Value="{DynamicResource DaisyBase100Brush}" />
+          <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
+          <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
+          <Setter Property="BorderThickness" Value="1" />
+          <Setter Property="Padding" Value="{DynamicResource DaisyInputMediumPadding}" />
+          <Setter Property="CornerRadius" Value="{DynamicResource DaisySizeMediumCornerRadius}" />
+          <Setter Property="FontSize" Value="{DynamicResource DaisySizeMediumFontSize}" />
+          <Setter Property="Height" Value="{DynamicResource DaisySizeMediumHeight}" />
+          <Setter Property="SelectionBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
+          <Setter Property="SelectionForegroundBrush" Value="{DynamicResource DaisyPrimaryContentBrush}" />
+          <Setter Property="CaretBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
+          <Setter Property="VerticalContentAlignment" Value="{DynamicResource DaisyInputVerticalContentAlignment}" />
 
-        <Setter Property="Template">
+          <Setter Property="Template">
             <ControlTemplate>
-                <DataValidationErrors>
+               <DataValidationErrors>
                     <Panel>
-                        <Border x:Name="PART_Background"
+                         <Border x:Name="PART_Background"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 MinWidth="{TemplateBinding MinWidth}"
-                                MinHeight="{TemplateBinding MinHeight}" />
+                                Height="{TemplateBinding Height}" />
 
-                        <Grid ColumnDefinitions="Auto,*,Auto"
+                         <Grid ColumnDefinitions="Auto,*,Auto"
                               TextElement.Foreground="{DynamicResource DaisyBaseContentBrush}">
-                            <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
-                            <ScrollViewer Grid.Column="1"
+                              <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
+                              <ScrollViewer Grid.Column="1"
                                           HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                           VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                <Panel>
-                                    <TextBlock Name="PART_Watermark"
+                                   <Panel>
+                                        <TextBlock Name="PART_Watermark"
                                                   Opacity="0.5"
                                                   Text="{TemplateBinding Watermark}"
                                                   TextAlignment="{TemplateBinding TextAlignment}"
@@ -54,7 +55,7 @@
                                                   IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
                                                   Margin="{TemplateBinding Padding}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                                    <TextPresenter Name="PART_TextPresenter"
+                                        <TextPresenter Name="PART_TextPresenter"
                                                   Text="{TemplateBinding Text, Mode=TwoWay}"
                                                   CaretIndex="{TemplateBinding CaretIndex}"
                                                   SelectionStart="{TemplateBinding SelectionStart}"
@@ -68,100 +69,108 @@
                                                   CaretBrush="{TemplateBinding CaretBrush}"
                                                   Margin="{TemplateBinding Padding}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                                </Panel>
-                            </ScrollViewer>
-                            <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
-                        </Grid>
-                    </Panel>
-                </DataValidationErrors>
-            </ControlTemplate>
-        </Setter>
+                                    </Panel>
+                                </ScrollViewer>
+                                <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
+                            </Grid>
+                        </Panel>
+                    </DataValidationErrors>
+               </ControlTemplate>
+          </Setter>
 
-        <!-- States -->
-        <Style Selector="^:pointerover /template/ Border#PART_Background">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
-        </Style>
+          <!-- States -->
+          <Style Selector="^:pointerover /template/ Border#PART_Background">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
+          </Style>
 
-        <Style Selector="^:focus /template/ Border#PART_Background">
-             <!-- Not increasing thickness to avoid layout shift, in future could use FocusAdorner or negative margins -->
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
-        </Style>
+          <Style Selector="^:focus /template/ Border#PART_Background">
+               <!-- Not increasing thickness to avoid layout shift, in future could use FocusAdorner or negative margins -->
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
+          </Style>
 
-        <!-- Variants -->
+          <!-- Variants -->
 
-        <Style Selector="^[Variant=Bordered]">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
-        </Style>
-        <Style Selector="^[Variant=Bordered] /template/ Border#PART_Background">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyNeutralBrush}" />
-        </Style>
-        <Style Selector="^[Variant=Bordered]:focus /template/ Border#PART_Background">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
-        </Style>
+          <Style Selector="^[Variant=Bordered]">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
+          </Style>
+          <Style Selector="^[Variant=Bordered] /template/ Border#PART_Background">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyNeutralBrush}" />
+          </Style>
+          <Style Selector="^[Variant=Bordered]:focus /template/ Border#PART_Background">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
+          </Style>
 
-        <Style Selector="^[Variant=Ghost]">
-             <Setter Property="BorderThickness" Value="0" />
-             <Setter Property="Background" Value="Transparent" />
-        </Style>
-        <Style Selector="^[Variant=Ghost]:focus /template/ Border#PART_Background">
-             <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
-             <Setter Property="BorderThickness" Value="0" />
-        </Style>
+          <Style Selector="^[Variant=Ghost]">
+               <Setter Property="BorderThickness" Value="0" />
+               <Setter Property="Background" Value="Transparent" />
+          </Style>
+          <Style Selector="^[Variant=Ghost]:focus /template/ Border#PART_Background">
+               <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
+               <Setter Property="BorderThickness" Value="0" />
+          </Style>
 
-        <Style Selector="^[Variant=Primary]">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
-        </Style>
-        <Style Selector="^[Variant=Primary]:focus /template/ Border#PART_Background">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryFocusBrush}" />
-        </Style>
+          <Style Selector="^[Variant=Primary]">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
+          </Style>
+          <Style Selector="^[Variant=Primary]:focus /template/ Border#PART_Background">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryFocusBrush}" />
+          </Style>
 
-        <Style Selector="^[Variant=Secondary]">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryBrush}" />
-        </Style>
-        <Style Selector="^[Variant=Secondary]:focus /template/ Border#PART_Background">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryFocusBrush}" />
-        </Style>
+          <Style Selector="^[Variant=Secondary]">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryBrush}" />
+          </Style>
+          <Style Selector="^[Variant=Secondary]:focus /template/ Border#PART_Background">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryFocusBrush}" />
+          </Style>
 
-         <Style Selector="^[Variant=Error]">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
-        </Style>
-        <Style Selector="^[Variant=Error]:focus /template/ Border#PART_Background">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
-        </Style>
+          <Style Selector="^[Variant=Error]">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
+          </Style>
+          <Style Selector="^[Variant=Error]:focus /template/ Border#PART_Background">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
+          </Style>
 
-        <Style Selector="^[Variant=Success]">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
-        </Style>
-        <Style Selector="^[Variant=Success]:focus /template/ Border#PART_Background">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
-        </Style>
+          <Style Selector="^[Variant=Success]">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
+          </Style>
+          <Style Selector="^[Variant=Success]:focus /template/ Border#PART_Background">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
+          </Style>
 
-        <Style Selector="^[Variant=Warning]">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
-        </Style>
-        <Style Selector="^[Variant=Warning]:focus /template/ Border#PART_Background">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
-        </Style>
+          <Style Selector="^[Variant=Warning]">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
+          </Style>
+          <Style Selector="^[Variant=Warning]:focus /template/ Border#PART_Background">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
+          </Style>
 
-        <Style Selector="^[Variant=Info]">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
-        </Style>
-        <Style Selector="^[Variant=Info]:focus /template/ Border#PART_Background">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
-        </Style>
+          <Style Selector="^[Variant=Info]">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
+          </Style>
+          <Style Selector="^[Variant=Info]:focus /template/ Border#PART_Background">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
+          </Style>
 
-        <!-- Sizes -->
-         <Style Selector="^[Size=Large]">
-            <Setter Property="MinHeight" Value="64" />
-            <Setter Property="FontSize" Value="18" />
-        </Style>
-        <Style Selector="^[Size=Small]">
-            <Setter Property="MinHeight" Value="32" />
-            <Setter Property="FontSize" Value="12" />
-        </Style>
-        <Style Selector="^[Size=ExtraSmall]">
-            <Setter Property="MinHeight" Value="24" />
-            <Setter Property="FontSize" Value="10" />
-        </Style>
-    </ControlTheme>
+          <!-- Sizes -->
+          <Style Selector="^[Size=ExtraLarge]">
+               <Setter Property="Height" Value="{DynamicResource DaisySizeExtraLargeHeight}" />
+               <Setter Property="Padding" Value="{DynamicResource DaisyInputExtraLargePadding}" />
+               <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraLargeFontSize}" />
+          </Style>
+          <Style Selector="^[Size=Large]">
+               <Setter Property="Height" Value="{DynamicResource DaisySizeLargeHeight}" />
+               <Setter Property="Padding" Value="{DynamicResource DaisyInputLargePadding}" />
+               <Setter Property="FontSize" Value="{DynamicResource DaisySizeLargeFontSize}" />
+          </Style>
+          <Style Selector="^[Size=Small]">
+               <Setter Property="Height" Value="{DynamicResource DaisySizeSmallHeight}" />
+               <Setter Property="Padding" Value="{DynamicResource DaisyInputSmallPadding}" />
+               <Setter Property="FontSize" Value="{DynamicResource DaisySizeSmallFontSize}" />
+          </Style>
+          <Style Selector="^[Size=ExtraSmall]">
+               <Setter Property="Height" Value="{DynamicResource DaisySizeExtraSmallHeight}" />
+               <Setter Property="Padding" Value="{DynamicResource DaisyInputExtraSmallPadding}" />
+               <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraSmallFontSize}" />
+          </Style>
+     </ControlTheme>
 </ResourceDictionary>

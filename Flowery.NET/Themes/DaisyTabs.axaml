@@ -90,9 +90,11 @@
 
     <!-- ==================== BASE TABITEM STYLING ==================== -->
     <Style Selector="controls|DaisyTabs TabItem">
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeMediumFontSize}" />
         <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="Padding" Value="16,8" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyTabMediumPadding}" />
+        <Setter Property="MinHeight" Value="0" />
+        <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
@@ -200,17 +202,45 @@
     </Style>
 
     <!-- ==================== SIZES ==================== -->
+    <Style Selector="controls|DaisyTabs[Size=ExtraLarge] TabItem">
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraLargeFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyTabExtraLargePadding}" />
+    </Style>
     <Style Selector="controls|DaisyTabs[Size=Large] TabItem">
-        <Setter Property="FontSize" Value="18" />
-        <Setter Property="Padding" Value="20,12" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeLargeFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyTabLargePadding}" />
     </Style>
     <Style Selector="controls|DaisyTabs[Size=Small] TabItem">
-        <Setter Property="FontSize" Value="12" />
-        <Setter Property="Padding" Value="12,6" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeSmallFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyTabSmallPadding}" />
     </Style>
     <Style Selector="controls|DaisyTabs[Size=ExtraSmall] TabItem">
-        <Setter Property="FontSize" Value="10" />
-        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraSmallFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyTabExtraSmallPadding}" />
+    </Style>
+
+    <!-- Boxed header container size adjustments -->
+    <Style
+        Selector="controls|DaisyTabs[Variant=Boxed][Size=Small] /template/ Border#PART_HeaderContainer">
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DaisySizeSmallCornerRadius}" />
+    </Style>
+    <Style
+        Selector="controls|DaisyTabs[Variant=Boxed][Size=ExtraSmall] /template/ Border#PART_HeaderContainer">
+        <Setter Property="Padding" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DaisySizeExtraSmallCornerRadius}" />
+    </Style>
+
+    <!-- Boxed TabItem size-specific border adjustments -->
+    <Style
+        Selector="controls|DaisyTabs[Variant=Boxed][Size=Small] TabItem /template/ Border#PART_LayoutRoot">
+        <Setter Property="CornerRadius" Value="{DynamicResource DaisySizeExtraSmallCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource DaisyBorderThicknessThin}" />
+    </Style>
+    <Style
+        Selector="controls|DaisyTabs[Variant=Boxed][Size=ExtraSmall] TabItem /template/ Border#PART_LayoutRoot">
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="BorderThickness" Value="{DynamicResource DaisyBorderThicknessThin}" />
     </Style>
 
     <!-- NONE VARIANT OVERRIDES - must be last to win specificity -->

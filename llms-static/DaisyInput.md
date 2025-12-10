@@ -16,12 +16,15 @@ DaisyInput is a styled TextBox with **9 variants** and **4 size presets**. It su
 
 ## Size Options
 
-| Size | Min Height | Font Size | Use Case |
-|------|------------|-----------|----------|
+| Size | Height | Font Size | Use Case |
+|------|--------|-----------|----------|
 | ExtraSmall | 24 | 10 | Dense tables/toolbars. |
 | Small | 32 | 12 | Compact forms. |
 | Medium (default) | 48 | 14 | General usage. |
 | Large | 64 | 18 | Prominent inputs/hero sections. |
+
+> [!NOTE]
+> DaisyInput uses **fixed heights** for each size to match DaisyUI's design. Single-line inputs will not grow vertically. For multi-line text entry, use `DaisyTextArea` instead.
 
 ## Properties
 

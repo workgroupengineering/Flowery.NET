@@ -17,10 +17,10 @@
         <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DaisySizeMediumCornerRadius}" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="MinHeight" Value="48" />
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="MinHeight" Value="{DynamicResource DaisySizeMediumHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeMediumFontSize}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
@@ -93,17 +93,21 @@
         </Style>
 
         <!-- Sizes -->
+        <Style Selector="^[Size=ExtraLarge]">
+            <Setter Property="MinHeight" Value="{DynamicResource DaisySizeExtraLargeHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraLargeFontSize}" />
+        </Style>
         <Style Selector="^[Size=Large]">
-            <Setter Property="MinHeight" Value="64" />
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="MinHeight" Value="{DynamicResource DaisySizeLargeHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeLargeFontSize}" />
         </Style>
         <Style Selector="^[Size=Small]">
-            <Setter Property="MinHeight" Value="32" />
-            <Setter Property="FontSize" Value="12" />
+            <Setter Property="MinHeight" Value="{DynamicResource DaisySizeSmallHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeSmallFontSize}" />
         </Style>
         <Style Selector="^[Size=ExtraSmall]">
-            <Setter Property="MinHeight" Value="24" />
-            <Setter Property="FontSize" Value="10" />
+            <Setter Property="MinHeight" Value="{DynamicResource DaisySizeExtraSmallHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraSmallFontSize}" />
         </Style>
 
     </ControlTheme>

@@ -16,8 +16,8 @@
     <ControlTheme x:Key="{x:Type controls:DaisyProgress}" TargetType="controls:DaisyProgress">
         <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
         <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
-        <Setter Property="Height" Value="8" />
-        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="Height" Value="{DynamicResource DaisyProgressMediumHeight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DaisyProgressMediumCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}"
@@ -61,35 +61,34 @@
 
         <!-- Sizes -->
         <Style Selector="^[Size=Large]">
-            <Setter Property="Height" Value="16" />
-            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Height" Value="{DynamicResource DaisyProgressLargeHeight}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource DaisyProgressLargeCornerRadius}" />
         </Style>
         <Style Selector="^[Size=Small]">
-            <Setter Property="Height" Value="4" />
-            <Setter Property="CornerRadius" Value="2" />
+            <Setter Property="Height" Value="{DynamicResource DaisyProgressSmallHeight}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource DaisyProgressSmallCornerRadius}" />
         </Style>
         <Style Selector="^[Size=ExtraSmall]">
-            <Setter Property="Height" Value="2" />
-            <Setter Property="CornerRadius" Value="1" />
+            <Setter Property="Height" Value="{DynamicResource DaisyProgressExtraSmallHeight}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource DaisyProgressExtraSmallCornerRadius}" />
         </Style>
 
         <!-- Indeterminate State -->
         <Style Selector="^[IsIndeterminate=True] /template/ Border#PART_Indicator">
-             <!-- Use 0 width and animate visual or use standard Avalonia Indeterminate support (which swaps template).
-                  Since we used a custom template without the standard IndeterminateRoot, we can just apply a simple animation
-                  to the Indicator itself if we force it to be visible.
-                  However, standard ProgressBar logic might behave differently.
-                  Let's just use a simple pulse for now or skip logic.
-                  For now: Simple opacity pulse to show something is happening. -->
-             <Style.Animations>
-                 <Animation Duration="0:0:1" IterationCount="Infinite">
-                     <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.5"/></KeyFrame>
-                     <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="1"/></KeyFrame>
-                     <KeyFrame KeyTime="0:0:1"><Setter Property="Opacity" Value="0.5"/></KeyFrame>
-                 </Animation>
-             </Style.Animations>
-             <Setter Property="Width" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}" /> <!-- Full width for pulse -->
+            <!-- Use 0 width and animate visual or use standard Avalonia Indeterminate support (which swaps template).
+                 Since we used a custom template without the standard IndeterminateRoot, we can just apply a simple animation
+                 to the Indicator itself if we force it to be visible.
+                 However, standard ProgressBar logic might behave differently.
+                 Let's just use a simple pulse for now or skip logic.
+                 For now: Simple opacity pulse to show something is happening. -->
+            <Style.Animations>
+                <Animation Duration="0:0:1" IterationCount="Infinite">
+                    <KeyFrame KeyTime="0:0:0"><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.5"><Setter Property="Opacity" Value="1"/></KeyFrame>
+                    <KeyFrame KeyTime="0:0:1"><Setter Property="Opacity" Value="0.5"/></KeyFrame>
+                </Animation>
+            </Style.Animations>
+            <Setter Property="Width" Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}" /> <!-- Full width for pulse -->
         </Style>
-
     </ControlTheme>
 </ResourceDictionary>

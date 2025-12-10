@@ -117,6 +117,32 @@ from pathlib import Path
 from typing import Optional
 
 
+# =============================================================================
+# Configuration Constants
+# =============================================================================
+
+# Parser limits
+SUMMARY_PROXIMITY_CHARS = 300      # Max chars between summary comment and class definition
+SUMMARY_LOOKBACK_LINES = 5        # Lines to search backward for summary comments
+
+# Example extraction limits
+MAX_CONTROLS_PER_EXAMPLE = 3      # Max control elements to extract per example
+MAX_EXAMPLES_PER_CONTROL = 5      # Max examples sections per control doc
+
+# Description truncation lengths
+MAX_DESCRIPTION_LENGTH = 80       # Property description in tables
+MAX_LLMS_DESC_LENGTH = 50         # Description in llms.txt overview
+MAX_PROPS_IN_OVERVIEW = 3         # Number of properties listed in overview
+
+# Content truncation lengths
+MAX_INNER_CONTENT_LENGTH = 100    # Inner XAML content before truncation
+MAX_NORMALIZED_LENGTH = 150       # Normalized content before truncation
+MAX_PATHICON_DATA_LENGTH = 50     # PathIcon Data attribute preview length
+
+# Label validation
+MIN_UPPERCASE_LABEL_LENGTH = 3    # Minimum length for all-uppercase labels to be suspicious
+
+
 @dataclass
 class EnumInfo:
     """Represents a C# enum definition."""
@@ -257,7 +283,7 @@ class CSharpParser:
         if summaries:
             last_summary = summaries[-1]
             # Check if summary is close to class definition (within 300 chars to be safe)
-            if class_start - last_summary.end() < 300:
+            if class_start - last_summary.end() < SUMMARY_PROXIMITY_CHARS:
                 raw_desc = last_summary.group(1)
                 # Clean the description
                 description = self._clean_summary(raw_desc)
@@ -305,7 +331,7 @@ class CSharpParser:
                 # Look for summary comment above
                 description = ""
                 k = i - 1
-                while k >= 0 and k >= i - 5:
+                while k >= 0 and k >= i - SUMMARY_LOOKBACK_LINES:
                     if '/// <summary>' in lines[k]:
                         # Gather the summary
                         summary_lines = []
@@ -501,10 +527,10 @@ class AxamlParser:
             xaml = self._format_control(control_name, attrs, None)
             if xaml and xaml not in controls:
                 controls.append(xaml)
-            if len(controls) >= 3:
+            if len(controls) >= MAX_CONTROLS_PER_EXAMPLE:
                 break
 
-        if len(controls) < 3:
+        if len(controls) < MAX_CONTROLS_PER_EXAMPLE:
             for match in paired_pattern.finditer(content):
                 ns_prefix = match.group(1)
                 control_name = match.group(2)
@@ -520,7 +546,7 @@ class AxamlParser:
                     xaml = self._format_control(control_name, attrs, inner)
                     if xaml and xaml not in controls:
                         controls.append(xaml)
-                if len(controls) >= 3:
+                if len(controls) >= MAX_CONTROLS_PER_EXAMPLE:
                     break
 
         return '\n'.join(controls) if controls else ""
@@ -550,8 +576,8 @@ class AxamlParser:
         # Collapse all whitespace (newlines, multiple spaces) into single spaces
         normalized = ' '.join(content.split())
         # Truncate if too long
-        if len(normalized) > 150:
-            normalized = normalized[:147] + "..."
+        if len(normalized) > MAX_NORMALIZED_LENGTH:
+            normalized = normalized[:MAX_NORMALIZED_LENGTH - 3] + "..."
         return normalized
 
     def _clean_attrs(self, attrs: str) -> str:
@@ -588,7 +614,7 @@ class AxamlParser:
             if '<PathIcon' in inner:
                 path_match = re.search(r'<PathIcon[^>]*Data="([^"]{1,100})"[^>]*/>', inner)
                 if path_match:
-                    return f'<PathIcon Data="{path_match.group(1)[:50]}..."/>'
+                    return f'<PathIcon Data="{path_match.group(1)[:MAX_PATHICON_DATA_LENGTH]}..."/>'
                 path_match = re.search(r'<PathIcon[^>]*Data="\{[^}]+\}"[^>]*/>', inner)
                 if path_match:
                     return path_match.group(0)
@@ -596,8 +622,8 @@ class AxamlParser:
 
         # For simpler content, clean it up
         inner = inner.strip()
-        if len(inner) > 100:
-            return inner[:100] + "..."
+        if len(inner) > MAX_INNER_CONTENT_LENGTH:
+            return inner[:MAX_INNER_CONTENT_LENGTH] + "..."
         return inner
 
 
@@ -755,8 +781,8 @@ class MarkdownGenerator:
                 for prop in control.properties:
                     desc = prop.description if prop.description else "-"
                     # Truncate long descriptions
-                    if len(desc) > 80:
-                        desc = desc[:77] + "..."
+                    if len(desc) > MAX_DESCRIPTION_LENGTH:
+                        desc = desc[:MAX_DESCRIPTION_LENGTH - 3] + "..."
                     lines.append(f"| {prop.name} | `{prop.prop_type}` | {prop.default} | {desc} |")
                 lines.append("")
 
@@ -796,9 +822,9 @@ class MarkdownGenerator:
                         lines.append("")
 
                         example_count += 1
-                        if example_count >= 5:
+                        if example_count >= MAX_EXAMPLES_PER_CONTROL:
                             break
-                    if example_count >= 5:
+                    if example_count >= MAX_EXAMPLES_PER_CONTROL:
                         break
 
         return '\n'.join(lines)
@@ -815,7 +841,7 @@ class MarkdownGenerator:
         if label.startswith('{') or label.startswith('Binding'):
             return True
         # All caps labels are likely data values
-        if label.isupper() and len(label) > 3:
+        if label.isupper() and len(label) > MIN_UPPERCASE_LABEL_LENGTH:
             return True
         # Labels with quotes are data values
         if '"' in label or "'" in label:
@@ -876,10 +902,10 @@ class MarkdownGenerator:
             desc = control.description
             if not desc:
                 desc = f"{control.name.replace('Daisy', '')} control"
-            if len(desc) > 50:
-                desc = desc[:47] + "..."
-            props = ", ".join(p.name for p in control.properties[:3])
-            if len(control.properties) > 3:
+            if len(desc) > MAX_LLMS_DESC_LENGTH:
+                desc = desc[:MAX_LLMS_DESC_LENGTH - 3] + "..."
+            props = ", ".join(p.name for p in control.properties[:MAX_PROPS_IN_OVERVIEW])
+            if len(control.properties) > MAX_PROPS_IN_OVERVIEW:
                 props += ", ..."
             lines.append(f"| [{control.name}](controls/{control.name}.html) | {desc} | {props} |")
 

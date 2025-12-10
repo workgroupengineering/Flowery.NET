@@ -3,159 +3,159 @@
                     xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
 
     <Design.PreviewWith>
-        <Border Padding="20">
-             <StackPanel Spacing="10" Orientation="Horizontal">
-                 <controls:DaisyAvatar>
-                     <Image Source="avares://Flowery.NET.Gallery/Assets/avalonia-logo.ico" />
-                 </controls:DaisyAvatar>
-                 <controls:DaisyAvatar Shape="Square">
-                     <TextBlock Text="SQ" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                 </controls:DaisyAvatar>
-                 <controls:DaisyAvatar Shape="Rounded">
-                     <TextBlock Text="RD" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                 </controls:DaisyAvatar>
-                 <controls:DaisyAvatar Size="Large" Status="Online" HasRing="True">
-                     <Border Background="Orange" />
-                 </controls:DaisyAvatar>
-                 <controls:DaisyAvatar IsPlaceholder="True" Size="Large">
-                     <TextBlock Text="AB" FontSize="24" FontWeight="Bold"
-                                VerticalAlignment="Center" HorizontalAlignment="Center" />
-                 </controls:DaisyAvatar>
-             </StackPanel>
-        </Border>
-    </Design.PreviewWith>
+          <Border Padding="20">
+               <StackPanel Spacing="10" Orientation="Horizontal">
+                    <controls:DaisyAvatar>
+                         <Image Source="avares://Flowery.NET.Gallery/Assets/avalonia-logo.ico" />
+                    </controls:DaisyAvatar>
+                    <controls:DaisyAvatar Shape="Square">
+                         <TextBlock Text="SQ" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </controls:DaisyAvatar>
+                    <controls:DaisyAvatar Shape="Rounded">
+                         <TextBlock Text="RD" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </controls:DaisyAvatar>
+                    <controls:DaisyAvatar Size="Large" Status="Online" HasRing="True">
+                         <Border Background="Orange" />
+                    </controls:DaisyAvatar>
+                    <controls:DaisyAvatar IsPlaceholder="True" Size="Large">
+                         <TextBlock Text="AB" FontSize="24" FontWeight="Bold"
+                                   VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </controls:DaisyAvatar>
+               </StackPanel>
+          </Border>
+     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type controls:DaisyAvatar}" TargetType="controls:DaisyAvatar">
-        <Setter Property="Width" Value="48" />
-        <Setter Property="Height" Value="48" />
-        <Setter Property="ClipToBounds" Value="False" />
+          <Setter Property="Width" Value="{DynamicResource DaisyAvatarMediumSize}" />
+          <Setter Property="Height" Value="{DynamicResource DaisyAvatarMediumSize}" />
+          <Setter Property="ClipToBounds" Value="False" />
 
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Grid>
+          <Setter Property="Template">
+               <ControlTemplate>
+                    <Grid>
                     <!-- Ring Border (outer) -->
                     <Border Name="RingBorder"
-                            IsVisible="False"
-                            BorderThickness="2"
-                            BorderBrush="{DynamicResource DaisyPrimaryBrush}"
-                            CornerRadius="{TemplateBinding Width, Converter={x:Static controls:IndicatorConverters.HalfToCornerRadiusConverter}}"
-                            Margin="-4" />
+                              IsVisible="False"
+                              BorderThickness="2"
+                              BorderBrush="{DynamicResource DaisyPrimaryBrush}"
+                              CornerRadius="{TemplateBinding Width, Converter={x:Static controls:IndicatorConverters.HalfToCornerRadiusConverter}}"
+                              Margin="-4" />
 
                     <!-- Avatar Mask/Container -->
                     <Border Name="Mask"
-                            Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding Width, Converter={x:Static controls:IndicatorConverters.HalfToCornerRadiusConverter}}"
-                            ClipToBounds="True">
-                        <ContentPresenter Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          HorizontalAlignment="Stretch"
-                                          VerticalAlignment="Stretch"/>
+                              Background="{TemplateBinding Background}"
+                              CornerRadius="{TemplateBinding Width, Converter={x:Static controls:IndicatorConverters.HalfToCornerRadiusConverter}}"
+                              ClipToBounds="True">
+                         <ContentPresenter Content="{TemplateBinding Content}"
+                                             ContentTemplate="{TemplateBinding ContentTemplate}"
+                                             HorizontalAlignment="Stretch"
+                                             VerticalAlignment="Stretch"/>
                     </Border>
 
                     <!-- Status Indicator -->
                     <Border Name="StatusDot"
-                            Width="12" Height="12"
-                            CornerRadius="6"
-                            BorderThickness="2"
-                            BorderBrush="{DynamicResource DaisyBase100Brush}"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            IsVisible="False"
-                            Margin="0,0,0,0" />
-                </Grid>
-            </ControlTemplate>
-        </Setter>
+                              Width="12" Height="12"
+                              CornerRadius="6"
+                              BorderThickness="2"
+                              BorderBrush="{DynamicResource DaisyBase100Brush}"
+                              HorizontalAlignment="Right"
+                              VerticalAlignment="Top"
+                              IsVisible="False"
+                              Margin="0,0,0,0" />
+                    </Grid>
+               </ControlTemplate>
+          </Setter>
 
-        <!-- Shape: Square (no rounding) -->
-        <Style Selector="^[Shape=Square] /template/ Border#Mask">
-             <Setter Property="CornerRadius" Value="0" />
-        </Style>
-        <Style Selector="^[Shape=Square] /template/ Border#RingBorder">
-             <Setter Property="CornerRadius" Value="0" />
-        </Style>
+          <!-- Shape: Square (no rounding) -->
+          <Style Selector="^[Shape=Square] /template/ Border#Mask">
+               <Setter Property="CornerRadius" Value="0" />
+          </Style>
+          <Style Selector="^[Shape=Square] /template/ Border#RingBorder">
+               <Setter Property="CornerRadius" Value="0" />
+          </Style>
 
-        <!-- Shape: Rounded (medium rounding like rounded-xl) -->
-        <Style Selector="^[Shape=Rounded] /template/ Border#Mask">
-             <Setter Property="CornerRadius" Value="12" />
-        </Style>
-        <Style Selector="^[Shape=Rounded] /template/ Border#RingBorder">
-             <Setter Property="CornerRadius" Value="16" />
-        </Style>
+          <!-- Shape: Rounded (medium rounding like rounded-xl) -->
+          <Style Selector="^[Shape=Rounded] /template/ Border#Mask">
+               <Setter Property="CornerRadius" Value="12" />
+          </Style>
+          <Style Selector="^[Shape=Rounded] /template/ Border#RingBorder">
+               <Setter Property="CornerRadius" Value="16" />
+          </Style>
 
-        <!-- Backwards compatibility: IsRounded=False -> Rounded shape -->
-        <Style Selector="^[IsRounded=False] /template/ Border#Mask">
-             <Setter Property="CornerRadius" Value="12" />
-        </Style>
-        <Style Selector="^[IsRounded=False] /template/ Border#RingBorder">
-             <Setter Property="CornerRadius" Value="16" />
-        </Style>
+          <!-- Backwards compatibility: IsRounded=False -> Rounded shape -->
+          <Style Selector="^[IsRounded=False] /template/ Border#Mask">
+               <Setter Property="CornerRadius" Value="12" />
+          </Style>
+          <Style Selector="^[IsRounded=False] /template/ Border#RingBorder">
+               <Setter Property="CornerRadius" Value="16" />
+          </Style>
 
-        <!-- Sizes -->
-        <Style Selector="^[Size=Large]">
-            <Setter Property="Width" Value="96" />
-            <Setter Property="Height" Value="96" />
-        </Style>
-        <Style Selector="^[Size=Small]">
-            <Setter Property="Width" Value="32" />
-            <Setter Property="Height" Value="32" />
-        </Style>
-        <Style Selector="^[Size=ExtraSmall]">
-            <Setter Property="Width" Value="24" />
-            <Setter Property="Height" Value="24" />
-        </Style>
-        <Style Selector="^[Size=ExtraLarge]">
-            <Setter Property="Width" Value="128" />
-            <Setter Property="Height" Value="128" />
-        </Style>
+          <!-- Sizes -->
+          <Style Selector="^[Size=Large]">
+               <Setter Property="Width" Value="{DynamicResource DaisyAvatarLargeSize}" />
+               <Setter Property="Height" Value="{DynamicResource DaisyAvatarLargeSize}" />
+          </Style>
+          <Style Selector="^[Size=Small]">
+               <Setter Property="Width" Value="{DynamicResource DaisyAvatarSmallSize}" />
+               <Setter Property="Height" Value="{DynamicResource DaisyAvatarSmallSize}" />
+          </Style>
+          <Style Selector="^[Size=ExtraSmall]">
+               <Setter Property="Width" Value="{DynamicResource DaisyAvatarExtraSmallSize}" />
+               <Setter Property="Height" Value="{DynamicResource DaisyAvatarExtraSmallSize}" />
+          </Style>
+          <Style Selector="^[Size=ExtraLarge]">
+               <Setter Property="Width" Value="{DynamicResource DaisyAvatarExtraLargeSize}" />
+               <Setter Property="Height" Value="{DynamicResource DaisyAvatarExtraLargeSize}" />
+          </Style>
 
-        <!-- Status -->
-        <Style Selector="^[Status=Online] /template/ Border#StatusDot">
-             <Setter Property="IsVisible" Value="True" />
-             <Setter Property="Background" Value="{DynamicResource DaisySuccessBrush}" />
-        </Style>
-        <Style Selector="^[Status=Offline] /template/ Border#StatusDot">
-             <Setter Property="IsVisible" Value="True" />
-             <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
-        </Style>
+          <!-- Status -->
+          <Style Selector="^[Status=Online] /template/ Border#StatusDot">
+               <Setter Property="IsVisible" Value="True" />
+               <Setter Property="Background" Value="{DynamicResource DaisySuccessBrush}" />
+          </Style>
+          <Style Selector="^[Status=Offline] /template/ Border#StatusDot">
+               <Setter Property="IsVisible" Value="True" />
+               <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
+          </Style>
 
-        <!-- Placeholder styling -->
-        <Style Selector="^[IsPlaceholder=True] /template/ Border#Mask">
-             <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
-        </Style>
-        <Style Selector="^[IsPlaceholder=True]">
-             <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentBrush}" />
-        </Style>
+          <!-- Placeholder styling -->
+          <Style Selector="^[IsPlaceholder=True] /template/ Border#Mask">
+               <Setter Property="Background" Value="{DynamicResource DaisyNeutralBrush}" />
+          </Style>
+          <Style Selector="^[IsPlaceholder=True]">
+               <Setter Property="Foreground" Value="{DynamicResource DaisyNeutralContentBrush}" />
+          </Style>
 
-        <!-- Ring -->
-        <Style Selector="^[HasRing=True] /template/ Border#RingBorder">
-             <Setter Property="IsVisible" Value="True" />
-        </Style>
+          <!-- Ring -->
+          <Style Selector="^[HasRing=True] /template/ Border#RingBorder">
+               <Setter Property="IsVisible" Value="True" />
+          </Style>
 
-        <!-- Ring Colors -->
-        <Style Selector="^[RingColor=Primary] /template/ Border#RingBorder">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
-        </Style>
-        <Style Selector="^[RingColor=Secondary] /template/ Border#RingBorder">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryBrush}" />
-        </Style>
-        <Style Selector="^[RingColor=Accent] /template/ Border#RingBorder">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyAccentBrush}" />
-        </Style>
-        <Style Selector="^[RingColor=Neutral] /template/ Border#RingBorder">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyNeutralBrush}" />
-        </Style>
-        <Style Selector="^[RingColor=Info] /template/ Border#RingBorder">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
-        </Style>
-        <Style Selector="^[RingColor=Success] /template/ Border#RingBorder">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
-        </Style>
-        <Style Selector="^[RingColor=Warning] /template/ Border#RingBorder">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
-        </Style>
-        <Style Selector="^[RingColor=Error] /template/ Border#RingBorder">
-             <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
-        </Style>
+          <!-- Ring Colors -->
+          <Style Selector="^[RingColor=Primary] /template/ Border#RingBorder">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
+          </Style>
+          <Style Selector="^[RingColor=Secondary] /template/ Border#RingBorder">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryBrush}" />
+          </Style>
+          <Style Selector="^[RingColor=Accent] /template/ Border#RingBorder">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyAccentBrush}" />
+          </Style>
+          <Style Selector="^[RingColor=Neutral] /template/ Border#RingBorder">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyNeutralBrush}" />
+          </Style>
+          <Style Selector="^[RingColor=Info] /template/ Border#RingBorder">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
+          </Style>
+          <Style Selector="^[RingColor=Success] /template/ Border#RingBorder">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
+          </Style>
+          <Style Selector="^[RingColor=Warning] /template/ Border#RingBorder">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
+          </Style>
+          <Style Selector="^[RingColor=Error] /template/ Border#RingBorder">
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
+          </Style>
 
-    </ControlTheme>
+     </ControlTheme>
 </ResourceDictionary>

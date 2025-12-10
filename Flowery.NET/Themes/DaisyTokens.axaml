@@ -1,0 +1,221 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- ============================================================
+         DAISY DESIGN TOKENS
+         ============================================================
+         These are the foundational sizing and spacing values used
+         throughout Flowery.NET controls. Users can override these
+         in their App.axaml to customize the entire design system.
+         
+         Example override in user's App.axaml:
+         <Application.Resources>
+             <Thickness x:Key="DaisySizeSmallPadding">8,2</Thickness>
+         </Application.Resources>
+         ============================================================ -->
+
+    <!-- ==================== CONTROL HEIGHTS ==================== -->
+    <!-- Used for buttons, inputs, and other fixed-height controls -->
+    <sys:Double x:Key="DaisySizeExtraLargeHeight">80</sys:Double>
+    <sys:Double x:Key="DaisySizeLargeHeight">64</sys:Double>
+    <sys:Double x:Key="DaisySizeMediumHeight">48</sys:Double>
+    <sys:Double x:Key="DaisySizeSmallHeight">32</sys:Double>
+    <sys:Double x:Key="DaisySizeExtraSmallHeight">24</sys:Double>
+
+    <!-- ==================== FONT SIZES ==================== -->
+    <sys:Double x:Key="DaisySizeExtraLargeFontSize">20</sys:Double>
+    <sys:Double x:Key="DaisySizeLargeFontSize">18</sys:Double>
+    <sys:Double x:Key="DaisySizeMediumFontSize">14</sys:Double>
+    <sys:Double x:Key="DaisySizeSmallFontSize">12</sys:Double>
+    <sys:Double x:Key="DaisySizeExtraSmallFontSize">10</sys:Double>
+
+    <!-- ==================== CORNER RADIUS ==================== -->
+    <CornerRadius x:Key="DaisySizeExtraLargeCornerRadius">12</CornerRadius>
+    <CornerRadius x:Key="DaisySizeLargeCornerRadius">10</CornerRadius>
+    <CornerRadius x:Key="DaisySizeMediumCornerRadius">8</CornerRadius>
+    <CornerRadius x:Key="DaisySizeSmallCornerRadius">6</CornerRadius>
+    <CornerRadius x:Key="DaisySizeExtraSmallCornerRadius">4</CornerRadius>
+
+    <!-- ==================== BUTTON PADDING ==================== -->
+    <!-- Buttons use horizontal-only padding (vertical controlled by Height) -->
+    <Thickness x:Key="DaisyButtonExtraLargePadding">32,0</Thickness>
+    <Thickness x:Key="DaisyButtonLargePadding">24,0</Thickness>
+    <Thickness x:Key="DaisyButtonMediumPadding">16,0</Thickness>
+    <Thickness x:Key="DaisyButtonSmallPadding">12,0</Thickness>
+    <Thickness x:Key="DaisyButtonExtraSmallPadding">8,0</Thickness>
+
+    <!-- ==================== INPUT PADDING ==================== -->
+    <!-- Inputs use horizontal-only padding (vertical controlled by Height) -->
+    <Thickness x:Key="DaisyInputExtraLargePadding">20,0</Thickness>
+    <Thickness x:Key="DaisyInputLargePadding">18,0</Thickness>
+    <Thickness x:Key="DaisyInputMediumPadding">16,0</Thickness>
+    <Thickness x:Key="DaisyInputSmallPadding">12,0</Thickness>
+    <Thickness x:Key="DaisyInputExtraSmallPadding">8,0</Thickness>
+
+    <!-- ==================== TAB PADDING ==================== -->
+    <!-- Tabs use both horizontal and vertical padding (no fixed height) -->
+    <Thickness x:Key="DaisyTabExtraLargePadding">18,10</Thickness>
+    <Thickness x:Key="DaisyTabLargePadding">16,8</Thickness>
+    <Thickness x:Key="DaisyTabMediumPadding">14,6</Thickness>
+    <Thickness x:Key="DaisyTabSmallPadding">12,4</Thickness>
+    <Thickness x:Key="DaisyTabExtraSmallPadding">10,2</Thickness>
+
+    <!-- ==================== BADGE PADDING ==================== -->
+    <Thickness x:Key="DaisyBadgeLargePadding">12,0</Thickness>
+    <Thickness x:Key="DaisyBadgeMediumPadding">8,0</Thickness>
+    <Thickness x:Key="DaisyBadgeSmallPadding">6,0</Thickness>
+    <Thickness x:Key="DaisyBadgeExtraSmallPadding">4,0</Thickness>
+
+    <!-- ==================== BADGE HEIGHTS ==================== -->
+    <!-- Badges are compact inline elements with their own scale -->
+    <sys:Double x:Key="DaisyBadgeLargeHeight">24</sys:Double>
+    <sys:Double x:Key="DaisyBadgeMediumHeight">20</sys:Double>
+    <sys:Double x:Key="DaisyBadgeSmallHeight">16</sys:Double>
+    <sys:Double x:Key="DaisyBadgeExtraSmallHeight">12</sys:Double>
+
+    <!-- ==================== BADGE FONT SIZES ==================== -->
+    <sys:Double x:Key="DaisyBadgeLargeFontSize">14</sys:Double>
+    <sys:Double x:Key="DaisyBadgeMediumFontSize">12</sys:Double>
+    <sys:Double x:Key="DaisyBadgeSmallFontSize">10</sys:Double>
+    <sys:Double x:Key="DaisyBadgeExtraSmallFontSize">8</sys:Double>
+
+    <!-- ==================== CARD PADDING ==================== -->
+    <Thickness x:Key="DaisyCardLargePadding">32</Thickness>
+    <Thickness x:Key="DaisyCardMediumPadding">24</Thickness>
+    <Thickness x:Key="DaisyCardSmallPadding">16</Thickness>
+    <Thickness x:Key="DaisyCardCompactPadding">12</Thickness>
+
+    <!-- ==================== SPACING ==================== -->
+    <!-- General spacing values for layouts -->
+    <sys:Double x:Key="DaisySpacingXL">24</sys:Double>
+    <sys:Double x:Key="DaisySpacingLarge">16</sys:Double>
+    <sys:Double x:Key="DaisySpacingMedium">12</sys:Double>
+    <sys:Double x:Key="DaisySpacingSmall">8</sys:Double>
+    <sys:Double x:Key="DaisySpacingXS">4</sys:Double>
+
+    <!-- ==================== BORDER THICKNESS ==================== -->
+    <Thickness x:Key="DaisyBorderThicknessNone">0</Thickness>
+    <Thickness x:Key="DaisyBorderThicknessThin">1</Thickness>
+    <Thickness x:Key="DaisyBorderThicknessMedium">2</Thickness>
+    <Thickness x:Key="DaisyBorderThicknessThick">3</Thickness>
+
+    <!-- ==================== CHECKBOX/RADIO INDICATOR SIZES ==================== -->
+    <!-- Outer border size for checkboxes and radio buttons -->
+    <sys:Double x:Key="DaisyCheckboxExtraLargeSize">40</sys:Double>
+    <sys:Double x:Key="DaisyCheckboxLargeSize">32</sys:Double>
+    <sys:Double x:Key="DaisyCheckboxMediumSize">24</sys:Double>
+    <sys:Double x:Key="DaisyCheckboxSmallSize">20</sys:Double>
+    <sys:Double x:Key="DaisyCheckboxExtraSmallSize">16</sys:Double>
+
+    <!-- Checkmark icon sizes (proportional to checkbox) -->
+    <sys:Double x:Key="DaisyCheckmarkExtraLargeSize">24</sys:Double>
+    <sys:Double x:Key="DaisyCheckmarkLargeSize">20</sys:Double>
+    <sys:Double x:Key="DaisyCheckmarkMediumSize">16</sys:Double>
+    <sys:Double x:Key="DaisyCheckmarkSmallSize">12</sys:Double>
+    <sys:Double x:Key="DaisyCheckmarkExtraSmallSize">10</sys:Double>
+
+    <!-- Radio inner dot sizes -->
+    <sys:Double x:Key="DaisyRadioDotExtraLargeSize">24</sys:Double>
+    <sys:Double x:Key="DaisyRadioDotLargeSize">20</sys:Double>
+    <sys:Double x:Key="DaisyRadioDotMediumSize">14</sys:Double>
+    <sys:Double x:Key="DaisyRadioDotSmallSize">12</sys:Double>
+    <sys:Double x:Key="DaisyRadioDotExtraSmallSize">8</sys:Double>
+
+    <!-- ==================== TOGGLE SWITCH SIZES ==================== -->
+    <sys:Double x:Key="DaisyToggleExtraLargeWidth">72</sys:Double>
+    <sys:Double x:Key="DaisyToggleExtraLargeHeight">40</sys:Double>
+    <sys:Double x:Key="DaisyToggleLargeWidth">60</sys:Double>
+    <sys:Double x:Key="DaisyToggleLargeHeight">32</sys:Double>
+    <sys:Double x:Key="DaisyToggleMediumWidth">48</sys:Double>
+    <sys:Double x:Key="DaisyToggleMediumHeight">24</sys:Double>
+    <sys:Double x:Key="DaisyToggleSmallWidth">36</sys:Double>
+    <sys:Double x:Key="DaisyToggleSmallHeight">20</sys:Double>
+    <sys:Double x:Key="DaisyToggleExtraSmallWidth">28</sys:Double>
+    <sys:Double x:Key="DaisyToggleExtraSmallHeight">16</sys:Double>
+
+    <!-- Toggle knob sizes -->
+    <sys:Double x:Key="DaisyToggleKnobExtraLargeSize">32</sys:Double>
+    <sys:Double x:Key="DaisyToggleKnobLargeSize">26</sys:Double>
+    <sys:Double x:Key="DaisyToggleKnobMediumSize">20</sys:Double>
+    <sys:Double x:Key="DaisyToggleKnobSmallSize">16</sys:Double>
+    <sys:Double x:Key="DaisyToggleKnobExtraSmallSize">12</sys:Double>
+
+    <!-- ==================== PROGRESS BAR HEIGHTS ==================== -->
+    <sys:Double x:Key="DaisyProgressLargeHeight">16</sys:Double>
+    <sys:Double x:Key="DaisyProgressMediumHeight">8</sys:Double>
+    <sys:Double x:Key="DaisyProgressSmallHeight">4</sys:Double>
+    <sys:Double x:Key="DaisyProgressExtraSmallHeight">2</sys:Double>
+
+    <!-- Progress corner radius -->
+    <CornerRadius x:Key="DaisyProgressLargeCornerRadius">8</CornerRadius>
+    <CornerRadius x:Key="DaisyProgressMediumCornerRadius">4</CornerRadius>
+    <CornerRadius x:Key="DaisyProgressSmallCornerRadius">2</CornerRadius>
+    <CornerRadius x:Key="DaisyProgressExtraSmallCornerRadius">1</CornerRadius>
+
+    <!-- ==================== AVATAR SIZES ==================== -->
+    <sys:Double x:Key="DaisyAvatarExtraLargeSize">128</sys:Double>
+    <sys:Double x:Key="DaisyAvatarLargeSize">96</sys:Double>
+    <sys:Double x:Key="DaisyAvatarMediumSize">48</sys:Double>
+    <sys:Double x:Key="DaisyAvatarSmallSize">32</sys:Double>
+    <sys:Double x:Key="DaisyAvatarExtraSmallSize">24</sys:Double>
+
+    <!-- ==================== MENU ITEM SIZES ==================== -->
+    <Thickness x:Key="DaisyMenuExtraLargePadding">20,16</Thickness>
+    <Thickness x:Key="DaisyMenuLargePadding">16,12</Thickness>
+    <Thickness x:Key="DaisyMenuMediumPadding">12,8</Thickness>
+    <Thickness x:Key="DaisyMenuSmallPadding">10,6</Thickness>
+    <Thickness x:Key="DaisyMenuExtraSmallPadding">8,4</Thickness>
+
+    <sys:Double x:Key="DaisyMenuExtraLargeFontSize">18</sys:Double>
+    <sys:Double x:Key="DaisyMenuLargeFontSize">16</sys:Double>
+    <sys:Double x:Key="DaisyMenuMediumFontSize">14</sys:Double>
+    <sys:Double x:Key="DaisyMenuSmallFontSize">12</sys:Double>
+    <sys:Double x:Key="DaisyMenuExtraSmallFontSize">11</sys:Double>
+
+    <!-- ==================== KBD (KEYBOARD) SIZES ==================== -->
+    <sys:Double x:Key="DaisyKbdExtraLargeHeight">40</sys:Double>
+    <sys:Double x:Key="DaisyKbdLargeHeight">32</sys:Double>
+    <sys:Double x:Key="DaisyKbdMediumHeight">24</sys:Double>
+    <sys:Double x:Key="DaisyKbdSmallHeight">20</sys:Double>
+    <sys:Double x:Key="DaisyKbdExtraSmallHeight">16</sys:Double>
+
+    <Thickness x:Key="DaisyKbdExtraLargePadding">8,0</Thickness>
+    <Thickness x:Key="DaisyKbdLargePadding">6,0</Thickness>
+    <Thickness x:Key="DaisyKbdMediumPadding">4,0</Thickness>
+    <Thickness x:Key="DaisyKbdSmallPadding">3,0</Thickness>
+    <Thickness x:Key="DaisyKbdExtraSmallPadding">2,0</Thickness>
+
+    <sys:Double x:Key="DaisyKbdExtraLargeFontSize">16</sys:Double>
+    <sys:Double x:Key="DaisyKbdLargeFontSize">14</sys:Double>
+    <sys:Double x:Key="DaisyKbdMediumFontSize">12</sys:Double>
+    <sys:Double x:Key="DaisyKbdSmallFontSize">11</sys:Double>
+    <sys:Double x:Key="DaisyKbdExtraSmallFontSize">10</sys:Double>
+
+    <CornerRadius x:Key="DaisyKbdExtraLargeCornerRadius">6</CornerRadius>
+    <CornerRadius x:Key="DaisyKbdLargeCornerRadius">5</CornerRadius>
+    <CornerRadius x:Key="DaisyKbdMediumCornerRadius">4</CornerRadius>
+    <CornerRadius x:Key="DaisyKbdSmallCornerRadius">3</CornerRadius>
+    <CornerRadius x:Key="DaisyKbdExtraSmallCornerRadius">2</CornerRadius>
+
+    <!-- ==================== TEXTAREA SIZES ==================== -->
+    <!-- TextArea has its own tokens since it's multiline and needs different defaults -->
+    <sys:Double x:Key="DaisyTextAreaExtraLargeMinHeight">160</sys:Double>
+    <sys:Double x:Key="DaisyTextAreaLargeMinHeight">120</sys:Double>
+    <sys:Double x:Key="DaisyTextAreaMediumMinHeight">80</sys:Double>
+    <sys:Double x:Key="DaisyTextAreaSmallMinHeight">60</sys:Double>
+    <sys:Double x:Key="DaisyTextAreaExtraSmallMinHeight">48</sys:Double>
+
+    <!-- TextArea padding (uniform padding for multiline text) -->
+    <Thickness x:Key="DaisyTextAreaExtraLargePadding">24</Thickness>
+    <Thickness x:Key="DaisyTextAreaLargePadding">20</Thickness>
+    <Thickness x:Key="DaisyTextAreaMediumPadding">16</Thickness>
+    <Thickness x:Key="DaisyTextAreaSmallPadding">12</Thickness>
+    <Thickness x:Key="DaisyTextAreaExtraSmallPadding">8</Thickness>
+
+    <!-- ==================== INPUT VERTICAL ALIGNMENT ==================== -->
+    <!-- DaisyInput/DaisyTextArea vertical content alignment defaults -->
+    <VerticalAlignment x:Key="DaisyInputVerticalContentAlignment">Center</VerticalAlignment>
+    <VerticalAlignment x:Key="DaisyTextAreaVerticalContentAlignment">Top</VerticalAlignment>
+
+</ResourceDictionary>

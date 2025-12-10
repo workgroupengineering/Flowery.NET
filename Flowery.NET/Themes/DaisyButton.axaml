@@ -31,13 +31,13 @@
         <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="16,0" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonMediumPadding}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DaisySizeMediumCornerRadius}" />
         <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="MinHeight" Value="48" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeMediumFontSize}" />
+        <Setter Property="Height" Value="{DynamicResource DaisySizeMediumHeight}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="RenderTransformOrigin" Value="50%,50%" />
         <Setter Property="ClipToBounds" Value="False" />
@@ -251,29 +251,31 @@
 
         <!-- Sizes -->
         <Style Selector="^[Size=ExtraSmall]">
-            <Setter Property="MinHeight" Value="24" />
-            <Setter Property="Padding" Value="8,0" />
-            <Setter Property="FontSize" Value="12" />
-            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="Height" Value="{DynamicResource DaisySizeExtraSmallHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource DaisyButtonExtraSmallPadding}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraSmallFontSize}" />
+            <Setter Property="CornerRadius"
+                Value="{DynamicResource DaisySizeExtraSmallCornerRadius}" />
         </Style>
         <Style Selector="^[Size=Small]">
-            <Setter Property="MinHeight" Value="32" />
-            <Setter Property="Padding" Value="12,0" />
-            <Setter Property="FontSize" Value="13" />
-            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="Height" Value="{DynamicResource DaisySizeSmallHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource DaisyButtonSmallPadding}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeSmallFontSize}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource DaisySizeSmallCornerRadius}" />
         </Style>
         <!-- Medium is the default, no override needed -->
         <Style Selector="^[Size=Large]">
-            <Setter Property="MinHeight" Value="64" />
-            <Setter Property="Padding" Value="24,0" />
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Height" Value="{DynamicResource DaisySizeLargeHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource DaisyButtonLargePadding}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeLargeFontSize}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource DaisySizeLargeCornerRadius}" />
         </Style>
         <Style Selector="^[Size=ExtraLarge]">
-            <Setter Property="MinHeight" Value="80" />
-            <Setter Property="Padding" Value="32,0" />
-            <Setter Property="FontSize" Value="20" />
-            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="Height" Value="{DynamicResource DaisySizeExtraLargeHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource DaisyButtonExtraLargePadding}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraLargeFontSize}" />
+            <Setter Property="CornerRadius"
+                Value="{DynamicResource DaisySizeExtraLargeCornerRadius}" />
         </Style>
 
         <!-- Shape Modifiers -->

@@ -15,6 +15,9 @@ DaisyPagination renders joined page buttons with support for numeric and non-num
 | `ButtonStyle` | DaisyButtonStyle for page buttons (Default, Outline, etc.). |
 | `PageChanged` event | Fired with the new page number when a numeric item is clicked. |
 
+> [!NOTE]
+> DaisyPaginationItem uses **fixed heights** per size (24/32/48/64/80px) to match DaisyUI's design.
+
 ## Item Containers
 
 - Use `DaisyPaginationItem` for pages; set `PageNumber` and `Content` (auto-created if you pass ints/strings via `Items`).

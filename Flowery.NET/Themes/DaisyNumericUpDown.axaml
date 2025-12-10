@@ -23,10 +23,10 @@
         <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="12,0" />
-        <Setter Property="CornerRadius" Value="8" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="MinHeight" Value="48" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyInputSmallPadding}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DaisySizeMediumCornerRadius}" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeMediumFontSize}" />
+        <Setter Property="Height" Value="{DynamicResource DaisySizeMediumHeight}" />
         <Setter Property="MinWidth" Value="120" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -42,7 +42,7 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 MinWidth="{TemplateBinding MinWidth}"
-                                MinHeight="{TemplateBinding MinHeight}" />
+                                Height="{TemplateBinding Height}" />
 
                         <!-- Hidden dummy TextBox to satisfy base NumericUpDown requirement -->
                         <TextBox x:Name="PART_TextBox" IsVisible="False" />
@@ -274,17 +274,21 @@
         </Style>
 
         <!-- Sizes -->
+        <Style Selector="^[Size=ExtraLarge]">
+            <Setter Property="Height" Value="{DynamicResource DaisySizeExtraLargeHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraLargeFontSize}" />
+        </Style>
         <Style Selector="^[Size=Large]">
-            <Setter Property="MinHeight" Value="64" />
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Height" Value="{DynamicResource DaisySizeLargeHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeLargeFontSize}" />
         </Style>
         <Style Selector="^[Size=Small]">
-            <Setter Property="MinHeight" Value="32" />
-            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Height" Value="{DynamicResource DaisySizeSmallHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeSmallFontSize}" />
         </Style>
         <Style Selector="^[Size=ExtraSmall]">
-            <Setter Property="MinHeight" Value="24" />
-            <Setter Property="FontSize" Value="10" />
+            <Setter Property="Height" Value="{DynamicResource DaisySizeExtraSmallHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraSmallFontSize}" />
         </Style>
 
         <!-- Clear button: visible only when focused and ShowClearButton=True -->

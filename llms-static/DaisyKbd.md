@@ -7,13 +7,16 @@ DaisyKbd renders keyboard keycaps for inline hints (e.g., shortcuts). It provide
 
 ## Size Options
 
-| Size | Min Height | Padding | Font Size |
+| Size | Height | Padding | Font Size |
 |------|------------|---------|-----------|
 | ExtraSmall | 16 | 2,0 | 10 |
 | Small | 20 | 3,0 | 11 |
 | Medium (default) | 24 | 4,0 | 12 |
 | Large | 32 | 6,0 | 14 |
 | ExtraLarge | 40 | 8,0 | 16 |
+
+> [!NOTE]
+> DaisyKbd uses **fixed heights** for each size to match DaisyUI's keycap design.
 
 ## Quick Examples
 

@@ -234,6 +234,17 @@ class SiteGenerator:
     
     # Custom controls (Avalonia-specific, not in original DaisyUI)
     CUSTOM_CONTROL_PREFIXES = ('Color', 'Weather', 'ModifierKeys', 'ComponentSidebar', 'NumericUpDown')
+    
+    # Standalone guide files (not control docs) to include in the sidebar
+    GUIDE_FILES = ['MigrationExample.md', 'DesignTokens.md']
+    
+    # Helper/internal classes shown in a separate 'Helpers' section
+    HELPER_CONTROL_NAMES = {
+        'DaisyAccessibility',   # Accessibility utilities
+        'DaisyPaginationItem',  # Part of DaisyPagination
+        'ColorCollection',      # Color collection class
+        'HslColor',             # Color utility struct
+    }
 
     def __init__(self, docs_dir: Path, output_dir: Path, curated_dir: Path | None = None):
         self.docs_dir = docs_dir
@@ -262,13 +273,6 @@ class SiteGenerator:
         # Collect all controls
         print("\n[1/5] Scanning control docs...")
         seen_controls = set()
-        # Helper/internal classes shown in a separate section
-        helper_control_names = {
-            'DaisyAccessibility',   # Accessibility utilities
-            'DaisyPaginationItem',  # Part of DaisyPagination
-            'ColorCollection',      # Color collection class
-            'HslColor',             # Color utility struct
-        }
 
         if self.use_curated_only:
             # First, read curated docs from llms-static/
@@ -278,12 +282,12 @@ class SiteGenerator:
                     'name': name,
                     'file': md_file,
                     'html_name': f"{name}.html",
-                    'is_helper': name in helper_control_names
+                    'is_helper': name in self.HELPER_CONTROL_NAMES
                 })
                 seen_controls.add(name)
 
             # Also include non-Daisy helper files (e.g., HslColor.md)
-            for helper_name in helper_control_names:
+            for helper_name in self.HELPER_CONTROL_NAMES:
                 if helper_name not in seen_controls:
                     helper_file = self.curated_dir / f"{helper_name}.md"
                     if helper_file.exists():
@@ -306,7 +310,7 @@ class SiteGenerator:
                             'name': name,
                             'file': md_file,
                             'html_name': f"{name}.html",
-                            'is_helper': name in helper_control_names
+                            'is_helper': name in self.HELPER_CONTROL_NAMES
                         }
                         self.controls.append(entry)
                         seen_controls.add(name)
@@ -320,7 +324,7 @@ class SiteGenerator:
                         'name': name,
                         'file': md_file,
                         'html_name': f"{name}.html",
-                        'is_helper': name in helper_control_names
+                        'is_helper': name in self.HELPER_CONTROL_NAMES
                     })
 
         # Sort all controls alphabetically by name
@@ -397,10 +401,9 @@ class SiteGenerator:
             return
 
         # List of standalone guide files to copy (not control docs)
-        guide_files = ['MigrationExample.md']
         copied = 0
 
-        for guide_name in guide_files:
+        for guide_name in self.GUIDE_FILES:
             guide_file = self.curated_dir / guide_name
             if guide_file.exists():
                 # Read and convert to HTML
@@ -461,8 +464,7 @@ class SiteGenerator:
         sidebar_items.append('<li><a href="home.html" target="viewer" class="active">Home</a></li>')
 
         # Guides section
-        guide_files = ['MigrationExample.md']
-        existing_guides = [g for g in guide_files if (self.curated_dir / g).exists()] if self.curated_dir else []
+        existing_guides = [g for g in self.GUIDE_FILES if (self.curated_dir / g).exists()] if self.curated_dir else []
         if existing_guides:
             sidebar_items.append('<li><h2>Guides</h2></li>')
             for guide in existing_guides:

@@ -28,14 +28,14 @@
                 <Grid ColumnDefinitions="Auto,*">
                     <Border x:Name="PART_Border"
                             Grid.Column="0"
-                            Width="24" Height="24"
+                            Width="{DynamicResource DaisyCheckboxMediumSize}" Height="{DynamicResource DaisyCheckboxMediumSize}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             BorderThickness="1"
                             BorderBrush="{DynamicResource DaisyBaseContentBrush}"
                             Background="{DynamicResource DaisyBase100Brush}">
                         <Path x:Name="CheckMark"
                               Stretch="Uniform"
-                              Width="16" Height="16"
+                              Width="{DynamicResource DaisyCheckmarkMediumSize}" Height="{DynamicResource DaisyCheckmarkMediumSize}"
                               Fill="{DynamicResource DaisyBase100Brush}"
                               Data="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
                               IsVisible="False" />
@@ -131,36 +131,36 @@
 
         <!-- Sizes -->
         <Style Selector="^[Size=Large] /template/ Border#PART_Border">
-            <Setter Property="Width" Value="32" />
-            <Setter Property="Height" Value="32" />
+            <Setter Property="Width" Value="{DynamicResource DaisyCheckboxLargeSize}" />
+            <Setter Property="Height" Value="{DynamicResource DaisyCheckboxLargeSize}" />
         </Style>
         <Style Selector="^[Size=Small] /template/ Border#PART_Border">
-            <Setter Property="Width" Value="20" />
-            <Setter Property="Height" Value="20" />
+            <Setter Property="Width" Value="{DynamicResource DaisyCheckboxSmallSize}" />
+            <Setter Property="Height" Value="{DynamicResource DaisyCheckboxSmallSize}" />
         </Style>
         <Style Selector="^[Size=ExtraSmall] /template/ Border#PART_Border">
-            <Setter Property="Width" Value="16" />
-            <Setter Property="Height" Value="16" />
+            <Setter Property="Width" Value="{DynamicResource DaisyCheckboxExtraSmallSize}" />
+            <Setter Property="Height" Value="{DynamicResource DaisyCheckboxExtraSmallSize}" />
         </Style>
         <Style Selector="^[Size=ExtraLarge] /template/ Border#PART_Border">
-            <Setter Property="Width" Value="40" />
-            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="{DynamicResource DaisyCheckboxExtraLargeSize}" />
+            <Setter Property="Height" Value="{DynamicResource DaisyCheckboxExtraLargeSize}" />
         </Style>
         <Style Selector="^[Size=ExtraLarge] /template/ Path#CheckMark">
-            <Setter Property="Width" Value="24" />
-            <Setter Property="Height" Value="24" />
+            <Setter Property="Width" Value="{DynamicResource DaisyCheckmarkExtraLargeSize}" />
+            <Setter Property="Height" Value="{DynamicResource DaisyCheckmarkExtraLargeSize}" />
         </Style>
         <Style Selector="^[Size=Large] /template/ Path#CheckMark">
-            <Setter Property="Width" Value="20" />
-            <Setter Property="Height" Value="20" />
+            <Setter Property="Width" Value="{DynamicResource DaisyCheckmarkLargeSize}" />
+            <Setter Property="Height" Value="{DynamicResource DaisyCheckmarkLargeSize}" />
         </Style>
         <Style Selector="^[Size=Small] /template/ Path#CheckMark">
-            <Setter Property="Width" Value="12" />
-            <Setter Property="Height" Value="12" />
+            <Setter Property="Width" Value="{DynamicResource DaisyCheckmarkSmallSize}" />
+            <Setter Property="Height" Value="{DynamicResource DaisyCheckmarkSmallSize}" />
         </Style>
         <Style Selector="^[Size=ExtraSmall] /template/ Path#CheckMark">
-            <Setter Property="Width" Value="10" />
-            <Setter Property="Height" Value="10" />
+            <Setter Property="Width" Value="{DynamicResource DaisyCheckmarkExtraSmallSize}" />
+            <Setter Property="Height" Value="{DynamicResource DaisyCheckmarkExtraSmallSize}" />
         </Style>
 
         <!-- Disabled State -->

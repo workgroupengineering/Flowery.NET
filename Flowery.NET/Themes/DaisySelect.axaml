@@ -24,10 +24,10 @@
         <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DaisySizeMediumCornerRadius}" />
         <Setter Property="Padding" Value="12,0,30,0" />
-        <Setter Property="MinHeight" Value="48" />
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Height" Value="{DynamicResource DaisySizeMediumHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeMediumFontSize}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource DaisyBaseContentBrush}" /> <!-- Opacity usually handled -->
@@ -42,7 +42,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                MinHeight="{TemplateBinding MinHeight}"/>
+                                Height="{TemplateBinding Height}"/>
 
                         <TextBlock x:Name="PlaceholderTextBlock"
                                    Grid.Column="0"
@@ -104,7 +104,7 @@
         <!-- Focus State -->
         <Style Selector="^:focus /template/ Border#Background">
              <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
-             <!-- DaisyUI adds outline offset. -->
+            <!-- DaisyUI adds outline offset. -->
         </Style>
 
         <!-- Variants -->
@@ -147,17 +147,21 @@
         </Style>
 
         <!-- Sizes -->
+        <Style Selector="^[Size=ExtraLarge]">
+            <Setter Property="Height" Value="{DynamicResource DaisySizeExtraLargeHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraLargeFontSize}" />
+        </Style>
         <Style Selector="^[Size=Large]">
-            <Setter Property="MinHeight" Value="64" />
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Height" Value="{DynamicResource DaisySizeLargeHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeLargeFontSize}" />
         </Style>
         <Style Selector="^[Size=Small]">
-            <Setter Property="MinHeight" Value="32" />
-            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Height" Value="{DynamicResource DaisySizeSmallHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeSmallFontSize}" />
         </Style>
         <Style Selector="^[Size=ExtraSmall]">
-            <Setter Property="MinHeight" Value="24" />
-            <Setter Property="FontSize" Value="10" />
+            <Setter Property="Height" Value="{DynamicResource DaisySizeExtraSmallHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraSmallFontSize}" />
         </Style>
 
     </ControlTheme>

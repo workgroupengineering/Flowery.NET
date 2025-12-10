@@ -39,12 +39,15 @@
 
 ## Size Options
 
-| Size | MinHeight | Use Case |
-|---|---|---|
+| Size | Height | Use Case |
+|------|--------|----------|
 | ExtraSmall | 24px | Compact tables, dense UIs |
 | Small | 32px | Secondary inputs |
 | Medium | 48px | General purpose (default) |
 | Large | 64px | Primary inputs, touch targets |
+
+> [!NOTE]
+> DaisyNumericUpDown uses **fixed heights** for each size to match DaisyUI's design.
 
 ## Quick Examples
 
