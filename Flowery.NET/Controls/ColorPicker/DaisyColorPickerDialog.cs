@@ -489,6 +489,17 @@ namespace Flowery.Controls.ColorPicker
             Close(null);
         }
 
+        protected override void OnKeyDown(Avalonia.Input.KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+
+            if (e.Key == Avalonia.Input.Key.Escape)
+            {
+                e.Handled = true;
+                Close(null);
+            }
+        }
+
         protected virtual void OnPreviewColorChanged(ColorChangedEventArgs e)
         {
             PreviewColorChanged?.Invoke(this, e);
