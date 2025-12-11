@@ -10,6 +10,7 @@ The library comes with built-in translations for the following languages:
 - 🇩🇪 **German** (`de`)
 - 🇫🇷 **French** (`fr`)
 - 🇪🇸 **Spanish** (`es`)
+- 🇮🇹 **Italian** (`it`)
 - 🇨🇳 **Mandarin Simplified** (`zh-CN`)
 - 🇰🇷 **Korean** (`ko`)
 - 🇯🇵 **Japanese** (`ja`)
