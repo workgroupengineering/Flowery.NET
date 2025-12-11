@@ -1,8 +1,6 @@
-# DaisyPaginationItem
+# Overview
 
 A button control representing a single page in a `DaisyPagination` control. This is a helper class typically created automatically by the parent pagination control.
-
-## Overview
 
 `DaisyPaginationItem` extends `Button` and adds pagination-specific properties like `PageNumber` and `IsActive`. While you can use it manually, it's typically auto-generated when you populate a `DaisyPagination` with page numbers.
 

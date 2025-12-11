@@ -1106,6 +1106,7 @@ class DocumentationGenerator:
             'checkbox': 'DaisyCheckBox',
             'fileinput': 'DaisyFileInput',
             'input': 'DaisyInput',
+            'maskinput': 'DaisyMaskInput',
             'numericupdown': 'DaisyNumericUpDown',
             'radio': 'DaisyRadio',
             'range': 'DaisyRange',

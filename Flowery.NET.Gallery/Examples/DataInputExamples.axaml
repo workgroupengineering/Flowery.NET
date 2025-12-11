@@ -1,6 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET"
+             xmlns:custom="clr-namespace:Flowery.Controls.Custom;assembly=Flowery.NET"
              xmlns:local="clr-namespace:Flowery.NET.Gallery.Examples"
              x:Class="Flowery.NET.Gallery.Examples.DataInputExamples">
 
@@ -112,6 +113,70 @@
                             <controls:DaisyInput Size="Large" Watermark="Large" Margin="0,4" />
                         </StackPanel>
                     </WrapPanel>
+                </StackPanel>
+
+                <controls:DaisyDivider />
+
+                <!-- Mask Input -->
+                <StackPanel Spacing="12">
+                    <local:SectionHeader SectionId="mask-input" Title="Mask Input" />
+                    <TextBlock Text="MaskedTextBox-based input styled like DaisyInput. Useful for structured formats like dates, times, and card numbers."
+                               Opacity="0.7" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="48"
+                          RowDefinitions="Auto,Auto,Auto" RowSpacing="24"
+                          MaxWidth="820">
+                        <StackPanel Grid.Row="0" Grid.Column="0" Spacing="8">
+                            <TextBlock Text="Input with mask" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                            <custom:DaisyMaskInput Mode="AlphaNumericCode" Width="360" />
+                            <TextBlock Text="Example mask: AA00 AAA" FontSize="12" Opacity="0.7" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="1" Spacing="8">
+                            <TextBlock Text="Input time" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                            <custom:DaisyMaskInput Mode="Timer" Width="360" />
+                            <TextBlock Text="Example mask: 00:00:00" FontSize="12" Opacity="0.7" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Grid.Column="0" Spacing="8">
+                            <TextBlock Text="Card number" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                            <custom:DaisyMaskInput Mode="CreditCardNumber" EndIcon="{StaticResource DaisyIconCard}" Width="360" />
+                            <TextBlock Text="Example mask: 0000 0000 0000 0000" FontSize="12" Opacity="0.7" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="1" Spacing="8">
+                            <TextBlock Text="Expiry date" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                            <custom:DaisyMaskInput Mode="ExpiryDate" Width="360" />
+                            <TextBlock Text="Example mask: 00/00" FontSize="12" Opacity="0.7" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Grid.Column="0" Spacing="8">
+                            <TextBlock Text="CVC code" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                            <custom:DaisyMaskInput Mode="Cvc" Width="360" />
+                            <TextBlock Text="Example mask: 000" FontSize="12" Opacity="0.7" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" Spacing="8">
+                            <TextBlock Text="Card details" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                            <Border BorderBrush="{DynamicResource DaisyNeutralBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="8"
+                                    Background="{DynamicResource DaisyBase100Brush}"
+                                    Width="360">
+                                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,Auto,*">
+                                    <custom:DaisyMaskInput Grid.Row="0" Grid.ColumnSpan="3"
+                                                         Variant="Ghost"
+                                                         Mode="CreditCardNumber"
+                                                         EndIcon="{StaticResource DaisyIconCard}" />
+                                    <Border Grid.Row="1" Grid.ColumnSpan="3" Height="1" Background="{DynamicResource DaisyNeutralBrush}" />
+                                    <custom:DaisyMaskInput Grid.Row="2" Grid.Column="0"
+                                                         Variant="Ghost"
+                                                         Mode="ExpiryDate" />
+                                    <Border Grid.Row="2" Grid.Column="1" Width="1" Background="{DynamicResource DaisyNeutralBrush}" />
+                                    <custom:DaisyMaskInput Grid.Row="2" Grid.Column="2"
+                                                         Variant="Ghost"
+                                                         Mode="Cvc" />
+                                </Grid>
+                            </Border>
+                            <TextBlock Text="Composite layout using a shared border." FontSize="12" Opacity="0.7" />
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
 
                 <controls:DaisyDivider />

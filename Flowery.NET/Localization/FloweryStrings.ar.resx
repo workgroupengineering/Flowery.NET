@@ -63,6 +63,24 @@
   <data name="Select_Placeholder" xml:space="preserve">
     <value>اختر واحد</value>
   </data>
+  <data name="MaskInput_Watermark_AlphaNumericCode" xml:space="preserve">
+    <value>AB12 CDE</value>
+  </data>
+  <data name="MaskInput_Watermark_Timer" xml:space="preserve">
+    <value>00:00:00</value>
+  </data>
+  <data name="MaskInput_Watermark_ExpiryShort" xml:space="preserve">
+    <value>MM/YY</value>
+  </data>
+  <data name="MaskInput_Watermark_ExpiryLong" xml:space="preserve">
+    <value>MM/YYYY</value>
+  </data>
+  <data name="MaskInput_Watermark_CreditCardNumber" xml:space="preserve">
+    <value>رقم البطاقة</value>
+  </data>
+  <data name="MaskInput_Watermark_Cvc" xml:space="preserve">
+    <value>CVC</value>
+  </data>
 
   <!-- Accessibility text for screen readers -->
   <data name="Accessibility_Loading" xml:space="preserve">

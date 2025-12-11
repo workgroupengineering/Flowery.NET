@@ -1,8 +1,4 @@
-# DaisyWeatherForecast
-
-Displays a horizontal strip of daily weather forecasts with animated condition icons, day names, and high/low temperatures.
-
-## Overview
+# Overview
 
 DaisyWeatherForecast is an `ItemsControl` that renders a row of forecast cards. Each card shows the day name, an animated weather icon, and the temperature range. Ideal for showing 5-7 day forecasts.
 

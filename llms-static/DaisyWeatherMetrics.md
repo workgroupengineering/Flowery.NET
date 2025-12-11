@@ -1,8 +1,4 @@
-# DaisyWeatherMetrics
-
-Displays weather metrics (UV index, wind speed, humidity) in a compact table format with visual progress indicators.
-
-## Overview
+# Overview
 
 DaisyWeatherMetrics shows supplementary weather data in a structured grid. Each metric displays a label, icon, current value, and a progress bar showing the value relative to a maximum.
 

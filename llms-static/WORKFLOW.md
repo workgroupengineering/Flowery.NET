@@ -104,7 +104,7 @@ Write a brief paragraph explaining:
 **Example:**
 
 ```markdown
-## Overview
+# Overview
 
 DaisyButton provides styled buttons with **8 color variants**, **5 style variants**, and **5 size options**. Supports icons, loading states, and can be used for actions, navigation, or form submission.
 ```
@@ -232,14 +232,6 @@ DaisyCard expects this structure:
 - Use `IsEnabled="False"` to disable interaction while preserving visual state
 - Combine with `DaisyTooltip` for additional context
 - For forms, set `IsDefault="True"` on the primary action button
-```
-
-### 3.8 Closing Divider (Required)
-
-Always end with a horizontal rule to separate from auto-generated content:
-
-```markdown
----
 ```
 
 ---

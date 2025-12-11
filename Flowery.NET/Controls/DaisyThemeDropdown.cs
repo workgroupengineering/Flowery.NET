@@ -6,6 +6,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
+using Avalonia.Threading;
 using Flowery.Localization;
 
 namespace Flowery.Controls
@@ -168,6 +169,12 @@ namespace Flowery.Controls
 
         private void OnCultureChanged(object? sender, CultureInfo culture)
         {
+            if (!Dispatcher.UIThread.CheckAccess())
+            {
+                Dispatcher.UIThread.Post(() => OnCultureChanged(sender, culture));
+                return;
+            }
+
             // Force UI refresh when culture changes (DisplayName property will return new value)
             InvalidateVisual();
         }

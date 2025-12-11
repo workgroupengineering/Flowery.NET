@@ -1,10 +1,9 @@
-# DaisyModifierKeys
+# Overview
 
 A visual indicator that displays the current state of keyboard modifier keys (Shift, Ctrl, Alt) and lock keys (Caps Lock, Num Lock, Scroll Lock). Automatically syncs with the OS keyboard state.
 
-## Overview
-
 DaisyModifierKeys is useful for applications where users need to see which modifier keys are currently pressed, such as:
+
 - Keyboard shortcut help dialogs
 - Accessibility features
 - Key combination tutorials

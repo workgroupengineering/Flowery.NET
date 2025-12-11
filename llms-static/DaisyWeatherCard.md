@@ -1,8 +1,4 @@
-# DaisyWeatherCard
-
-A composite weather widget that can display current conditions, multi-day forecast, and weather metrics. Supports both manual property binding and automatic data fetching via `IWeatherService`.
-
-## Overview
+# Overview
 
 DaisyWeatherCard is a flexible container that combines multiple weather display components. You can show/hide sections as needed and either bind data manually or provide an `IWeatherService` implementation for automatic fetching.
 

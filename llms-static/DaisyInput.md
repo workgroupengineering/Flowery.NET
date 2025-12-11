@@ -52,6 +52,7 @@ DaisyInput extends `TextBox` — all standard TextBox properties (`Text`, `Water
 ## Content Alignment
 
 The `VerticalContentAlignment` property controls vertical positioning of both the watermark and text content:
+
 - **Center** (default): Text vertically centered — standard for single-line inputs.
 - **Top**: Text aligned to top — used by `DaisyTextArea` for multi-line editing.
 

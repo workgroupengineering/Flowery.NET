@@ -8,6 +8,7 @@ This rule outlines the complete workflow for creating a new control in Flowery.N
 ## Overview
 
 Creating a new control involves these major phases:
+
 1. **Control Implementation** - C# class with properties and logic
 2. **Theme/Styling** - AXAML theme file for visual appearance
 3. **Gallery Examples** - Demo page in the gallery application
@@ -21,6 +22,11 @@ Creating a new control involves these major phases:
 ### 1.1 Create the C# Control File
 
 **Location:** `Flowery.NET/Controls/Daisy[ControlName].cs`
+
+> If the control is a **custom extension** (not a direct DaisyUI component), place it under:
+>
+> - `Flowery.NET/Controls/Custom/Daisy[ControlName].cs`
+> - Namespace: `Flowery.Controls.Custom`
 
 **Required elements:**
 
@@ -70,6 +76,7 @@ namespace Flowery.Controls
 - **StyledProperty Pattern**: Use the exact pattern shown above for documentation generator
 - **Enums at Namespace Level**: Define enums outside the class, with `public` access
 - **Using Directives**: Add ALL required usings at the file TOP (avoid inline fully-qualified names)
+- **Preset “modes” / “bases” (optional)**: If the control supports multiple input/format modes (like `DaisyNumericUpDown.NumberBase`), implement them as a `public enum` + `StyledProperty<Enum>` and apply the mode in code-behind when the property changes.
 
 ---
 
@@ -78,6 +85,11 @@ namespace Flowery.Controls
 ### 2.1 Create the Theme File
 
 **Location:** `Flowery.NET/Themes/Daisy[ControlName].axaml`
+
+> If the control is in `Flowery.NET/Controls/Custom/`, put the theme under:
+>
+> - `Flowery.NET/Themes/Custom/Daisy[ControlName].axaml`
+> - and use the matching XAML namespace: `clr-namespace:Flowery.Controls.Custom;assembly=Flowery.NET`
 
 ```xml
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
@@ -103,6 +115,10 @@ Add the theme to `Flowery.NET/DaisyUITheme.axaml`:
 ```xml
 <ResourceInclude Source="avares://Flowery.NET/Themes/Daisy[ControlName].axaml" />
 ```
+
+> For custom controls, include the custom theme path:
+>
+> - `/Themes/Custom/Daisy[ControlName].axaml`
 
 ---
 
@@ -149,6 +165,18 @@ public partial class [Category]Examples : UserControl, IScrollableExample
 }
 ```
 
+### 3.4 Register SectionId → Control mapping (required)
+
+If you add a new `<local:SectionHeader SectionId="..." />`, ensure the ID maps to the control name in BOTH places:
+
+- `Flowery.NET.Gallery/Examples/SectionHeader.axaml.cs` (`SectionIdToControlName`)
+- `Utils/generate_docs.py` (`_section_to_control()` mapping)
+
+Notes:
+
+- SectionId normalization removes `-` and `_` (e.g. `mask-input` becomes `maskinput`)
+- Keep the mapping key lowercase and consistent with the sidebar `Id`
+
 ---
 
 ## Phase 4: Sidebar Integration
@@ -182,6 +210,18 @@ _categoryControls = new Dictionary<string, Func<Control>>
 ```xml
 <StreamGeometry x:Key="DaisyIconNewCategory">M...</StreamGeometry>
 ```
+
+### 4.4 Localization (if the control introduces user-facing default text)
+
+If the control sets default user-facing strings (placeholders/watermarks/accessible text):
+
+- Add resource keys to:
+  - `Flowery.NET/Localization/FloweryStrings.resx`
+  - and ALL localized variants `FloweryStrings.*.resx` (keep the same keys everywhere)
+- Retrieve strings via `Flowery.Localization.FloweryLocalization.GetString("Key")`
+- If the control needs to update text on language change, subscribe/unsubscribe to:
+  - `FloweryLocalization.CultureChanged` in `OnAttachedToVisualTree` / `OnDetachedFromVisualTree`
+- Only update the string automatically if it was auto-generated (do not overwrite user-supplied values)
 
 ---
 
@@ -236,6 +276,7 @@ Brief description of the control, its key features, and when to use it.
 ### 5.2 Documentation Requirements
 
 The markdown file MUST:
+
 - Be named exactly `Daisy[ControlName].md` (matching the C# class name)
 - Be placed in the `llms-static/` folder
 - Have the HTML comment header
@@ -243,6 +284,8 @@ The markdown file MUST:
 - End with `---`
 
 Refer to `llms-static/WORKFLOW.md` for complete documentation guidelines.
+
+> Don’t create or commit generated docs output folders; only edit `llms-static/`.
 
 ---
 
@@ -258,6 +301,7 @@ dotnet build Flowery.NET.Gallery/Flowery.NET.Gallery.csproj
 ### 6.2 Run Gallery
 
 Test the control in the gallery application to verify:
+
 - Control renders correctly
 - All variants/sizes work
 - Sidebar navigation works
@@ -268,6 +312,15 @@ Test the control in the gallery application to verify:
 ```bash
 python Utils/generate_docs.py
 ```
+
+### 6.4 Add tests (recommended)
+
+Add a small number of high-signal headless tests under `Flowery.NET.Tests/` (like existing `*Tests.cs` files):
+
+- Instantiate the control and `window.Show()` to ensure the template/theme loads without exceptions
+- If simulating text input, use Avalonia Headless input helpers:
+  - Add `using Avalonia.Headless;` to access `Window.KeyTextInput(...)` extension methods
+  - Prefer typing character-by-character for masked inputs (behaves closer to real keystrokes)
 
 ---
 
@@ -325,7 +378,7 @@ Avalonia.DirectPropertyBase`1.RouteSetValue ... WriteValueToSource ...
 <NumericUpDown Name="PART_RedInput" Minimum="0" Maximum="255" />
 ```
 
-2. In code-behind, find template parts in `OnApplyTemplate` and sync values manually:
+1. In code-behind, find template parts in `OnApplyTemplate` and sync values manually:
 
 ```csharp
 protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -353,7 +406,7 @@ private void UpdateTemplateControls()
 
 **CRITICAL**: Inside a `ControlTheme`, style selectors cannot contain multiple `/template/` segments. This throws at runtime:
 
-```
+```text
 System.InvalidOperationException: 'ControlTemplate styles cannot contain multiple template selectors.'
 ```
 

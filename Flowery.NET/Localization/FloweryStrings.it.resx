@@ -64,6 +64,24 @@
     <value>Selezione</value>
     <comment>Default placeholder text for DaisySelect</comment>
   </data>
+  <data name="MaskInput_Watermark_AlphaNumericCode" xml:space="preserve">
+    <value>AB12 CDE</value>
+  </data>
+  <data name="MaskInput_Watermark_Timer" xml:space="preserve">
+    <value>00:00:00</value>
+  </data>
+  <data name="MaskInput_Watermark_ExpiryShort" xml:space="preserve">
+    <value>MM/AA</value>
+  </data>
+  <data name="MaskInput_Watermark_ExpiryLong" xml:space="preserve">
+    <value>MM/AAAA</value>
+  </data>
+  <data name="MaskInput_Watermark_CreditCardNumber" xml:space="preserve">
+    <value>Numero di carta</value>
+  </data>
+  <data name="MaskInput_Watermark_Cvc" xml:space="preserve">
+    <value>CVC</value>
+  </data>
 
   <!-- Accessibility text for screen readers -->
   <data name="Accessibility_Loading" xml:space="preserve">

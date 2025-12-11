@@ -194,6 +194,10 @@ A horizontal scrollable date picker inspired by FadyFayezYounan's `easy_date_tim
 - **Date Timeline** (`DaisyDateTimeline`): Scrollable date picker with selectable date items. Supports multiple header types (MonthYear, Switcher, None), sizes, disable strategies, and marked dates with tooltips.
 - **Date Timeline Item** (`DaisyDateTimelineItem`): Individual date cell with day name, date number, and month. Supports selection, disable states, and marker highlights.
 
+### Mask Input
+
+- **Mask Input** (`DaisyMaskInput`): Masked input for structured values (time, expiry date, card number, CVC) with `Mode` presets and localized auto-watermarks.
+
 ### Numeric Input
 
 - **Numeric Up/Down** (`DaisyNumericUpDown`): Advanced numeric input with **6 number bases** (Decimal, Hex, Binary, Octal, ColorHex, IPv4). Features real-time filtering, thousand separators, prefix/suffix display.
@@ -207,11 +211,6 @@ Weather display widgets with animated condition icons:
 - **Weather Current** (`DaisyWeatherCurrent`): Current temperature and conditions.
 - **Weather Forecast** (`DaisyWeatherForecast`): Daily forecast strip.
 - **Weather Metrics** (`DaisyWeatherMetrics`): UV, wind, humidity display.
-
-```xml
-<controls:DaisyWeatherIcon Condition="Sunny" IconSize="48" IsAnimated="True" />
-<controls:DaisyWeatherCard Temperature="18" Condition="PartlyCloudy" ShowForecast="True" />
-```
 
 ---
 

@@ -1,8 +1,6 @@
-# DaisyAccessibility
+# Overview
 
 A static helper class providing accessibility utilities for Daisy controls. It simplifies setting up screen reader support across all controls.
-
-## Overview
 
 `DaisyAccessibility` provides:
 

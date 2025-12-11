@@ -1,8 +1,6 @@
-# DaisyWeatherIcon
+# Overview
 
 Animated weather condition icon with unique animations per weather type. Supports 21 weather conditions with condition-appropriate animations that can be toggled on/off.
-
-## Overview
 
 DaisyWeatherIcon displays weather condition icons with optional animations. Each condition type has a tailored animation:
 

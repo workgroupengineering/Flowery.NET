@@ -34,6 +34,7 @@ public partial class SectionHeader : UserControl
         ["checkbox"] = "DaisyCheckBox",
         ["fileinput"] = "DaisyFileInput",
         ["input"] = "DaisyInput",
+        ["maskinput"] = "DaisyMaskInput",
         ["numericupdown"] = "DaisyNumericUpDown",
         ["radio"] = "DaisyRadio",
         ["range"] = "DaisyRange",

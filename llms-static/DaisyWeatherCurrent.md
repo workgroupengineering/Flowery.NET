@@ -1,8 +1,4 @@
-# DaisyWeatherCurrent
-
-Displays current weather conditions including temperature, feels-like temperature, animated condition icon, date, and optional sunrise/sunset times.
-
-## Overview
+# Overview
 
 DaisyWeatherCurrent is a standalone widget for showing the current weather state. It features a large animated weather icon, prominent temperature display, and supporting information like "feels like" and sun times.
 

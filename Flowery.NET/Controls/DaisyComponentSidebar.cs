@@ -365,6 +365,7 @@ namespace Flowery.Controls
                         new SidebarItem { Id = "checkbox", Name = "Checkbox", TabHeader = "Data Input" },
                         new SidebarItem { Id = "file-input", Name = "File Input", TabHeader = "Data Input" },
                         new SidebarItem { Id = "input", Name = "Input", TabHeader = "Data Input" },
+                        new SidebarItem { Id = "mask-input", Name = "Mask Input", TabHeader = "Data Input" },
                         new SidebarItem { Id = "numericupdown", Name = "NumericUpDown", TabHeader = "Data Input" },
                         new SidebarItem { Id = "radio", Name = "Radio", TabHeader = "Data Input" },
                         new SidebarItem { Id = "range", Name = "Range", TabHeader = "Data Input" },
