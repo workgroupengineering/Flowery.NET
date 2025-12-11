@@ -6,6 +6,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2025-12-11
+
+### Added
+
+- **DaisyDateTimeline**: New horizontal scrollable date picker inspired by Flutter's easy_date_timeline
+  - 5 size variants, 3 header types (None, MonthYear, Switcher), 6 disable strategies
+  - Marked dates with secondary color highlighting and tooltips
+  - Full keyboard navigation (arrow keys, Home/End, Page Up/Down, Enter to confirm)
+  - Mouse wheel scrolling and click-drag panning
+  - AutoWidth mode to fit exact number of visible days
+  - Vertical and Horizontal layout modes
+- **DaisyDateTimelineItem**: Individual date cell control with selection, today highlight, and marker states
+- Gallery: New "Date Display" section with DateTimeline and Timeline examples
+- DaisyIcons: Added DaisyIconDateDisplay (calendar icon)
+
+### Changed
+
+- Gallery: Moved Timeline examples from "Data Display" to new "Date Display" section
+- Docs: External links now open in new browser tab (target="_blank")
+- Docs: DaisyDateTimeline* controls marked as custom (✦ badge in sidebar)
+
 ## [1.2.0] - 2025-12-10
 
 ### Added
@@ -161,6 +182,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Custom controls: ComponentSidebar, ModifierKeys
 - Gallery demo application
 
+[1.3.0]: https://github.com/tobitege/Flowery.NET/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/tobitege/Flowery.NET/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/tobitege/Flowery.NET/compare/v1.0.9...v1.1.0
 [1.0.9]: https://github.com/tobitege/Flowery.NET/compare/v1.0.8...v1.0.9
