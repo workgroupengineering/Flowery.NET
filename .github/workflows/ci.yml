@@ -55,12 +55,12 @@ jobs:
 
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '9.0.x'
 
-      - name: Build Gallery
+      - name: Build Gallery Desktop
         shell: bash
         run: |
-          dotnet publish Flowery.NET.Gallery/Flowery.NET.Gallery.csproj \
+          dotnet publish Flowery.NET.Gallery.Desktop/Flowery.NET.Gallery.Desktop.csproj \
             -c Release \
             -r ${{ matrix.rid }} \
             --self-contained true \

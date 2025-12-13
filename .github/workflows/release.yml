@@ -115,12 +115,12 @@ jobs:
 
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '9.0.x'
 
       - name: Publish Gallery App
         shell: bash
         run: |
-          dotnet publish Flowery.NET.Gallery/Flowery.NET.Gallery.csproj \
+          dotnet publish Flowery.NET.Gallery.Desktop/Flowery.NET.Gallery.Desktop.csproj \
             -c Release \
             -r ${{ matrix.rid }} \
             --self-contained true \
@@ -137,7 +137,7 @@ jobs:
       - name: Tar Linux/macOS artifact
         if: matrix.os != 'windows-latest'
         run: |
-          chmod +x ./publish/Flowery.NET.Gallery
+          chmod +x ./publish/Flowery.NET.Gallery.Desktop
           tar -czvf ./${{ matrix.artifact_name }}.tar.gz -C ./publish .
 
       - name: Upload artifact
