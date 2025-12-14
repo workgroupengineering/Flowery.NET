@@ -54,6 +54,7 @@ public partial class MainView : UserControl
             ["Divider"] = () => new DividerExamples(),
             ["Layout"] = () => new LayoutExamples(),
             ["Theming"] = () => new ThemingExamples(),
+            ["Effects"] = () => new EffectsExamples(),
             ["Custom Controls"] = () => new CustomControls(),
             ["Color Picker"] = () => new ColorPickerExamples(),
         };
