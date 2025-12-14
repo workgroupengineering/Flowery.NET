@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.4.x] - 2025-12-xx - unreleased
+## [1.5.0] - 2025-12-14
 
 ### New
 
@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Programmatic API for demos: `TriggerScramble()`, `ResetScramble()`, `SetTargetPosition()`, `ShowFollower()`, `HideFollower()`
   - Gallery: Interactive showcase with auto-looping infinity path demo for GIF recording
 
-<img src="llms-static/effects_showcase.webp" alt="Effects Showcase" width="600">
+![Effects Showcase](https://tobitege.github.io/Flowery.NET/images/effects_showcase.webp)
 
 ### Fixed
 
@@ -268,7 +268,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Custom controls: ComponentSidebar, ModifierKeys
 - Gallery demo application
 
-[1.4.1]: https://github.com/tobitege/Flowery.NET/compare/v1.4.0...HEAD
+[1.5.0]: https://github.com/tobitege/Flowery.NET/compare/v1.4.1...HEAD
+[1.4.1]: https://github.com/tobitege/Flowery.NET/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/tobitege/Flowery.NET/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/tobitege/Flowery.NET/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/tobitege/Flowery.NET/compare/v1.2.0...v1.3.0

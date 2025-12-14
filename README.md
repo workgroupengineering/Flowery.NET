@@ -211,7 +211,7 @@ A horizontal scrollable date picker inspired by FadyFayezYounan's `easy_date_tim
 
 ### Visual Effects
 
-Cross-platform visual effects library (WASM-compatible). See [Effects.md](Flowery.NET/docs/index.html#Effects) for full documentation.
+Cross-platform visual effects collection (WASM-compatible). See [Effects](https://tobitege.github.io/Flowery.NET/#Effects) for full documentation.
 
 - **RevealBehavior**: Fade-in + slide animation on element attach.
 - **ScrambleHoverBehavior**: Random character scramble on hover, resolves left-to-right.
