@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### New
 
-- **Effects Library** ([Effects](llms-static/Effects.md)): WASM-compatible UI animation behaviors inspired by [smoothui](https://github.com/pqoqubbw/smoothui)
+- **Effects Collection** ([Effects](https://tobitege.github.io/Flowery.NET/#Effects)): WASM-compatible UI animation behaviors inspired by [smoothui](https://github.com/educlopez/smoothui)
   - **RevealBehavior**: 5 reveal modes (FadeReveal, SlideIn, FadeOnly, Scale, ScaleSlide) with configurable direction and distance
   - **ScrambleHoverBehavior**: Character scramble effect on hover with progressive reveal
   - **WaveTextBehavior**: Continuous sine wave animation for text
