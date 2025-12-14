@@ -264,6 +264,9 @@
   <data name="Theme_Silk" xml:space="preserve">
     <value>Silk</value>
   </data>
+  <data name="Theme_Smooth" xml:space="preserve">
+    <value>Smooth</value>
+  </data>
   <data name="Theme_Sunset" xml:space="preserve">
     <value>Sunset</value>
   </data>

@@ -4,6 +4,8 @@ using System.Globalization;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
+using Avalonia.Data;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Threading;
@@ -53,6 +55,9 @@ namespace Flowery.Controls
 
         public DaisyThemeDropdown()
         {
+            // Enable keyboard navigation by DisplayName (e.g., press 'S' to jump to "Synthwave")
+            TextSearch.SetTextBinding(this, new Binding(nameof(ThemePreviewInfo.DisplayName)));
+
             var themes = GetThemeInfos();
             ItemsSource = themes;
 
