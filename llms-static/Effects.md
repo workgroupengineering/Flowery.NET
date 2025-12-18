@@ -112,22 +112,29 @@ Text scramble/reveal effect on hover or click (mobile-friendly).
 
 ### WaveTextBehavior
 
-Infinite sine wave animation on the Y axis.
+Infinite sine wave animation on the Y axis. Supports both whole-block and per-character modes.
 
 ```xml
+<!-- Per-character ripple wave (SmoothUI style) -->
+<TextBlock Text="Ripple!"
+           fx:WaveTextBehavior.IsEnabled="True"
+           fx:WaveTextBehavior.IsPerCharacter="True"
+           fx:WaveTextBehavior.Amplitude="8"
+           fx:WaveTextBehavior.StaggerDelay="0:0:0.05"/>
+
+<!-- Simple whole-block wave -->
 <TextBlock Text="Wave!"
            fx:WaveTextBehavior.IsEnabled="True"
-           fx:WaveTextBehavior.Amplitude="5"
-           fx:WaveTextBehavior.Duration="0:0:1"
-           fx:WaveTextBehavior.StaggerDelay="0:0:0.05"/>
+           fx:WaveTextBehavior.Amplitude="5"/>
 ```
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `IsEnabled` | bool | false | Enable the effect |
+| `IsPerCharacter` | bool | false | Enable character-level ripple wave (replaces Text with Inlines) |
 | `Amplitude` | double | 5 | Maximum vertical movement (pixels) |
 | `Duration` | TimeSpan | 1000ms | Wave cycle duration |
-| `StaggerDelay` | TimeSpan | 50ms | Delay between characters (future) |
+| `StaggerDelay` | TimeSpan | 50ms | Delay between characters (only for `IsPerCharacter`) |
 
 ---
 
@@ -174,6 +181,44 @@ Creates a follower element that tracks mouse position with spring physics.
 
 ---
 
+### TypewriterBehavior
+
+Sequential character reveal animation for `TextBlock` controls. Ideal for terminal simulations, loading messages, or storytelling UI.
+
+```xml
+<TextBlock Text="System initialized... Ready."
+           fx:TypewriterBehavior.IsEnabled="True"
+           fx:TypewriterBehavior.Speed="0:0:0.05"/>
+```
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `IsEnabled` | bool | false | Enable the effect |
+| `Speed` | TimeSpan | 50ms | Delay between each character |
+
+---
+
+### ScrollRevealBehavior
+
+Automatically re-triggers entrance animations when an element enters the scroll viewport. Works in conjunction with `RevealBehavior`.
+
+```xml
+<ScrollViewer>
+    <StackPanel>
+        <Border fx:RevealBehavior.IsEnabled="True"
+                fx:ScrollRevealBehavior.IsEnabled="True">
+            <TextBlock Text="I reveal when you scroll to me!"/>
+        </Border>
+    </StackPanel>
+</ScrollViewer>
+```
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `IsEnabled` | bool | false | Enable viewport-aware reveal |
+
+---
+
 ## Runtime Usage (C#)
 
 All effects can be applied or modified at runtime using static helper methods:
@@ -186,9 +231,15 @@ RevealBehavior.SetIsEnabled(myBorder, true);
 RevealBehavior.SetDuration(myBorder, TimeSpan.FromMilliseconds(800));
 RevealBehavior.SetDirection(myBorder, RevealDirection.Left);
 
-// Replay a reveal animation (toggle off then on)
-RevealBehavior.SetIsEnabled(myBorder, false);
-RevealBehavior.SetIsEnabled(myBorder, true);
+// Manually trigger a reveal animation
+RevealBehavior.TriggerReveal(myBorder);
+
+// Apply Typewriter effect programmatically
+TypewriterBehavior.SetIsEnabled(myTextBlock, true);
+TypewriterBehavior.SetSpeed(myTextBlock, TimeSpan.FromMilliseconds(30));
+
+// Apply ScrollReveal behavior
+ScrollRevealBehavior.SetIsEnabled(myElement, true);
 
 // Apply ScrambleHover to a TextBlock (default: RevealOnHover)
 ScrambleHoverBehavior.SetIsEnabled(myTextBlock, true);
@@ -305,8 +356,6 @@ for (int i = 0; i <= steps; i++)
 ## Future Enhancements
 
 - **ScrollableCardStack**: 3D stacking effect with scale/blur/opacity (deferred, requires Composition API)
-- **Per-character WaveText**: Split text into individual TextBlocks for true character-level wave
-- **TypewriterBehavior**: Progressive text reveal with blinking cursor
 
 ---
 

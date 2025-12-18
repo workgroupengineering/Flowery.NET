@@ -97,6 +97,17 @@
                             <controls:DaisyInput Label="Password" HelperText="Must be 8+ characters"
                                 Watermark="Enter password..." />
                         </StackPanel>
+                        <StackPanel Spacing="8" Margin="0,0,40,10" Width="250">
+                            <TextBlock Text="Floating Label" FontSize="12" />
+                            <controls:DaisyInput Label="Email" LabelPosition="Floating"
+                                Watermark="Enter email..." />
+                            <controls:DaisyInput Label="Username" LabelPosition="Floating"
+                                StartIcon="{StaticResource DaisyIconUser}"
+                                Watermark="Pick a username..." />
+                            <controls:DaisyInput Label="Password" LabelPosition="Floating"
+                                EndIcon="{StaticResource DaisyIconSettings}"
+                                Watermark="Enter password..." />
+                        </StackPanel>
                         <StackPanel Spacing="10" Margin="0,0,40,20" Width="250">
                             <TextBlock Text="With Icons" FontSize="12" />
                             <controls:DaisyInput StartIcon="{StaticResource DaisyIconHome}"
@@ -355,6 +366,24 @@
                             <controls:DaisyOtpInput Length="4" Size="Large" />
                         </StackPanel>
                     </WrapPanel>
+
+                    <controls:DaisyDivider />
+
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="Real World Example" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                        <controls:DaisyCard Width="400" HorizontalAlignment="Left" BodyPadding="32">
+                            <StackPanel Spacing="24" HorizontalAlignment="Center">
+                                <StackPanel Spacing="8" HorizontalAlignment="Center">
+                                    <TextBlock Text="Verify Your Code" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+                                    <TextBlock Text="Enter the 6-digit code sent to your device" Opacity="0.6" HorizontalAlignment="Center" />
+                                </StackPanel>
+
+                                <controls:DaisyOtpInput x:Name="VerifyOtp" Length="6" SeparatorInterval="3" HorizontalAlignment="Center" />
+
+                                <controls:DaisyButton Content="Reset Code" Variant="Ghost" HorizontalAlignment="Center" Click="OnResetCodeClicked" />
+                            </StackPanel>
+                        </controls:DaisyCard>
+                    </StackPanel>
                 </StackPanel>
 
                 <controls:DaisyDivider />

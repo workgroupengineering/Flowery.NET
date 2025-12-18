@@ -1,17 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Layout;
+using Avalonia.Controls.Primitives;
+using Avalonia.Metadata;
 
 namespace Flowery.Controls
 {
     /// <summary>
-    /// A selectable chip list for choosing multiple tags.
+    /// A selectable chip list for choosing multiple tags with an animated/organized layout.
+    /// Supports automatic font scaling when contained within a FloweryScaleManager.EnableScaling="True" container.
     /// </summary>
-    public class DaisyTagPicker : WrapPanel
+    public class DaisyTagPicker : TemplatedControl
     {
+        protected override Type StyleKeyOverride => typeof(DaisyTagPicker);
+
         private readonly List<string> _internalSelected = new();
 
         /// <summary>
@@ -23,6 +28,7 @@ namespace Flowery.Controls
         /// <summary>
         /// Gets or sets the list of available tags.
         /// </summary>
+        [Content]
         public IList<string>? Tags
         {
             get => GetValue(TagsProperty);
@@ -60,49 +66,82 @@ namespace Flowery.Controls
         }
 
         /// <summary>
+        /// Defines the <see cref="Title"/> property.
+        /// </summary>
+        public static readonly StyledProperty<string> TitleProperty =
+            AvaloniaProperty.Register<DaisyTagPicker, string>(nameof(Title), "Selected Tags");
+
+        /// <summary>
+        /// Gets or sets the title for the selected tags section.
+        /// </summary>
+        public string Title
+        {
+            get => GetValue(TitleProperty);
+            set => SetValue(TitleProperty, value);
+        }
+
+        /// <summary>
+        /// Defines the <see cref="SelectedTagsList"/> property.
+        /// </summary>
+        public static readonly DirectProperty<DaisyTagPicker, IEnumerable<string>> SelectedTagsListProperty =
+            AvaloniaProperty.RegisterDirect<DaisyTagPicker, IEnumerable<string>>(
+                nameof(SelectedTagsList),
+                o => o.SelectedTagsList);
+
+        private IEnumerable<string> _selectedTagsList = Array.Empty<string>();
+        public IEnumerable<string> SelectedTagsList
+        {
+            get => _selectedTagsList;
+            private set => SetAndRaise(SelectedTagsListProperty, ref _selectedTagsList, value);
+        }
+
+        /// <summary>
+        /// Defines the <see cref="AvailableTagsList"/> property.
+        /// </summary>
+        public static readonly DirectProperty<DaisyTagPicker, IEnumerable<string>> AvailableTagsListProperty =
+            AvaloniaProperty.RegisterDirect<DaisyTagPicker, IEnumerable<string>>(
+                nameof(AvailableTagsList),
+                o => o.AvailableTagsList);
+
+        private IEnumerable<string> _availableTagsList = Array.Empty<string>();
+        public IEnumerable<string> AvailableTagsList
+        {
+            get => _availableTagsList;
+            private set => SetAndRaise(AvailableTagsListProperty, ref _availableTagsList, value);
+        }
+
+        /// <summary>
         /// Raised when the selection changes.
         /// </summary>
         public event EventHandler<IReadOnlyList<string>>? SelectionChanged;
 
+        /// <summary>
+        /// Internal command used by the template to toggle tags.
+        /// </summary>
+        public ICommand ToggleTagCommand { get; }
+
         static DaisyTagPicker()
         {
-            TagsProperty.Changed.AddClassHandler<DaisyTagPicker>((s, _) => s.Rebuild());
-            SelectedTagsProperty.Changed.AddClassHandler<DaisyTagPicker>((s, _) => s.Rebuild());
-            SizeProperty.Changed.AddClassHandler<DaisyTagPicker>((s, _) => s.Rebuild());
+            TagsProperty.Changed.AddClassHandler<DaisyTagPicker>((s, _) => s.UpdateLists());
+            SelectedTagsProperty.Changed.AddClassHandler<DaisyTagPicker>((s, _) => s.UpdateLists());
         }
 
         public DaisyTagPicker()
         {
-            Orientation = Orientation.Horizontal;
-            Rebuild();
+            ToggleTagCommand = new ActionCommand<string>(tag => { if (tag != null) ToggleTag(tag); });
+            UpdateLists();
         }
 
-        private void Rebuild()
+        private void UpdateLists()
         {
-            Children.Clear();
-
             var tags = Tags ?? Array.Empty<string>();
             var selected = SelectedTags ?? _internalSelected;
 
-            foreach (var tag in tags)
-            {
-                var isSelected = selected.Contains(tag);
-
-                var button = new DaisyButton
-                {
-                    Content = tag,
-                    Size = Size,
-                    Variant = isSelected ? DaisyButtonVariant.Primary : DaisyButtonVariant.Neutral,
-                    ButtonStyle = isSelected ? DaisyButtonStyle.Soft : DaisyButtonStyle.Outline,
-                    Margin = new Thickness(4)
-                };
-
-                button.Click += (_, __) => ToggleTag(tag);
-                Children.Add(button);
-            }
+            SelectedTagsList = tags.Where(t => selected.Contains(t)).ToList();
+            AvailableTagsList = tags.Where(t => !selected.Contains(t)).ToList();
         }
 
-        private void ToggleTag(string tag)
+        public void ToggleTag(string tag)
         {
             var selected = SelectedTags ?? _internalSelected;
 
@@ -110,7 +149,7 @@ namespace Flowery.Controls
                 ? selected.Where(t => t != tag).ToList()
                 : selected.Concat(new[] { tag }).ToList();
 
-            if (SelectedTags != null)
+            if (this.IsSet(SelectedTagsProperty))
             {
                 SetCurrentValue(SelectedTagsProperty, newSelected);
             }
@@ -118,10 +157,19 @@ namespace Flowery.Controls
             {
                 _internalSelected.Clear();
                 _internalSelected.AddRange(newSelected);
-                Rebuild();
+                UpdateLists();
             }
 
             SelectionChanged?.Invoke(this, newSelected);
+        }
+
+        private class ActionCommand<T> : ICommand
+        {
+            private readonly Action<T> _execute;
+            public ActionCommand(Action<T> execute) => _execute = execute;
+            public bool CanExecute(object? parameter) => true;
+            public void Execute(object? parameter) => _execute((T)parameter!);
+            public event EventHandler? CanExecuteChanged { add { } remove { } }
         }
     }
 }

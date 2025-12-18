@@ -83,7 +83,7 @@
                                         <ContentPresenter Content="{TemplateBinding Content}"
                                                           VerticalAlignment="Center"
                                                           FontWeight="SemiBold"
-                                                          Margin="4,0,12,0" />
+                                                          Margin="10,0,12,0" />
 
                                         <!-- Arrow Icon -->
                                         <Path Name="Arrow"
@@ -95,7 +95,7 @@
                                               Height="8"
                                               Stretch="Uniform"
                                               VerticalAlignment="Center"
-                                              Margin="0,0,4,0"
+                                              Margin="0,0,8,0"
                                               RenderTransformOrigin="50%,50%">
                                             <Path.Transitions>
                                                 <Transitions>
@@ -105,7 +105,7 @@
                                         </Path>
 
                                         <!-- Plus/Minus Icon -->
-                                        <Grid Name="PlusMinus" Grid.Column="1" IsVisible="False" Width="12" Height="12" Margin="0,0,4,0">
+                                        <Grid Name="PlusMinus" Grid.Column="1" IsVisible="False" Width="12" Height="12" Margin="0,0,10,0">
                                             <Path Data="M0,6 L12,6 M6,0 L6,12"
                                                   Stroke="{TemplateBinding Foreground}"
                                                   StrokeThickness="2"

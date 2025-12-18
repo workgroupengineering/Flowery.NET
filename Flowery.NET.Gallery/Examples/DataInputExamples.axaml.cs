@@ -37,14 +37,14 @@ public partial class DataInputExamples : UserControl, IScrollableExample
         {
             var textArea = sender as DaisyTextArea;
             var feedbackText = textArea?.Text ?? "No feedback";
-            
+
             var alert = new DaisyAlert
             {
                 Content = $"Feedback submitted: \"{feedbackText}\"",
                 Variant = DaisyAlertVariant.Success
             };
             toast.Items.Add(alert);
-            
+
             // Auto-remove after 3 seconds
             var timer = new System.Timers.Timer(3000);
             timer.Elapsed += (s, args) =>
@@ -53,6 +53,15 @@ public partial class DataInputExamples : UserControl, IScrollableExample
                 Avalonia.Threading.Dispatcher.UIThread.Post(() => toast.Items.Remove(alert));
             };
             timer.Start();
+        }
+    }
+
+    private void OnResetCodeClicked(object? sender, RoutedEventArgs e)
+    {
+        var otp = this.FindControl<DaisyOtpInput>("VerifyOtp");
+        if (otp != null)
+        {
+            otp.Value = string.Empty;
         }
     }
 

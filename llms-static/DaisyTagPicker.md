@@ -3,14 +3,22 @@
 
 # Overview
 
-DaisyTagPicker is a selectable chip list for choosing multiple tags. It renders tags as `DaisyButton` chips (outlined when unselected, soft primary when selected) and supports either internal selection or an externally bound `SelectedTags` list.
+DaisyTagPicker is an organized tag selection component inspired by "Animated Tags". It separates selected tags into a distinct, bordered area with "remove" icons, while keeping available tags in a separate list with "add" icons.
+
+## Features
+
+* **Organized Layout**: Distinct areas for selected and available tags.
+* **Interactive Icons**: Automatic "add" (Plus) and "remove" (Close) icons on tag chips.
+* **Customizable Title**: Set the header for the selected tags area using the `Title` property.
+* **Flexible Sizing**: Inherits DaisyUI size presets (ExtraSmall, Small, Medium, Large, ExtraLarge) for all chips.
 
 ## Properties
 
 | Property | Description |
 |----------|-------------|
-| `Tags` (`IList<string>?`) | Available tags to display. |
-| `SelectedTags` (`IList<string>?`) | Selected tags. When null, selection is managed internally. |
+| `Tags` (`IList<string>?`) | Pool of all available tags. |
+| `SelectedTags` (`IList<string>?`) | Currently selected tags. When null, managed internally. |
+| `Title` (`string`) | Header text for the selected tags box (default: "Selected Tags"). |
 | `Size` (`DaisySize`) | Size preset for the tag chips (default `Small`). |
 
 ## Events
@@ -22,25 +30,27 @@ DaisyTagPicker is a selectable chip list for choosing multiple tags. It renders 
 ## Quick Examples
 
 ```xml
-<!-- Internal selection (no binding required) -->
-<controls:DaisyTagPicker>
+<!-- Basic usage with internal selection -->
+<controls:DaisyTagPicker Title="Selected Skills">
     <controls:DaisyTagPicker.Tags>
         <x:Array Type="{x:Type sys:String}">
             <sys:String>Avalonia</sys:String>
+            <sys:String>C#</sys:String>
             <sys:String>DaisyUI</sys:String>
-            <sys:String>Desktop</sys:String>
+            <sys:String>XAML</sys:String>
         </x:Array>
     </controls:DaisyTagPicker.Tags>
 </controls:DaisyTagPicker>
 
-<!-- Two-way binding (SelectedTags updates with a new list instance on changes) -->
-<controls:DaisyTagPicker Tags="{Binding AvailableTags}"
-                       SelectedTags="{Binding SelectedTags, Mode=TwoWay}"
+<!-- MVVM binding -->
+<controls:DaisyTagPicker Tags="{Binding AllTags}"
+                       SelectedTags="{Binding UserTags, Mode=TwoWay}"
+                       Title="Chosen Options"
                        Size="Medium" />
 ```
 
 ## Tips & Best Practices
 
-- Use unique tag strings; selection is based on string equality.
-- If you bind `SelectedTags`, expect it to be replaced with a new list when the user toggles a tag.
-- For single-select “pick one” UX, use `DaisyDropdown` or `DaisySelect` instead.
+- Selection is string-based; ensure tag strings are unique.
+- The control automatically filters the pool of `Tags` to only show unselected ones in the "Available" area.
+- If you bind `SelectedTags`, the list is replaced with a new instance on every toggle.

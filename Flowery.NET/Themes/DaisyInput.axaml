@@ -158,6 +158,208 @@
                </ControlTemplate>
           </Setter>
 
+          <!-- Floating label template (LabelPosition=Floating) -->
+          <Style Selector="^[LabelPosition=Floating]">
+               <Setter Property="MinHeight" Value="{DynamicResource DaisyInputFloatingMediumHeight}" />
+               <Setter Property="Template">
+                    <ControlTemplate>
+                         <DataValidationErrors ClipToBounds="False">
+                              <Grid RowDefinitions="Auto,16,*,Auto" ClipToBounds="False" Margin="0,10,0,0">
+                                   <!-- Row 0: Hint text -->
+                                   <TextBlock Grid.Row="0"
+                                        x:Name="PART_HintText"
+                                        Text="{TemplateBinding HintText}"
+                                        FontSize="{TemplateBinding ScaledLabelFontSize}"
+                                        Opacity="0.7"
+                                        Margin="0,0,0,4"
+                                        Foreground="{DynamicResource DaisyBaseContentBrush}"
+                                        IsVisible="{TemplateBinding HintText, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+
+                                   <!-- Row 2: Main input area (Note: Row 1 is reserved for floating space) -->
+                                   <Panel Grid.Row="2" ClipToBounds="False">
+                                        <Border x:Name="PART_Background"
+                                             Background="{TemplateBinding Background}"
+                                             BorderBrush="{TemplateBinding BorderBrush}"
+                                             BorderThickness="{TemplateBinding BorderThickness}"
+                                             CornerRadius="{TemplateBinding CornerRadius}"
+                                             MinWidth="{TemplateBinding MinWidth}"
+                                             MinHeight="{DynamicResource DaisySizeMediumHeight}" />
+
+                                        <Grid ColumnDefinitions="Auto,*,Auto"
+                                             ClipToBounds="False"
+                                             TextElement.Foreground="{DynamicResource DaisyBaseContentBrush}">
+                                             <!-- Start Icon -->
+                                             <PathIcon Grid.Column="0"
+                                                  x:Name="PART_StartIcon"
+                                                  Data="{TemplateBinding StartIcon}"
+                                                  Foreground="{DynamicResource DaisyBaseContentBrush}"
+                                                  Width="16" Height="16"
+                                                  Margin="12,0,0,0"
+                                                  VerticalAlignment="Center"
+                                                  IsVisible="{TemplateBinding StartIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+
+                                             <!-- Inner left content (existing) -->
+                                             <ContentPresenter Grid.Column="0"
+                                                  Content="{TemplateBinding InnerLeftContent}"
+                                                  Margin="{Binding StartIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}, ConverterParameter='32,0,0,0', FallbackValue='0'}" />
+
+                                             <!-- Text area + Floating label overlay -->
+                                             <Grid Grid.Column="1" ClipToBounds="False">
+                                                  <ScrollViewer
+                                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                                       <Panel>
+                                                            <TextBlock Name="PART_Watermark"
+                                                                 Opacity="0"
+                                                                 Text="{TemplateBinding Watermark}"
+                                                                 FontSize="{TemplateBinding ScaledTextFontSize}"
+                                                                 TextAlignment="{TemplateBinding TextAlignment}"
+                                                                 TextWrapping="{TemplateBinding TextWrapping}"
+                                                                 IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                                                                 Margin="{TemplateBinding Padding}"
+                                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                                                 <TextBlock.Transitions>
+                                                                      <Transitions>
+                                                                           <DoubleTransition Property="Opacity" Duration="0:0:0.2" Delay="0:0:0.15" />
+                                                                      </Transitions>
+                                                                 </TextBlock.Transitions>
+                                                            </TextBlock>
+                                                            <TextPresenter Name="PART_TextPresenter"
+                                                                 Text="{TemplateBinding Text, Mode=TwoWay}"
+                                                                 CaretIndex="{TemplateBinding CaretIndex}"
+                                                                 SelectionStart="{TemplateBinding SelectionStart}"
+                                                                 SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                                 TextAlignment="{TemplateBinding TextAlignment}"
+                                                                 TextWrapping="{TemplateBinding TextWrapping}"
+                                                                 PasswordChar="{TemplateBinding PasswordChar}"
+                                                                 RevealPassword="{TemplateBinding RevealPassword}"
+                                                                 SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                                 SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                                 CaretBrush="{TemplateBinding CaretBrush}"
+                                                                 Margin="{TemplateBinding Padding}"
+                                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                                       </Panel>
+                                                  </ScrollViewer>
+
+                                                  <Border x:Name="PART_FloatingLabelContainer"
+                                                       IsHitTestVisible="False"
+                                                       HorizontalAlignment="Left"
+                                                       Margin="8,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       ZIndex="10"
+                                                       Padding="4,0"
+                                                       Background="{DynamicResource DaisyBase100Brush}"
+                                                       BorderThickness="1"
+                                                       BorderBrush="Transparent"
+                                                       CornerRadius="4"
+                                                       Opacity="0.5"
+                                                       RenderTransformOrigin="0%,50%"
+                                                       IsVisible="{TemplateBinding Label, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                                                       <Border.RenderTransform>
+                                                            <TransformGroup>
+                                                                 <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                                 <TranslateTransform X="0" Y="0" />
+                                                            </TransformGroup>
+                                                       </Border.RenderTransform>
+                                                       <Border.Transitions>
+                                                            <Transitions>
+                                                                 <DoubleTransition Property="Opacity" Duration="0:0:0.2" Delay="0:0:0" />
+                                                                 <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.28" Delay="0:0:0.05" Easing="0.4,0,0.2,1" />
+                                                            </Transitions>
+                                                       </Border.Transitions>
+
+                                                       <StackPanel Orientation="Horizontal" Spacing="4">
+                                                            <TextBlock x:Name="PART_FloatingLabel"
+                                                                 Text="{TemplateBinding Label}"
+                                                                 FontSize="{TemplateBinding ScaledTextFontSize}"
+                                                                 Foreground="{DynamicResource DaisyBaseContentBrush}" />
+                                                            <TextBlock Text="*"
+                                                                 FontSize="{TemplateBinding ScaledLabelFontSize}"
+                                                                 Foreground="{DynamicResource DaisyErrorBrush}"
+                                                                 IsVisible="{TemplateBinding IsRequired}" />
+                                                            <TextBlock Text="Optional field"
+                                                                 FontSize="{TemplateBinding ScaledLabelFontSize}"
+                                                                 Opacity="0.7"
+                                                                 Foreground="{DynamicResource DaisyBaseContentBrush}"
+                                                                 IsVisible="{TemplateBinding IsOptional}" />
+                                                       </StackPanel>
+                                                  </Border>
+                                             </Grid>
+
+                                             <!-- Inner right content (existing) -->
+                                             <ContentPresenter Grid.Column="2"
+                                                  Content="{TemplateBinding InnerRightContent}" />
+
+                                             <!-- End Icon -->
+                                             <PathIcon Grid.Column="2"
+                                                  x:Name="PART_EndIcon"
+                                                  Data="{TemplateBinding EndIcon}"
+                                                  Foreground="{DynamicResource DaisyBaseContentBrush}"
+                                                  Width="16" Height="16"
+                                                  Margin="0,0,12,0"
+                                                  VerticalAlignment="Center"
+                                                  IsVisible="{TemplateBinding EndIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                        </Grid>
+                                   </Panel>
+
+                                   <!-- Row 3: Helper text -->
+                                   <TextBlock Grid.Row="3"
+                                        x:Name="PART_HelperText"
+                                        Text="{TemplateBinding HelperText}"
+                                        HorizontalAlignment="Right"
+                                        FontSize="{TemplateBinding ScaledLabelFontSize}"
+                                        Opacity="0.7"
+                                        Margin="0,4,0,0"
+                                        Foreground="{DynamicResource DaisyBaseContentBrush}"
+                                        IsVisible="{TemplateBinding HelperText, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                              </Grid>
+                         </DataValidationErrors>
+                    </ControlTemplate>
+               </Setter>
+          </Style>
+
+          <Style Selector="^[LabelPosition=Floating] /template/ TextBlock#PART_Watermark">
+               <Setter Property="Opacity" Value="0" />
+          </Style>
+          <Style Selector="^[LabelPosition=Floating]:focus /template/ TextBlock#PART_Watermark">
+               <Setter Property="Opacity" Value="0.5" />
+          </Style>
+
+          <Style Selector="^[LabelPosition=Floating]:focus /template/ Border#PART_FloatingLabelContainer, ^[LabelPosition=Floating]:hastext /template/ Border#PART_FloatingLabelContainer">
+               <Setter Property="RenderTransform" Value="scale(0.85) translate(0, -24px)" />
+               <Setter Property="Opacity" Value="1" />
+               <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
+          </Style>
+          <Style Selector="^[LabelPosition=Floating]:focus /template/ TextBlock#PART_FloatingLabel, ^[LabelPosition=Floating]:hastext /template/ TextBlock#PART_FloatingLabel">
+               <Setter Property="Foreground" Value="{DynamicResource DaisyPrimaryBrush}" />
+               <Setter Property="FontWeight" Value="SemiBold" />
+          </Style>
+
+          <Style Selector="^[LabelPosition=Floating][Size=Medium]">
+               <Setter Property="MinHeight" Value="72" />
+          </Style>
+          <Style Selector="^[LabelPosition=Floating][Size=ExtraLarge]">
+               <Setter Property="MinHeight" Value="{DynamicResource DaisyInputFloatingExtraLargeHeight}" />
+          </Style>
+          <Style Selector="^[LabelPosition=Floating][Size=Large]">
+               <Setter Property="MinHeight" Value="{DynamicResource DaisyInputFloatingLargeHeight}" />
+          </Style>
+          <Style Selector="^[LabelPosition=Floating][Size=Medium]">
+               <Setter Property="MinHeight" Value="{DynamicResource DaisyInputFloatingMediumHeight}" />
+          </Style>
+          <Style Selector="^[LabelPosition=Floating][Size=Small]">
+               <Setter Property="MinHeight" Value="{DynamicResource DaisyInputFloatingSmallHeight}" />
+          </Style>
+          <Style Selector="^[LabelPosition=Floating][Size=ExtraSmall]">
+               <Setter Property="MinHeight" Value="{DynamicResource DaisyInputFloatingExtraSmallHeight}" />
+          </Style>
+          <Style Selector="^[LabelPosition=Floating][Size=ExtraSmall]:focus /template/ Border#PART_FloatingLabelContainer, ^[LabelPosition=Floating][Size=ExtraSmall]:hastext /template/ Border#PART_FloatingLabelContainer">
+               <Setter Property="RenderTransform" Value="scale(0.8) translate(0, -18px)" />
+          </Style>
+          <Style Selector="^[LabelPosition=Floating][Size=Large]:focus /template/ Border#PART_FloatingLabelContainer, ^[LabelPosition=Floating][Size=Large]:hastext /template/ Border#PART_FloatingLabelContainer, ^[LabelPosition=Floating][Size=ExtraLarge]:focus /template/ Border#PART_FloatingLabelContainer, ^[LabelPosition=Floating][Size=ExtraLarge]:hastext /template/ Border#PART_FloatingLabelContainer">
+               <Setter Property="RenderTransform" Value="scale(0.85) translate(0, -28px)" />
+          </Style>
+
           <!-- States -->
           <Style Selector="^:pointerover /template/ Border#PART_Background">
                <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />

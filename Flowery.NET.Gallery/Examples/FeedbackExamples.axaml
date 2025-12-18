@@ -394,6 +394,13 @@
                         <controls:DaisyProgress Value="100" Variant="Accent" Size="Small" />
                         <controls:DaisyProgress IsIndeterminate="True" Variant="Secondary" />
                     </StackPanel>
+                    <StackPanel Spacing="10" Margin="0,0,40,20" Width="260">
+                        <TextBlock Text="Animated value updates" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                        <Slider x:Name="ProgressDemoSlider" Minimum="0" Maximum="100" Value="40" />
+                        <TextBlock Text="{Binding Value, ElementName=ProgressDemoSlider, StringFormat={}{0:0}%}" Opacity="0.7" FontSize="12" />
+                        <controls:DaisyProgress Value="{Binding Value, ElementName=ProgressDemoSlider}" />
+                        <controls:DaisyProgress Value="{Binding Value, ElementName=ProgressDemoSlider}" Variant="Primary" />
+                    </StackPanel>
                 </WrapPanel>
             </StackPanel>
 

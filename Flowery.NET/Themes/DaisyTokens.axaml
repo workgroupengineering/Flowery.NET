@@ -8,7 +8,7 @@
          These are the foundational sizing and spacing values used
          throughout Flowery.NET controls. Users can override these
          in their App.axaml to customize the entire design system.
-         
+
          Example override in user's App.axaml:
          <Application.Resources>
              <Thickness x:Key="DaisySizeSmallPadding">8,2</Thickness>
@@ -23,6 +23,15 @@
     <sys:Double x:Key="DaisySizeMediumHeight">40</sys:Double>
     <sys:Double x:Key="DaisySizeSmallHeight">32</sys:Double>
     <sys:Double x:Key="DaisySizeExtraSmallHeight">24</sys:Double>
+
+    <!-- ==================== FLOATING INPUT HEIGHTS ==================== -->
+    <!-- Specific heights for DaisyInput with LabelPosition="Floating" -->
+    <!-- These add headroom for the label to float above the input border -->
+    <sys:Double x:Key="DaisyInputFloatingExtraLargeHeight">64</sys:Double>
+    <sys:Double x:Key="DaisyInputFloatingLargeHeight">64</sys:Double>
+    <sys:Double x:Key="DaisyInputFloatingMediumHeight">56</sys:Double>
+    <sys:Double x:Key="DaisyInputFloatingSmallHeight">48</sys:Double>
+    <sys:Double x:Key="DaisyInputFloatingExtraSmallHeight">40</sys:Double>
 
     <!-- ==================== FONT SIZES ==================== -->
     <!-- Primary font sizes for main control text -->

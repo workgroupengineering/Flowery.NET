@@ -15,8 +15,10 @@
                 <ResourceInclude Source="/Themes/DaisyRadio.axaml" />
                 <ResourceInclude Source="/Themes/DaisyRange.axaml" />
                 <ResourceInclude Source="/Themes/DaisyBadge.axaml" />
+                <ResourceInclude Source="/Themes/DaisyTagPicker.axaml" />
                 <ResourceInclude Source="/Themes/DaisyAlert.axaml" />
                 <ResourceInclude Source="/Themes/DaisyCard.axaml" />
+                <ResourceInclude Source="/Themes/DaisyExpandableCard.axaml" />
                 <ResourceInclude Source="/Themes/DaisyTextArea.axaml" />
                 <ResourceInclude Source="/Themes/DaisyRating.axaml" />
                 <ResourceInclude Source="/Themes/DaisyFileInput.axaml" />

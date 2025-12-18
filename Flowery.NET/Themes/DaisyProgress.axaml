@@ -29,6 +29,11 @@
                         <Border Name="PART_Indicator"
                                 HorizontalAlignment="Left"
                                 Background="{TemplateBinding Foreground}">
+                             <Border.Transitions>
+                                  <Transitions>
+                                       <DoubleTransition Property="Width" Duration="0:0:0.25" />
+                                  </Transitions>
+                             </Border.Transitions>
                              <!-- The width is set by ProgressBar logic automatically -->
                         </Border>
                     </Grid>

@@ -17,12 +17,17 @@ DaisyInput is a styled TextBox with **10 variants** and **4 size presets**. It s
 
 ## Size Options
 
-| Size | Height | Font Size | Use Case |
-|------|--------|-----------|----------|
-| ExtraSmall | 24 | 10 | Dense tables/toolbars. |
-| Small | 32 | 12 | Compact forms. |
-| Medium (default) | 48 | 14 | General usage. |
-| Large | 64 | 18 | Prominent inputs/hero sections. |
+DaisyInput uses **fixed heights** for each size to match DaisyUI's design.
+
+| Size | Height | Font Size | Floating Height | Use Case |
+|------|--------|-----------|-----------------|----------|
+| ExtraSmall | 24 | 10 | 40 | Dense tables/toolbars. |
+| Small | 32 | 12 | 48 | Compact forms. |
+| Medium (default) | 48 | 14 | 56 | General usage. |
+| Large | 64 | 18 | 64 | Prominent inputs/hero sections. |
+
+> [!TIP]
+> The heights for `LabelPosition="Floating"` are slightly larger to provide vertical headroom for the label. See `DaisyInputFloating*Height` tokens in Design Tokens documentation.
 
 > [!NOTE]
 > DaisyInput uses **fixed heights** for each size to match DaisyUI's design. Single-line inputs will not grow vertically. For multi-line text entry, use `DaisyTextArea` instead.
@@ -38,7 +43,7 @@ DaisyInput extends `TextBox` - all standard TextBox properties (`Text`, `Waterma
 | `Variant` | `DaisyInputVariant` | `Bordered` | Visual style variant (see table above). |
 | `Size` | `DaisySize` | `Medium` | Size preset (see table above). |
 | `Label` | `string?` | `null` | Label text displayed above the input. |
-| `LabelPosition` | `DaisyLabelPosition` | `Top` | Label positioning mode (None, Top, Floating, Inset). |
+| `LabelPosition` | `DaisyLabelPosition` | `Top` | Label positioning mode (None, Top, Floating, Inset). **Floating** mode features a high-fidelity "identity clone" animation. |
 | `IsRequired` | `bool` | `false` | Shows asterisk (*) indicator next to label. |
 | `IsOptional` | `bool` | `false` | Shows "Optional field" text next to label. |
 | `HintText` | `string?` | `null` | Hint text displayed below label, above input. |
@@ -55,6 +60,26 @@ The `VerticalContentAlignment` property controls vertical positioning of both th
 
 - **Center** (default): Text vertically centered - standard for single-line inputs.
 - **Top**: Text aligned to top - used by `DaisyTextArea` for multi-line editing.
+
+## Floating Labels
+
+Setting `LabelPosition="Floating"` enables a high-fidelity interaction inspired by SmoothUI and Material Design.
+
+### Interaction Flow
+
+1. **Identity Match**: The label starts exactly overlayed on the watermark, matching its font size, position, and opacity.
+2. **Instant Switch**: Upon focus, the label instantly snaps to its active style (primary color and semi-bold weight) but stays stationary.
+3. **Delayed Float**: After a 50ms pause, the label smoothly scales down and slides to the top border using a Material-standard cubic-bezier easing.
+4. **Persistence**: The label remains in the floated position as long as the input has focus or contains text (tracked via the `:hastext` pseudo-class).
+
+### Layout Requirements
+
+Floating labels require additional vertical headroom above the input border to prevent clipping. This is handled automatically by the control's template using dedicated design tokens:
+
+- `DaisyInputFloatingMediumHeight` (Default: 56px)
+- `DaisyInputFloatingSmallHeight` (Default: 48px)
+- `DaisyInputFloatingExtraSmallHeight` (Default: 40px)
+- `DaisyInputFloatingLargeHeight` (Default: 64px)
 
 ## Quick Examples
 
@@ -73,6 +98,9 @@ The `VerticalContentAlignment` property controls vertical positioning of both th
 
 <!-- With helper text -->
 <controls:DaisyInput Label="Password" HelperText="Must be at least 8 characters" Watermark="Enter password..." />
+
+<!-- Floating Label -->
+<controls:DaisyInput Label="Email Address" LabelPosition="Floating" Watermark="Enter email..." />
 
 <!-- With icons -->
 <controls:DaisyInput StartIcon="{StaticResource DaisyIconHome}" Watermark="Address" />

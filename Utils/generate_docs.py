@@ -1176,6 +1176,7 @@ class DocumentationGenerator:
             'currentweather': 'DaisyWeatherCurrent',
             'weatherforecast': 'DaisyWeatherForecast',
             'weathermetrics': 'DaisyWeatherMetrics',
+            'expandablecards': 'DaisyExpandableCard',
         }
 
         return mappings.get(normalized)

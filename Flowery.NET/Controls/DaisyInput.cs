@@ -51,6 +51,26 @@ namespace Flowery.Controls
         private const double BaseLabelFontSize = 12.0;
         private const double BaseTextFontSize = 14.0;
 
+        public DaisyInput()
+        {
+            UpdateHasTextPseudoClass();
+        }
+
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+        {
+            base.OnPropertyChanged(change);
+
+            if (change.Property == TextProperty)
+            {
+                UpdateHasTextPseudoClass();
+            }
+        }
+
+        private void UpdateHasTextPseudoClass()
+        {
+            PseudoClasses.Set(":hastext", !string.IsNullOrEmpty(Text));
+        }
+
         #region Scaling Properties
 
         /// <summary>

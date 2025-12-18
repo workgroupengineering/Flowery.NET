@@ -30,6 +30,15 @@ public partial class EffectsExamples : UserControl, IScrollableExample
         }
     }
 
+    public void ReplayTypewriter_Click(object? sender, RoutedEventArgs e)
+    {
+        var demo = this.FindControl<TextBlock>("TypewriterDemo");
+        if (demo != null)
+        {
+            TypewriterBehavior.Restart(demo);
+        }
+    }
+
     public void ReplayReveal_Click(object? sender, RoutedEventArgs e)
     {
         // Helper to replay a single demo

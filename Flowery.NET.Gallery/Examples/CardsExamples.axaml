@@ -10,6 +10,26 @@
         services:FloweryResponsive.BaseMaxWidth="430">
         <StackPanel Spacing="24" Margin="24,0,24,32">
 
+            <!-- Card Stack -->
+            <StackPanel Spacing="12">
+                <local:SectionHeader SectionId="card-stack" Title="Card Stack" />
+                <TextBlock Text="Stacked cards with navigation, showing depth effect." Opacity="0.7" FontSize="13" />
+
+                <Border Height="450" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="16">
+                    <Grid>
+                        <Grid x:Name="CardStackContainer" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="400">
+                            <!-- Cards are added/managed in code-behind for the stack effect -->
+                        </Grid>
+                        <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,16">
+                            <controls:DaisyButton x:Name="PrevCardBtn" Content="←" Size="Small" Click="PrevCard_Click" />
+                            <controls:DaisyButton x:Name="NextCardBtn" Content="→" Size="Small" Click="NextCard_Click" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <controls:DaisyDivider />
+
             <!-- Card -->
             <StackPanel Spacing="12">
                 <local:SectionHeader SectionId="card" Title="Card" />

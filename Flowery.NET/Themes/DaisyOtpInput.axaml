@@ -37,6 +37,12 @@
     <Setter Property="Width" Value="36" />
     <Setter Property="Height" Value="36" />
     <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="Transitions">
+      <Transitions>
+        <BrushTransition Property="BorderBrush" Duration="0:0:0.15" />
+        <ThicknessTransition Property="BorderThickness" Duration="0:0:0.1" />
+      </Transitions>
+    </Setter>
   </Style>
 
   <Style Selector="controls|DaisyOtpInput TextBox.otp-slot:pointerover">
@@ -45,6 +51,7 @@
 
   <Style Selector="controls|DaisyOtpInput TextBox.otp-slot:focus">
     <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
+    <Setter Property="BorderThickness" Value="2" />
   </Style>
 
   <Style Selector="controls|DaisyOtpInput TextBox.otp-slot:disabled">

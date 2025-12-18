@@ -37,6 +37,7 @@ public static class GallerySidebarData
                 Items = new ObservableCollection<SidebarItem>
                 {
                     new SidebarItem { Id = "button", Name = "Sidebar_Button", TabHeader = "Sidebar_Actions" },
+                    new SidebarItem { Id = "figma-comment", Name = "Sidebar_FigmaComment", TabHeader = "Sidebar_Actions" },
                     new SidebarItem { Id = "copybutton", Name = "Sidebar_CopyButton", TabHeader = "Sidebar_Actions" },
                     new SidebarItem { Id = "dropdown", Name = "Sidebar_Dropdown", TabHeader = "Sidebar_Actions" },
                     new SidebarItem { Id = "dropdownmenu", Name = "Sidebar_DropdownMenu", TabHeader = "Sidebar_Actions" },
@@ -53,6 +54,7 @@ public static class GallerySidebarData
                 IconKey = "DaisyIconCard",
                 Items = new ObservableCollection<SidebarItem>
                 {
+                    new SidebarItem { Id = "card-stack", Name = "Sidebar_CardStack", TabHeader = "Sidebar_Cards" },
                     new SidebarItem { Id = "card", Name = "Sidebar_Card", TabHeader = "Sidebar_Cards" }
                 }
             },
@@ -186,8 +188,19 @@ public static class GallerySidebarData
                     new SidebarItem { Id = "reveal", Name = "Sidebar_Reveal", TabHeader = "Sidebar_Effects" },
                     new SidebarItem { Id = "scramble", Name = "Sidebar_Scramble", TabHeader = "Sidebar_Effects" },
                     new SidebarItem { Id = "wave", Name = "Sidebar_Wave", TabHeader = "Sidebar_Effects" },
+                    new SidebarItem { Id = "typewriter", Name = "Sidebar_Typewriter", TabHeader = "Sidebar_Effects" },
                     new SidebarItem { Id = "cursor-follow", Name = "Sidebar_CursorFollow", TabHeader = "Sidebar_Effects" },
                     new SidebarItem { Id = "showcase", Name = "Sidebar_Showcase", TabHeader = "Sidebar_Effects" }
+                }
+            },
+            new SidebarCategory
+            {
+                Name = "Sidebar_Showcase",
+                IconKey = "DaisyIconCard",
+                Items = new ObservableCollection<SidebarItem>
+                {
+                    new SidebarItem { Id = "expandable-cards", Name = "Showcase_ExpandableCards_Title", TabHeader = "Sidebar_Showcase" },
+                    new SidebarItem { Id = "power-off-slide", Name = "Showcase_PowerOff_Title", TabHeader = "Sidebar_Showcase" }
                 }
             },
             // Custom Controls and Color Picker stay at bottom

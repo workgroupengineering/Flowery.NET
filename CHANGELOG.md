@@ -6,29 +6,57 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.7.x] - 2025-12-xx
+## [1.7.0] - 2025-12-18
 
 ### New
 
 - **DaisyContributionGraph**: New GitHub-style contribution heatmap control (7×53 grid) with month/day labels, tooltips, and legend
   - Added `HighlightMonthStartBorders` option to accent the 1st of each month with a secondary border
 - **DaisyOtpInput**: New multi-slot verification-code/OTP input
+  - Features animated focus transitions and auto-advance support
+  - Supports custom separators and grouping
 - **DaisyPopover**: New Popup-based popover control for rich hover/click content
 - **DaisyDropdown**: New menu-style dropdown (Popup + DaisyMenu) for action menus
 - **DaisyCopyButton**: New copy-to-clipboard button with temporary success state
 - **DaisyTagPicker**: New multi-select chip/tag picker
 - **DaisyAnimatedNumber**: New animated numeric display control (slide transition on value changes)
+- **DaisyExpandableCard**: New card control that expands to reveal a secondary content area with smooth width animation
+- **TypewriterBehavior**: New behavior for sequential character reveal animations
+- **ScrollRevealBehavior**: New behavior for viewport-aware reveal animations
 - New controls inspired by [SmoothUI](https://github.com/educlopez/smoothui)
+
+### Enhanced
+
+- **DaisyTagPicker**: Refactored to a templated control matching "Animated Tags" UI
+  - Separates selected tags into a distinct, bordered area with "remove" icons
+  - Keeps available tags in a separate list with "add" icons
+  - Added `Title` property for the selected tags section
+- **DaisyInput**: Implemented high-fidelity "Floating" label interaction (`LabelPosition="Floating"`)
+  - Features an "identity clone" start state (matches watermark size/position) with instant style snap and delayed smooth float animation
+  - Added `:hastext` pseudo-class for state tracking
+  - Added dedicated Design Tokens for floating input heights to ensure consistent vertical headroom
+- **DaisyProgress**: Added smooth width transitions for value updates
+- **WaveTextBehavior**: Added true per-character ripple effect using `IsPerCharacter="True"` and `StaggerDelay` support
+- **RevealBehavior**: Added `ManualTriggerOnly` property to prevent auto-triggering (essential for ScrollReveal integration)
 
 ### Gallery App
 
 - Added/updated examples for Contribution Graph, OTP Input, Tag Picker, Copy Button, Popover, Dropdown Menu, and Animated Number
+- **Interactive Demos**: Added new live examples for Floating Labels, Animated Progress (slider-driven), and Per-Character Wave text effects
 - Contribution Graph example includes a toggle to enable/disable month-start border highlighting
 - Added a SmoothUI “Phototab” recipe example built from `DaisyTabs`
+- **Showcase (Eye Candy)**: Added new high-fidelity interaction demos:
+  - **Expandable Cards**: Interactive card grid that expands to detail view
+  - **Power-Off Slide**: Smooth slide-to-confirm interaction pattern
+  - **Typewriter Text**: Sequential text reveal animation
+  - **Scroll Reveal**: Elements that animate into view as they enter the scroll viewport
+  - **Figma Comment**: Interactive expandable comment bubble recipe
+  - **Card Stack**: Stacked card interface with depth effects and navigation
 
-### Fixed
+### Design Tokens
 
-- Contribution Graph month labels alignment over the correct week columns
+- Added new `DaisyInputFloating*Height` tokens to `DaisyTokens.axaml` for floating label headroom
+- Updated `DesignTokens.md` documentation with new height references
 
 ## [1.6.0] - 2025-12-17
 
@@ -102,6 +130,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **DaisyBadge**: Auto Scaling now also scales Height and Padding to prevent clipped text at high zoom
 - **DaisyStatusIndicator**: Added Auto Scaling support (scales dot size within EnableScaling regions)
+- **DaisyAvatar**:
+  - Fixed `HasRing` layout to ensure the ring is circular when shape is Circle (was previously squircle)
+  - Added `BorderThickness` and `BorderBrush` bindings to the mask for better separation in groups
+- **DaisyAvatarGroup**:
+  - Implemented `MaxVisible` logic: automatically collapses overflow items into a "+N" placeholder
+  - Fixed vertical stacking issue by ensuring correct ItemsPanel usage
 - **Gallery (Desktop)**: Switching away (alt-tab) and back no longer snaps the Scaling demo page scroll to the top
 
 ## [1.5.1] - 2025-12-15

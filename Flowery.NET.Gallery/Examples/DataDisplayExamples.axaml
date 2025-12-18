@@ -215,19 +215,19 @@
                         <StackPanel Spacing="10" Margin="0,0,40,20">
                             <TextBlock Text="Avatar Group" FontWeight="Bold" />
                             <controls:DaisyAvatarGroup Overlap="16">
-                                <controls:DaisyAvatar Size="Small" Background="#FFCDD2">
+                                <controls:DaisyAvatar Size="Small" Background="#FFCDD2" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
                                         Foreground="#C62828" Width="22" Height="22" />
                                 </controls:DaisyAvatar>
-                                <controls:DaisyAvatar Size="Small" Background="#C8E6C9">
+                                <controls:DaisyAvatar Size="Small" Background="#C8E6C9" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
                                         Foreground="#2E7D32" Width="22" Height="22" />
                                 </controls:DaisyAvatar>
-                                <controls:DaisyAvatar Size="Small" Background="#BBDEFB">
+                                <controls:DaisyAvatar Size="Small" Background="#BBDEFB" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
                                         Foreground="#1565C0" Width="22" Height="22" />
                                 </controls:DaisyAvatar>
-                                <controls:DaisyAvatar Size="Small" IsPlaceholder="True">
+                                <controls:DaisyAvatar Size="Small" IsPlaceholder="True" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
                                     <TextBlock Text="+5" FontWeight="Bold"
                                         VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 </controls:DaisyAvatar>
@@ -269,35 +269,47 @@
                         <controls:DaisyCarousel Height="150" HorizontalAlignment="Stretch"
                             MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=MainScrollViewer}">
                             <Border Background="#FF5F56" CornerRadius="8">
-                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock Text="🍎 Slide 1" FontSize="24" FontWeight="Bold"
-                                        Foreground="White" HorizontalAlignment="Center" />
-                                    <TextBlock Text="Fresh Apples" FontSize="14" Foreground="White"
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="4">
+                                    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                        <PathIcon Data="{StaticResource DaisyIconSun}" Foreground="White" Width="24" Height="24"/>
+                                        <TextBlock Text="Slide 1" FontSize="24" FontWeight="Bold"
+                                            Foreground="White" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                    <TextBlock Text="Morning Breeze" FontSize="14" Foreground="White"
                                         Opacity="0.9" HorizontalAlignment="Center" />
                                 </StackPanel>
                             </Border>
                             <Border Background="#FFBD2E" CornerRadius="8">
-                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock Text="🍋 Slide 2" FontSize="24" FontWeight="Bold"
-                                        Foreground="White" HorizontalAlignment="Center" />
-                                    <TextBlock Text="Zesty Lemons" FontSize="14" Foreground="White"
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="4">
+                                    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                        <PathIcon Data="{StaticResource DaisyIconStar}" Foreground="White" Width="24" Height="24"/>
+                                        <TextBlock Text="Slide 2" FontSize="24" FontWeight="Bold"
+                                            Foreground="White" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                    <TextBlock Text="Golden Star" FontSize="14" Foreground="White"
                                         Opacity="0.9" HorizontalAlignment="Center" />
                                 </StackPanel>
                             </Border>
                             <Border Background="#27C93F" CornerRadius="8">
-                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock Text="🥒 Slide 3" FontSize="24" FontWeight="Bold"
-                                        Foreground="White" HorizontalAlignment="Center" />
-                                    <TextBlock Text="Cool Cucumbers" FontSize="14"
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="4">
+                                    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                        <PathIcon Data="{StaticResource DaisyIconHeart}" Foreground="White" Width="24" Height="24"/>
+                                        <TextBlock Text="Slide 3" FontSize="24" FontWeight="Bold"
+                                            Foreground="White" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                    <TextBlock Text="Warm Heart" FontSize="14"
                                         Foreground="White" Opacity="0.9"
                                         HorizontalAlignment="Center" />
                                 </StackPanel>
                             </Border>
                             <Border Background="#007BFF" CornerRadius="8">
-                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock Text="🫐 Slide 4" FontSize="24" FontWeight="Bold"
-                                        Foreground="White" HorizontalAlignment="Center" />
-                                    <TextBlock Text="Bright Blueberries" FontSize="14"
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="4">
+                                    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                        <PathIcon Data="{StaticResource DaisyIconMoon}" Foreground="White" Width="24" Height="24"/>
+                                        <TextBlock Text="Slide 4" FontSize="24" FontWeight="Bold"
+                                            Foreground="White" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                    <TextBlock Text="Night Sky" FontSize="14"
                                         Foreground="White" Opacity="0.9"
                                         HorizontalAlignment="Center" />
                                 </StackPanel>
@@ -1972,9 +1984,18 @@
                         <StackPanel Spacing="10" Margin="0,0,40,20">
                             <TextBlock Text="Fast Cycle (2s)" FontSize="12" Opacity="0.7" />
                             <controls:DaisyTextRotate FontSize="20" Duration="2000">
-                                <TextBlock Text="🎨 Art" />
-                                <TextBlock Text="💻 Code" />
-                                <TextBlock Text="🚀 Ship" />
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <PathIcon Data="{StaticResource DaisyIconPalette}" Width="20" Height="20" />
+                                    <TextBlock Text="Art" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <PathIcon Data="{StaticResource DaisyIconSettings}" Width="20" Height="20" />
+                                    <TextBlock Text="Code" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <PathIcon Data="{StaticResource DaisyIconSun}" Width="20" Height="20" />
+                                    <TextBlock Text="Ship" VerticalAlignment="Center" />
+                                </StackPanel>
                             </controls:DaisyTextRotate>
                         </StackPanel>
                     </WrapPanel>

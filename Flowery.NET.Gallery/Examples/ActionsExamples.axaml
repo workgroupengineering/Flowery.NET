@@ -139,6 +139,48 @@
 
                 <controls:DaisyDivider />
 
+                <!-- Figma Comment -->
+                <StackPanel Spacing="12">
+                    <local:SectionHeader SectionId="figma-comment" Title="Figma Comment (Recipe)" />
+                    <TextBlock Text="Interactive comment bubble that expands on click." Opacity="0.7" FontSize="13" />
+
+                    <Border Height="150" Background="{DynamicResource DaisyBase200Brush}" CornerRadius="12">
+                        <Panel x:Name="CommentContainer" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <!-- We'll use a Toggle to control state for simplicity in demo -->
+                            <ToggleButton x:Name="CommentToggle" Padding="0" Background="Transparent" BorderThickness="0">
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Border x:Name="Bubble" Background="{DynamicResource DaisyBase100Brush}"
+                                                CornerRadius="16" BorderBrush="{DynamicResource DaisyBase300Brush}" BorderThickness="1"
+                                                BoxShadow="0 4 12 #20000000" Padding="4">
+                                            <Border.Transitions>
+                                                <Transitions>
+                                                    <DoubleTransition Property="Width" Duration="0:0:0.3" Easing="CubicEaseOut" />
+                                                    <DoubleTransition Property="Height" Duration="0:0:0.3" Easing="CubicEaseOut" />
+                                                </Transitions>
+                                            </Border.Transitions>
+                                            <Grid ColumnDefinitions="Auto, *">
+                                                <controls:DaisyAvatar Size="Small" Margin="4" VerticalAlignment="Top" IsPlaceholder="True" Background="{DynamicResource DaisyPrimaryBrush}">
+                                                    <TextBlock Text="EC" FontSize="10" FontWeight="Bold" Foreground="{DynamicResource DaisyPrimaryContentBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </controls:DaisyAvatar>
+                                                <StackPanel Grid.Column="1" Margin="8,4,12,8" IsVisible="{Binding $parent[ToggleButton].IsChecked}" Width="200">
+                                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                                        <TextBlock Text="Edu Calvo" FontSize="11" FontWeight="Bold" />
+                                                        <TextBlock Text="Just now" FontSize="10" Opacity="0.5" />
+                                                    </StackPanel>
+                                                    <TextBlock Text="What happens if we adjust this to handle a light and dark mode?" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,0" LineHeight="16" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                        </Panel>
+                    </Border>
+                </StackPanel>
+
+                <controls:DaisyDivider />
+
                 <!-- Copy Button -->
                 <StackPanel Spacing="12">
                     <local:SectionHeader SectionId="copybutton" Title="Copy Button" />

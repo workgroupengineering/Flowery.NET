@@ -25,13 +25,27 @@
     <ControlTheme x:Key="{x:Type controls:DaisyAvatarGroup}" TargetType="controls:DaisyAvatarGroup">
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
-                <controls:DaisyAvatarGroupPanel Overlap="{Binding $parent[controls:DaisyAvatarGroup].Overlap}" />
+                <controls:DaisyAvatarGroupPanel 
+                    Overlap="{Binding Overlap, RelativeSource={RelativeSource AncestorType=controls:DaisyAvatarGroup}}" 
+                    MaxVisible="{Binding MaxVisible, RelativeSource={RelativeSource AncestorType=controls:DaisyAvatarGroup}}" />
             </ItemsPanelTemplate>
         </Setter>
 
         <Setter Property="Template">
             <ControlTemplate>
-                <ItemsPresenter Name="PART_ItemsPresenter" />
+                <Grid>
+                    <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    <controls:DaisyAvatar Name="PART_OverflowAvatar"
+                                        IsPlaceholder="True"
+                                        IsVisible="{Binding OverflowCount, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static controls:IndicatorConverters.GreaterThanZeroConverter}}"
+                                        BorderThickness="2" 
+                                        BorderBrush="{DynamicResource DaisyBase100Brush}">
+                        <TextBlock Text="{Binding OverflowCount, RelativeSource={RelativeSource TemplatedParent}, StringFormat='+{0}'}" 
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center" />
+                    </controls:DaisyAvatar>
+                </Grid>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

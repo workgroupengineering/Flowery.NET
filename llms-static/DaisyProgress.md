@@ -5,6 +5,8 @@
 
 DaisyProgress is a styled progress bar with **8 color variants**, **4 size presets**, and indeterminate support. It inherits `ProgressBar` behavior for `Value`, `Minimum`, `Maximum`, and `IsIndeterminate`, using theme colors for the indicator fill.
 
+**Determinate mode** features smooth width transitions (250ms) on value updates for a more fluid feel.
+
 ## Variant Options
 
 | Variant | Description |

@@ -10,7 +10,7 @@ DaisyAvatarGroup arranges multiple `DaisyAvatar` items in an overlapping row. It
 | Property | Description |
 |----------|-------------|
 | `Overlap` (double, default 24) | How much each avatar overlaps the previous one. Higher values create tighter stacks; lower values show more of each avatar. |
-| `MaxVisible` (int) | Exposed for future/consumer logic. The built-in template currently renders all items; if you need a cap, trim your ItemsSource or add a placeholder item like “+5”. |
+| `MaxVisible` (int) | Maximum number of avatars to show before collapsing. If the group has more items than this limit, the last visible slot becomes a placeholder showing the remaining count (e.g., "+5"). Default is 0 (show all). |
 
 ## Quick Examples
 
@@ -26,6 +26,15 @@ DaisyAvatarGroup arranges multiple `DaisyAvatar` items in an overlapping row. It
     <controls:DaisyAvatar Size="Small" Background="#BBDEFB">
         <TextBlock Text="CM" HorizontalAlignment="Center" VerticalAlignment="Center" />
     </controls:DaisyAvatar>
+</controls:DaisyAvatarGroup>
+
+<!-- MaxVisible: Automatically collapses overflow -->
+<!-- Shows first 3 avatars, and a "+7" placeholder for the rest -->
+<controls:DaisyAvatarGroup Overlap="16" MaxVisible="4">
+    <!-- Imagine 10 items here -->
+    <controls:DaisyAvatar ... /> 
+    <controls:DaisyAvatar ... />
+    ...
 </controls:DaisyAvatarGroup>
 
 <!-- Tighter overlap for larger avatars -->
@@ -58,4 +67,4 @@ DaisyAvatarGroup arranges multiple `DaisyAvatar` items in an overlapping row. It
 - Keep all child avatars the same size for a clean stack; mix sizes only when intentionally highlighting one person.
 - Set `Overlap` to roughly one-third to one-half of the avatar width (e.g., 12–20 for 32px avatars) so names/initials remain legible.
 - Order matters: earlier items sit on top of later ones; place priority users first.
-- For overflow counts, add an `IsPlaceholder` avatar with text like “+3” rather than relying on `MaxVisible` (not enforced by the default template).
+- Use `MaxVisible` to automatically handle overflow counts, or add a manual `IsPlaceholder="True"` avatar if you need custom logic.

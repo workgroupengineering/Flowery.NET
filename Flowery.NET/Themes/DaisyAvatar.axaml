@@ -44,6 +44,8 @@
                     <!-- Avatar Mask/Container -->
                     <Border Name="Mask"
                               Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
                               CornerRadius="{TemplateBinding Width, Converter={x:Static controls:IndicatorConverters.HalfToCornerRadiusConverter}}"
                               ClipToBounds="True">
                          <ContentPresenter Content="{TemplateBinding Content}"
@@ -82,6 +84,11 @@
           </Style>
           <Style Selector="^[Shape=Rounded] /template/ Border#RingBorder">
                <Setter Property="CornerRadius" Value="16" />
+          </Style>
+
+          <!-- Shape: Circle (default) -->
+          <Style Selector="^[Shape=Circle] /template/ Border#RingBorder">
+               <Setter Property="CornerRadius" Value="9999" />
           </Style>
 
           <!-- Backwards compatibility: IsRounded=False -> Rounded shape -->

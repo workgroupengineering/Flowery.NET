@@ -3,7 +3,7 @@
 
 # Overview
 
-DaisyOtpInput is an OTP / verification code input composed of multiple single-character slots. It supports digit-only mode, automatic focus advance, paste distribution (multi-character input fills subsequent slots), optional separators, and a `Completed` event when the input reaches the configured length.
+DaisyOtpInput is an OTP / verification code input composed of multiple single-character slots. It features **animated focus states**, auto-advance, backspace support, and digit-only filtering. It is designed for high-fidelity "Verify Code" screens with support for grouping (separators) and varying sizes.
 
 ## Properties
 

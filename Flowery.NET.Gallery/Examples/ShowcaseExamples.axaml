@@ -1,0 +1,284 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET"
+             xmlns:fx="clr-namespace:Flowery.Effects;assembly=Flowery.NET"
+             xmlns:services="clr-namespace:Flowery.Services;assembly=Flowery.NET"
+             xmlns:local="clr-namespace:Flowery.NET.Gallery.Examples"
+             xmlns:galloc="clr-namespace:Flowery.NET.Gallery.Localization"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="2000"
+             x:Class="Flowery.NET.Gallery.Examples.ShowcaseExamples">
+
+    <ScrollViewer x:Name="MainScrollViewer" HorizontalScrollBarVisibility="Disabled">
+        <StackPanel Spacing="32" Margin="24">
+
+            <!-- Expandable Cards -->
+            <StackPanel Spacing="12">
+                <local:SectionHeader SectionId="expandable-cards" Title="{galloc:Localize Showcase_ExpandableCards_Title}" />
+                <TextBlock Text="{galloc:Localize Showcase_ExpandableCards_Desc}" Opacity="0.7" FontSize="13" />
+
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Padding="0,0,0,10">
+                    <StackPanel Orientation="Horizontal">
+                        <!-- Item 1: Summer Opening -->
+                        <controls:DaisyExpandableCard x:Name="Card1" Margin="0,0,4,0" Padding="0">
+                            <!-- Main Content -->
+                            <Grid Height="225" Width="150">
+                                <Border ClipToBounds="True" CornerRadius="16,0,0,16">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                                            <GradientStop Color="#0f172a" Offset="0" />
+                                            <GradientStop Color="#334155" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <!-- Background Image Placeholder -->
+                                    <PathIcon Data="{StaticResource DaisyIconSun}"
+                                              Width="75" Height="75"
+                                              Foreground="#ffffff20"
+                                              HorizontalAlignment="Right" VerticalAlignment="Top"
+                                              Margin="0,-20,-20,0" />
+                                </Border>
+
+                                <StackPanel VerticalAlignment="Bottom" Margin="12">
+                                    <TextBlock Text="Summer" Foreground="White" FontSize="14" FontWeight="Bold" LineHeight="18"/>
+                                    <TextBlock Text="Opening" Foreground="White" FontSize="14" FontWeight="Bold" LineHeight="18" Margin="0,0,0,10"/>
+
+                                    <controls:DaisyButton Content="Play"
+                                                          Command="{Binding #Card1.ToggleCommand}"
+                                                          ButtonStyle="Outline"
+                                                          Classes="btn-circle"
+                                                          Foreground="White"
+                                                          BorderBrush="White"
+                                                          Padding="8,4"
+                                                          MinHeight="32">
+                                        <controls:DaisyButton.Content>
+                                            <StackPanel Orientation="Horizontal" Spacing="4">
+                                                <PathIcon Data="M8 5v14l11-7z" Width="8" Height="8" />
+                                                <TextBlock Text="Play" FontSize="12" />
+                                            </StackPanel>
+                                        </controls:DaisyButton.Content>
+                                    </controls:DaisyButton>
+                                </StackPanel>
+                            </Grid>
+
+                            <!-- Expanded Content -->
+                            <controls:DaisyExpandableCard.ExpandedContent>
+                                <Border Width="150" Background="#111827" Padding="16" Height="225" CornerRadius="0,16,16,0">
+                                    <StackPanel Spacing="8" VerticalAlignment="Center">
+                                        <TextBlock Text="Join us for the Summer Opening event."
+                                                   Foreground="#9ca3af"
+                                                   TextWrapping="Wrap"
+                                                   FontSize="10"
+                                                   LineHeight="14"/>
+
+                                        <StackPanel Orientation="Horizontal" Spacing="6" Margin="0,12,0,0">
+                                            <controls:DaisyAvatar Size="Small" Shape="Circle" Width="24" Height="24">
+                                                <controls:DaisyAvatar.Content>
+                                                    <TextBlock Text="FK" FontSize="10" FontWeight="Bold"/>
+                                                </controls:DaisyAvatar.Content>
+                                            </controls:DaisyAvatar>
+                                            <StackPanel VerticalAlignment="Center">
+                                                <TextBlock Text="Freddy K." Foreground="White" FontWeight="Bold" FontSize="10"/>
+                                                <TextBlock Text="CEO" Foreground="#6b7280" FontSize="9"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </controls:DaisyExpandableCard.ExpandedContent>
+                        </controls:DaisyExpandableCard>
+
+                        <!-- Item 2: Fashion -->
+                        <controls:DaisyExpandableCard x:Name="Card2" Margin="0,0,4,0" Padding="0">
+                            <!-- Main Content -->
+                            <Grid Height="225" Width="150">
+                                <Border ClipToBounds="True" CornerRadius="16,0,0,16">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                                            <GradientStop Color="#7c3aed" Offset="0" />
+                                            <GradientStop Color="#c026d3" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <PathIcon Data="{StaticResource DaisyIconCard}"
+                                              Width="60" Height="60"
+                                              Foreground="#ffffff30"
+                                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+
+                                <StackPanel VerticalAlignment="Bottom" Margin="12">
+                                    <TextBlock Text="Fashion" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                                    <controls:DaisyButton Content="Play"
+                                                          Command="{Binding #Card2.ToggleCommand}"
+                                                          ButtonStyle="Outline"
+                                                          Classes="btn-circle"
+                                                          Foreground="White"
+                                                          BorderBrush="White"
+                                                          Padding="8,4"
+                                                          MinHeight="32">
+                                        <controls:DaisyButton.Content>
+                                            <StackPanel Orientation="Horizontal" Spacing="4">
+                                                <PathIcon Data="M8 5v14l11-7z" Width="8" Height="8" />
+                                                <TextBlock Text="Play" FontSize="12"/>
+                                            </StackPanel>
+                                        </controls:DaisyButton.Content>
+                                    </controls:DaisyButton>
+                                </StackPanel>
+                            </Grid>
+
+                            <!-- Expanded Content -->
+                            <controls:DaisyExpandableCard.ExpandedContent>
+                                <Border Width="150" Background="#111827" Padding="16" Height="225" CornerRadius="0,16,16,0">
+                                    <StackPanel Spacing="8" VerticalAlignment="Center">
+                                        <TextBlock Text="Discover the latest trends in our Fashion Week coverage."
+                                                   Foreground="#9ca3af"
+                                                   TextWrapping="Wrap"
+                                                   FontSize="10"
+                                                   LineHeight="14"/>
+
+                                        <controls:DaisyButton Content="View" Variant="Primary" Margin="0,8,0,0" Width="80" HorizontalAlignment="Left" Size="Small" FontSize="10" />
+                                    </StackPanel>
+                                </Border>
+                            </controls:DaisyExpandableCard.ExpandedContent>
+                        </controls:DaisyExpandableCard>
+
+                        <!-- Item 3: Gallery Art -->
+                        <controls:DaisyExpandableCard x:Name="Card3" Margin="0,0,4,0" Padding="0">
+                            <!-- Main Content -->
+                            <Grid Height="225" Width="150">
+                                <Border ClipToBounds="True" CornerRadius="16,0,0,16">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                                            <GradientStop Color="#d97706" Offset="0" />
+                                            <GradientStop Color="#b45309" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <PathIcon Data="{StaticResource DaisyIconImage}"
+                                              Width="60" Height="60"
+                                              Foreground="#ffffff30"
+                                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+
+                                <StackPanel VerticalAlignment="Bottom" Margin="12">
+                                    <TextBlock Text="Gallery Art" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                                    <controls:DaisyButton Content="Play"
+                                                          Command="{Binding #Card3.ToggleCommand}"
+                                                          ButtonStyle="Outline"
+                                                          Classes="btn-circle"
+                                                          Foreground="White"
+                                                          BorderBrush="White"
+                                                          Padding="8,4"
+                                                          MinHeight="32">
+                                        <controls:DaisyButton.Content>
+                                            <StackPanel Orientation="Horizontal" Spacing="4">
+                                                <PathIcon Data="M8 5v14l11-7z" Width="8" Height="8" />
+                                                <TextBlock Text="Play" FontSize="12"/>
+                                            </StackPanel>
+                                        </controls:DaisyButton.Content>
+                                    </controls:DaisyButton>
+                                </StackPanel>
+                            </Grid>
+
+                            <!-- Expanded Content -->
+                            <controls:DaisyExpandableCard.ExpandedContent>
+                                <Border Width="150" Background="#111827" Padding="16" Height="225" CornerRadius="0,16,16,0">
+                                    <StackPanel Spacing="8" VerticalAlignment="Center">
+                                        <TextBlock Text="Immerse yourself in the world of contemporary art."
+                                                   Foreground="#9ca3af"
+                                                   TextWrapping="Wrap"
+                                                   FontSize="10"
+                                                   LineHeight="14"/>
+
+                                        <controls:DaisyButton Content="Explore" Variant="Primary" Margin="0,8,0,0" Width="80" HorizontalAlignment="Left" Size="Small" FontSize="10" />
+                                    </StackPanel>
+                                </Border>
+                            </controls:DaisyExpandableCard.ExpandedContent>
+                        </controls:DaisyExpandableCard>
+
+                        <!-- Item 4: Dreams -->
+                        <controls:DaisyExpandableCard x:Name="Card4" Margin="0,0,4,0" Padding="0">
+                            <!-- Main Content -->
+                            <Grid Height="225" Width="150">
+                                <Border ClipToBounds="True" CornerRadius="16,0,0,16">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                                            <GradientStop Color="#db2777" Offset="0" />
+                                            <GradientStop Color="#be185d" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <PathIcon Data="{StaticResource DaisyIconStar}"
+                                              Width="60" Height="60"
+                                              Foreground="#ffffff30"
+                                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+
+                                <StackPanel VerticalAlignment="Bottom" Margin="12">
+                                    <TextBlock Text="Dreams" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                                    <controls:DaisyButton Content="Play"
+                                                          Command="{Binding #Card4.ToggleCommand}"
+                                                          ButtonStyle="Outline"
+                                                          Classes="btn-circle"
+                                                          Foreground="White"
+                                                          BorderBrush="White"
+                                                          Padding="8,4"
+                                                          MinHeight="32">
+                                        <controls:DaisyButton.Content>
+                                            <StackPanel Orientation="Horizontal" Spacing="4">
+                                                <PathIcon Data="M8 5v14l11-7z" Width="8" Height="8" />
+                                                <TextBlock Text="Play" FontSize="12"/>
+                                            </StackPanel>
+                                        </controls:DaisyButton.Content>
+                                    </controls:DaisyButton>
+                                </StackPanel>
+                            </Grid>
+
+                            <!-- Expanded Content -->
+                            <controls:DaisyExpandableCard.ExpandedContent>
+                                <Border Width="150" Background="#111827" Padding="16" Height="225" CornerRadius="0,16,16,0">
+                                    <StackPanel Spacing="8" VerticalAlignment="Center">
+                                        <TextBlock Text="Explore the surreal landscapes of our dreams."
+                                                   Foreground="#9ca3af"
+                                                   TextWrapping="Wrap"
+                                                   FontSize="10"
+                                                   LineHeight="14"/>
+
+                                        <controls:DaisyButton Content="Start" Variant="Primary" Margin="0,8,0,0" Width="80" HorizontalAlignment="Left" Size="Small" FontSize="10"/>
+                                    </StackPanel>
+                                </Border>
+                            </controls:DaisyExpandableCard.ExpandedContent>
+                        </controls:DaisyExpandableCard>
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+
+            <controls:DaisyDivider />
+
+            <!-- Power-Off Slide -->
+            <StackPanel Spacing="12">
+                <local:SectionHeader SectionId="power-off-slide" Title="{galloc:Localize Showcase_PowerOff_Title}" />
+                <TextBlock Text="{galloc:Localize Showcase_PowerOff_Desc}" Opacity="0.7" FontSize="13" />
+
+                <Border x:Name="SlideTrack" Background="{DynamicResource DaisyBase300Brush}" CornerRadius="24" Padding="4" HorizontalAlignment="Left" Width="240" Height="48">
+                    <Grid>
+                        <TextBlock Text="{galloc:Localize Showcase_PowerOff_SlideLabel}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Opacity="0.4" FontWeight="Bold" FontSize="11" LetterSpacing="1" />
+                        <Canvas x:Name="SlideCanvas" Background="Transparent">
+                            <Border x:Name="SlideHandle" Background="White" CornerRadius="20" Width="40" Height="40"
+                                    Canvas.Left="0" Canvas.Top="0" Cursor="Hand">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Canvas.Left" Duration="0:0:0.2" Easing="CubicEaseOut" />
+                                    </Transitions>
+                                </Border.Transitions>
+                                <PathIcon Data="{StaticResource DaisyIconError}" Foreground="Red" Width="18" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Border>
+                        </Canvas>
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

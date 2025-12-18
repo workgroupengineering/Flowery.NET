@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
-using Avalonia.Layout;
+using Avalonia.Controls.Documents;
 using Avalonia.Media;
 using Avalonia.VisualTree;
 
@@ -31,6 +31,10 @@ namespace Flowery.Effects
             AvaloniaProperty.RegisterAttached<TextBlock, bool>(
                 "IsEnabled", typeof(WaveTextBehavior), false);
 
+        public static readonly AttachedProperty<bool> IsPerCharacterProperty =
+            AvaloniaProperty.RegisterAttached<TextBlock, bool>(
+                "IsPerCharacter", typeof(WaveTextBehavior), false);
+
         public static readonly AttachedProperty<double> AmplitudeProperty =
             AvaloniaProperty.RegisterAttached<TextBlock, double>(
                 "Amplitude", typeof(WaveTextBehavior), 5.0);
@@ -48,10 +52,9 @@ namespace Flowery.Effects
             AvaloniaProperty.RegisterAttached<TextBlock, CancellationTokenSource?>(
                 "Cts", typeof(WaveTextBehavior), null);
 
-        // Internal: store the panel we created
-        private static readonly AttachedProperty<StackPanel?> PanelProperty =
-            AvaloniaProperty.RegisterAttached<TextBlock, StackPanel?>(
-                "Panel", typeof(WaveTextBehavior), null);
+        private static readonly AttachedProperty<bool> WasPerCharacterAppliedProperty =
+            AvaloniaProperty.RegisterAttached<TextBlock, bool>(
+                "WasPerCharacterApplied", typeof(WaveTextBehavior), false);
 
         #endregion
 
@@ -59,6 +62,9 @@ namespace Flowery.Effects
 
         public static bool GetIsEnabled(TextBlock element) => element.GetValue(IsEnabledProperty);
         public static void SetIsEnabled(TextBlock element, bool value) => element.SetValue(IsEnabledProperty, value);
+
+        public static bool GetIsPerCharacter(TextBlock element) => element.GetValue(IsPerCharacterProperty);
+        public static void SetIsPerCharacter(TextBlock element, bool value) => element.SetValue(IsPerCharacterProperty, value);
 
         public static double GetAmplitude(TextBlock element) => element.GetValue(AmplitudeProperty);
         public static void SetAmplitude(TextBlock element, double value) => element.SetValue(AmplitudeProperty, value);
@@ -115,27 +121,20 @@ namespace Flowery.Effects
 
         private static async void StartWaveAnimation(TextBlock textBlock)
         {
+            StopWaveAnimation(textBlock);
+
             var text = textBlock.Text;
-            if (string.IsNullOrEmpty(text)) return;
+            if (text == null || text.Length == 0) return;
 
             var amplitude = GetAmplitude(textBlock);
             var duration = GetDuration(textBlock);
             var staggerDelay = GetStaggerDelay(textBlock);
+            var isPerCharacter = GetIsPerCharacter(textBlock);
 
             // Create cancellation token
             var cts = new CancellationTokenSource();
             textBlock.SetValue(CtsProperty, cts);
 
-            // Create character TextBlocks
-            var charBlocks = new List<TextBlock>();
-            
-            // We animate the original TextBlock's text by modifying each character's position
-            // For simplicity, we'll use a mathematical approach with RenderTransform on the main block
-            // A proper implementation would replace with a StackPanel of characters, but that breaks styling
-            
-            // Simplified approach: animate the entire TextBlock with a wave using TranslateTransform
-            // For true per-character wave, we'd need to replace content - keeping simple for now
-            
             var transform = textBlock.RenderTransform as TranslateTransform ?? new TranslateTransform();
             textBlock.RenderTransform = transform;
 
@@ -144,6 +143,43 @@ namespace Flowery.Effects
 
             try
             {
+                if (isPerCharacter)
+                {
+                    textBlock.SetValue(WasPerCharacterAppliedProperty, true);
+                    var inlines = textBlock.Inlines!;
+                    inlines.Clear();
+
+                    var charBlocks = new List<TextBlock>(text.Length);
+                    for (var i = 0; i < text.Length; i++)
+                    {
+                        var c = text[i];
+                        var charBlock = new TextBlock
+                        {
+                            Text = c == ' ' ? "\u00A0" : c.ToString(),
+                            FontSize = textBlock.FontSize,
+                            FontFamily = textBlock.FontFamily,
+                            FontStyle = textBlock.FontStyle,
+                            FontWeight = textBlock.FontWeight,
+                            Foreground = textBlock.Foreground,
+                            RenderTransform = new TranslateTransform()
+                        };
+
+                        inlines.Add(new InlineUIContainer { Child = charBlock });
+                        charBlocks.Add(charBlock);
+                    }
+
+                    var tasks = new List<Task>(charBlocks.Count);
+                    for (var i = 0; i < charBlocks.Count; i++)
+                    {
+                        var charTransform = (TranslateTransform)charBlocks[i].RenderTransform!;
+                        var initialDelay = TimeSpan.FromTicks(staggerDelay.Ticks * i);
+                        tasks.Add(RunCharacterWaveAsync(charTransform, amplitude, duration, initialDelay, easing, ct));
+                    }
+
+                    await Task.WhenAll(tasks);
+                    return;
+                }
+
                 // Infinite wave loop
                 while (!ct.IsCancellationRequested)
                 {
@@ -174,6 +210,39 @@ namespace Flowery.Effects
             }
         }
 
+        private static async Task RunCharacterWaveAsync(
+            TranslateTransform transform,
+            double amplitude,
+            TimeSpan duration,
+            TimeSpan initialDelay,
+            Easing? easing,
+            CancellationToken ct)
+        {
+            if (initialDelay > TimeSpan.Zero)
+            {
+                await Task.Delay(initialDelay, ct);
+            }
+
+            while (!ct.IsCancellationRequested)
+            {
+                await AnimationHelper.AnimateAsync(
+                    t => transform.Y = -amplitude * Math.Sin(t * Math.PI),
+                    TimeSpan.FromTicks(duration.Ticks / 2),
+                    easing,
+                    ct: ct);
+
+                if (ct.IsCancellationRequested) break;
+
+                await AnimationHelper.AnimateAsync(
+                    t => transform.Y = -amplitude * Math.Sin((1 - t) * Math.PI),
+                    TimeSpan.FromTicks(duration.Ticks / 2),
+                    easing,
+                    ct: ct);
+            }
+
+            transform.Y = 0;
+        }
+
         private static void StopWaveAnimation(TextBlock textBlock)
         {
             var cts = textBlock.GetValue(CtsProperty);
@@ -188,6 +257,12 @@ namespace Flowery.Effects
             if (textBlock.RenderTransform is TranslateTransform transform)
             {
                 transform.Y = 0;
+            }
+
+            if (textBlock.GetValue(WasPerCharacterAppliedProperty))
+            {
+                textBlock.SetValue(WasPerCharacterAppliedProperty, false);
+                textBlock.Inlines!.Clear();
             }
         }
     }

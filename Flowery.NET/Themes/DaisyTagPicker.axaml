@@ -1,0 +1,77 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
+
+    <ControlTheme x:Key="{x:Type controls:DaisyTagPicker}" TargetType="controls:DaisyTagPicker">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Spacing="8">
+                    <TextBlock Text="{TemplateBinding Title}"
+                               FontWeight="SemiBold"
+                               FontSize="14"
+                               Opacity="0.8"/>
+
+                    <Border BorderThickness="1"
+                            BorderBrush="{DynamicResource DaisyBase300Brush}"
+                            CornerRadius="12"
+                            Background="{DynamicResource DaisyBase200Brush}"
+                            Padding="8"
+                            MinHeight="48">
+                        <ItemsControl ItemsSource="{TemplateBinding SelectedTagsList}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:DaisyButton Content="{Binding}"
+                                                          Variant="Primary"
+                                                          ButtonStyle="Soft"
+                                                          Size="{Binding $parent[controls:DaisyTagPicker].Size}"
+                                                          Margin="4"
+                                                          Command="{Binding $parent[controls:DaisyTagPicker].ToggleTagCommand}"
+                                                          CommandParameter="{Binding}">
+                                        <controls:DaisyButton.IconRight>
+                                            <PathIcon Data="{StaticResource DaisyIconClose}"
+                                                      Width="10"
+                                                      Height="10"
+                                                      Opacity="0.7"/>
+                                        </controls:DaisyButton.IconRight>
+                                    </controls:DaisyButton>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Border>
+
+                    <ItemsControl ItemsSource="{TemplateBinding AvailableTagsList}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <controls:DaisyButton Content="{Binding}"
+                                                      Variant="Neutral"
+                                                      ButtonStyle="Outline"
+                                                      Size="{Binding $parent[controls:DaisyTagPicker].Size}"
+                                                      Margin="4"
+                                                      Command="{Binding $parent[controls:DaisyTagPicker].ToggleTagCommand}"
+                                                      CommandParameter="{Binding}">
+                                    <controls:DaisyButton.IconRight>
+                                        <PathIcon Data="{StaticResource DaisyIconPlus}"
+                                                  Width="10"
+                                                  Height="10"
+                                                  Opacity="0.7"/>
+                                    </controls:DaisyButton.IconRight>
+                                </controls:DaisyButton>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+</ResourceDictionary>

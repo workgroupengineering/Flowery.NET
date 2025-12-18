@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.VisualTree;
@@ -14,6 +15,10 @@ public partial class CardsExamples : UserControl, IScrollableExample
 {
     private Dictionary<string, Visual>? _sectionTargetsById;
 
+    private Grid? _cardStackContainer;
+    private int _currentCardIndex = 0;
+    private readonly List<DaisyCard> _cards = new();
+
     public CardsExamples()
     {
         InitializeComponent();
@@ -23,6 +28,91 @@ public partial class CardsExamples : UserControl, IScrollableExample
     {
         base.OnAttachedToVisualTree(e);
         InitializeSkiaMatrix();
+        InitializeCardStack();
+    }
+
+    private void InitializeCardStack()
+    {
+        _cardStackContainer = this.FindControl<Grid>("CardStackContainer");
+        if (_cardStackContainer == null || _cards.Count > 0) return;
+
+        var colors = new IBrush[] {
+            new SolidColorBrush(Color.Parse("#7c3aed")),  // Primary (purple)
+            new SolidColorBrush(Color.Parse("#db2777")),  // Secondary (pink)
+            new SolidColorBrush(Color.Parse("#f59e0b")),  // Accent (amber)
+            new SolidColorBrush(Color.Parse("#0ea5e9"))   // Info (sky)
+        };
+
+        for (int i = 0; i < colors.Length; i++)
+        {
+            var card = new DaisyCard
+            {
+                Width = 260,
+                Height = 340,
+                Background = colors[i],
+                Content = new TextBlock
+                {
+                    Text = $"CARD {i + 1}",
+                    Foreground = Brushes.White,
+                    FontWeight = FontWeight.Bold,
+                    FontSize = 24,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center
+                },
+                RenderTransform = new TransformGroup
+                {
+                    Children = new Transforms { new ScaleTransform(), new TranslateTransform() }
+                }
+            };
+            _cards.Add(card);
+            _cardStackContainer.Children.Add(card);
+        }
+
+        UpdateCardStack();
+    }
+
+    private void UpdateCardStack()
+    {
+        for (int i = 0; i < _cards.Count; i++)
+        {
+            var card = _cards[i];
+            var offset = i - _currentCardIndex;
+
+            // Visual properties
+            var zIndex = _cards.Count - Math.Abs(offset);
+            var opacity = offset < 0 ? 0 : (1.0 - offset * 0.2);
+            var scale = 1.0 - (offset * 0.05);
+            var translateY = offset * 20.0;
+
+            card.ZIndex = zIndex;
+            card.IsVisible = offset >= 0;
+
+            var group = (TransformGroup)card.RenderTransform!;
+            var scaleTransform = (ScaleTransform)group.Children[0];
+            var translateTransform = (TranslateTransform)group.Children[1];
+
+            scaleTransform.ScaleX = scaleTransform.ScaleY = scale;
+            translateTransform.Y = translateY;
+            card.Opacity = opacity;
+        }
+    }
+
+    private void PrevCard_Click(object? sender, RoutedEventArgs e)
+    {
+        if (_currentCardIndex > 0)
+        {
+            _currentCardIndex--;
+            UpdateCardStack();
+        }
+    }
+
+    private void NextCard_Click(object? sender, RoutedEventArgs e)
+    {
+        if (_currentCardIndex < _cards.Count - 1)
+        {
+            _currentCardIndex++;
+            UpdateCardStack();
+        }
     }
 
     private void InitializeSkiaMatrix()

@@ -244,8 +244,10 @@
                             FontSize="24" FontWeight="Bold"
                             Foreground="{DynamicResource DaisyPrimaryBrush}"
                             fx:WaveTextBehavior.IsEnabled="True"
+                            fx:WaveTextBehavior.IsPerCharacter="True"
                             fx:WaveTextBehavior.Amplitude="8"
-                            fx:WaveTextBehavior.Duration="0:0:1" />
+                            fx:WaveTextBehavior.Duration="0:0:1"
+                            fx:WaveTextBehavior.StaggerDelay="0:0:0.05" />
                         <TextBlock x:Name="WaveDemo2"
                             Text="{galloc:Localize Effects_Wave_Demo2}"
                             FontSize="18"
@@ -253,6 +255,30 @@
                             fx:WaveTextBehavior.IsEnabled="True"
                             fx:WaveTextBehavior.Amplitude="3"
                             fx:WaveTextBehavior.Duration="0:0:2" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <!-- Typewriter Effect -->
+            <StackPanel Spacing="12">
+                <local:SectionHeader x:Name="TypewriterSectionHeader" SectionId="typewriter"
+                    Title="{galloc:Localize Effects_Typewriter_Title}" />
+                <TextBlock x:Name="TypewriterDescription"
+                    Text="{galloc:Localize Effects_Typewriter_Description}"
+                    Opacity="0.7" FontSize="13" Margin="0,0,0,8" />
+
+                <controls:DaisyButton x:Name="ReplayTypewriterButton"
+                    Content="{galloc:Localize Effects_Typewriter_ReplayButton}"
+                    Click="ReplayTypewriter_Click" Variant="Ghost" Size="Small" Margin="0,0,0,8" />
+
+                <Border Background="#1a1a1a" CornerRadius="12" Padding="24" BorderBrush="#333" BorderThickness="1">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="TERMINAL v1.0.4" Foreground="#666" FontSize="10" FontWeight="Bold" />
+                        <TextBlock x:Name="TypewriterDemo"
+                                   Text="C:\> flowery --init&#x0a;Initializing Flowery.NET library...&#x0a;Loading DaisyUI tokens...&#x0a;Applying modern transitions...&#x0a;Ready for high-fidelity UI."
+                                   Foreground="#4ade80" FontFamily="Consolas,monospace" FontSize="14" LineHeight="24"
+                                   fx:TypewriterBehavior.IsEnabled="True"
+                                   fx:TypewriterBehavior.Speed="0:0:0.03" />
                     </StackPanel>
                 </Border>
             </StackPanel>
@@ -368,8 +394,10 @@
                                     Foreground="{DynamicResource DaisyAccentBrush}"
                                     HorizontalAlignment="Center"
                                     fx:WaveTextBehavior.IsEnabled="True"
+                                    fx:WaveTextBehavior.IsPerCharacter="True"
                                     fx:WaveTextBehavior.Amplitude="6"
-                                    fx:WaveTextBehavior.Duration="0:0:1.5" />
+                                    fx:WaveTextBehavior.Duration="0:0:1.5"
+                                    fx:WaveTextBehavior.StaggerDelay="0:0:0.04" />
                             </Border>
                         </StackPanel>
 

@@ -43,11 +43,23 @@ Used for buttons, inputs, selects, and other fixed-height controls.
 
 | Token | Default | Used By |
 |-------|---------|---------|
-| `DaisySizeExtraLargeHeight` | 80 | DaisyButton, DaisyInput, DaisySelect, DaisyNumericUpDown |
-| `DaisySizeLargeHeight` | 64 | " |
-| `DaisySizeMediumHeight` | 48 | " |
+| `DaisySizeExtraLargeHeight` | 48 | DaisyButton, DaisyInput, DaisySelect, DaisyNumericUpDown |
+| `DaisySizeLargeHeight` | 48 | " |
+| `DaisySizeMediumHeight` | 40 | " |
 | `DaisySizeSmallHeight` | 32 | " |
 | `DaisySizeExtraSmallHeight` | 24 | " |
+
+### Floating Input Heights
+
+Specific heights for `DaisyInput` with `LabelPosition="Floating"`. These add headroom for the label to float above the input border.
+
+| Token | Default |
+|-------|---------|
+| `DaisyInputFloatingExtraLargeHeight` | 72 |
+| `DaisyInputFloatingLargeHeight` | 72 |
+| `DaisyInputFloatingMediumHeight` | 64 |
+| `DaisyInputFloatingSmallHeight` | 56 |
+| `DaisyInputFloatingExtraSmallHeight` | 48 |
 
 ### Font Sizes
 

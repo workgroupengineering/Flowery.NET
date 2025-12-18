@@ -68,10 +68,10 @@ public partial class MainView : UserControl
 
         // Detect mobile platform early (before any navigation)
         _isMobilePlatform = OperatingSystem.IsAndroid() || OperatingSystem.IsIOS();
-        
+
         // Handle FlowDirection changes
         UpdateFlowDirection();
-        FloweryLocalization.CultureChanged += (_, _) => 
+        FloweryLocalization.CultureChanged += (_, _) =>
             global::Avalonia.Threading.Dispatcher.UIThread.InvokeAsync(() => {
                 UpdateFlowDirection();
                 // Update localized title if we have an active category
@@ -101,6 +101,7 @@ public partial class MainView : UserControl
             ["Sidebar_Scaling"] = () => new ScalingExamples(),
             ["Sidebar_CustomControls"] = () => new CustomControls(),
             ["Sidebar_ColorPicker"] = () => new ColorPickerExamples(),
+            ["Sidebar_Showcase"] = () => new ShowcaseExamples(),
         };
         _categoryControlCache = new Dictionary<string, Control>(StringComparer.OrdinalIgnoreCase);
 

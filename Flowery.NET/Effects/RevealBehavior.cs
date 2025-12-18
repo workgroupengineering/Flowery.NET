@@ -47,6 +47,14 @@ namespace Flowery.Effects
             AvaloniaProperty.RegisterAttached<Visual, Easing>(
                 "Easing", typeof(RevealBehavior), new QuadraticEaseOut());
 
+        /// <summary>
+        /// When true, the reveal animation will not auto-trigger on attach.
+        /// Use TriggerReveal() to manually start the animation (e.g., from ScrollRevealBehavior).
+        /// </summary>
+        public static readonly AttachedProperty<bool> ManualTriggerOnlyProperty =
+            AvaloniaProperty.RegisterAttached<Visual, bool>(
+                "ManualTriggerOnly", typeof(RevealBehavior), false);
+
         #endregion
 
         #region Getters/Setters
@@ -69,6 +77,9 @@ namespace Flowery.Effects
         public static Easing GetEasing(Visual element) => element.GetValue(EasingProperty);
         public static void SetEasing(Visual element, Easing value) => element.SetValue(EasingProperty, value);
 
+        public static bool GetManualTriggerOnly(Visual element) => element.GetValue(ManualTriggerOnlyProperty);
+        public static void SetManualTriggerOnly(Visual element, bool value) => element.SetValue(ManualTriggerOnlyProperty, value);
+
         #endregion
 
         static RevealBehavior()
@@ -82,8 +93,8 @@ namespace Flowery.Effects
             {
                 element.AttachedToVisualTree += OnAttachedToVisualTree;
 
-                // If already attached to visual tree, start animation immediately
-                if (element.GetVisualRoot() != null)
+                // If already attached to visual tree, start animation immediately (unless manual trigger only)
+                if (element.GetVisualRoot() != null && !GetManualTriggerOnly(element))
                 {
                     StartRevealAnimation(element);
                 }
@@ -97,6 +108,15 @@ namespace Flowery.Effects
         private static void OnAttachedToVisualTree(object? sender, VisualTreeAttachmentEventArgs e)
         {
             if (sender is not Visual element) return;
+            if (GetManualTriggerOnly(element)) return;
+            StartRevealAnimation(element);
+        }
+
+        /// <summary>
+        /// Manually triggers the reveal animation for the specified element.
+        /// </summary>
+        public static void TriggerReveal(Visual element)
+        {
             StartRevealAnimation(element);
         }
 

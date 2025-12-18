@@ -102,7 +102,7 @@ class MarkdownToHtml:
             # If src is a local file (not http), prepend path prefix based on depth
             if not src.startswith(('http://', 'https://', '/')):
                 src = path_prefix + src
-            return f'<img src="{src}" alt="{alt}" style="max-width:800px;width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">'
+            return f'<img src="{src}" alt="{alt}" class="doc-image">'
         html = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', convert_image, html)
 
         # Links - convert [text](url) to <a>, and .md to .html for local links
@@ -130,6 +130,22 @@ class MarkdownToHtml:
         # Bold and italic
         html = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html)
         html = re.sub(r'\*(.+?)\*', r'<em>\1</em>', html)
+
+        # GitHub-style Alerts (> [!NOTE], > [!TIP], etc.)
+        def convert_alert(m):
+            alert_type = m.group(1).lower()
+            lines = m.group(2).strip().split('\n')
+            # Strip leading '> ' from each line
+            content_lines = [re.sub(r'^> ?', '', line) for line in lines]
+            content = '\n'.join(content_lines)
+            # Convert internal markdown in alert content
+            content = self.convert(content, depth=depth)
+            # Remove the <p> tags that self.convert might have added if it's a single paragraph
+            content = re.sub(r'^<p>(.*)</p>$', r'\1', content, flags=re.DOTALL)
+
+            return f'<div class="alert alert-{alert_type}"><div class="alert-title">{alert_type.upper()}</div>{content}</div>'
+
+        html = re.sub(r'^> \[!(\w+)\]\n((?:> .*\n?)+)', convert_alert, html, flags=re.MULTILINE)
 
         # Tables
         html = self._convert_tables(html)
@@ -801,7 +817,7 @@ class SiteGenerator:
             # Prepend ../ for controls/ subfolder
             src = '../' + img_path
             html += f'    <div class="image-panel">\n'
-            html += f'      <img src="{src}" alt="{control_name} - Part {i+1}" style="max-width:800px;width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">\n'
+            html += f'      <img src="{src}" alt="{control_name} - Part {i+1}" class="doc-image">\n'
             html += f'    </div>\n'
         html += '  </div>\n'
 

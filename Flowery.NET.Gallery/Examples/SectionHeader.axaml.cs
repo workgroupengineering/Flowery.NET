@@ -122,6 +122,11 @@ public partial class SectionHeader : UserControl
         ["themedropdown"] = "DaisyThemeDropdown",
         ["themeswap"] = "DaisyThemeSwap",
         ["themeradio"] = "DaisyThemeRadio",
+        // Showcase / Eye Candy
+        ["expandablecards"] = "DaisyExpandableCard",
+        ["power-off-slide"] = "Showcase_PowerOff",
+        ["typewriter"] = "Showcase_Typewriter",
+        ["scroll-reveal"] = "Showcase_ScrollReveal",
     };
 
     private static readonly Lazy<IScreenCaptureService> _captureService = new(() => ScreenCapture.CreateDefault());
