@@ -706,7 +706,9 @@ namespace Flowery.Controls
             if (_isInitialRepeat)
             {
                 _isInitialRepeat = false;
-                _repeatTimer.Interval = RepeatInterval;
+                // Ensure repeat can't outpace the animation duration; otherwise we end up constantly
+                // cancelling and restarting animations (particularly noticeable on Browser/WASM).
+                _repeatTimer.Interval = RepeatInterval < Duration ? Duration : RepeatInterval;
             }
 
             if (_isIncrementing)
@@ -1208,6 +1210,11 @@ namespace Flowery.Controls
             catch (OperationCanceledException)
             {
                 // Animation was cancelled, expected when value changes mid-animation
+                // Ensure we leave the part in a stable, non-animating state to avoid visual glitches
+                // when updates arrive faster than the animation can complete (common on Browser/WASM).
+                PreviousOffset = isIncreasing ? -1 : 1;
+                CurrentOffset = 0;
+                IsCurrentlyAnimating = false;
             }
         }
 

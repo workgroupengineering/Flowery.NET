@@ -13,9 +13,34 @@ namespace Flowery.Effects
     public static class AnimationHelper
     {
         /// <summary>
+        /// Minimum delay (in ms) per interpolation step.
+        /// On some platforms (notably browser/WASM), sub-frame delays are effectively clamped,
+        /// which can stretch short animations and cause overlap/cancellation artifacts.
+        /// </summary>
+        private const double MinimumStepDurationMilliseconds = 16.0;
+
+        /// <summary>
         /// Default number of steps for smooth animation.
         /// </summary>
         public const int DefaultSteps = 30;
+
+        private static int NormalizeSteps(TimeSpan duration, int steps)
+        {
+            if (steps < 1)
+                return 1;
+
+            var totalMs = duration.TotalMilliseconds;
+            if (totalMs <= 0)
+                return 1;
+
+            // Cap the number of steps so each step delay stays >= MinimumStepDurationMilliseconds.
+            // This keeps requested duration closer to reality on platforms where small delays are clamped.
+            var maxSteps = (int)Math.Floor(totalMs / MinimumStepDurationMilliseconds);
+            if (maxSteps < 1)
+                maxSteps = 1;
+
+            return steps > maxSteps ? maxSteps : steps;
+        }
 
         /// <summary>
         /// Animate a single value from start to end using WASM-compatible interpolation.
@@ -37,6 +62,7 @@ namespace Flowery.Effects
             CancellationToken ct = default)
         {
             easing ??= new LinearEasing();
+            steps = NormalizeSteps(duration, steps);
             var stepDuration = duration.TotalMilliseconds / steps;
 
             for (int i = 0; i <= steps; i++)
@@ -70,6 +96,7 @@ namespace Flowery.Effects
             CancellationToken ct = default)
         {
             easing ??= new LinearEasing();
+            steps = NormalizeSteps(duration, steps);
             var stepDuration = duration.TotalMilliseconds / steps;
 
             for (int i = 0; i <= steps; i++)
