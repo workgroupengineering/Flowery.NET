@@ -59,8 +59,9 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
 
-    <Style Selector="controls|DaisyDock > :is(Button):pointerover /template/ Border#PART_Background">
-         <Setter Property="Background" Value="{DynamicResource DaisyBase300Brush}" />
+    <!-- FluentTheme Button template uses ContentPresenter#PART_ContentPresenter (not a Border) -->
+    <Style Selector="controls|DaisyDock > :is(Button):pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase300Brush}" />
     </Style>
 
     <!-- Active Dock Item -->

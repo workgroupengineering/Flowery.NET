@@ -125,6 +125,44 @@ If any step fails, the script stops immediately and shows `[FAILED]` status.
 
 ---
 
+## build-desktop.ps1
+
+Builds the desktop-relevant Flowery.NET projects in the correct order (skips Browser/WASM, Android, iOS).
+
+### Desktop Usage
+
+```powershell
+# Basic build (Debug configuration)
+pwsh ./scripts/build-desktop.ps1
+
+# Release build
+pwsh ./scripts/build-desktop.ps1 -Configuration Release
+
+# Include unit test project (build only)
+pwsh ./scripts/build-desktop.ps1 -IncludeTests
+
+# Skip restore for faster iterations (assumes you've restored already)
+pwsh ./scripts/build-desktop.ps1 -NoRestore
+```
+
+### Desktop Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `-Configuration` | string | `Debug` | Build configuration (`Debug` or `Release`) |
+| `-IncludeTests` | switch | false | Also build `Flowery.NET.Tests` |
+| `-NoRestore` | switch | false | Passes `--no-restore` to `dotnet build` |
+
+### Desktop Build Order
+
+1. `Flowery.Capture.NET`
+2. `Flowery.NET`
+3. `Flowery.NET.Gallery`
+4. `Flowery.NET.Gallery.Desktop`
+5. `Flowery.NET.Tests` (optional, via `-IncludeTests`)
+
+---
+
 ## run_browser.ps1
 
 Starts the pre-compiled Flowery.NET.Gallery.Browser WASM application and optionally opens it in your default browser.

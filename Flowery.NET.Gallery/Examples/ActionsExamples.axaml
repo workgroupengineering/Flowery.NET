@@ -139,6 +139,367 @@
 
                 <controls:DaisyDivider />
 
+                <!-- Button Group -->
+                <StackPanel Spacing="12">
+                    <local:SectionHeader SectionId="button-group" Title="Button Group" />
+                    <TextBlock Text="Segmented group container for joined buttons and non-clickable parts (counts, labels, etc.)."
+                               Opacity="0.7"
+                               controls:FlowerySizeManager.ResponsiveFont="Primary" />
+
+                    <Border x:Name="ButtonGroupResponsiveHost"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Padding="0"
+                            services:FloweryResponsive.IsEnabled="True"
+                            services:FloweryResponsive.BaseMaxWidth="100000">
+                        <StackPanel Spacing="0">
+                            <WrapPanel Orientation="Horizontal"
+                                       HorizontalAlignment="Center">
+
+                                <!-- 01: Download -->
+                                <Border Width="320"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Download" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup ShowShadow="True">
+                                            <Button ToolTip.Tip="Download">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <PathIcon Data="{StaticResource DaisyIconDownload}" Width="16" Height="16" />
+                                                    <TextBlock Text="Download" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Border>
+                                                <TextBlock Text="15k" />
+                                            </Border>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- 02: Like (toggle icon) -->
+                                <Border Width="320"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Like / Counter" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup ShowShadow="True">
+                                            <ToggleButton ToolTip.Tip="Toggle like">
+                                                <ToggleButton.Styles>
+                                                    <Style Selector="ToggleButton:checked PathIcon#LikeIcon">
+                                                        <Setter Property="Data" Value="{StaticResource DaisyIconStarFilled}" />
+                                                    </Style>
+                                                </ToggleButton.Styles>
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <PathIcon Name="LikeIcon"
+                                                            Data="{StaticResource DaisyIconStarOutline}"
+                                                            Width="16" Height="16"
+                                                            Foreground="{DynamicResource DaisyErrorBrush}" />
+                                                    <TextBlock Text="Like" />
+                                                </StackPanel>
+                                            </ToggleButton>
+                                            <Border>
+                                                <TextBlock Text="46" />
+                                            </Border>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- 03: Icon toolbar -->
+                                <Border Width="320"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Icon toolbar" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup Size="Small" ShowShadow="True">
+                                            <Button Padding="0" Width="36" ToolTip.Tip="Search">
+                                                <PathIcon Data="{StaticResource DaisyIconSearch}" Width="16" Height="16" />
+                                            </Button>
+                                            <Button Padding="0" Width="36" ToolTip.Tip="Copy">
+                                                <PathIcon Data="{StaticResource DaisyIconCopy}" Width="16" Height="16" />
+                                            </Button>
+                                            <Button Padding="0" Width="36" ToolTip.Tip="Edit">
+                                                <PathIcon Data="{StaticResource DaisyIconEdit}" Width="16" Height="16" />
+                                            </Button>
+                                            <Button Padding="0" Width="36" ToolTip.Tip="Refresh">
+                                                <PathIcon Data="{StaticResource DaisyIconRefresh}" Width="16" Height="16" />
+                                            </Button>
+                                            <Button Padding="0" Width="36" ToolTip.Tip="More">
+                                                <PathIcon Data="{StaticResource DaisyIconEllipsis}" Width="16" Height="16" />
+                                            </Button>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- 04: Media controls (pill) -->
+                                <Border Width="320"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Media controls" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup Variant="Primary" Shape="Pill" ShowShadow="True">
+                                            <Button Padding="0" Width="40" ToolTip.Tip="Back">
+                                                <PathIcon Data="{StaticResource DaisyIconChevronLeft}" Width="18" Height="18" />
+                                            </Button>
+                                            <Button Padding="0" Width="40" ToolTip.Tip="Play">
+                                                <PathIcon Data="M8 5v14l11-7z" Width="18" Height="18" />
+                                            </Button>
+                                            <Button Padding="0" Width="40" ToolTip.Tip="Pause">
+                                                <PathIcon Data="M6 5h4v14H6zM14 5h4v14h-4z" Width="18" Height="18" />
+                                            </Button>
+                                            <Button Padding="0" Width="40" ToolTip.Tip="Next">
+                                                <PathIcon Data="{StaticResource DaisyIconChevronRight}" Width="18" Height="18" />
+                                            </Button>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- 05: Multi-color icon buttons -->
+                                <Border Width="320"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Icon links" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup Size="Small" ShowShadow="True">
+                                            <Button Padding="0" Width="36" ToolTip.Tip="Home">
+                                                <PathIcon Data="{StaticResource DaisyIconHome}" Width="16" Height="16" Foreground="{DynamicResource DaisyPrimaryBrush}" />
+                                            </Button>
+                                            <Button Padding="0" Width="36" ToolTip.Tip="Docs">
+                                                <PathIcon Data="{StaticResource DaisyIconDocument}" Width="16" Height="16" Foreground="{DynamicResource DaisySecondaryBrush}" />
+                                            </Button>
+                                            <Button Padding="0" Width="36" ToolTip.Tip="Settings">
+                                                <PathIcon Data="{StaticResource DaisyIconSettings}" Width="16" Height="16" Foreground="{DynamicResource DaisyAccentBrush}" />
+                                            </Button>
+                                            <Button Padding="0" Width="36" ToolTip.Tip="Analytics">
+                                                <PathIcon Data="{StaticResource DaisyIconChart}" Width="16" Height="16" Foreground="{DynamicResource DaisyInfoBrush}" />
+                                            </Button>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- 06: Zoom -->
+                                <Border Width="320"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Zoom" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup ShowShadow="True">
+                                            <Button Padding="0" Width="40" ToolTip.Tip="Zoom out">
+                                                <PathIcon Data="{StaticResource DaisyIconMinus}" Width="18" Height="18" />
+                                            </Button>
+                                            <Border>
+                                                <TextBlock Text="95%" />
+                                            </Border>
+                                            <Button Padding="0" Width="40" ToolTip.Tip="Zoom in">
+                                                <PathIcon Data="{StaticResource DaisyIconPlus}" Width="18" Height="18" />
+                                            </Button>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- 07: Value stepper -->
+                                <Border Width="320"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Value stepper" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup Variant="Primary" Shape="Pill" ShowShadow="True">
+                                            <Button Padding="0" Width="40" ToolTip.Tip="Decrease">
+                                                <PathIcon Data="{StaticResource DaisyIconMinus}" Width="18" Height="18" />
+                                            </Button>
+                                            <Border>
+                                                <TextBlock Text="216px" />
+                                            </Border>
+                                            <Button Padding="0" Width="40" ToolTip.Tip="Increase">
+                                                <PathIcon Data="{StaticResource DaisyIconPlus}" Width="18" Height="18" />
+                                            </Button>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- 08: Text + icon -->
+                                <Border Width="320"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Text + icon" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup ShowShadow="True">
+                                            <Button ToolTip.Tip="Open live preview">
+                                                <TextBlock Text="Live preview" />
+                                            </Button>
+                                            <Button Padding="0" Width="40" ToolTip.Tip="Open in browser">
+                                                <PathIcon Data="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z"
+                                                        Width="18" Height="18" />
+                                            </Button>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- 09: Outline style -->
+                                <Border Width="320"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Outline style" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup ButtonStyle="Outline" Variant="Secondary" ShowShadow="True">
+                                            <Button ToolTip.Tip="Left">
+                                                <TextBlock Text="Left" />
+                                            </Button>
+                                            <Button ToolTip.Tip="Center">
+                                                <TextBlock Text="Center" />
+                                            </Button>
+                                            <Button ToolTip.Tip="Right">
+                                                <TextBlock Text="Right" />
+                                            </Button>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- Primary action + dropdown -->
+                                <Border Width="320"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Primary + dropdown" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup Variant="Primary" ShowShadow="True">
+                                            <Button ToolTip.Tip="Merge pull request">
+                                                <TextBlock Text="Merge pull request" />
+                                            </Button>
+                                            <Button Padding="0" Width="40" ToolTip.Tip="Select option">
+                                                <PathIcon Data="{StaticResource DaisyIconChevronDown}" Width="18" Height="18" />
+                                            </Button>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                            </WrapPanel>
+
+                            <WrapPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                <!-- CRUD actions -->
+                                <Border Width="500"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="CRUD actions" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup ShowShadow="True">
+                                            <Button ToolTip.Tip="Edit">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <PathIcon Data="{StaticResource DaisyIconEdit}" Width="16" Height="16" />
+                                                    <TextBlock Text="Edit" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button ToolTip.Tip="Duplicate">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <PathIcon Data="{StaticResource DaisyIconCopy}" Width="16" Height="16" />
+                                                    <TextBlock Text="Duplicate" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button ToolTip.Tip="Delete">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <PathIcon Data="{StaticResource DaisyIconDelete}" Width="16" Height="16" />
+                                                    <TextBlock Text="Delete" />
+                                                </StackPanel>
+                                            </Button>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- Navigation buttons -->
+                                <Border Width="500"
+                                        MaxWidth="{Binding (services:FloweryResponsive.ResponsiveMaxWidth), ElementName=ButtonGroupResponsiveHost}"
+                                        Margin="12,0,12,24"
+                                        BorderBrush="{DynamicResource DaisyBase300Brush}"
+                                        BorderThickness="1"
+                                        CornerRadius="12"
+                                        Padding="16"
+                                        MinHeight="120">
+                                    <StackPanel Spacing="12" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Text="Navigation" FontWeight="SemiBold" FontSize="14" Opacity="0.8"/>
+                                        <controls:DaisyButtonGroup ShowShadow="True">
+                                            <Button ToolTip.Tip="Settings">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <PathIcon Data="{StaticResource DaisyIconSettings}" Width="16" Height="16" />
+                                                    <TextBlock Text="Settings" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button ToolTip.Tip="Dashboard">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <PathIcon Data="{StaticResource DaisyIconDocument}" Width="16" Height="16" />
+                                                    <TextBlock Text="Dashboard" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button ToolTip.Tip="Analytics">
+                                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                                    <PathIcon Data="{StaticResource DaisyIconChart}" Width="16" Height="16" />
+                                                    <TextBlock Text="Analytics" />
+                                                </StackPanel>
+                                            </Button>
+                                        </controls:DaisyButtonGroup>
+                                    </StackPanel>
+                                </Border>
+
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <controls:DaisyDivider />
+
                 <!-- Figma Comment -->
                 <StackPanel Spacing="12">
                     <local:SectionHeader SectionId="figma-comment" Title="Figma Comment (Recipe)" />
@@ -161,14 +522,14 @@
                                             </Border.Transitions>
                                             <Grid ColumnDefinitions="Auto, *">
                                                 <controls:DaisyAvatar Size="Small" Margin="4" VerticalAlignment="Top" IsPlaceholder="True" Background="{DynamicResource DaisyPrimaryBrush}">
-                                                    <TextBlock Text="EC" FontSize="10" FontWeight="Bold" Foreground="{DynamicResource DaisyPrimaryContentBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    <TextBlock Text="FK" FontSize="10" FontWeight="Bold" Foreground="{DynamicResource DaisyPrimaryContentBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                                 </controls:DaisyAvatar>
                                                 <StackPanel Grid.Column="1" Margin="8,4,12,8" IsVisible="{Binding $parent[ToggleButton].IsChecked}" Width="200">
                                                     <StackPanel Orientation="Horizontal" Spacing="8">
-                                                        <TextBlock Text="Edu Calvo" FontSize="11" FontWeight="Bold" />
+                                                        <TextBlock Text="Fred Krueger" FontSize="11" FontWeight="Bold" />
                                                         <TextBlock Text="Just now" FontSize="10" Opacity="0.5" />
                                                     </StackPanel>
-                                                    <TextBlock Text="What happens if we adjust this to handle a light and dark mode?" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,0" LineHeight="16" />
+                                                    <TextBlock Text="What happens if someone on Elm Street has nightmares?" FontSize="11" TextWrapping="Wrap" Margin="0,4,0,0" LineHeight="16" />
                                                 </StackPanel>
                                             </Grid>
                                         </Border>

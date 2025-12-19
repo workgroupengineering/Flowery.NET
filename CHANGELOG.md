@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **DaisyAvatar**: Avatar content now scales correctly with global size tiers (FontSize mapped via design tokens)
 - **Gallery App**: Improved Avatar examples so content scales with the avatar (removed hardcoded icon sizes); placeholder and avatar-group demos now participate in global size scaling
+- **DaisyButtonGroup / DaisyJoin / DaisyDock**: Fixed FluentTheme hover state overriding joined segment borders (borders/dividers “disappearing”) by targeting `ContentPresenter#PART_ContentPresenter` in scoped styles
+- **DaisyList**: Fixed row hover divider contrast and embedded icon-button hover feedback to prevent flicker/inconsistent hover states
+
+### New
+
+- **DaisyButtonGroup**: New segmented button-group container for joined buttons and non-clickable parts (counters/labels), with size/variant/shape options and optional auto-selection.
 
 ## [1.7.1] - 2025-12-18
 

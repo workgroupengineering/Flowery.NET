@@ -100,6 +100,38 @@ AXAML EXAMPLE FILES (Flowery.NET.Gallery/Examples/*Examples.axaml):
 ## Theme Rules
 
 - **Icons Use StaticResource**: `PathIcon.Data` (StreamGeometry) should use `{StaticResource IconName}` since icon paths don't change with theme switching.
+- **FluentTheme Button Border Is On ContentPresenter (Not Border)**: In Avalonia FluentTheme, `Button` and `ToggleButton` templates use `ContentPresenter#PART_ContentPresenter` and set border-related properties (`BorderBrush`, `BorderThickness`) on that presenter for states like `:pointerover` / `:pressed` / `:checked:pointerover`.
+  - If your override targets `/template/ Border`, it will do nothing (and debug colors won’t show), because there often is **no** `Border` in the template.
+  - To override hover borders **scoped to a parent control** (e.g. fix button-group dividers only inside `DaisyButtonGroup`), target the template part directly and bind it back to the control’s border brush:
+
+```axaml
+<Style Selector="controls|DaisyButtonGroup > :is(Button):pointerover /template/ ContentPresenter#PART_ContentPresenter">
+  <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+</Style>
+
+<!-- ToggleButton also needs the checked/indeterminate hover selectors to beat Fluent specificity -->
+<Style Selector="controls|DaisyButtonGroup > :is(ToggleButton):checked:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+  <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+</Style>
+<Style Selector="controls|DaisyButtonGroup > :is(ToggleButton):indeterminate:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+  <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+</Style>
+```
+
+- **AVLN2000 Nested Selector**: If you hit `AVLN2000: Cannot find parent style for nested selector`, it usually means you used a *nested selector* (e.g. starting with `^` or `:pointerover`) without a parent `<Style>`.
+  - Prefer a **full selector** when writing styles directly inside a `Styles` collection (e.g. `ToggleButton:checked PathIcon#LikeIcon`).
+  - Or wrap nested selectors under a parent style:
+
+```axaml
+<Control.Styles>
+  <Style Selector="ToggleButton">
+    <Style Selector="^:checked PathIcon#LikeIcon">
+      <Setter Property="Data" Value="{StaticResource DaisyIconStarFilled}" />
+    </Style>
+  </Style>
+</Control.Styles>
+```
+
 - **ControlTheme Selector Restrictions**: `ControlTheme` styles cannot contain child or descendant selectors (e.g. `^[Property=Value] ChildControl`). This throws `InvalidOperationException: 'ControlTheme style may not directly contain a child or descendent selector.'` To fix this:
   1. Change the root element from `<ResourceDictionary>` to `<Styles>`
   2. Wrap `ControlTheme` definitions inside `<Styles.Resources>...</Styles.Resources>`

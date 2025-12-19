@@ -1,0 +1,17 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
+
+  <!--
+    In DaisyList rows, the row hover background and ghost icon-button hover background can match,
+    making the button feel "non-hoverable". Give square ghost action buttons a distinct hover.
+  -->
+  <Style Selector="controls|DaisyListRow:pointerover controls|DaisyButton[Variant=Ghost][Shape=Square]:pointerover /template/ Border#PART_Background">
+    <Setter Property="Background" Value="{DynamicResource DaisyBase300Brush}" />
+  </Style>
+
+  <Style Selector="controls|DaisyListRow:pointerover controls|DaisyButton[Variant=Ghost][Shape=Square]:pressed /template/ Border#PART_Background">
+    <Setter Property="Background" Value="{DynamicResource DaisyBase300Brush}" />
+  </Style>
+
+</Styles>

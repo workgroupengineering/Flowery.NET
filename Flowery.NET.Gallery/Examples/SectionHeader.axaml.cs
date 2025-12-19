@@ -21,6 +21,7 @@ public partial class SectionHeader : UserControl
     {
         // Actions
         ["button"] = "DaisyButton",
+        ["buttongroup"] = "DaisyButtonGroup",
         ["copybutton"] = "DaisyCopyButton",
         ["dropdown"] = "DaisySelect",
         ["dropdownmenu"] = "DaisyDropdown",

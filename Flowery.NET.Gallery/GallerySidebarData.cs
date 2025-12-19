@@ -37,6 +37,7 @@ public static class GallerySidebarData
                 Items = new ObservableCollection<SidebarItem>
                 {
                     new SidebarItem { Id = "button", Name = "Sidebar_Button", TabHeader = "Sidebar_Actions" },
+                    new SidebarItem { Id = "button-group", Name = "Sidebar_ButtonGroup", TabHeader = "Sidebar_Actions" },
                     new SidebarItem { Id = "figma-comment", Name = "Sidebar_FigmaComment", TabHeader = "Sidebar_Actions" },
                     new SidebarItem { Id = "copybutton", Name = "Sidebar_CopyButton", TabHeader = "Sidebar_Actions" },
                     new SidebarItem { Id = "dropdown", Name = "Sidebar_Dropdown", TabHeader = "Sidebar_Actions" },

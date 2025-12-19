@@ -1097,6 +1097,7 @@ class DocumentationGenerator:
 
         mappings = {
             'button': 'DaisyButton',
+            'buttongroup': 'DaisyButtonGroup',
             'copybutton': 'DaisyCopyButton',
             'dropdown': 'DaisySelect',
             'dropdownmenu': 'DaisyDropdown',

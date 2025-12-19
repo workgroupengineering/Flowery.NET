@@ -82,6 +82,8 @@
     <StyleInclude Source="/Themes/DaisyThemeDropdown.axaml" />
     <StyleInclude Source="/Themes/DaisySizeDropdown.axaml" />
     <StyleInclude Source="/Themes/DaisyJoin.axaml" />
+    <StyleInclude Source="/Themes/DaisyButtonGroup.axaml" />
+    <StyleInclude Source="/Themes/DaisyListStyles.axaml" />
     <StyleInclude Source="/Themes/DaisyStack.axaml" />
     <StyleInclude Source="/Themes/DaisyToolTip.axaml" />
     <StyleInclude Source="/Themes/DaisyContributionGraph.axaml" />

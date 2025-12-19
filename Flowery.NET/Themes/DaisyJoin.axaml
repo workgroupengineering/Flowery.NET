@@ -19,6 +19,10 @@
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Margin" Value="-1,0,0,0" />
     </Style>
+    <!-- FluentTheme Button template applies hover border on ContentPresenter#PART_ContentPresenter; keep joined dividers stable -->
+    <Style Selector="controls|DaisyJoin > :is(Button):pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
     <Style Selector="controls|DaisyJoin > :is(TextBox)">
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Margin" Value="-1,0,0,0" />
@@ -34,6 +38,17 @@
     <Style Selector="controls|DaisyJoin > controls|DaisyThemeRadio[Mode=Button]">
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Margin" Value="-1,0,0,0" />
+    </Style>
+
+    <!-- ToggleButton also needs checked/indeterminate hover selectors to beat Fluent specificity -->
+    <Style Selector="controls|DaisyJoin > :is(ToggleButton):pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+    <Style Selector="controls|DaisyJoin > :is(ToggleButton):checked:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+    <Style Selector="controls|DaisyJoin > :is(ToggleButton):indeterminate:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
     </Style>
 
     <!-- First Child (Horizontal) -->

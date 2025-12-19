@@ -192,6 +192,7 @@ Supported: `DaisyLoading`, `DaisyProgress`, `DaisyRadialProgress`, `DaisyStatusI
 ### Utility Controls
 
 - **Animated Number** (`DaisyAnimatedNumber`): Animated numeric display with slide transitions on value changes.
+- **Button Group** (`DaisyButtonGroup`): new segmented button-group container for joined buttons and non-clickable parts.
 - **Component Sidebar** (`FloweryComponentSidebar`): Pre-built documentation/admin sidebar with categories and search.
 - **Contribution Graph** (`DaisyContributionGraph`): GitHub-style contribution heatmap (7×53 grid) with month/day labels, tooltips, and legend.
 - **Copy Button** (`DaisyCopyButton`): Copy-to-clipboard button with temporary success state feedback.

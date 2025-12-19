@@ -85,6 +85,7 @@
         <!-- Hover state -->
         <Style Selector="^:pointerover">
             <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource DaisyBase300Brush}" />
         </Style>
     </ControlTheme>
 

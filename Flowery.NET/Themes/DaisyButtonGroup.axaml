@@ -1,0 +1,602 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET">
+
+    <Styles.Resources>
+        <!-- Divider brushes (semi-transparent content colors for colored variants) -->
+        <SolidColorBrush x:Key="DaisyButtonGroupPrimaryDividerBrush" Color="{DynamicResource DaisyPrimaryContentColor}" Opacity="0.3" />
+        <SolidColorBrush x:Key="DaisyButtonGroupSecondaryDividerBrush" Color="{DynamicResource DaisySecondaryContentColor}" Opacity="0.3" />
+        <SolidColorBrush x:Key="DaisyButtonGroupAccentDividerBrush" Color="{DynamicResource DaisyAccentContentColor}" Opacity="0.3" />
+        <SolidColorBrush x:Key="DaisyButtonGroupInfoDividerBrush" Color="{DynamicResource DaisyInfoContentColor}" Opacity="0.3" />
+        <SolidColorBrush x:Key="DaisyButtonGroupSuccessDividerBrush" Color="{DynamicResource DaisySuccessContentColor}" Opacity="0.3" />
+        <SolidColorBrush x:Key="DaisyButtonGroupWarningDividerBrush" Color="{DynamicResource DaisyWarningContentColor}" Opacity="0.3" />
+        <SolidColorBrush x:Key="DaisyButtonGroupErrorDividerBrush" Color="{DynamicResource DaisyErrorContentColor}" Opacity="0.3" />
+    </Styles.Resources>
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Spacing="14">
+                <controls:DaisyButtonGroup>
+                    <Button Content="Download" />
+                    <Border>
+                        <TextBlock Text="15k" />
+                    </Border>
+                </controls:DaisyButtonGroup>
+
+                <controls:DaisyButtonGroup Variant="Primary" Shape="Pill">
+                    <Button Width="60" Content="Back" />
+                    <Button Width="60" Content="Play" />
+                    <Button Width="60" Content="Pause" />
+                    <Button Width="60" Content="Next" />
+                </controls:DaisyButtonGroup>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- DaisyButtonGroup container -->
+    <Style Selector="controls|DaisyButtonGroup">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal" Spacing="0" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel ClipToBounds="False">
+                    <Border Name="PART_Background"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}"
+                            ClipToBounds="True">
+                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </Border>
+                    <Rectangle Name="PART_DashBorder"
+                               IsVisible="False"
+                               Stroke="{TemplateBinding BorderBrush}"
+                               StrokeThickness="1"
+                               StrokeDashArray="4,2"
+                               RadiusX="8" RadiusY="8" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- Orientation -->
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical]">
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Vertical" Spacing="0" />
+            </ItemsPanelTemplate>
+        </Setter>
+    </Style>
+
+    <!-- Shape -->
+    <Style Selector="controls|DaisyButtonGroup[Shape=Square]">
+        <Setter Property="CornerRadius" Value="0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Shape=Rounded]">
+        <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Shape=Pill]">
+        <Setter Property="CornerRadius" Value="9999" />
+    </Style>
+
+    <!-- Shadow -->
+    <Style Selector="controls|DaisyButtonGroup[ShowShadow=True] /template/ Border#PART_Background">
+        <Setter Property="BoxShadow" Value="0 2 8 #20000000" />
+    </Style>
+
+    <!-- Dash border (outer) -->
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Dash]">
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyBaseContentBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Dash] /template/ Rectangle#PART_DashBorder">
+        <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Dash][Shape=Square] /template/ Rectangle#PART_DashBorder">
+        <Setter Property="RadiusX" Value="0" />
+        <Setter Property="RadiusY" Value="0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Dash][Shape=Rounded] /template/ Rectangle#PART_DashBorder">
+        <Setter Property="RadiusX" Value="12" />
+        <Setter Property="RadiusY" Value="12" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Dash][Shape=Pill] /template/ Rectangle#PART_DashBorder">
+        <Setter Property="RadiusX" Value="9999" />
+        <Setter Property="RadiusY" Value="9999" />
+    </Style>
+
+    <!-- Base segment styling (Buttons) -->
+    <Style Selector="controls|DaisyButtonGroup > :is(Button)">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase100Brush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyBase300Brush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonMediumPadding}" />
+        <Setter Property="Height" Value="{DynamicResource DaisySizeMediumHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeMediumFontSize}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+        <Setter Property="Margin" Value="-1,0,0,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(Button):nth-child(1)">
+        <Setter Property="CornerRadius" Value="8,0,0,8" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(Button):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,8,8,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Shape=Rounded] > :is(Button):nth-child(1)">
+        <Setter Property="CornerRadius" Value="12,0,0,12" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Shape=Rounded] > :is(Button):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,12,12,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Shape=Pill] > :is(Button):nth-child(1)">
+        <Setter Property="CornerRadius" Value="9999,0,0,9999" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Shape=Pill] > :is(Button):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,9999,9999,0" />
+    </Style>
+
+    <!-- Base segment styling (Non-clickable parts via Border) -->
+    <Style Selector="controls|DaisyButtonGroup > :is(Border)">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase100Brush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyBase300Brush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonMediumPadding}" />
+        <Setter Property="Height" Value="{DynamicResource DaisySizeMediumHeight}" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyBaseContentBrush}" />
+        <Setter Property="TextElement.FontSize" Value="{DynamicResource DaisySizeMediumFontSize}" />
+        <Setter Property="TextElement.FontWeight" Value="SemiBold" />
+        <Setter Property="Margin" Value="-1,0,0,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(Border):nth-child(1)">
+        <Setter Property="CornerRadius" Value="8,0,0,8" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(Border):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,8,8,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(Border) > :is(TextBlock)">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextAlignment" Value="Center" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Shape=Rounded] > :is(Border):nth-child(1)">
+        <Setter Property="CornerRadius" Value="12,0,0,12" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Shape=Rounded] > :is(Border):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,12,12,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Shape=Pill] > :is(Border):nth-child(1)">
+        <Setter Property="CornerRadius" Value="9999,0,0,9999" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Shape=Pill] > :is(Border):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,9999,9999,0" />
+    </Style>
+
+    <!-- Vertical join -->
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical] > :is(Button)">
+        <Setter Property="Margin" Value="0,-1,0,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical] > :is(Border)">
+        <Setter Property="Margin" Value="0,-1,0,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical] > :is(Button):nth-child(1)">
+        <Setter Property="CornerRadius" Value="8,8,0,0" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical] > :is(Border):nth-child(1)">
+        <Setter Property="CornerRadius" Value="8,8,0,0" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical] > :is(Button):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,0,8,8" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical] > :is(Border):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,0,8,8" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical][Shape=Rounded] > :is(Button):nth-child(1)">
+        <Setter Property="CornerRadius" Value="12,12,0,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical][Shape=Rounded] > :is(Border):nth-child(1)">
+        <Setter Property="CornerRadius" Value="12,12,0,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical][Shape=Rounded] > :is(Button):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,0,12,12" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical][Shape=Rounded] > :is(Border):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,0,12,12" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical][Shape=Pill] > :is(Button):nth-child(1)">
+        <Setter Property="CornerRadius" Value="9999,9999,0,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical][Shape=Pill] > :is(Border):nth-child(1)">
+        <Setter Property="CornerRadius" Value="9999,9999,0,0" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical][Shape=Pill] > :is(Button):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,0,9999,9999" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Orientation=Vertical][Shape=Pill] > :is(Border):nth-last-child(1)">
+        <Setter Property="CornerRadius" Value="0,0,9999,9999" />
+    </Style>
+
+    <!-- Interactions -->
+    <Style Selector="controls|DaisyButtonGroup > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyBase300Brush}" />
+    </Style>
+    <!-- FluentTheme applies hover border directly on ContentPresenter#PART_ContentPresenter; override (scoped to DaisyButtonGroup) -->
+    <Style Selector="controls|DaisyButtonGroup > :is(Button):pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(Button):pressed">
+        <Setter Property="RenderTransform" Value="scale(0.98)" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(Button):focus">
+        <Setter Property="ZIndex" Value="1" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(Button):disabled">
+        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="Cursor" Value="Arrow" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(Button).button-group-active">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyBase300Brush}" />
+    </Style>
+
+    <!-- ToggleButton uses the same ContentPresenter template part in FluentTheme -->
+    <Style Selector="controls|DaisyButtonGroup > :is(ToggleButton):pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(ToggleButton):checked:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup > :is(ToggleButton):indeterminate:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="BorderBrush" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+    </Style>
+
+    <!-- Sizes -->
+    <Style Selector="controls|DaisyButtonGroup[Size=ExtraSmall] > :is(Button)">
+        <Setter Property="Height" Value="{DynamicResource DaisySizeExtraSmallHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonExtraSmallPadding}" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraSmallFontSize}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Size=Small] > :is(Button)">
+        <Setter Property="Height" Value="{DynamicResource DaisySizeSmallHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonSmallPadding}" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeSmallFontSize}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Size=Large] > :is(Button)">
+        <Setter Property="Height" Value="{DynamicResource DaisySizeLargeHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonLargePadding}" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeLargeFontSize}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Size=ExtraLarge] > :is(Button)">
+        <Setter Property="Height" Value="{DynamicResource DaisySizeExtraLargeHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonExtraLargePadding}" />
+        <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraLargeFontSize}" />
+    </Style>
+
+    <Style Selector="controls|DaisyButtonGroup[Size=ExtraSmall] > :is(Border)">
+        <Setter Property="Height" Value="{DynamicResource DaisySizeExtraSmallHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonExtraSmallPadding}" />
+        <Setter Property="TextElement.FontSize" Value="{DynamicResource DaisySizeExtraSmallFontSize}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Size=Small] > :is(Border)">
+        <Setter Property="Height" Value="{DynamicResource DaisySizeSmallHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonSmallPadding}" />
+        <Setter Property="TextElement.FontSize" Value="{DynamicResource DaisySizeSmallFontSize}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Size=Large] > :is(Border)">
+        <Setter Property="Height" Value="{DynamicResource DaisySizeLargeHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonLargePadding}" />
+        <Setter Property="TextElement.FontSize" Value="{DynamicResource DaisySizeLargeFontSize}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Size=ExtraLarge] > :is(Border)">
+        <Setter Property="Height" Value="{DynamicResource DaisySizeExtraLargeHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource DaisyButtonExtraLargePadding}" />
+        <Setter Property="TextElement.FontSize" Value="{DynamicResource DaisySizeExtraLargeFontSize}" />
+    </Style>
+
+    <!-- ButtonStyle: Outline -->
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline] > :is(Button)">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline] > :is(Border)">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <!-- ButtonStyle: Soft -->
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Soft] > :is(Button)">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Soft] > :is(Border)">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Soft] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase300Brush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyBase300Brush}" />
+    </Style>
+
+    <!-- Variants: Neutral -->
+    <Style Selector="controls|DaisyButtonGroup[Variant=Neutral] > :is(Button)">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Neutral] > :is(Border)">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase200Brush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Neutral] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisyBase300Brush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyBase300Brush}" />
+    </Style>
+
+    <!-- Variants: Primary -->
+    <Style Selector="controls|DaisyButtonGroup[Variant=Primary] > :is(Button)">
+        <Setter Property="Background" Value="{DynamicResource DaisyPrimaryBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyPrimaryContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupPrimaryDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Primary] > :is(Border)">
+        <Setter Property="Background" Value="{DynamicResource DaisyPrimaryBrush}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyPrimaryContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupPrimaryDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Primary] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisyPrimaryFocusBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupPrimaryDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Primary] > :is(Button).button-group-active">
+        <Setter Property="Background" Value="{DynamicResource DaisyPrimaryFocusBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupPrimaryDividerBrush}" />
+    </Style>
+
+    <!-- Variants: Secondary -->
+    <Style Selector="controls|DaisyButtonGroup[Variant=Secondary] > :is(Button)">
+        <Setter Property="Background" Value="{DynamicResource DaisySecondaryBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisySecondaryContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupSecondaryDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Secondary] > :is(Border)">
+        <Setter Property="Background" Value="{DynamicResource DaisySecondaryBrush}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisySecondaryContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupSecondaryDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Secondary] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisySecondaryFocusBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupSecondaryDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Secondary] > :is(Button).button-group-active">
+        <Setter Property="Background" Value="{DynamicResource DaisySecondaryFocusBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupSecondaryDividerBrush}" />
+    </Style>
+
+    <!-- Variants: Accent -->
+    <Style Selector="controls|DaisyButtonGroup[Variant=Accent] > :is(Button)">
+        <Setter Property="Background" Value="{DynamicResource DaisyAccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyAccentContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupAccentDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Accent] > :is(Border)">
+        <Setter Property="Background" Value="{DynamicResource DaisyAccentBrush}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyAccentContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupAccentDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Accent] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisyAccentFocusBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupAccentDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Accent] > :is(Button).button-group-active">
+        <Setter Property="Background" Value="{DynamicResource DaisyAccentFocusBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupAccentDividerBrush}" />
+    </Style>
+
+    <!-- Variants: Info -->
+    <Style Selector="controls|DaisyButtonGroup[Variant=Info] > :is(Button)">
+        <Setter Property="Background" Value="{DynamicResource DaisyInfoBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyInfoContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupInfoDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Info] > :is(Border)">
+        <Setter Property="Background" Value="{DynamicResource DaisyInfoBrush}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyInfoContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupInfoDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Info] > :is(Button):pointerover">
+        <Setter Property="Opacity" Value="0.9" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupInfoDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Info] > :is(Button).button-group-active">
+        <Setter Property="Opacity" Value="0.9" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupInfoDividerBrush}" />
+    </Style>
+
+    <!-- Variants: Success -->
+    <Style Selector="controls|DaisyButtonGroup[Variant=Success] > :is(Button)">
+        <Setter Property="Background" Value="{DynamicResource DaisySuccessBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisySuccessContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupSuccessDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Success] > :is(Border)">
+        <Setter Property="Background" Value="{DynamicResource DaisySuccessBrush}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisySuccessContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupSuccessDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Success] > :is(Button):pointerover">
+        <Setter Property="Opacity" Value="0.9" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupSuccessDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Success] > :is(Button).button-group-active">
+        <Setter Property="Opacity" Value="0.9" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupSuccessDividerBrush}" />
+    </Style>
+
+    <!-- Variants: Warning -->
+    <Style Selector="controls|DaisyButtonGroup[Variant=Warning] > :is(Button)">
+        <Setter Property="Background" Value="{DynamicResource DaisyWarningBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyWarningContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupWarningDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Warning] > :is(Border)">
+        <Setter Property="Background" Value="{DynamicResource DaisyWarningBrush}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyWarningContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupWarningDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Warning] > :is(Button):pointerover">
+        <Setter Property="Opacity" Value="0.9" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupWarningDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Warning] > :is(Button).button-group-active">
+        <Setter Property="Opacity" Value="0.9" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupWarningDividerBrush}" />
+    </Style>
+
+    <!-- Variants: Error -->
+    <Style Selector="controls|DaisyButtonGroup[Variant=Error] > :is(Button)">
+        <Setter Property="Background" Value="{DynamicResource DaisyErrorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyErrorContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupErrorDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Error] > :is(Border)">
+        <Setter Property="Background" Value="{DynamicResource DaisyErrorBrush}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyErrorContentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupErrorDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Error] > :is(Button):pointerover">
+        <Setter Property="Opacity" Value="0.9" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupErrorDividerBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[Variant=Error] > :is(Button).button-group-active">
+        <Setter Property="Opacity" Value="0.9" />
+        <Setter Property="BorderBrush" Value="{StaticResource DaisyButtonGroupErrorDividerBrush}" />
+    </Style>
+
+    <!-- Outline variants (button segments) -->
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Primary] > :is(Button)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Primary] > :is(Border)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Primary] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisyPrimaryBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyPrimaryContentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyPrimaryBrush}" />
+    </Style>
+
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Secondary] > :is(Button)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisySecondaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Secondary] > :is(Border)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisySecondaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Secondary] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisySecondaryBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisySecondaryContentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisySecondaryBrush}" />
+    </Style>
+
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Accent] > :is(Button)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyAccentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyAccentBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Accent] > :is(Border)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyAccentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyAccentBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Accent] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisyAccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyAccentContentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyAccentBrush}" />
+    </Style>
+
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Info] > :is(Button)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyInfoBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Info] > :is(Border)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyInfoBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Info] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisyInfoBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyInfoContentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyInfoBrush}" />
+    </Style>
+
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Success] > :is(Button)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisySuccessBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Success] > :is(Border)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisySuccessBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Success] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisySuccessBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisySuccessContentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisySuccessBrush}" />
+    </Style>
+
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Warning] > :is(Button)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyWarningBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Warning] > :is(Border)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyWarningBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Warning] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisyWarningBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyWarningContentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyWarningBrush}" />
+    </Style>
+
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Error] > :is(Button)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyErrorBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Error] > :is(Border)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource DaisyErrorBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
+    </Style>
+    <Style Selector="controls|DaisyButtonGroup[ButtonStyle=Outline][Variant=Error] > :is(Button):pointerover">
+        <Setter Property="Background" Value="{DynamicResource DaisyErrorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DaisyErrorContentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DaisyErrorBrush}" />
+    </Style>
+
+</Styles>
