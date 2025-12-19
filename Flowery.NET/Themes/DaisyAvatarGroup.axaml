@@ -23,10 +23,11 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type controls:DaisyAvatarGroup}" TargetType="controls:DaisyAvatarGroup">
+        <Setter Property="Overlap" Value="16" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
-                <controls:DaisyAvatarGroupPanel 
-                    Overlap="{Binding Overlap, RelativeSource={RelativeSource AncestorType=controls:DaisyAvatarGroup}}" 
+                <controls:DaisyAvatarGroupPanel
+                    Overlap="{Binding Overlap, RelativeSource={RelativeSource AncestorType=controls:DaisyAvatarGroup}}"
                     MaxVisible="{Binding MaxVisible, RelativeSource={RelativeSource AncestorType=controls:DaisyAvatarGroup}}" />
             </ItemsPanelTemplate>
         </Setter>
@@ -36,17 +37,35 @@
                 <Grid>
                     <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                     <controls:DaisyAvatar Name="PART_OverflowAvatar"
+                                        Size="{Binding Size, RelativeSource={RelativeSource TemplatedParent}}"
                                         IsPlaceholder="True"
                                         IsVisible="{Binding OverflowCount, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static controls:IndicatorConverters.GreaterThanZeroConverter}}"
-                                        BorderThickness="2" 
+                                        BorderThickness="2"
                                         BorderBrush="{DynamicResource DaisyBase100Brush}">
-                        <TextBlock Text="{Binding OverflowCount, RelativeSource={RelativeSource TemplatedParent}, StringFormat='+{0}'}" 
+                        <TextBlock Text="{Binding OverflowCount, RelativeSource={RelativeSource TemplatedParent}, StringFormat='+{0}'}"
                                    FontWeight="Bold"
-                                   VerticalAlignment="Center" 
+                                   VerticalAlignment="Center"
                                    HorizontalAlignment="Center" />
                     </controls:DaisyAvatar>
                 </Grid>
             </ControlTemplate>
         </Setter>
+
+        <!-- Overlap scales with global size tiers -->
+        <Style Selector="^[Size=ExtraSmall]">
+            <Setter Property="Overlap" Value="8" />
+        </Style>
+        <Style Selector="^[Size=Small]">
+            <Setter Property="Overlap" Value="12" />
+        </Style>
+        <Style Selector="^[Size=Medium]">
+            <Setter Property="Overlap" Value="16" />
+        </Style>
+        <Style Selector="^[Size=Large]">
+            <Setter Property="Overlap" Value="32" />
+        </Style>
+        <Style Selector="^[Size=ExtraLarge]">
+            <Setter Property="Overlap" Value="40" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

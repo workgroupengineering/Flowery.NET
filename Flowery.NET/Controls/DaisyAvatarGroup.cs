@@ -23,6 +23,15 @@ namespace Flowery.Controls
         private DaisyAvatar? _overflowAvatar;
         private DaisyAvatarGroupPanel? _panel;
 
+        public static readonly StyledProperty<DaisySize> SizeProperty =
+            AvaloniaProperty.Register<DaisyAvatarGroup, DaisySize>(nameof(Size), DaisySize.Medium);
+
+        public DaisySize Size
+        {
+            get => GetValue(SizeProperty);
+            set => SetValue(SizeProperty, value);
+        }
+
         /// <inheritdoc/>
         public void ApplyScaleFactor(double scaleFactor)
         {

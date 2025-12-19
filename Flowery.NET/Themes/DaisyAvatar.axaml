@@ -28,6 +28,7 @@
     <ControlTheme x:Key="{x:Type controls:DaisyAvatar}" TargetType="controls:DaisyAvatar">
           <Setter Property="Width" Value="{DynamicResource DaisyAvatarMediumSize}" />
           <Setter Property="Height" Value="{DynamicResource DaisyAvatarMediumSize}" />
+          <Setter Property="FontSize" Value="{DynamicResource DaisySizeMediumFontSize}" />
           <Setter Property="ClipToBounds" Value="False" />
 
           <Setter Property="Template">
@@ -103,18 +104,22 @@
           <Style Selector="^[Size=Large]">
                <Setter Property="Width" Value="{DynamicResource DaisyAvatarLargeSize}" />
                <Setter Property="Height" Value="{DynamicResource DaisyAvatarLargeSize}" />
+               <Setter Property="FontSize" Value="{DynamicResource DaisySizeLargeFontSize}" />
           </Style>
           <Style Selector="^[Size=Small]">
                <Setter Property="Width" Value="{DynamicResource DaisyAvatarSmallSize}" />
                <Setter Property="Height" Value="{DynamicResource DaisyAvatarSmallSize}" />
+               <Setter Property="FontSize" Value="{DynamicResource DaisySizeSmallFontSize}" />
           </Style>
           <Style Selector="^[Size=ExtraSmall]">
                <Setter Property="Width" Value="{DynamicResource DaisyAvatarExtraSmallSize}" />
                <Setter Property="Height" Value="{DynamicResource DaisyAvatarExtraSmallSize}" />
+               <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraSmallFontSize}" />
           </Style>
           <Style Selector="^[Size=ExtraLarge]">
                <Setter Property="Width" Value="{DynamicResource DaisyAvatarExtraLargeSize}" />
                <Setter Property="Height" Value="{DynamicResource DaisyAvatarExtraLargeSize}" />
+               <Setter Property="FontSize" Value="{DynamicResource DaisySizeExtraLargeFontSize}" />
           </Style>
 
           <!-- Status -->

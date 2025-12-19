@@ -9,6 +9,7 @@ DaisyAvatarGroup arranges multiple `DaisyAvatar` items in an overlapping row. It
 
 | Property | Description |
 |----------|-------------|
+| `Size` (`DaisySize`, default `Medium`) | Controls the group sizing behavior used by the theme (currently: overlap presets) and the built-in overflow avatar (`+N`). Note: this does **not** automatically set the `Size` of child `DaisyAvatar` items. |
 | `Overlap` (double, default 24) | How much each avatar overlaps the previous one. Higher values create tighter stacks; lower values show more of each avatar. |
 | `MaxVisible` (int) | Maximum number of avatars to show before collapsing. If the group has more items than this limit, the last visible slot becomes a placeholder showing the remaining count (e.g., "+5"). Default is 0 (show all). |
 
@@ -16,7 +17,7 @@ DaisyAvatarGroup arranges multiple `DaisyAvatar` items in an overlapping row. It
 
 ```xml
 <!-- Simple stacked avatars -->
-<controls:DaisyAvatarGroup Overlap="16">
+<controls:DaisyAvatarGroup>
     <controls:DaisyAvatar Size="Small" Background="#FFCDD2">
         <TextBlock Text="AL" HorizontalAlignment="Center" VerticalAlignment="Center" />
     </controls:DaisyAvatar>
@@ -38,7 +39,7 @@ DaisyAvatarGroup arranges multiple `DaisyAvatar` items in an overlapping row. It
 </controls:DaisyAvatarGroup>
 
 <!-- Tighter overlap for larger avatars -->
-<controls:DaisyAvatarGroup Overlap="32">
+<controls:DaisyAvatarGroup Size="Large">
     <controls:DaisyAvatar Size="Large" Status="Online">
         <Image Source="avares://Flowery.NET.Gallery/Assets/avalonia-logo.ico" Stretch="UniformToFill" />
     </controls:DaisyAvatar>

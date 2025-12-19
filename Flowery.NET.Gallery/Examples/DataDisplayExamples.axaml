@@ -133,15 +133,21 @@
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <controls:DaisyAvatar Shape="Circle" Background="#FFCC80">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#E65100" Width="32" Height="32" />
+                                        Foreground="#E65100"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
                                 <controls:DaisyAvatar Shape="Rounded" Background="#FFCC80">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#E65100" Width="32" Height="32" />
+                                        Foreground="#E65100"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
                                 <controls:DaisyAvatar Shape="Square" Background="#FFCC80">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#E65100" Width="32" Height="32" />
+                                        Foreground="#E65100"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
                             </StackPanel>
                         </StackPanel>
@@ -152,15 +158,21 @@
                             <StackPanel Orientation="Horizontal" Spacing="10">
                                 <controls:DaisyAvatar Status="Online" Background="#BBDEFB">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#1565C0" Width="32" Height="32" />
+                                        Foreground="#1565C0"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
                                 <controls:DaisyAvatar Status="Offline" Background="#BBDEFB">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#1565C0" Width="32" Height="32" />
+                                        Foreground="#1565C0"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
                                 <controls:DaisyAvatar Status="None" Background="#BBDEFB">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#1565C0" Width="32" Height="32" />
+                                        Foreground="#1565C0"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
                             </StackPanel>
                         </StackPanel>
@@ -172,22 +184,30 @@
                                 <controls:DaisyAvatar HasRing="True" RingColor="Primary"
                                     Background="#E1BEE7">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#7B1FA2" Width="32" Height="32" />
+                                        Foreground="#7B1FA2"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
                                 <controls:DaisyAvatar HasRing="True" RingColor="Secondary"
                                     Background="#E1BEE7">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#7B1FA2" Width="32" Height="32" />
+                                        Foreground="#7B1FA2"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
                                 <controls:DaisyAvatar HasRing="True" RingColor="Success"
                                     Background="#E1BEE7">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#7B1FA2" Width="32" Height="32" />
+                                        Foreground="#7B1FA2"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
                                 <controls:DaisyAvatar HasRing="True" RingColor="Error"
                                     Background="#E1BEE7">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#7B1FA2" Width="32" Height="32" />
+                                        Foreground="#7B1FA2"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
                             </StackPanel>
                         </StackPanel>
@@ -196,16 +216,16 @@
                         <StackPanel Spacing="10" Margin="0,0,40,20">
                             <TextBlock Text="Placeholder" FontWeight="Bold" />
                             <StackPanel Orientation="Horizontal" Spacing="10">
-                                <controls:DaisyAvatar IsPlaceholder="True" Size="Large">
-                                    <TextBlock Text="D" FontSize="24" FontWeight="Bold"
+                                <controls:DaisyAvatar IsPlaceholder="True">
+                                    <TextBlock Text="D" FontWeight="Bold"
                                         VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 </controls:DaisyAvatar>
                                 <controls:DaisyAvatar IsPlaceholder="True">
-                                    <TextBlock Text="AI" FontSize="14" FontWeight="Bold"
+                                    <TextBlock Text="AI" FontWeight="Bold"
                                         VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 </controls:DaisyAvatar>
-                                <controls:DaisyAvatar IsPlaceholder="True" Size="Small">
-                                    <TextBlock Text="UI" FontSize="10" FontWeight="Bold"
+                                <controls:DaisyAvatar IsPlaceholder="True">
+                                    <TextBlock Text="UI" FontWeight="Bold"
                                         VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 </controls:DaisyAvatar>
                             </StackPanel>
@@ -214,20 +234,26 @@
                         <!-- Avatar Group -->
                         <StackPanel Spacing="10" Margin="0,0,40,20">
                             <TextBlock Text="Avatar Group" FontWeight="Bold" />
-                            <controls:DaisyAvatarGroup Overlap="16">
-                                <controls:DaisyAvatar Size="Small" Background="#FFCDD2" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
+                            <controls:DaisyAvatarGroup>
+                                <controls:DaisyAvatar Background="#FFCDD2" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#C62828" Width="22" Height="22" />
+                                        Foreground="#C62828"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
-                                <controls:DaisyAvatar Size="Small" Background="#C8E6C9" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
+                                <controls:DaisyAvatar Background="#C8E6C9" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#2E7D32" Width="22" Height="22" />
+                                        Foreground="#2E7D32"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
-                                <controls:DaisyAvatar Size="Small" Background="#BBDEFB" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
+                                <controls:DaisyAvatar Background="#BBDEFB" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
                                     <PathIcon Data="{DynamicResource DaisyIconDog}"
-                                        Foreground="#1565C0" Width="22" Height="22" />
+                                        Foreground="#1565C0"
+                                        Width="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}"
+                                        Height="{Binding $parent[controls:DaisyAvatar].Width, Converter={x:Static controls:IndicatorConverters.TwoThirdsRoundedConverter}}" />
                                 </controls:DaisyAvatar>
-                                <controls:DaisyAvatar Size="Small" IsPlaceholder="True" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
+                                <controls:DaisyAvatar IsPlaceholder="True" BorderThickness="2" BorderBrush="{DynamicResource DaisyBase100Brush}">
                                     <TextBlock Text="+5" FontWeight="Bold"
                                         VerticalAlignment="Center" HorizontalAlignment="Center" />
                                 </controls:DaisyAvatar>
