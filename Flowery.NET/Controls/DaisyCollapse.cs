@@ -29,6 +29,21 @@ namespace Flowery.Controls
 
         // We can add a Variant enum if we want to switch icons easily.
 
+        /// <summary>
+        /// Defines the <see cref="Size"/> property.
+        /// </summary>
+        public static readonly StyledProperty<DaisySize> SizeProperty =
+            AvaloniaProperty.Register<DaisyCollapse, DaisySize>(nameof(Size), DaisySize.Medium);
+
+        /// <summary>
+        /// Gets or sets the size of the collapse (ExtraSmall, Small, Medium, Large, ExtraLarge).
+        /// </summary>
+        public DaisySize Size
+        {
+            get => GetValue(SizeProperty);
+            set => SetValue(SizeProperty, value);
+        }
+
         public static readonly StyledProperty<DaisyCollapseVariant> VariantProperty =
             AvaloniaProperty.Register<DaisyCollapse, DaisyCollapseVariant>(nameof(Variant), DaisyCollapseVariant.Arrow);
 

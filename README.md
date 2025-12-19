@@ -350,6 +350,21 @@ dotnet build Flowery.NET.Gallery.Android -f net9.0-android
 
 ---
 
+## Build & Run Scripts (PowerShell)
+
+The `scripts/` folder contains PowerShell helpers for common build and run workflows:
+
+- **Build scripts**:
+  - `scripts/build_all.ps1`: Builds the full solution/projects
+  - `scripts/build_desktop.ps1`: Builds the Desktop gallery host
+  - `scripts/build_nuget.ps1`: Builds/packaging workflow for NuGet output
+- **Run scripts**:
+  - `scripts/run-desktop.ps1`: Runs the Desktop gallery host
+  - `scripts/run-browser.ps1`: Runs the Browser (WASM) gallery host
+  - `scripts/run-android.ps1`: Runs/builds the Android gallery host (requires Android SDK and running emulator!)
+
+For details and parameters, see `scripts/README.md`.
+
 ## Technical Requirements
 
 **To use the library:**

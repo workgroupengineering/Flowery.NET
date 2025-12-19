@@ -10,8 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **DaisyAvatar**: Avatar content now scales correctly with global size tiers (FontSize mapped via design tokens)
 - **Gallery App**: Improved Avatar examples so content scales with the avatar (removed hardcoded icon sizes); placeholder and avatar-group demos now participate in global size scaling
+- **DaisyAvatar**: Avatar content now scales correctly with global size tiers (FontSize mapped via design tokens)
+- **DaisyCollapse**: Now participates in global size tiers (added `Size` property + theme uses design tokens for sizing)
 - **DaisyButtonGroup / DaisyJoin / DaisyDock**: Fixed FluentTheme hover state overriding joined segment borders (borders/dividers “disappearing”) by targeting `ContentPresenter#PART_ContentPresenter` in scoped styles
 - **DaisyList**: Fixed row hover divider contrast and embedded icon-button hover feedback to prevent flicker/inconsistent hover states
 - **DaisyNumberFlow**: Fixed Browser/WASM button-hold repeat causing flickering/skipped digits by preventing repeat from outpacing the animation and normalizing animation step timing
