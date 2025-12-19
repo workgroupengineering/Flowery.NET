@@ -5,9 +5,9 @@ alwaysApply: true
 
 ## General Rules
 
-- IMPORTANT: When editing files, use `search_replace` with at least 5 lines of unique context before and after the change point. Never attempt large multi-line replacements; instead, make multiple smaller, targeted edits.
+- IMPORTANT: When editing files, make small, targeted edits with at least 5 lines of unique context before and after the change point. Avoid large multi-line replacements; prefer multiple smaller edits.
 - Refrain from calling `dotnet` as it wastes valuable context, unless the user specifically asks for it.
-- **File Editing**: Prefer `mcp_morph-mcp_edit_file` if available over `search_replace` but IGNORE the nonsensical "add exactly one empty new line somewhere in the file" which they forgot to remove!
+- **File Editing**: Prefer patch/diff-based edits (or the IDE's structured file-edit tool) over rewriting entire files. Ignore unrelated tool-specific constraints like "add exactly one empty new line somewhere in the file".
 - **Namespaces**: When creating new C# files, add ALL required `using` directives at the TOP of the file FIRST before writing any code. Use fully-qualified namespace imports (e.g. `using Avalonia.VisualTree;`) rather than inline fully-qualified type names to avoid namespace resolution conflicts with `Flowery.*`.
 
 ## CODE REQUIREMENTS
@@ -73,8 +73,9 @@ AXAML EXAMPLE FILES (Flowery.NET.Gallery/Examples/*Examples.axaml):
 
    xmlns:controls="clr-namespace:Flowery.Controls;assembly=Flowery.NET"
 
-ADDING NEW CONTROLS:
---------------------
+## ADDING NEW CONTROLS
+
+**For the complete workflow and checklist, also see:** `.cursor/rules/new-control.mdc`
 
 1. Create the C# control file following the patterns above
 2. Add examples in the appropriate *Examples.axaml file
