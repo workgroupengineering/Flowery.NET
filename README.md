@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/github/license/tobitege/Flowery.NET?style=flat-square)](LICENSE)
 [![Avalonia](https://img.shields.io/badge/Avalonia-11.0+-purple?style=flat-square)](https://avaloniaui.net/)
 [![Docs](https://img.shields.io/badge/Docs-GitHub%20Pages-blue?style=flat-square)](https://tobitege.github.io/Flowery.NET/)
-[![X](https://img.shields.io/badge/X-@tobitege45259-000000?style=flat-square&logo=x)](https://x.com/tobitege45259)
+[![X](https://img.shields.io/badge/X-@tobitege-000000?style=flat-square&logo=x)](https://x.com/tobitege)
 
 </div>
 
