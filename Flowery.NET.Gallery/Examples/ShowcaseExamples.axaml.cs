@@ -12,6 +12,7 @@ namespace Flowery.NET.Gallery.Examples
     {
         private Border? _slideHandle;
         private Border? _slideTrack;
+        private TextBlock? _slideLabel;
         private bool _isDragging;
         private double _startX;
         private double _maxSlide;
@@ -22,6 +23,7 @@ namespace Flowery.NET.Gallery.Examples
 
             _slideHandle = this.FindControl<Border>("SlideHandle");
             _slideTrack = this.FindControl<Border>("SlideTrack");
+            _slideLabel = this.FindControl<TextBlock>("SlideLabel");
 
             if (_slideHandle != null)
             {
@@ -46,7 +48,6 @@ namespace Flowery.NET.Gallery.Examples
             var currentX = e.GetPosition(_slideTrack).X;
             var newX = Math.Max(0, Math.Min(_maxSlide, currentX - _startX));
             Canvas.SetLeft(_slideHandle, newX);
-
             // Visual feedback: dim track as we slide
             _slideTrack.Opacity = 1.0 - (newX / _maxSlide) * 0.5;
         }
@@ -63,11 +64,27 @@ namespace Flowery.NET.Gallery.Examples
                 // Success!
                 Canvas.SetLeft(_slideHandle, _maxSlide);
                 _slideTrack.Background = Brushes.Red;
-                await Task.Delay(1000);
+                _slideTrack.Opacity = 1.0; // Force full opacity on success
+
+                // Change text
+                string? originalText = null;
+                if (_slideLabel != null)
+                {
+                    originalText = _slideLabel.Text;
+                    _slideLabel.Text = "Power Off";
+                }
+
+                await Task.Delay(2000);
                 // Reset
                 Canvas.SetLeft(_slideHandle, 0);
                 _slideTrack.Background = (IBrush)this.FindResource("DaisyBase300Brush")!;
                 _slideTrack.Opacity = 1.0;
+
+                // Restore text
+                if (_slideLabel != null && originalText != null)
+                {
+                     _slideLabel.Text = originalText;
+                }
             }
             else
             {

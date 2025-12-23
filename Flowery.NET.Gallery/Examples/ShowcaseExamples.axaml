@@ -10,6 +10,17 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="2000"
              x:Class="Flowery.NET.Gallery.Examples.ShowcaseExamples">
 
+    <UserControl.Styles>
+        <!-- Default state: Fully rounded -->
+        <Style Selector="controls|DaisyExpandableCard Border.card-content">
+            <Setter Property="CornerRadius" Value="16" />
+        </Style>
+        <!-- Expanded state: Sharp right corners -->
+        <Style Selector="controls|DaisyExpandableCard[IsExpanded=True] Border.card-content">
+            <Setter Property="CornerRadius" Value="16,0,0,16" />
+        </Style>
+    </UserControl.Styles>
+
     <ScrollViewer x:Name="MainScrollViewer" HorizontalScrollBarVisibility="Disabled">
         <StackPanel Spacing="32" Margin="24">
 
@@ -24,7 +35,7 @@
                         <controls:DaisyExpandableCard x:Name="Card1" Margin="0,0,4,0" Padding="0">
                             <!-- Main Content -->
                             <Grid Height="225" Width="150">
-                                <Border ClipToBounds="True" CornerRadius="16,0,0,16">
+                                <Border Classes="card-content" ClipToBounds="True">
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
                                             <GradientStop Color="#0f172a" Offset="0" />
@@ -43,14 +54,13 @@
                                     <TextBlock Text="Summer" Foreground="White" FontSize="14" FontWeight="Bold" LineHeight="18"/>
                                     <TextBlock Text="Opening" Foreground="White" FontSize="14" FontWeight="Bold" LineHeight="18" Margin="0,0,0,10"/>
 
-                                    <controls:DaisyButton Content="Play"
-                                                          Command="{Binding #Card1.ToggleCommand}"
-                                                          ButtonStyle="Outline"
-                                                          Classes="btn-circle"
-                                                          Foreground="White"
-                                                          BorderBrush="White"
-                                                          Padding="8,4"
-                                                          MinHeight="32">
+                                    <controls:DaisyButton Command="{Binding #Card1.ToggleCommand}"
+                                        ButtonStyle="Outline"
+                                        Classes="btn-circle"
+                                        Foreground="White"
+                                        BorderBrush="White"
+                                        Padding="8,4"
+                                        MinHeight="32">
                                         <controls:DaisyButton.Content>
                                             <StackPanel Orientation="Horizontal" Spacing="4">
                                                 <PathIcon Data="M8 5v14l11-7z" Width="8" Height="8" />
@@ -91,7 +101,7 @@
                         <controls:DaisyExpandableCard x:Name="Card2" Margin="0,0,4,0" Padding="0">
                             <!-- Main Content -->
                             <Grid Height="225" Width="150">
-                                <Border ClipToBounds="True" CornerRadius="16,0,0,16">
+                                <Border Classes="card-content" ClipToBounds="True">
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
                                             <GradientStop Color="#7c3aed" Offset="0" />
@@ -107,14 +117,13 @@
                                 <StackPanel VerticalAlignment="Bottom" Margin="12">
                                     <TextBlock Text="Fashion" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
 
-                                    <controls:DaisyButton Content="Play"
-                                                          Command="{Binding #Card2.ToggleCommand}"
-                                                          ButtonStyle="Outline"
-                                                          Classes="btn-circle"
-                                                          Foreground="White"
-                                                          BorderBrush="White"
-                                                          Padding="8,4"
-                                                          MinHeight="32">
+                                    <controls:DaisyButton Command="{Binding #Card2.ToggleCommand}"
+                                        ButtonStyle="Outline"
+                                        Classes="btn-circle"
+                                        Foreground="White"
+                                        BorderBrush="White"
+                                        Padding="8,4"
+                                        MinHeight="32">
                                         <controls:DaisyButton.Content>
                                             <StackPanel Orientation="Horizontal" Spacing="4">
                                                 <PathIcon Data="M8 5v14l11-7z" Width="8" Height="8" />
@@ -145,7 +154,7 @@
                         <controls:DaisyExpandableCard x:Name="Card3" Margin="0,0,4,0" Padding="0">
                             <!-- Main Content -->
                             <Grid Height="225" Width="150">
-                                <Border ClipToBounds="True" CornerRadius="16,0,0,16">
+                                <Border Classes="card-content" ClipToBounds="True">
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
                                             <GradientStop Color="#d97706" Offset="0" />
@@ -161,14 +170,13 @@
                                 <StackPanel VerticalAlignment="Bottom" Margin="12">
                                     <TextBlock Text="Gallery Art" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
 
-                                    <controls:DaisyButton Content="Play"
-                                                          Command="{Binding #Card3.ToggleCommand}"
-                                                          ButtonStyle="Outline"
-                                                          Classes="btn-circle"
-                                                          Foreground="White"
-                                                          BorderBrush="White"
-                                                          Padding="8,4"
-                                                          MinHeight="32">
+                                    <controls:DaisyButton Command="{Binding #Card3.ToggleCommand}"
+                                        ButtonStyle="Outline"
+                                        Classes="btn-circle"
+                                        Foreground="White"
+                                        BorderBrush="White"
+                                        Padding="8,4"
+                                        MinHeight="32">
                                         <controls:DaisyButton.Content>
                                             <StackPanel Orientation="Horizontal" Spacing="4">
                                                 <PathIcon Data="M8 5v14l11-7z" Width="8" Height="8" />
@@ -199,7 +207,7 @@
                         <controls:DaisyExpandableCard x:Name="Card4" Margin="0,0,4,0" Padding="0">
                             <!-- Main Content -->
                             <Grid Height="225" Width="150">
-                                <Border ClipToBounds="True" CornerRadius="16,0,0,16">
+                                <Border Classes="card-content" ClipToBounds="True">
                                     <Border.Background>
                                         <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
                                             <GradientStop Color="#db2777" Offset="0" />
@@ -215,14 +223,13 @@
                                 <StackPanel VerticalAlignment="Bottom" Margin="12">
                                     <TextBlock Text="Dreams" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
 
-                                    <controls:DaisyButton Content="Play"
-                                                          Command="{Binding #Card4.ToggleCommand}"
-                                                          ButtonStyle="Outline"
-                                                          Classes="btn-circle"
-                                                          Foreground="White"
-                                                          BorderBrush="White"
-                                                          Padding="8,4"
-                                                          MinHeight="32">
+                                    <controls:DaisyButton Command="{Binding #Card4.ToggleCommand}"
+                                        ButtonStyle="Outline"
+                                        Classes="btn-circle"
+                                        Foreground="White"
+                                        BorderBrush="White"
+                                        Padding="8,4"
+                                        MinHeight="32">
                                         <controls:DaisyButton.Content>
                                             <StackPanel Orientation="Horizontal" Spacing="4">
                                                 <PathIcon Data="M8 5v14l11-7z" Width="8" Height="8" />
@@ -261,9 +268,10 @@
 
                 <Border x:Name="SlideTrack" Background="{DynamicResource DaisyBase300Brush}" CornerRadius="24" Padding="4" HorizontalAlignment="Left" Width="240" Height="48">
                     <Grid>
-                        <TextBlock Text="{galloc:Localize Showcase_PowerOff_SlideLabel}"
-                                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Opacity="0.4" FontWeight="Bold" FontSize="11" LetterSpacing="1" />
+                        <TextBlock x:Name="SlideLabel"
+                            Text="{galloc:Localize Showcase_PowerOff_SlideLabel}"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            FontWeight="Bold" FontSize="11" LetterSpacing="1" />
                         <Canvas x:Name="SlideCanvas" Background="Transparent">
                             <Border x:Name="SlideHandle" Background="White" CornerRadius="20" Width="40" Height="40"
                                     Canvas.Left="0" Canvas.Top="0" Cursor="Hand">
