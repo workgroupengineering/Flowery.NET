@@ -8,7 +8,7 @@ DaisyColorSlider is a slider control for selecting individual color channel valu
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Channel` | `ColorSliderChannel` | `Hue` | The color channel this slider controls |
 | `Color` | `Color` | `Red` | The current color value |
 | `Orientation` | `Orientation` | `Horizontal` | Slider orientation (Horizontal/Vertical) |
@@ -21,7 +21,7 @@ DaisyColorSlider is a slider control for selecting individual color channel valu
 The `ColorSliderChannel` enum defines which color component the slider controls:
 
 | Channel | Range | Description |
-|---------|-------|-------------|
+| ------- | ----- | ----------- |
 | `Red` | 0-255 | Red component (RGB) |
 | `Green` | 0-255 | Green component (RGB) |
 | `Blue` | 0-255 | Blue component (RGB) |

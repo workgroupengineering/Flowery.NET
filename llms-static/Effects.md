@@ -59,7 +59,7 @@ Entrance animation when element enters the visual tree. Supports 5 modes:
 ```
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `IsEnabled` | bool | false | Enable the effect |
 | `Mode` | RevealMode | FadeReveal | `FadeReveal`, `SlideIn`, `FadeOnly`, `Scale`, `ScaleSlide` |
 | `Duration` | TimeSpan | 500ms | Animation duration |
@@ -98,7 +98,7 @@ Text scramble/reveal effect on hover or click (mobile-friendly).
 ```
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `IsEnabled` | bool | false | Enable the effect |
 | `Mode` | ScrambleMode | RevealOnHover | `RevealOnHover` (start scrambled) or `ScrambleOnHover` (start readable) |
 | `RevealStyle` | RevealStyle | Random | `Random` (random chars) or `SplitFlap` (alphabetical cycling like airport boards) |
@@ -129,7 +129,7 @@ Infinite sine wave animation on the Y axis. Supports both whole-block and per-ch
 ```
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `IsEnabled` | bool | false | Enable the effect |
 | `IsPerCharacter` | bool | false | Enable character-level ripple wave (replaces Text with Inlines) |
 | `Amplitude` | double | 5 | Maximum vertical movement (pixels) |
@@ -152,7 +152,7 @@ Creates a follower element that tracks mouse position with spring physics.
 ```
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `IsEnabled` | bool | false | Enable the effect |
 | `FollowerSize` | double | 20 | Size of follower element |
 | `FollowerShape` | FollowerShape | Circle | `Circle`, `Square`, or `Ring` |
@@ -192,7 +192,7 @@ Sequential character reveal animation for `TextBlock` controls. Ideal for termin
 ```
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `IsEnabled` | bool | false | Enable the effect |
 | `Speed` | TimeSpan | 50ms | Delay between each character |
 
@@ -214,7 +214,7 @@ Automatically re-triggers entrance animations when an element enters the scroll 
 ```
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `IsEnabled` | bool | false | Enable viewport-aware reveal |
 
 ---

@@ -8,7 +8,7 @@ DaisyKbd renders keyboard keycaps for inline hints (e.g., shortcuts). It provide
 ## Size Options
 
 | Size | Height | Padding | Font Size |
-|------|------------|---------|-----------|
+| ---- | ---------- | ------- | --------- |
 | ExtraSmall | 16 | 2,0 | 10 |
 | Small | 20 | 3,0 | 11 |
 | Medium (default) | 24 | 4,0 | 12 |

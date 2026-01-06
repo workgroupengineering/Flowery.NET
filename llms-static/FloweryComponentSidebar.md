@@ -10,7 +10,7 @@ Similarly, set `AvailableLanguages` to enable the language selector functionalit
 ## Key Properties & Events
 
 | Member | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `Categories` (`ObservableCollection<SidebarCategory>`) | Data source for sections and items. Each category has `Name`, `IconKey` (maps to a geometry resource), `IsExpanded`, and `Items`. |
 | `SelectedItem` (`SidebarItem?`) | Currently selected item; set programmatically to highlight and persist selection. |
 | `SidebarWidth` (double, default 220) | Fixed width of the sidebar host. |

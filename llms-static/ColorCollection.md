@@ -8,7 +8,7 @@ ColorCollection is a collection class for managing colors with support for prede
 ## Properties
 
 | Property | Type | Description |
-|----------|------|-------------|
+| -------- | ---- | ----------- |
 | `Count` | `int` | Number of colors in the collection |
 | `IsReadOnly` | `bool` | Always `false` |
 | `this[int]` | `Color` | Indexer for accessing colors |
@@ -16,7 +16,7 @@ ColorCollection is a collection class for managing colors with support for prede
 ## Events
 
 | Event | Description |
-|-------|-------------|
+| ----- | ----------- |
 | `CollectionChanged` | Fired when the collection is modified |
 
 ## Constructors
@@ -40,7 +40,7 @@ var colors = new ColorCollection(existingColorList);
 ## Factory Methods (Built-in Palettes)
 
 | Method | Colors | Description |
-|--------|--------|-------------|
+| ------ | ------ | ----------- |
 | `CreateNamedColors()` | 140+ | All CSS/HTML named colors |
 | `CreateOffice2010()` | 70 | Microsoft Office 2010 theme colors |
 | `CreatePaint()` | 48 | MS Paint default palette |

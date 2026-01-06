@@ -8,7 +8,7 @@ DaisySelect is a styled ComboBox with **9 variants** and **4 size presets**. It 
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Bordered (default) | Subtle base-300 border; brightens on focus. |
 | Ghost | Borderless, transparent background; adds light fill on hover. |
 | Primary / Secondary / Accent | Colored borders. |
@@ -17,7 +17,7 @@ DaisySelect is a styled ComboBox with **9 variants** and **4 size presets**. It 
 ## Size Options
 
 | Size | Height | Font Size |
-|------|--------|-----------|
+| ---- | ------ | --------- |
 | ExtraSmall | 24 | 10 |
 | Small | 32 | 12 |
 | Medium (default) | 48 | 14 |

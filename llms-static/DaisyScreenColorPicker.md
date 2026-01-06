@@ -25,7 +25,7 @@ This interaction model is similar to how eyedropper tools work in professional d
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Color` | `Color` | `Black` | The selected/captured color |
 | `IsCapturing` | `bool` | `false` | Whether the picker is currently in drag-capture mode (read-only) |
 | `OnColorChanged` | `Action<Color>?` | `null` | Optional callback when a color is captured |
@@ -33,7 +33,7 @@ This interaction model is similar to how eyedropper tools work in professional d
 ## Events
 
 | Event | Description |
-|-------|-------------|
+| ----- | ----------- |
 | `ColorChanged` | Fired when a color is successfully captured (on mouse release) |
 | `PickingCompleted` | Fired when picking is completed successfully |
 | `PickingCancelled` | Fired when picking is cancelled (Escape or capture lost) |
@@ -52,7 +52,7 @@ The control displays a compact panel (140×80 pixels) showing:
 ## Platform Support
 
 | Platform | Support |
-|----------|---------|
+| -------- | ------- |
 | **Windows** | ✅ Full support using GDI32 `GetPixel` API |
 | **macOS** | ⚠️ Limited - drag works but color capture may not function |
 | **Linux** | ⚠️ Limited - drag works but color capture may not function |
@@ -152,7 +152,7 @@ Color currentColor = picker.Color;
 ## Comparison with Traditional Eyedroppers
 
 | Traditional | DaisyScreenColorPicker |
-|-------------|------------------------|
+| ----------- | ---------------------- |
 | Click to start, click to select | Click-hold-drag-release |
 | Two separate click actions | Single continuous gesture |
 | May show floating preview window | Inline preview in control |

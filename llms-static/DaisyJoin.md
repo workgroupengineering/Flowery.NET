@@ -8,7 +8,7 @@ DaisyJoin groups adjacent controls into a seamless, connected set by trimming in
 ## Behavior & Styling
 
 | Feature | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Orientation | Default Horizontal; set `Orientation="Vertical"` to stack items. |
 | CornerRadius | First/last children keep outer rounding; middle items have square corners for a continuous strip. |
 | Margins | Negative margins collapse borders between items, avoiding double borders. |

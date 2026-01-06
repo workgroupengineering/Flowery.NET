@@ -8,7 +8,7 @@ DaisyDock arranges action buttons in a pill-shaped bar, similar to a bottom navi
 ## Properties & Events
 
 | Member | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `Size` (`ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`) | Adjusts bar height, button padding, and label size/visibility. ExtraSmall hides labels for icon-only docks. |
 | `AutoSelect` (bool, default `True`) | When true, clicking a button adds `dock-active` to it and removes from siblings. |
 | `ItemSelected` event | Raised with `DockItemSelectedEventArgs` containing the clicked `Control` (usually a `Button`). |

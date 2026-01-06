@@ -20,7 +20,7 @@ FlowerySizeManager.ApplySize(DaisySize.Medium);
 ## Size Tiers
 
 | Size | Typical Use Case | Height | Font Size |
-|------|------------------|--------|-----------|
+| ---- | ---------------- | ------ | --------- |
 | `ExtraSmall` | High-density UIs, data tables | 24px | 10px |
 | `Small` | **Default** - Desktop apps | 32px | 12px |
 | `Medium` | Touch-friendly, accessibility | 48px | 14px |
@@ -82,6 +82,29 @@ Prevents a control (and its descendants) from responding to global size changes:
 </StackPanel>
 ```
 
+#### Visual Tree Inheritance
+
+The property uses "first explicit setting wins" semantics via visual tree traversal:
+
+1. `ShouldIgnoreGlobalSize(control)` walks up from the control to the root
+2. Stops at the first ancestor with an explicitly set value (`True` or `False`)
+3. Returns that value, or `false` if no explicit setting is found
+
+This allows **opting back in** within an opted-out container:
+
+```xml
+<StackPanel controls:FlowerySizeManager.IgnoreGlobalSize="True">
+    <controls:DaisyButton Size="Small" Content="Stays Small" />
+    
+    <!-- This child opts BACK IN to global sizing -->
+    <Border controls:FlowerySizeManager.IgnoreGlobalSize="False">
+        <controls:DaisyButton Content="Responds to global size!" />
+    </Border>
+</StackPanel>
+```
+
+> **Implementation:** Controls should call `FlowerySizeManager.ShouldIgnoreGlobalSize(this)` in their `OnGlobalSizeChanged` handler, not `GetIgnoreGlobalSize(this)` which only checks the control itself.
+
 ### ResponsiveFont
 
 Makes TextBlock font sizes respond to global size changes:
@@ -100,7 +123,7 @@ Makes TextBlock font sizes respond to global size changes:
 #### Font Tiers
 
 | Tier | Description | XS/S/M/L/XL Sizes |
-|------|-------------|-------------------|
+| ---- | ----------- | ------------------- |
 | `None` | No responsive sizing (default) | - |
 | `Primary` | Body text, descriptions | 10/12/14/18/20 |
 | `Secondary` | Hints, captions, labels | 9/10/12/14/16 |
@@ -208,6 +231,7 @@ Ready-to-use dropdown for size selection:
 ```
 
 Features:
+
 - Shows current size with abbreviation (XS, S, M, L, XL)
 - Localized size names (11 languages)
 - Automatically updates all controls when selection changes
@@ -235,7 +259,7 @@ Supported: English, German, French, Spanish, Italian, Japanese, Korean, Arabic, 
 Each size tier maps to specific [Design Tokens](DesignTokens.md):
 
 | Size | Height Token | Font Size Token |
-|------|--------------|-----------------|
+| ---- | ------------ | --------------- |
 | ExtraSmall | `DaisySizeExtraSmallHeight` (24) | `DaisySizeExtraSmallFontSize` (10) |
 | Small | `DaisySizeSmallHeight` (32) | `DaisySizeSmallFontSize` (12) |
 | Medium | `DaisySizeMediumHeight` (48) | `DaisySizeMediumFontSize` (14) |
@@ -245,7 +269,7 @@ Each size tier maps to specific [Design Tokens](DesignTokens.md):
 ## Comparison: FlowerySizeManager vs FloweryScaleManager
 
 | Feature | FlowerySizeManager | FloweryScaleManager |
-|---------|-------------------|---------------------|
+| ------- | ------------------ | ------------------- |
 | **Purpose** | User preference / accessibility | Responsive window sizing |
 | **Scope** | Entire app (global) | Only `EnableScaling="True"` containers |
 | **Scaling** | Discrete tiers (XS, S, M, L, XL) | Continuous (0.5× to 1.0×) |
@@ -253,6 +277,26 @@ Each size tier maps to specific [Design Tokens](DesignTokens.md):
 | **Best For** | Desktop apps, accessibility | Data forms, dashboards |
 
 > **Most apps should use FlowerySizeManager only.** FloweryScaleManager is an advanced feature for specific responsive scenarios.
+
+## Platform DPI Notes
+
+> **Windows vs Skia Desktop**: At the same `DaisySize` setting, Windows (WinUI) and Skia Desktop may render text at different physical sizes.
+
+| Platform | DPI Behavior |
+| -------- | ------------ |
+| **Windows (WinUI)** | Automatically respects system DPI scaling (e.g., 125%, 150%). Text appears larger on high-DPI displays. |
+| **Skia Desktop** | May render at 1:1 pixel ratio regardless of system DPI settings. Text appears smaller on high-DPI displays. |
+
+**Example**: On a 125% scaled display, a control set to `DaisySize.Small` (12px font) will appear:
+
+- **Windows**: ~15px physical (12 × 1.25)
+- **Skia Desktop**: ~12px physical (no scaling applied)
+
+This is a platform rendering characteristic, not a bug. If visual consistency is critical across platforms, consider:
+
+1. Accepting the difference as platform-native behavior
+2. Investigating Skia DPI awareness settings in your Uno Platform configuration
+3. Using `FloweryScaleManager` to apply manual DPI compensation on Desktop builds
 
 ## Best Practices
 
@@ -262,4 +306,3 @@ Each size tier maps to specific [Design Tokens](DesignTokens.md):
 4. **Use design tokens** - Not hardcoded values
 5. **Clean up subscriptions** - Always unsubscribe from `SizeChanged` in `OnUnloaded`
 6. **Use ResponsiveFont for TextBlocks** - Not DynamicResource
-

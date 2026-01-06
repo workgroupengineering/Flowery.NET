@@ -8,15 +8,15 @@ DaisyHoverGallery displays one item at a time from an item collection, switching
 ## Behavior
 
 | Feature | Description |
-|---------|-------------|
-| Hover-based selection | Pointer movement updates `VisibleIndex` according to the pointer’s X position across equal segments. |
+| ------- | ----------- |
+| Hover-based selection | Pointer movement updates `VisibleIndex` according to the pointer's X position across equal segments. |
 | Reset on exit | Pointer exit resets `VisibleIndex` to 0 (first item). |
 | Dividers | Optional vertical lines between segments controlled by `ShowDividers`, `DividerBrush`, and `DividerThickness`. |
 
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `VisibleIndex` (int) | Currently shown item index (0-based). Automatically set on hover; you can set it manually. |
 | `ShowDividers` (bool) | Toggles divider rendering. |
 | `DividerBrush` / `DividerThickness` | Customize divider look (default semi-transparent white, 1px). |

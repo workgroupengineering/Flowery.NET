@@ -8,7 +8,7 @@ DaisySwap is a toggle that swaps between `OnContent`, `OffContent`, and optional
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `OnContent` | Content shown when `IsChecked=True`. |
 | `OffContent` | Content shown when `IsChecked=False`. |
 | `IndeterminateContent` | Content for indeterminate state when `IsChecked=null`. |

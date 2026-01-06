@@ -8,7 +8,7 @@ DaisyDropdown is a lightweight dropdown menu control built on a `Popup`. It disp
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `ItemsSource` (`IEnumerable?`) | Items displayed in the dropdown menu. |
 | `SelectedItem` (object?) | Currently selected item. When set/bound, the trigger shows this item. |
 | `PlaceholderText` (string?) | Text shown when `SelectedItem` is null (default `Select`). |
@@ -20,7 +20,7 @@ DaisyDropdown is a lightweight dropdown menu control built on a `Popup`. It disp
 ## Events
 
 | Event | Description |
-|-------|-------------|
+| ----- | ----------- |
 | `SelectedItemChanged` | Raised when the selected item changes. Handler signature: `void OnSelectedItemChanged(object? sender, DaisyDropdownSelectionChangedEventArgs e)` (use `e.SelectedItem`). |
 
 ## Quick Examples

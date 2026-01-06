@@ -8,14 +8,14 @@ DaisyAccordion is an ItemsControl for stacked, single-open sections built from `
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | **Arrow (default)** | Chevron on the right that flips 180° when expanded. Matches DaisyCollapse arrow styling for familiar disclosure cues. |
 | **Plus** | Plus icon that rotates into an “×” when expanded, giving a bold open/close affordance. |
 
 ## Expansion Behavior
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `ExpandedIndex` (int) | Index of the currently open item (`0`-based). Set to `-1` to start with everything collapsed. Updated automatically when a user opens an item; opening one item closes the others. |
 | `DaisyAccordionItem.IsExpanded` | Bound to the header toggle. Setting an item to `True` (in XAML or code) will update `ExpandedIndex` and collapse siblings. |
 | `Variant` | Set on the accordion to cascade the indicator style to all items; you can override per item if needed. |

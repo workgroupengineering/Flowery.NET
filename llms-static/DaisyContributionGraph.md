@@ -10,15 +10,15 @@ DaisyContributionGraph is a GitHub-style contribution heatmap graph (7 rows × 5
 Each entry is a `DaisyContributionDay`:
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Date` | The calendar day (date portion is used). |
 | `Count` | Numeric count shown in the tooltip text. |
-| `Level` | Intensity level (clamped to 0–4). Level drives the cell’s visual intensity. |
+| `Level` | Intensity level (clamped to 0–4). Level drives the cell's visual intensity. |
 
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Contributions` (`IEnumerable<DaisyContributionDay>?`) | Data points used to populate the graph. Days not present render as level 0 / count 0. |
 | `Year` (int) | Which year to display (default: current year). |
 | `StartDayOfWeek` (`DayOfWeek`) | Which day is shown as the first row (default: Sunday). |

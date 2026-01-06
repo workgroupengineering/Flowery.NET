@@ -8,7 +8,7 @@ DaisyMockup frames content in simulated shells: **Code**, **Window**, or **Brows
 ## Variants
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Code (default) | Dark background, no border, generous padding for code snippets. |
 | Window | Neutral window frame with header dots and inner content area. |
 | Browser | Adds toolbar with traffic-light dots and an address bar showing `Url`. |
@@ -16,9 +16,9 @@ DaisyMockup frames content in simulated shells: **Code**, **Window**, or **Brows
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Variant` | Selects shell style. |
-| `Url` | Displayed in the Browser variant’s address bar. |
+| `Url` | Displayed in the Browser variant's address bar. |
 | `Padding` | Inner content padding (variant defaults apply). |
 
 ## Quick Examples

@@ -5,7 +5,7 @@ Animated weather condition icon with unique animations per weather type. Support
 DaisyWeatherIcon displays weather condition icons with optional animations. Each condition type has a tailored animation:
 
 | Condition Type | Animation |
-|----------------|-----------|
+| -------------- | --------- |
 | ☀️ Sunny/Clear | Slow rotation (20s cycle) |
 | ☁️ Cloudy/PartlyCloudy/Overcast | Gentle horizontal drift |
 | 🌧️ Rain/Drizzle/Showers/LightRain/HeavyRain | Vertical bob with opacity pulse |
@@ -18,7 +18,7 @@ DaisyWeatherIcon displays weather condition icons with optional animations. Each
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Condition` | `WeatherCondition` | `Unknown` | The weather condition to display |
 | `IconSize` | `double` | `64` | Size of the icon in pixels |
 | `IsAnimated` | `bool` | `true` | Whether to animate the icon |
@@ -54,7 +54,7 @@ The following conditions are supported:
 ## Recommended Colors
 
 | Condition | Suggested Brush |
-|-----------|-----------------|
+| --------- | --------------- |
 | Sunny, Clear | `DaisyWarningBrush` (yellow/orange) |
 | PartlyCloudy | `DaisyInfoBrush` |
 | Cloudy, Overcast, Fog, Mist | `DaisyBaseContentBrush` |

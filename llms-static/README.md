@@ -30,13 +30,13 @@ What the control does and when to use it.
 
 ## Variants
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | **Primary** | Main action styling |
 | **Ghost**   | Low-emphasis option |
 
 ## Sizes
 | Size | Description |
-|------|-------------|
+| ---- | ----------- |
 | Small | Compact |
 | Medium | Default |
 

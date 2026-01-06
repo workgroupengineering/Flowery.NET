@@ -8,7 +8,7 @@ DaisyAlert is a compact callout for inline status messages. It provides **4 sema
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | **Info** | Calm blue outline and text for neutral updates or instructions. |
 | **Success** | Green outline/text for confirmations and “saved” states. |
 | **Warning** | Amber outline/text for cautions and required attention. |
@@ -41,7 +41,7 @@ DaisyAlert is a compact callout for inline status messages. It provides **4 sema
 <StackPanel Spacing="8" Width="420">
     <TextBlock Text="Email address" />
     <TextBox Text="{Binding Email}" />
-    <controls:DaisyAlert Variant="Warning" Content="We’ll use this to verify your account." />
+    <controls:DaisyAlert Variant="Warning" Content="We'll use this to verify your account." />
 </StackPanel>
 
 <!-- Dynamic status surface -->

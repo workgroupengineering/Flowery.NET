@@ -8,7 +8,7 @@ DaisyIndicator overlays a badge on top of any content (often an icon or card). Y
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Badge` | Badge content (e.g., `DaisyBadge`, ellipse, dot). Hidden when null. |
 | `BadgeHorizontalAlignment` | `Left`, `Center`, `Right` (default Right). |
 | `BadgeVerticalAlignment` | `Top`, `Center`, `Bottom` (default Top). |

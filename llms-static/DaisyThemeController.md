@@ -16,7 +16,7 @@ This control uses `DaisyThemeManager` internally, which works with Avalonia's `T
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Mode` | Visual mode: Toggle, Checkbox, Swap, ToggleWithText, ToggleWithIcons. |
 | `UncheckedLabel` / `CheckedLabel` | Labels for light/dark (or custom) modes. |
 | `UncheckedTheme` / `CheckedTheme` | Theme names to apply on off/on states (defaults: Light/Dark). |
@@ -25,7 +25,7 @@ This control uses `DaisyThemeManager` internally, which works with Avalonia's `T
 
 - Toggling applies the target theme via `DaisyThemeManager.ApplyTheme(...)`.
 - Subscribes to `DaisyThemeManager.ThemeChanged` to sync `IsChecked` when theme changes externally.
-- When a new theme is applied that isn’t the unchecked theme, `CheckedTheme`/`CheckedLabel` update to that theme name.
+- When a new theme is applied that isn't the unchecked theme, `CheckedTheme`/`CheckedLabel` update to that theme name.
 
 ## Quick Examples
 

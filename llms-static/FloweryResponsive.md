@@ -10,7 +10,7 @@ FloweryResponsive provides responsive layout functionality via attached properti
 Standard responsive breakpoints aligned with common CSS frameworks:
 
 | Constant | Value | Description |
-|----------|-------|-------------|
+| -------- | ----- | ----------- |
 | `ExtraSmall` | 480px | Extra small screens (phones in portrait) |
 | `Small` | 640px | Small screens (phones landscape, small tablets) |
 | `Medium` | 768px | Medium screens (tablets) |
@@ -34,7 +34,7 @@ bool isMobile = FloweryBreakpoints.IsBelow(width, FloweryBreakpoints.Medium);
 ## FloweryResponsive Attached Properties
 
 | Property | Type | Description |
-|----------|------|-------------|
+| -------- | ---- | ----------- |
 | `IsEnabled` | bool | Enable responsive behavior on the container |
 | `BaseMaxWidth` | double | Maximum width when space is available (default: 430) |
 | `ResponsiveMaxWidth` | double | Calculated responsive width (read-only, bind to this) |

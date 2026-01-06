@@ -10,7 +10,7 @@ DaisyColorPickerDialog is a comprehensive color picker dialog that combines all 
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Color` | `Color` | `Red` | The selected color |
 | `OriginalColor` | `Color` | `Red` | The original color (for comparison) |
 | `CustomColors` | `ColorCollection?` | `null` | Custom colors collection |
@@ -24,7 +24,7 @@ DaisyColorPickerDialog is a comprehensive color picker dialog that combines all 
 ## Events
 
 | Event | Description |
-|-------|-------------|
+| ----- | ----------- |
 | `PreviewColorChanged` | Fired when the preview color changes (before OK is clicked) |
 
 ## Architecture
@@ -32,7 +32,7 @@ DaisyColorPickerDialog is a comprehensive color picker dialog that combines all 
 The dialog is a **composite control** that assembles several standalone color picker controls into a unified interface. Each component is a separate, reusable control with its own C# class and AXAML theme:
 
 | File | Purpose |
-|------|---------|
+| ---- | ------- |
 | `DaisyColorPickerDialog.cs` | Dialog window, layout, and coordination logic |
 | `DaisyColorWheel.cs` + `.axaml` | Standalone color wheel control |
 | `DaisyColorGrid.cs` + `.axaml` | Standalone color palette grid |
@@ -52,7 +52,7 @@ Each component can also be used independently outside the dialog.
 The dialog integrates these components:
 
 | Component | Purpose |
-|-----------|---------|
+| --------- | ------- |
 | `DaisyColorWheel` | Visual hue/saturation selection |
 | `DaisyColorSlider` | Lightness adjustment |
 | `DaisyColorGrid` | Palette-based color selection |
@@ -137,7 +137,7 @@ await dialog.ShowDialog<bool?>(this);
 ## Template Parts
 
 | Part Name | Type | Purpose |
-|-----------|------|---------|
+| --------- | ---- | ------- |
 | `PART_ColorWheel` | `DaisyColorWheel` | Hue/saturation wheel |
 | `PART_ColorGrid` | `DaisyColorGrid` | Color palette |
 | `PART_ColorEditor` | `DaisyColorEditor` | RGB/HSL editor |

@@ -16,7 +16,7 @@ The control automatically hooks into keyboard events and updates in real-time. O
 ### State Properties (Read from keyboard)
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `IsShiftPressed` | `bool` | `false` | Whether Shift is currently held |
 | `IsCtrlPressed` | `bool` | `false` | Whether Ctrl is currently held |
 | `IsAltPressed` | `bool` | `false` | Whether Alt is currently held |
@@ -27,7 +27,7 @@ The control automatically hooks into keyboard events and updates in real-time. O
 ### Visibility Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `ShowShift` | `bool` | `true` | Show the Shift indicator |
 | `ShowCtrl` | `bool` | `true` | Show the Ctrl indicator |
 | `ShowAlt` | `bool` | `true` | Show the Alt indicator |
@@ -59,7 +59,7 @@ The control automatically hooks into keyboard events and updates in real-time. O
 ## Platform Support
 
 | Platform | Modifier Keys | Lock Keys |
-|----------|--------------|-----------|
+| -------- | ------------ | --------- |
 | Windows | ✅ Native API | ✅ Native API |
 | macOS | ✅ Key events | ⚠️ Toggle fallback |
 | Linux | ✅ Key events | ⚠️ Toggle fallback |

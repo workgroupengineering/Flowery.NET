@@ -49,7 +49,7 @@ public partial class App : Application
 Flowery.NET includes all 35 official DaisyUI themes:
 
 | Light Themes | Dark Themes |
-|--------------|-------------|
+| ------------ | ----------- |
 | Light, Acid, Autumn, Bumblebee, Caramellatte, Cmyk, Corporate, Cupcake, Cyberpunk, Emerald, Fantasy, Garden, Lemonade, Lofi, Nord, Pastel, Retro, Silk, Valentine, Winter, Wireframe | Dark, Abyss, Aqua, Black, Business, Coffee, Dim, Dracula, Forest, Halloween, Luxury, Night, Sunset, Synthwave |
 
 ---
@@ -161,7 +161,7 @@ bool isDark = DaisyThemeManager.IsDarkTheme("Dracula");
 ### Key Members
 
 | Member | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `ApplyTheme(string)` | Loads and applies a theme by name |
 | `CurrentThemeName` | Currently applied theme name |
 | `AvailableThemes` | Read-only list of all theme info |
@@ -257,7 +257,7 @@ Flowery.NET uses Avalonia's `ThemeDictionaries` architecture:
 ### When to Use Which API
 
 | Scenario | API |
-|----------|-----|
+| -------- | --- |
 | Switch between built-in themes | `DaisyThemeManager.ApplyTheme()` |
 | Custom theme application strategy | Set `DaisyThemeManager.CustomThemeApplicator` |
 | Toggle Light/Dark modes only | `RequestedThemeVariant = ThemeVariant.Light/Dark` |

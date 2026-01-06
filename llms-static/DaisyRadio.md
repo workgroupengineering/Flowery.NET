@@ -8,7 +8,7 @@ DaisyRadio is a styled `RadioButton` with **8 color variants** and **5 size pres
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Default | Neutral fill when checked. |
 | Primary / Secondary / Accent | Brand-aligned fills. |
 | Success / Warning / Info / Error | Semantic fills for status or validation. |
@@ -16,7 +16,7 @@ DaisyRadio is a styled `RadioButton` with **8 color variants** and **5 size pres
 ## Size Options
 
 | Size | Outer | Inner | Use Case |
-|------|-------|-------|----------|
+| ---- | ----- | ----- | -------- |
 | ExtraSmall | 16px | 8px | Dense tables/toolbars. |
 | Small | 20px | 12px | Compact forms. |
 | Medium (default) | 24px | 14px | General usage. |

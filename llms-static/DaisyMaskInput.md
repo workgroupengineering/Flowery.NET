@@ -7,7 +7,7 @@ DaisyMaskInput is a `MaskedTextBox` styled like `DaisyInput`, intended for **str
 
 ## Masked Editing
 
-You can set the mask manually using `Mask="..."`. The mask format and behavior is provided by Avalonia’s `MaskedTextBox`.
+You can set the mask manually using `Mask="..."`. The mask format and behavior is provided by Avalonia's `MaskedTextBox`.
 
 Alternatively, use `Mode="..."` to apply a preset mask (and an example watermark). When `Mode != Custom`, `DaisyMaskInput` sets `Mask` automatically and sets `Watermark` automatically if it was empty. Those auto-watermarks are localized via `FloweryLocalization`.
 

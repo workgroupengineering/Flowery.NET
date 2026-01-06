@@ -8,7 +8,7 @@ DaisyCard provides a panel for grouping content with padding, rounded corners, a
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Normal (default) | Standard padding (32) and 16px corner radius. |
 | Compact | Reduced padding (16) for dense layouts or nested cards. |
 | Side | Reserved for side-by-side card styling; currently matches Normal styling. |
@@ -16,7 +16,7 @@ DaisyCard provides a panel for grouping content with padding, rounded corners, a
 ## Glass Effect Settings
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `IsGlass` | Switches to the layered glass template (tinted + gradients + inner shine). Disables the drop shadow. |
 | `GlassBlur` | Blur intensity for the frosted look (default 40). |
 | `GlassOpacity` | Opacity of the base tint layer (default 0.3). |
@@ -26,7 +26,7 @@ DaisyCard provides a panel for grouping content with padding, rounded corners, a
 ## Typography & Layout
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `BodyPadding` | Controls padding around content (default 32; compact sets 16). |
 | `BodyFontSize` | Body text size (default 14). |
 | `TitleFontSize` | Title text size (default 20). |

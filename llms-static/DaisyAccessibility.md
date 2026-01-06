@@ -27,7 +27,7 @@ This ensures screen readers announce "Delete item" instead of the emoji.
 ### Methods
 
 | Method | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `GetAccessibleText(obj)` | Gets the accessible text for a control |
 | `SetAccessibleText(obj, value)` | Sets the accessible text for a control |
 | `SetupAccessibility<T>(defaultText)` | Registers accessibility handling for a control type (for control authors) |

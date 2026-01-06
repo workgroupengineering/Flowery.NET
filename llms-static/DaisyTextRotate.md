@@ -8,7 +8,7 @@ DaisyTextRotate cycles through its items with fade transitions, auto-advancing o
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Duration` (ms) | Total loop duration across all items (default 10000). |
 | `TransitionDuration` (ms) | Fade time between items (default 500). |
 | `CurrentIndex` | 0-based index of the visible item; wraps automatically. |

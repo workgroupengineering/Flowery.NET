@@ -8,7 +8,7 @@ DaisyStack displays children in a stacked arrangement with optional navigation. 
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `ShowNavigation` | `bool` | `false` | Shows prev/next arrows; only one item visible at a time |
 | `NavigationPlacement` | `DaisyStackNavigation` | `Horizontal` | Arrow direction: `Horizontal` (left/right) or `Vertical` (up/down) |
 | `NavigationColor` | `DaisyColor` | `Default` | Color for navigation buttons (Primary, Secondary, Accent, etc.) |

@@ -8,7 +8,7 @@ DaisyToggle is a styled `ToggleSwitch` with **8 color variants** and **4 size pr
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Default | Neutral track and knob; darkens when checked. |
 | Primary / Secondary / Accent | Colored track when checked. |
 | Success / Warning / Info / Error | Semantic track colors when checked. |
@@ -16,7 +16,7 @@ DaisyToggle is a styled `ToggleSwitch` with **8 color variants** and **4 size pr
 ## Size Options
 
 | Size | Track (W×H) | Knob | Use Case |
-|------|-------------|------|----------|
+| ---- | ----------- | ---- | -------- |
 | ExtraSmall | 28×16 | 12px | Dense layouts, tables. |
 | Small | 36×20 | 16px | Compact forms. |
 | Medium (default) | 48×24 | 20px | General purpose. |
@@ -25,7 +25,7 @@ DaisyToggle is a styled `ToggleSwitch` with **8 color variants** and **4 size pr
 ## Additional Styling
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `TogglePadding` | Internal knob padding/margin (default 2). Adjust to tweak knob inset. |
 
 ## Quick Examples

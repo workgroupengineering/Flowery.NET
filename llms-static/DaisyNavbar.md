@@ -8,7 +8,7 @@ DaisyNavbar is a top navigation bar with optional start, center, and end slots. 
 ## Slots & Layout
 
 | Slot | Description |
-|------|-------------|
+| ---- | ----------- |
 | `NavbarStart` | Left section (fills half width, left-aligned). |
 | `NavbarCenter` | Centered content (auto-sized). |
 | `NavbarEnd` | Right section (fills remaining half, right-aligned). |
@@ -17,7 +17,7 @@ DaisyNavbar is a top navigation bar with optional start, center, and end slots. 
 ## Appearance
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `IsFullWidth` | Removes corner radius for edge-to-edge bars. |
 | `HasShadow` | Toggles drop shadow under the bar. |
 | `Padding` / `MinHeight` | Default 16,8 and 64 for comfortable touch targets. |

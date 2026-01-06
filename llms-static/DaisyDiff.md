@@ -8,7 +8,7 @@ DaisyDiff is a before/after comparison control with a draggable grip. It overlay
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Image1` | Content shown on top (clipped). Accepts any UI (images, borders, etc.). |
 | `Image2` | Content shown underneath, full width. |
 | `Offset` (0–100, default 50) | Percentage of width revealed for `Image1`; also sets grip position. |

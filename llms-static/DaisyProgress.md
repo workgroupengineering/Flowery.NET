@@ -10,7 +10,7 @@ DaisyProgress is a styled progress bar with **8 color variants**, **4 size prese
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Default | Neutral bar; foreground uses base content color. |
 | Primary / Secondary / Accent | Brand/secondary accents. |
 | Info / Success / Warning / Error | Semantic fills for status-driven progress. |
@@ -18,7 +18,7 @@ DaisyProgress is a styled progress bar with **8 color variants**, **4 size prese
 ## Size Options
 
 | Size | Height | CornerRadius |
-|------|--------|--------------|
+| ---- | ------ | ------------ |
 | ExtraSmall | 2 | 1 |
 | Small | 4 | 2 |
 | Medium (default) | 8 | 4 |
@@ -41,7 +41,7 @@ DaisyProgress is a styled progress bar with **8 color variants**, **4 size prese
 DaisyProgress includes built-in accessibility for screen readers via the `AccessibleText` property. The automation peer automatically announces the current percentage along with the accessible text.
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `AccessibleText` | `string` | `"Progress"` | Context text announced by screen readers (e.g., "Uploading file, 45%"). |
 
 ### Accessibility Examples

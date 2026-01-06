@@ -8,7 +8,7 @@ DaisyFileInput is a button-styled file selector that displays a “Choose File�
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `FileName` | Text shown on the right side; default “No file chosen”. Update this after a file dialog completes. |
 | `Variant` | DaisyButton variant for the choose-file segment (Default, Primary, Secondary, Accent). |
 | `Size` | Height/font scaling (ExtraSmall, Small, Medium, Large, ExtraLarge - theme styles defined for XS/Small/Medium/Large). |
@@ -42,7 +42,7 @@ private async void OnPickFile(object? sender, RoutedEventArgs e)
 
 ## Tips & Best Practices
 
-- Keep `FileName` short; long paths should be truncated or replaced with the file’s leaf name.
+- Keep `FileName` short; long paths should be truncated or replaced with the file's leaf name.
 - Pair with validation text or `DaisyAlert` for upload constraints (size/type).
 - Use `Variant="Primary"` for key upload actions; use Default/Accent for secondary forms.
 - Remember to set focus/keyboard handling as you would with a standard button; this control is still a `Button`.

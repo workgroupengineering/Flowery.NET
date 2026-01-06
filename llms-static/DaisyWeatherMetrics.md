@@ -5,7 +5,7 @@ DaisyWeatherMetrics shows supplementary weather data in a structured grid. Each 
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `UvIndex` | `double` | `0` | Current UV index (0-11+) |
 | `UvMax` | `double` | `0` | Maximum UV for the day |
 | `WindSpeed` | `double` | `0` | Current wind speed |
@@ -53,7 +53,7 @@ DaisyWeatherMetrics shows supplementary weather data in a structured grid. Each 
 The control displays three rows:
 
 | Metric | Icon | Format | Progress |
-|--------|------|--------|----------|
+| ------ | ---- | ------ | -------- |
 | **UV Index** | ☀️ | `5 / 8` | Bar showing current/max |
 | **Wind** | 💨 | `12 km/h / 25` | Bar showing current/max |
 | **Humidity** | 💧 | `65% / 85%` | Bar showing current/max |
@@ -61,7 +61,7 @@ The control displays three rows:
 ## UV Index Scale
 
 | Range | Level | Typical Color |
-|-------|-------|---------------|
+| ----- | ----- | ------------- |
 | 0-2 | Low | Green |
 | 3-5 | Moderate | Yellow |
 | 6-7 | High | Orange |

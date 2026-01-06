@@ -325,7 +325,7 @@ Background borders should be **siblings** of content, not parents:
 The Gallery demo application uses a **multi-platform architecture** to showcase Flowery.NET controls across different platforms:
 
 | Project | Description |
-|---------|-------------|
+| ------- | ----------- |
 | `Flowery.NET.Gallery` | Shared library containing all UI, views, and examples |
 | `Flowery.NET.Gallery.Desktop` | Desktop host for Windows, Linux, and macOS |
 | `Flowery.NET.Gallery.Browser` | WebAssembly host for running in browsers |

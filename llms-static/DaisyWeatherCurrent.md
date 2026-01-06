@@ -5,7 +5,7 @@ DaisyWeatherCurrent is a standalone widget for showing the current weather state
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Temperature` | `double` | `0` | Current temperature value |
 | `FeelsLike` | `double` | `0` | "Feels like" temperature |
 | `Condition` | `WeatherCondition` | `Unknown` | Weather condition for icon |

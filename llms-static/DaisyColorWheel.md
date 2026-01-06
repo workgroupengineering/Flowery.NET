@@ -8,7 +8,7 @@ DaisyColorWheel is a circular color wheel control for selecting hue and saturati
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Color` | `Color` | `Red` | The selected RGB color |
 | `HslColor` | `HslColor` | `H:0, S:1, L:0.5` | The HSL representation of the color |
 | `Lightness` | `double` | `0.5` | Lightness value (0-1) for the wheel display |
@@ -101,7 +101,7 @@ var wheel = new DaisyColorWheel
 The `HslColor` struct represents colors in HSL space:
 
 | Property | Type | Range | Description |
-|----------|------|-------|-------------|
+| -------- | ---- | ----- | ----------- |
 | `H` | `double` | 0-359 | Hue angle in degrees |
 | `S` | `double` | 0-1 | Saturation (0 = gray, 1 = vivid) |
 | `L` | `double` | 0-1 | Lightness (0 = black, 0.5 = pure, 1 = white) |

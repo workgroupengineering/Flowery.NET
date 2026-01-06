@@ -8,7 +8,7 @@ DaisyDivider separates content with a line that can run horizontally (default) o
 ## Orientation & Placement
 
 | Option | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `Horizontal=False` (default) | Renders a horizontal rule (line left/right). |
 | `Horizontal=True` | Renders a vertical rule (line above/below). |
 | `Placement=Start` | Hides the line before the content (useful for headings). |
@@ -17,14 +17,14 @@ DaisyDivider separates content with a line that can run horizontally (default) o
 ## Color Options
 
 | Color | Description |
-|-------|-------------|
+| ----- | ----------- |
 | Default | Subtle base-content line (10% opacity). |
 | Neutral / Primary / Secondary / Accent / Success / Warning / Info / Error | Solid colored line matching the Daisy palette. |
 
 ## Layout
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `DividerMargin` | Spacing around the line/content (default `0,4`). |
 | `Content` | Inline text/element placed between (or beside in vertical mode) the line segments. Hidden automatically when empty. |
 

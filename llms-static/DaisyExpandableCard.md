@@ -15,7 +15,7 @@ Key features:
 ## Key Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | **IsExpanded** | Controls whether the card is currently showing its expanded content. |
 | **ExpandedContent** | The UI content to display in the revealed area. |
 | **ToggleCommand** | A command that toggles `IsExpanded`. Typically bound to a button inside the card. |

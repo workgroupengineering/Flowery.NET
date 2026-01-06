@@ -8,7 +8,7 @@ DaisyPagination renders joined page buttons with support for numeric and non-num
 ## Properties & Events
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `CurrentPage` (int, min 1) | Selected page; coerced to ≥1. |
 | `Size` | ExtraSmall, Small, Medium, Large, ExtraLarge (affects button size/padding). |
 | `Orientation` | Horizontal (default) or Vertical. |

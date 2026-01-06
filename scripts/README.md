@@ -80,7 +80,7 @@ pwsh ./scripts/build_all.ps1 -AndroidSdkDirectory "C:\Users\YOURUSER\AppData\Loc
 ### Parameters
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| --------- | ---- | ------- | ----------- |
 | `-Configuration` | string | `Debug` | Build configuration (`Debug` or `Release`) |
 | `-AndroidSdkDirectory` | string | auto-detect | Path to Android SDK. Auto-detected from `ANDROID_SDK_ROOT`, `ANDROID_HOME`, or `%LOCALAPPDATA%\Android\Sdk` |
 | `-RestoreWorkloads` | switch | false | Run `dotnet workload restore` before building |
@@ -148,7 +148,7 @@ pwsh ./scripts/build-desktop.ps1 -NoRestore
 ### Desktop Parameters
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| --------- | ---- | ------- | ----------- |
 | `-Configuration` | string | `Debug` | Build configuration (`Debug` or `Release`) |
 | `-IncludeTests` | switch | false | Also build `Flowery.NET.Tests` |
 | `-NoRestore` | switch | false | Passes `--no-restore` to `dotnet build` |
@@ -183,7 +183,7 @@ pwsh ./scripts/run_browser.ps1 -Port 8080
 ### Browser: Parameters
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| --------- | ---- | ------- | ----------- |
 | `-NoBrowser` | switch | false | If specified, does not automatically open the browser |
 | `-Port` | int | `5235` | HTTP port to use for the local server |
 | `-Configuration` | string | `Debug` | Build configuration (`Debug` or `Release`) |

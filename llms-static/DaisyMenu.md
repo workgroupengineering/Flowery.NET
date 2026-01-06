@@ -8,14 +8,14 @@ DaisyMenu is a styled `ListBox` for navigation menus. It supports vertical or ho
 ## Orientation & Sizes
 
 | Option | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `Orientation` | `Vertical` (default) or `Horizontal`. Horizontal enables horizontal scrolling if needed. |
 | `Size` | ExtraSmall, Small, Medium (default), Large, ExtraLarge adjust padding/font on items. |
 
 ## Active Styling
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `ActiveForeground` / `ActiveBackground` | Colors applied to selected items; defaults to Neutral theme colors. |
 | Selection | Inherits ListBox selection; `SelectedItem`/`SelectedIndex` works as usual. |
 
@@ -52,7 +52,7 @@ DaisyMenu is a styled `ListBox` for navigation menus. It supports vertical or ho
 ## Tips & Best Practices
 
 >- Use size presets to match surrounding controls; Small/ExtraSmall pair well with toolbars.
-- Set `ActiveForeground/ActiveBackground` to align with your brand colors if Neutral isn’t desired.
-- For horizontal menus, ensure there’s enough padding/margin in the parent to avoid crowding.
+- Set `ActiveForeground/ActiveBackground` to align with your brand colors if Neutral isn't desired.
+- For horizontal menus, ensure there's enough padding/margin in the parent to avoid crowding.
 - Use `Classes="menu-title"` for non-interactive section headers inside the menu.
 - Nest DaisyMenu or use `Expander` for collapsible submenus; adjust margins for indentation as needed.

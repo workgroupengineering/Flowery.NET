@@ -22,7 +22,7 @@ Each item displays up to three text elements stacked vertically:
 ## Properties
 
 | Property | Type | Description |
-|----------|------|-------------|
+| -------- | ---- | ----------- |
 | `Date` | `DateTime` | The date this item represents |
 | `IsSelected` | `bool` | Whether this is the currently selected date |
 | `IsToday` | `bool` | Whether this date is today |
@@ -38,7 +38,7 @@ Each item displays up to three text elements stacked vertically:
 ## Visual States
 
 | State | Appearance |
-|-------|------------|
+| ----- | ---------- |
 | **Normal** | Subtle background (Base200), rounded corners |
 | **Hover** | Slightly brighter background with micro-scale animation |
 | **Today** | Primary-colored border when not selected |

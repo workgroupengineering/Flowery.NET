@@ -8,7 +8,7 @@ DaisyAvatar renders user/profile images or initials with **5 sizes**, **3 shapes
 ## Size Options
 
 | Size | Approx. Dimensions | Use Case |
-|------|--------------------|----------|
+| ---- | ------------------ | -------- |
 | ExtraSmall | 24×24 | Very tight UIs, inline with text |
 | Small | 32×32 | Toolbars, compact cards |
 | Medium (default) | 48×48 | General-purpose avatar lists |
@@ -18,7 +18,7 @@ DaisyAvatar renders user/profile images or initials with **5 sizes**, **3 shapes
 ## Shape Options
 
 | Shape | Description |
-|-------|-------------|
+| ----- | ----------- |
 | Square | Hard edges; works for app icons or assets. |
 | Rounded | Soft 12px rounding; balanced, card-friendly look. |
 | Circle (default) | Fully circular mask for typical profile photos. |
@@ -26,7 +26,7 @@ DaisyAvatar renders user/profile images or initials with **5 sizes**, **3 shapes
 ## Status & Ring Indicators
 
 | Option | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `Status=Online` | Shows a green dot at the top-right with a thin base-colored outline. |
 | `Status=Offline` | Shows a neutral/grey dot in the same position. |
 | `HasRing=True` | Adds an outer ring; color set by `RingColor` (uses Daisy theme colors: Primary, Secondary, Accent, Neutral, Info, Success, Warning, Error). |

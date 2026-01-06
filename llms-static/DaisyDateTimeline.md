@@ -20,7 +20,7 @@ DaisyDateTimeline is a **horizontal scrollable date picker** inspired by FadyFay
 ## Header Types
 
 | HeaderType | Description |
-|------------|-------------|
+| ---------- | ----------- |
 | **None** | No header displayed above the timeline |
 | **MonthYear** | Simple text header showing "December 2024" format based on selected date |
 | **Switcher** | Header with left/right chevron arrows to navigate between months |
@@ -30,7 +30,7 @@ DaisyDateTimeline is a **horizontal scrollable date picker** inspired by FadyFay
 Control which dates users can select:
 
 | DisableStrategy | Description |
-|-----------------|-------------|
+| --------------- | ----------- |
 | **None** | All dates are selectable (default) |
 | **BeforeToday** | Dates before today are grayed out and unselectable |
 | **AfterToday** | Dates after today are grayed out and unselectable |
@@ -43,7 +43,7 @@ Control which dates users can select:
 Control how the timeline scrolls when a date is selected:
 
 | SelectionMode | Description |
-|---------------|-------------|
+| ------------- | ----------- |
 | **None** | No automatic scrolling after selection |
 | **AlwaysFirst** | Selected date scrolls to the left edge (first visible position) |
 | **AutoCenter** | Selected date scrolls to the center of the viewport (default) |
@@ -53,7 +53,7 @@ Control how the timeline scrolls when a date is selected:
 Control the orientation of date items:
 
 | ItemLayout | Description |
-|------------|-------------|
+| ---------- | ----------- |
 | **Vertical** | Stacked layout with month on top, day number centered, day name at bottom (default, portrait-style) |
 | **Horizontal** | Side-by-side layout showing "MON 19" format (landscape-style, wider items) |
 
@@ -62,7 +62,7 @@ Control the orientation of date items:
 Configure which parts of each date item are shown using the `DisplayElements` flags. Each item displays in the order: **Month → Day Number → Day Name** (top to bottom).
 
 | DisplayElements | Shows |
-|-----------------|-------|
+| --------------- | ----- |
 | **DayName** | Three-letter day name in uppercase (MON, TUE, WED...) |
 | **DayNumber** | Numeric day of month (1-31) |
 | **MonthName** | Three-letter month name in uppercase (JAN, FEB, MAR...) |
@@ -73,7 +73,7 @@ Configure which parts of each date item are shown using the `DisplayElements` fl
 ## Size Options
 
 | Size | Item Height | Use Case |
-|------|-------------|----------|
+| ---- | ----------- | -------- |
 | ExtraSmall | ~56px | Compact toolbars, embedded widgets |
 | Small | ~68px | Secondary pickers, limited space |
 | Medium | ~80px | Default, general purpose |
@@ -134,7 +134,7 @@ Configure which parts of each date item are shown using the `DisplayElements` fl
 ## Properties Summary
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `FirstDate` | `DateTime` | Today - 1 month | First date in the scrollable range |
 | `LastDate` | `DateTime` | Today + 3 months | Last date in the scrollable range |
 | `SelectedDate` | `DateTime?` | Today | Currently selected date |
@@ -186,7 +186,7 @@ Marked dates display with a **secondary color** background (instead of the defau
 ## Events
 
 | Event | Trigger | Description |
-|-------|---------|-------------|
+| ----- | ------- | ----------- |
 | `DateChanged` | Selection changes | Fires when SelectedDate changes from any source (click, keyboard, code). Provides `DateTime`. |
 | `DateClicked` | Mouse click | Fires when a date is clicked with the mouse. Provides the clicked `DateTime`. |
 | `DateConfirmed` | Enter/Space key | Fires when Enter or Space is pressed on the selected date (confirmation action). |
@@ -195,7 +195,7 @@ Marked dates display with a **secondary color** background (instead of the defau
 ## Methods
 
 | Method | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `GoToDate(DateTime)` | Scrolls to and selects the specified date if within range |
 | `GoToToday()` | Scrolls to and selects today's date if within range |
 
@@ -204,7 +204,7 @@ Marked dates display with a **secondary color** background (instead of the defau
 Read-only properties for convenient date string formatting (uses the control's `Locale` setting):
 
 | Property | Example Output | Format |
-|----------|---------------|--------|
+| -------- | ------------- | ------ |
 | `SelectedDateLong` | "Wednesday, December 11, 2025" | Long date (D) |
 | `SelectedDateShort` | "12/11/2025" | Short date (d) |
 | `SelectedDateIso` | "2025-12-11" | ISO 8601 |
@@ -215,7 +215,7 @@ Read-only properties for convenient date string formatting (uses the control's `
 The control is fully keyboard accessible. Click on the timeline or tab to it to enable keyboard navigation:
 
 | Key | Action |
-|-----|--------|
+| --- | ------ |
 | **←** (Left) | Move to previous day |
 | **→** (Right) | Move to next day |
 | **↑** (Up) | Move to previous week (7 days back) |
@@ -232,7 +232,7 @@ The control is fully keyboard accessible. Click on the timeline or tab to it to 
 ## Mouse Navigation
 
 | Interaction | Action |
-|-------------|--------|
+| ----------- | ------ |
 | **Mouse Wheel** | Scroll horizontally through dates |
 | **Click + Drag** | Pan left/right through dates (grab-and-drag) |
 | **Click on Date** | Select that date |
@@ -242,7 +242,7 @@ The control is fully keyboard accessible. Click on the timeline or tab to it to 
 Each date item can display the following visual states:
 
 | State | Appearance |
-|-------|------------|
+| ----- | ---------- |
 | **Normal** | Base200 background, subtle border |
 | **Hover** | Slightly elevated with Base300 background |
 | **Today** | Primary-colored border (when not selected) |

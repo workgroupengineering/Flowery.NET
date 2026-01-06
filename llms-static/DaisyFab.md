@@ -8,7 +8,7 @@ DaisyFab is a Floating Action Button container with built-in trigger and child a
 ## Layout & Interaction
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Layout` (`Vertical`, `Flower`) | Vertical stacks actions upward; Flower fans actions in a quarter-circle. |
 | `IsOpen` | Toggles the visibility/animation of action buttons. Trigger click flips this. |
 | `AutoClose` (default `True`) | Clicking an action button closes the menu. |
@@ -16,7 +16,7 @@ DaisyFab is a Floating Action Button container with built-in trigger and child a
 ## Trigger Appearance
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `TriggerVariant` | DaisyButton variant for the trigger (default Primary). |
 | `TriggerContent` | Trigger content (default "+"). |
 | `Size` | Propagated to trigger and action buttons (ExtraSmall–ExtraLarge from DaisySize). |

@@ -3,12 +3,12 @@
 
 # Overview
 
-DaisyCheckBox is a styled checkbox with **9 color variants** and **5 size presets**. It uses a filled box with a checkmark when checked and inherits Avalonia’s standard `IsChecked`/`IsThreeState` behavior. Use variants for semantic meaning and sizes to match surrounding controls.
+DaisyCheckBox is a styled checkbox with **9 color variants** and **5 size presets**. It uses a filled box with a checkmark when checked and inherits Avalonia's standard `IsChecked`/`IsThreeState` behavior. Use variants for semantic meaning and sizes to match surrounding controls.
 
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Default | Neutral base styling. |
 | Primary / Secondary / Accent | Brand-aligned colors for emphasis. |
 | Neutral | Muted neutral fill. |
@@ -17,7 +17,7 @@ DaisyCheckBox is a styled checkbox with **9 color variants** and **5 size preset
 ## Size Options
 
 | Size | Box (approx) | Check | Use Case |
-|------|--------------|-------|----------|
+| ---- | ------------ | ----- | -------- |
 | ExtraSmall | 16px | 10px | Dense tables/toolbars. |
 | Small | 20px | 12px | Compact forms. |
 | Medium (default) | 24px | 16px | General usage. |

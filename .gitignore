@@ -215,5 +215,5 @@ docs/
 llms/
 /!**/**/
 
-wwwroot/
+# wwwroot/
 smoothui/

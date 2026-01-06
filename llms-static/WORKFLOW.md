@@ -67,7 +67,7 @@ Extract:
 **Ask these questions:**
 
 | Question | If YES → Document |
-|----------|-------------------|
+| -------- | ----------------- |
 | Does it have multiple **variants** (enum with visual differences)? | Explain what each variant looks like/does |
 | Does it have **size** options? | Table with sizes and use cases |
 | Does it have **color** options? | Table with color meanings |
@@ -117,7 +117,7 @@ For each enum property that affects appearance or behavior:
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | **Default** | Standard appearance, inherits theme styling |
 | **Primary** | High emphasis, main actions |
 | **Secondary** | Medium emphasis, alternative actions |
@@ -135,7 +135,7 @@ For each enum property that affects appearance or behavior:
 ## Size Options
 
 | Size | Approximate Dimensions | Use Case |
-|------|------------------------|----------|
+| ---- | ---------------------- | -------- |
 | ExtraSmall | ~16px height | Inline text, compact UIs |
 | Small | ~20px height | Toolbars, secondary actions |
 | Medium | ~24px height | Default, general purpose |
@@ -149,7 +149,7 @@ For each enum property that affects appearance or behavior:
 ## Color Options
 
 | Color | Semantic Meaning |
-|-------|------------------|
+| ----- | ---------------- |
 | Default | Inherits from theme (usually base-content) |
 | Primary | Brand color, main actions |
 | Secondary | Alternative brand color |
@@ -198,7 +198,7 @@ Show practical AXAML usage:
 ## Animation Timing
 
 | Animation | Duration | Notes |
-|-----------|----------|-------|
+| --------- | -------- | ----- |
 | Fade in | 0.2s | On hover |
 | Slide | 0.3s | Panel transition |
 ```
@@ -251,7 +251,7 @@ DaisyCard expects this structure:
 ### 4.2 Common Mistakes to Avoid
 
 | Mistake | Correct Approach |
-|---------|------------------|
+| ------- | ---------------- |
 | "Primary variant makes it primary" | "Primary variant uses the brand color with high visual emphasis" |
 | Copying XML comments verbatim | Expand and explain in human terms |
 | Missing namespace in examples | Always use `controls:DaisyControlName` |
@@ -277,7 +277,7 @@ DaisyBadge displays small status indicators or labels, typically used for counts
 ## Style Variants
 
 | Style | Description |
-|-------|-------------|
+| ----- | ----------- |
 | **Default** | Solid filled background with contrasting text |
 | **Outline** | Transparent background with colored border |
 | **Dash** | Similar to outline but with dashed border |
@@ -287,7 +287,7 @@ DaisyBadge displays small status indicators or labels, typically used for counts
 ## Size Options
 
 | Size | Use Case |
-|------|----------|
+| ---- | -------- |
 | ExtraSmall | Notification dots, minimal indicators |
 | Small | Inline with text, compact layouts |
 | Medium | Default, general purpose |

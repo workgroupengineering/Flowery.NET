@@ -8,7 +8,7 @@ DaisySteps renders a sequence of step items with lines and circles. It supports 
 ## DaisySteps Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Orientation` | Horizontal (default) or Vertical. |
 | `Size` | ExtraSmall, Small, Medium (default), Large, ExtraLarge (affects circle/line sizes and fonts). |
 | `SelectedIndex` | 0-based index; steps with index ≤ SelectedIndex become active. |
@@ -16,7 +16,7 @@ DaisySteps renders a sequence of step items with lines and circles. It supports 
 ## DaisyStepItem Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Content` | Step label shown under/right of the circle. |
 | `DataContent` | Optional text inside the circle (number/icon). |
 | `Icon` | Slot available if you template-in; not used in default theme. |

@@ -7,7 +7,7 @@ DaisyWeatherCard is a flexible container that combines multiple weather display 
 ### Current Weather
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Temperature` | `double` | `0` | Current temperature value |
 | `FeelsLike` | `double` | `0` | "Feels like" temperature |
 | `Condition` | `WeatherCondition` | `Unknown` | Current weather condition |
@@ -18,13 +18,13 @@ DaisyWeatherCard is a flexible container that combines multiple weather display 
 ### Forecast
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Forecast` | `IEnumerable<ForecastDay>` | `null` | Collection of forecast days |
 
 ### Metrics
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `UvIndex` | `double` | `0` | Current UV index |
 | `UvMax` | `double` | `0` | Maximum UV for the day |
 | `WindSpeed` | `double` | `0` | Current wind speed |
@@ -36,7 +36,7 @@ DaisyWeatherCard is a flexible container that combines multiple weather display 
 ### Configuration
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `TemperatureUnit` | `string` | `"C"` | Temperature unit (C or F) |
 | `ShowCurrent` | `bool` | `true` | Show current weather section |
 | `ShowForecast` | `bool` | `true` | Show forecast section |
@@ -46,7 +46,7 @@ DaisyWeatherCard is a flexible container that combines multiple weather display 
 ### Service Integration
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `WeatherService` | `IWeatherService` | `null` | Weather data provider |
 | `Location` | `string` | `null` | Location for data fetching |
 | `ForecastDays` | `int` | `5` | Number of forecast days |

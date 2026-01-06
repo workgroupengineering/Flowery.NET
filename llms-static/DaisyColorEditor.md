@@ -15,7 +15,7 @@ This is a **standalone control** with its own AXAML theme (`DaisyColorEditor.axa
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Color` | `Color` | `Red` | The selected RGB color |
 | `HslColor` | `HslColor` | `H:0, S:1, L:0.5` | The HSL representation |
 | `EditingMode` | `ColorEditingMode` | `Rgb` | Current editing mode (RGB or HSL) |
@@ -28,7 +28,7 @@ This is a **standalone control** with its own AXAML theme (`DaisyColorEditor.axa
 ### Component Properties (Read/Write)
 
 | Property | Type | Range | Description |
-|----------|------|-------|-------------|
+| -------- | ---- | ----- | ----------- |
 | `Red` | `byte` | 0-255 | Red component |
 | `Green` | `byte` | 0-255 | Green component |
 | `Blue` | `byte` | 0-255 | Blue component |
@@ -43,7 +43,7 @@ This is a **standalone control** with its own AXAML theme (`DaisyColorEditor.axa
 The `ColorEditingMode` enum determines the primary editing interface:
 
 | Mode | Description |
-|------|-------------|
+| ---- | ----------- |
 | `Rgb` | Red, Green, Blue sliders and inputs |
 | `Hsl` | Hue, Saturation, Lightness sliders and inputs |
 
@@ -121,7 +121,7 @@ var editor = new DaisyColorEditor
 The control uses named template parts for its UI elements:
 
 | Part Name | Type | Purpose |
-|-----------|------|---------|
+| --------- | ---- | ------- |
 | `PART_RedSlider` | `DaisyColorSlider` | Red channel slider |
 | `PART_GreenSlider` | `DaisyColorSlider` | Green channel slider |
 | `PART_BlueSlider` | `DaisyColorSlider` | Blue channel slider |

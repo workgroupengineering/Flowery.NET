@@ -58,7 +58,7 @@
 When `ShowControls="True"`, the control displays increment/decrement buttons:
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `ShowControls` | bool | False | Shows +/- buttons beside the digits |
 | `Minimum` | decimal? | null | Lower bound for Value |
 | `Maximum` | decimal? | null | Upper bound for Value |
@@ -74,7 +74,7 @@ The buttons fire on pointer-pressed (not release) for immediate responsiveness a
 Enable digit selection for fine-grained control over individual digits:
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `AllowDigitSelection` | bool | False | Enable tapping digits to select which one to control |
 | `SelectedDigitIndex` | int? | null | Currently selected digit (0 = rightmost/ones place) |
 
@@ -89,7 +89,7 @@ When `AllowDigitSelection="True"`:
 When `AllowDigitSelection="True"`, full keyboard navigation is available:
 
 | Key | Action |
-|-----|--------|
+| --- | ------ |
 | **Tab** | Focus the control (auto-selects rightmost digit) |
 | **Shift+Tab** | Navigate between control and +/- buttons |
 | **Arrow Left** | Select higher digit (tens → hundreds) |
@@ -116,7 +116,7 @@ The control shows an accent border when focused via keyboard (`:focus-visible`).
 ## Styling Options
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `ShowDigitBoxes` | bool | False | Displays styled boxes behind each digit |
 
 When `ShowDigitBoxes="True"`, each digit gets a rounded box with an inset shadow, creating a dashboard/counter aesthetic similar to SmoothUI's NumberFlow component.
@@ -126,7 +126,7 @@ When `ShowDigitBoxes="True"`, each digit gets a rounded box with an inset shadow
 `DaisyNumberFlow` uses the `LargeDisplay*` design tokens for consistent sizing:
 
 | Token | Default | Description |
-|-------|---------|-------------|
+| ----- | ------- | ----------- |
 | `LargeDisplayFontSize` | 36 | Default font size for digits |
 | `LargeDisplayElementHeight` | 86 | Height of each digit box |
 | `LargeDisplayElementWidth` | 58 | Width of each digit box |

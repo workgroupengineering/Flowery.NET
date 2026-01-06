@@ -10,14 +10,14 @@ HslColor is a struct representing colors in the HSL (Hue, Saturation, Lightness)
 HSL is more intuitive than RGB for color selection:
 
 | Color Space | Best For |
-|-------------|----------|
+| ----------- | -------- |
 | **RGB** | Precise color values, web colors, digital displays |
 | **HSL** | Intuitive color adjustment - change brightness without affecting hue |
 
 ## Properties
 
 | Property | Type | Range | Description |
-|----------|------|-------|-------------|
+| -------- | ---- | ----- | ----------- |
 | `H` | `double` | 0-359 | Hue angle in degrees (0=red, 120=green, 240=blue) |
 | `S` | `double` | 0-1 | Saturation (0=gray, 1=vivid) |
 | `L` | `double` | 0-1 | Lightness (0=black, 0.5=pure color, 1=white) |
@@ -27,7 +27,7 @@ HSL is more intuitive than RGB for color selection:
 ## Static Members
 
 | Member | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `HslColor.Empty` | Represents an empty/undefined HSL color |
 
 ## Constructors
@@ -78,7 +78,7 @@ HslColor hsl = color;  // Implicit conversion
 ## Hue Reference
 
 | Hue (degrees) | Color |
-|---------------|-------|
+| ------------- | ----- |
 | 0 | Red |
 | 30 | Orange |
 | 60 | Yellow |
@@ -92,13 +92,13 @@ HslColor hsl = color;  // Implicit conversion
 ## Saturation & Lightness
 
 | Saturation | Effect |
-|------------|--------|
+| ---------- | ------ |
 | 0.0 | Grayscale (no color) |
 | 0.5 | Muted/pastel |
 | 1.0 | Full vivid color |
 
 | Lightness | Effect |
-|-----------|--------|
+| --------- | ------ |
 | 0.0 | Black |
 | 0.25 | Dark shade |
 | 0.5 | Pure color |

@@ -7,7 +7,7 @@ A button control representing a single page in a `DaisyPagination` control. This
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `IsActive` | `bool` | `false` | Whether this item is the currently selected page |
 | `PageNumber` | `int?` | `null` | The page number this item represents (null for non-numeric items like "..." or arrows) |
 

@@ -8,7 +8,7 @@ DaisyRange is a styled slider with **8 color variants**, **4 size presets**, and
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Default | Neutral thumb/track. |
 | Primary / Secondary / Accent | Brand-aligned thumb colors. |
 | Success / Warning / Info / Error | Semantic thumb colors. |
@@ -16,7 +16,7 @@ DaisyRange is a styled slider with **8 color variants**, **4 size presets**, and
 ## Size Options
 
 | Size | Track Height | Thumb Size |
-|------|--------------|------------|
+| ---- | ------------ | ---------- |
 | ExtraSmall | 4 | 16 |
 | Small | 6 | 20 |
 | Medium (default) | 8 | 24 |
@@ -25,7 +25,7 @@ DaisyRange is a styled slider with **8 color variants**, **4 size presets**, and
 ## Additional Styling
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `ThumbBrush` | Color of the thumb. |
 | `ThumbSize` | Diameter of the thumb (default 24). |
 | `ProgressBrush` | Color for filled track (left side). |

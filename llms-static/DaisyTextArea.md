@@ -17,7 +17,7 @@ DaisyTextArea is a multiline variant of DaisyInput. It inherits all input varian
 DaisyTextArea inherits all properties from DaisyInput. Key ones for textarea usage:
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Label` | `string?` | `null` | Label text displayed above the textarea. |
 | `IsRequired` | `bool` | `false` | Shows asterisk (*) indicator next to label. |
 | `IsOptional` | `bool` | `false` | Shows "Optional field" text next to label. |
@@ -29,7 +29,7 @@ DaisyTextArea inherits all properties from DaisyInput. Key ones for textarea usa
 ## TextArea-Specific Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `ShowCharacterCount` | `bool` | `false` | Displays character count below textarea (e.g., "42 / 200"). |
 | `IsAutoGrow` | `bool` | `false` | Automatically expands height based on content. |
 | `CanResize` | `bool` | `true` | Whether the textarea can be resized by the user. |

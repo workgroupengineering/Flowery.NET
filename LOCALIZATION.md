@@ -402,7 +402,7 @@ python "Utils/sync_resx_keys.py" "Flowery.NET/Localization/FloweryStrings.resx" 
 ## Available Resource Keys
 
 | Key | English (Default) | Description |
-|-----|-------------------|-------------|
+| --- | ----------------- | ----------- |
 | `Select_Placeholder` | Pick one | DaisySelect default placeholder |
 | `Theme_*` | Theme names | Localized display names for all 35 themes |
 | `Accessibility_Loading` | Loading | DaisyLoading accessible text |

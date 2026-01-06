@@ -8,7 +8,7 @@ DaisyHero is a full-width banner container for impactful headlines. It provides 
 ## Layout & Styling
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Background` | Set to a solid color, gradient, or image brush for the hero backdrop. |
 | `Padding` | Space around the content (default 40). |
 | `MinHeight` | Default 300 to keep the hero tall enough for headline + CTA. |

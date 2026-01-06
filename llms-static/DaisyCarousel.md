@@ -8,7 +8,7 @@ DaisyCarousel is a slide container with built-in previous/next buttons and direc
 ## Behavior & Navigation
 
 | Feature | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Arrow buttons | Template parts `PART_PreviousButton` and `PART_NextButton` drive navigation. |
 | Direction-aware animation | Slides enter/exit left or right depending on the last arrow clicked. |
 | Transition timing | 300ms cubic easing for both in/out motions. |
@@ -48,5 +48,5 @@ DaisyCarousel is a slide container with built-in previous/next buttons and direc
 - Set explicit `Width`/`Height` so content clips cleanly within the rounded host.
 - Use lightweight slide content (images, simple cards) to keep transitions smooth.
 - For data-bound scenarios, use `ItemsSource` + `ItemTemplate` instead of manually adding children.
-- The control doesn’t auto-advance; if you need autoplay, add a timer that calls `Next()`/`Previous()` on intervals.
+- The control doesn't auto-advance; if you need autoplay, add a timer that calls `Next()`/`Previous()` on intervals.
 - Keep padding consistent across slides to avoid jitter during transitions.

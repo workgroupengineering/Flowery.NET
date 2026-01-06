@@ -8,9 +8,9 @@ DaisySkeleton provides loading placeholders with a pulsing animation. It can ren
 ## Modes
 
 | Mode | Description |
-|------|-------------|
+| ---- | ----------- |
 | Default | Animated opacity on a solid background with corner radius. |
-| TextMode (`IsTextMode=True`) | Hides the block background and animates the content’s opacity (skeleton-text style). |
+| TextMode (`IsTextMode=True`) | Hides the block background and animates the content's opacity (skeleton-text style). |
 
 ## Quick Examples
 
@@ -38,7 +38,7 @@ DaisySkeleton provides loading placeholders with a pulsing animation. It can ren
 DaisySkeleton includes built-in accessibility for screen readers via the `AccessibleText` property. The control is exposed as a progress indicator to assistive technologies.
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `AccessibleText` | `string` | `"Loading placeholder"` | Text announced by screen readers to describe what is loading. |
 
 ### Accessibility Examples

@@ -3,12 +3,12 @@
 
 # Overview
 
-DaisyCopyButton is a `DaisyButton` that copies text to the clipboard on click and briefly switches to a success state. It’s ideal for “copy invite link”, “copy token”, and similar flows where immediate feedback matters.
+DaisyCopyButton is a `DaisyButton` that copies text to the clipboard on click and briefly switches to a success state. It's ideal for “copy invite link”, “copy token”, and similar flows where immediate feedback matters.
 
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `CopyText` (string?) | Text copied to the clipboard when clicked. When null, copies an empty string. |
 | `SuccessDuration` (TimeSpan) | How long the success state is shown (default `2s`). |
 | `SuccessContent` (object?) | Content shown during the success state (default `Copied`). |
@@ -36,6 +36,6 @@ Because it inherits from `DaisyButton`, all button properties (e.g. `Variant`, `
 
 ## Tips & Best Practices
 
-- Keep `SuccessContent` short so the button doesn’t resize noticeably.
+- Keep `SuccessContent` short so the button doesn't resize noticeably.
 - The button temporarily disables itself during the success state to prevent repeat clicks.
 - If you need more complex clipboard behavior (multiple formats), use your own click handler and keep DaisyCopyButton for simple text-copy flows.

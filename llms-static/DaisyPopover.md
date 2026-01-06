@@ -3,12 +3,12 @@
 
 # Overview
 
-DaisyPopover is a lightweight popover control that hosts content inside a `Popup` anchored to a trigger. It’s useful for rich tooltips, small forms, contextual menus, and “more actions” surfaces.
+DaisyPopover is a lightweight popover control that hosts content inside a `Popup` anchored to a trigger. It's useful for rich tooltips, small forms, contextual menus, and “more actions” surfaces.
 
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `TriggerContent` (object?) | Content shown as the trigger (e.g. a button or icon). |
 | `PopoverContent` (object?) | Content hosted inside the popup. |
 | `IsOpen` (bool) | Controls whether the popover is open. |

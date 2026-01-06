@@ -12,7 +12,7 @@ Uses `DaisyProgressVariant`: Default, Primary, Secondary, Accent, Info, Success,
 ## Size & Thickness
 
 | Size | Diameter | Thickness | Label Font |
-|------|----------|-----------|------------|
+| ---- | -------- | --------- | ---------- |
 | Small | 32 | 3 | 8 |
 | Medium (default) | 48 | 4 | 10 |
 | Large | 80 | 8 | 14 |
@@ -36,7 +36,7 @@ Uses `DaisyProgressVariant`: Default, Primary, Secondary, Accent, Info, Success,
 DaisyRadialProgress includes built-in accessibility for screen readers via the `AccessibleText` property. The automation peer automatically announces the current percentage along with the accessible text.
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `AccessibleText` | `string` | `"Progress"` | Context text announced by screen readers (e.g., "Upload progress, 70%"). |
 
 ### Accessibility Examples

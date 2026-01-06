@@ -3,12 +3,12 @@
 
 # Overview
 
-DaisyMask clips its content to preset shapes: squircle, heart, hexagon, circle, square, diamond, or triangle. It scales vector paths to the control’s bounds on arrange, making it easy to mask images or backgrounds into decorative silhouettes.
+DaisyMask clips its content to preset shapes: squircle, heart, hexagon, circle, square, diamond, or triangle. It scales vector paths to the control's bounds on arrange, making it easy to mask images or backgrounds into decorative silhouettes.
 
 ## Shape Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Squircle (default) | Soft superellipse corners; balanced for avatars/cards. |
 | Circle | Full ellipse. |
 | Square | Hard edges. |

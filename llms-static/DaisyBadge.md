@@ -8,7 +8,7 @@ DaisyBadge is a compact label for counts, statuses, or tags. It supports **10 co
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Default | Neutral gray fill with contrasting text; fits most backgrounds. |
 | Neutral | Muted neutral tone for secondary tags. |
 | Primary | High-emphasis brand color. |
@@ -23,7 +23,7 @@ DaisyBadge is a compact label for counts, statuses, or tags. It supports **10 co
 ## Size Options
 
 | Size | Approx. Dimensions | Use Case |
-|------|--------------------|----------|
+| ---- | ------------------ | -------- |
 | ExtraSmall | 12px height, 4px horizontal padding, 8px text | Tiny dots/counts inline with text |
 | Small | 16px height, 6px padding, 10px text | Compact chips for dense lists |
 | Medium (default) | 20px height, 8px padding, 12px text | General-purpose badges |
@@ -33,7 +33,7 @@ DaisyBadge is a compact label for counts, statuses, or tags. It supports **10 co
 ## Outline Mode
 
 | Property | Effect |
-|----------|--------|
+| -------- | ------ |
 | `IsOutline=True` | Makes the badge transparent with a colored border and matching text. Border/text color follows `Variant` (Primary/Secondary/Accent) or uses base content color for Default. |
 
 ## Quick Examples

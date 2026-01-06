@@ -10,7 +10,7 @@ DaisyStatusIndicator shows a status dot with **27 animation variants**. It suppo
 ## Options
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Variant` | Animation style: Default (static), Ping, Bounce, Pulse, Blink, Ripple, Heartbeat, Spin, Wave, Glow, Morph, Orbit, Radar, Sonar, Beacon, Shake, Wobble, Pop, Flicker, Breathe, Ring, Flash, Swing, Jiggle, Throb, Twinkle, Splash. |
 | `Color` | Default, Neutral, Primary, Secondary, Accent, Info, Success, Warning, Error (sets dot fill). Uses shared `DaisyColor` enum. |
 | `Size` | ExtraSmall, Small, Medium (default), Large, ExtraLarge (adjusts diameter). Uses shared `DaisySize` enum. |
@@ -21,7 +21,7 @@ DaisyStatusIndicator shows a status dot with **27 animation variants**. It suppo
 ### Brand Colors vs State Colors
 
 | Category | Colors | Purpose |
-|----------|--------|---------|
+| -------- | ------ | ------- |
 | **Brand Colors** | Primary, Secondary, Accent, Neutral | Your app's identity/branding. Customizable per theme. |
 | **State Colors** | Info, Success, Warning, Error | Universal semantic meanings for user feedback. |
 
@@ -49,7 +49,7 @@ DaisyStatusIndicator shows a status dot with **27 animation variants**. It suppo
 ### Classic Variants
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | `Default` | Static dot with no animation |
 | `Ping` | Expanding ring that fades out (classic online indicator) |
 | `Bounce` | Dot bounces up and down |
@@ -61,7 +61,7 @@ DaisyStatusIndicator shows a status dot with **27 animation variants**. It suppo
 ### Motion Variants
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | `Spin` | Rotating dot indicator |
 | `Wave` | Wave-like scale effect |
 | `Glow` | Glowing halo effect |
@@ -75,7 +75,7 @@ DaisyStatusIndicator shows a status dot with **27 animation variants**. It suppo
 ### Effect Variants
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | `Radar` | Radar sweep effect |
 | `Sonar` | Sonar ping effect |
 | `Beacon` | Lighthouse beacon sweep |
@@ -95,7 +95,7 @@ DaisyStatusIndicator includes built-in accessibility for screen readers. Since s
 ### Default Accessible Text by Color
 
 | Color | Default Text | Typical Use Case |
-|-------|--------------|------------------|
+| ----- | ------------ | ---------------- |
 | Success | "Online" | User/service availability |
 | Error | "Error" | Error states, offline |
 | Warning | "Warning" | Caution states |

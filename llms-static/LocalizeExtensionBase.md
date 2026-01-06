@@ -99,7 +99,7 @@ public class MyAppLocalization : INotifyPropertyChanged
 ## Base Class API
 
 | Member | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `Key` | The resource key to look up |
 | `GetLocalizedString(key)` | Abstract - return localized string for key |
 | `SubscribeToCultureChanged(handler)` | Abstract - subscribe to culture changes |

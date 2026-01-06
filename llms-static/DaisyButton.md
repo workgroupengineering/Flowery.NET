@@ -8,7 +8,7 @@ DaisyButton delivers DaisyUI-styled actions with **11 color variants**, **4 visu
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Default / Neutral | Base theme fill; balanced emphasis for most actions. |
 | Primary | High-emphasis brand color for main actions. |
 | Secondary | Alternate brand color for secondary actions. |
@@ -20,7 +20,7 @@ DaisyButton delivers DaisyUI-styled actions with **11 color variants**, **4 visu
 ## Style Options
 
 | Style | Description |
-|-------|-------------|
+| ----- | ----------- |
 | Default | Solid fill (or transparent for Ghost/Link) with hover transitions. |
 | Outline | Transparent background with colored border/text; fills with the variant color on hover. |
 | Dash | Dashed stroke around the button (shown via a dashed rectangle) with transparent fill until hover. |
@@ -30,7 +30,7 @@ DaisyButton delivers DaisyUI-styled actions with **11 color variants**, **4 visu
 ## Shape Options
 
 | Shape | Description |
-|-------|-------------|
+| ----- | ----------- |
 | Default | Standard pill rounding (8px). |
 | Wide | Extra horizontal padding for prominent CTAs. |
 | Block | Stretches to parent width (HorizontalAlignment=Stretch). |
@@ -40,7 +40,7 @@ DaisyButton delivers DaisyUI-styled actions with **11 color variants**, **4 visu
 ## Size Options
 
 | Size | Height | Padding | Typical Use |
-|------|--------|---------|-------------|
+| ---- | ------ | ------- | ----------- |
 | ExtraSmall | 24px | 8px horizontal | Dense toolbars, icon circles. |
 | Small | 32px | 12px horizontal | Compact forms, secondary actions. |
 | Medium (default) | 48px | 16px horizontal | General purpose. |
@@ -53,7 +53,7 @@ DaisyButton delivers DaisyUI-styled actions with **11 color variants**, **4 visu
 ## Shadows & States
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `IsActive=True` | Applies a 0.95 scale to simulate pressed/active state. |
 | `ShowShadow` | Enables box shadow; customize with `ShadowOffsetX`, `ShadowOffsetY`, `ShadowBlur`, `ShadowColor`. |
 | `IsEnabled=False` | Lowers opacity and removes hand cursor for disabled state. |

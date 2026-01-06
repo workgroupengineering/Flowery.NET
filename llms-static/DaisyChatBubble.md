@@ -8,7 +8,7 @@ DaisyChatBubble renders chat-style message bubbles with alignment control, optio
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Default | Neutral base bubble. |
 | Neutral | Muted gray fill with matching content color. |
 | Primary / Secondary / Accent | Brand-aligned fills for emphasis. |
@@ -17,7 +17,7 @@ DaisyChatBubble renders chat-style message bubbles with alignment control, optio
 ## Structure & Alignment
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `IsEnd` | Aligns the bubble to the right, swaps corner rounding (tail on the left), and mirrors avatar/header/footer placement. |
 | `Header` | Small text above the bubble (e.g., sender name); auto-hides when empty. |
 | `Footer` | Small text below (e.g., timestamps/read receipts); auto-hides when empty. |

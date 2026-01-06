@@ -15,7 +15,7 @@ DaisyTable provides a styled table layout with header, body, and footer sections
 ## Table Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Size` | ExtraSmall, Small, Medium (default), Large, ExtraLarge; adjusts padding/font via converters. |
 | `Zebra` (bool) | Applies alternate row backgrounds in `DaisyTableBody`. |
 | `PinRows` / `PinCols` (bool) | Exposed for sticky headers/columns; template groundwork present. |
@@ -23,7 +23,7 @@ DaisyTable provides a styled table layout with header, body, and footer sections
 ## Row & Cell Properties
 
 | Element | Property | Description |
-|---------|----------|-------------|
+| ------- | -------- | ----------- |
 | `DaisyTableRow` | `IsActive` | Highlights the row as selected/active. |
 | `DaisyTableRow` | `HighlightOnHover` | Enables hover highlighting. |
 | `DaisyTableHeaderCell` | `ColumnWidth` | GridLength for the column (Star/Absolute/Auto). |

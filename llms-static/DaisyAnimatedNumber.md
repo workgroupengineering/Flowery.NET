@@ -3,12 +3,12 @@
 
 # Overview
 
-DaisyAnimatedNumber is a numeric text display that animates value changes with a vertical slide transition. It’s useful for counters, KPIs, and any UI where you want motion feedback when the number updates.
+DaisyAnimatedNumber is a numeric text display that animates value changes with a vertical slide transition. It's useful for counters, KPIs, and any UI where you want motion feedback when the number updates.
 
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Value` (int) | Current displayed value. When it changes, the control animates from the previous value to the new value. |
 | `MinDigits` (int) | Minimum digit count; pads with leading zeros (e.g. `7` → `07`). |
 | `Duration` (TimeSpan) | Animation duration (default `250ms`). |

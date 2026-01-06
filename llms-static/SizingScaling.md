@@ -3,7 +3,7 @@
 Flowery.NET provides **two distinct sizing systems**. Understanding when to use each is essential:
 
 | System | Purpose | Scope |
-|--------|---------|-------|
+| ------ | ------- | ----- |
 | **Global Size** (`FlowerySizeManager`) | User preference / accessibility | Entire app – all controls respond |
 | **Auto Scaling** (`FloweryScaleManager`) | Responsive window-based sizing | Per-container opt-in only |
 
@@ -36,7 +36,7 @@ FlowerySizeManager.ApplySize("Large");
 ## Size Options
 
 | Size | Typical Use Case |
-|------|------------------|
+| ---- | ---------------- |
 | `ExtraSmall` | High-density UIs, data tables, compact toolbars |
 | `Small` | **Default** - Good balance for desktop apps |
 | `Medium` | Touch-friendly, accessibility |
@@ -131,7 +131,7 @@ For regular `TextBlock` elements that should scale with the global size, use the
 ### Available Tiers
 
 | Tier | Description | XS/S/M/L/XL Font Sizes |
-|------|-------------|------------------------|
+| ---- | ----------- | ---------------------- |
 | `Primary` | Body text, descriptions | 10/12/14/18/20 |
 | `Secondary` | Hints, captions, labels | 9/10/12/14/16 |
 | `Tertiary` | Very small text, counters | 8/9/11/12/14 |
@@ -315,7 +315,7 @@ Supported languages: English, German, French, Spanish, Italian, Japanese, Korean
 The sizing system works with [Design Tokens](DesignTokens.md). Each size tier maps to specific tokens:
 
 | Size | Height Token | Font Size Token |
-|------|--------------|-----------------|
+| ---- | ------------ | --------------- |
 | ExtraSmall | `DaisySizeExtraSmallHeight` (24) | `DaisySizeExtraSmallFontSize` (10) |
 | Small | `DaisySizeSmallHeight` (32) | `DaisySizeSmallFontSize` (12) |
 | Medium | `DaisySizeMediumHeight` (48) | `DaisySizeMediumFontSize` (14) |
@@ -365,7 +365,7 @@ While `FlowerySizeManager` provides **discrete size tiers** (Small, Medium, Larg
 ### Quick Comparison
 
 | Feature | Global Size | Auto Scaling |
-|---------|-------------|--------------|
+| ------- | ----------- | ------------ |
 | **Service** | `FlowerySizeManager` | `FloweryScaleManager` |
 | **Scope** | Entire app (global) | Only containers with `EnableScaling="True"` |
 | **Scaling Type** | Discrete tiers (xs, s, m, l, xl) | Continuous (0.5× to 1.0×) |
@@ -414,7 +414,7 @@ To allow scaling above 1.0, set `FloweryScaleManager.MaxScaleFactor` to your des
 FloweryScaleManager.MaxScaleFactor = 1.5;
 ```
 
-When `MaxScaleFactor > 1.0`, Flowery compensates for OS DPI scaling using `TopLevel.RenderScaling`, so you **don’t double-scale** on systems already set to 125% / 150% Windows scaling.
+When `MaxScaleFactor > 1.0`, Flowery compensates for OS DPI scaling using `TopLevel.RenderScaling`, so you **don't double-scale** on systems already set to 125% / 150% Windows scaling.
 
 **Safety**: `MaxScaleFactor` (and internal scale factors) are sanity-capped at **5.0 (500%)** to prevent extreme values.
 
@@ -490,7 +490,7 @@ If Auto Scaling is on, but you want specific controls to use the fixed Global Si
 ### When to Use Which?
 
 | Scenario | Recommended Approach |
-|----------|---------------------|
+| -------- | ------------------- |
 | Standard desktop app | **Global Size only** – simple, user-controlled |
 | Accessibility needs | **Global Size** – discrete tiers are clearer |
 | Data-dense responsive form | **Auto Scaling** on that specific page |

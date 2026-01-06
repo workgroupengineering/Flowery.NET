@@ -15,7 +15,7 @@ DaisyTagPicker is an organized tag selection component inspired by "Animated Tag
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Tags` (`IList<string>?`) | Pool of all available tags. |
 | `SelectedTags` (`IList<string>?`) | Currently selected tags. When null, managed internally. |
 | `Title` (`string`) | Header text for the selected tags box (default: "Selected Tags"). |
@@ -24,7 +24,7 @@ DaisyTagPicker is an organized tag selection component inspired by "Animated Tag
 ## Events
 
 | Event | Description |
-|-------|-------------|
+| ----- | ----------- |
 | `SelectionChanged` | Raised whenever the selection changes. |
 
 ## Quick Examples

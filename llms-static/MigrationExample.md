@@ -7,7 +7,7 @@ This guide explains when and how to use `CustomThemeApplicator` to integrate Flo
 The default `DaisyThemeManager.ApplyTheme()` works by adding/removing palette resources from `Application.Resources.MergedDictionaries`. This works great for simple apps, but you may need `CustomThemeApplicator` if:
 
 | Scenario | Why Default Doesn't Work |
-|----------|-------------------------|
+| -------- | ----------------------- |
 | **Custom MergedDictionaries** in `Application.Resources` | Resource resolution conflicts; `DynamicResource` bindings don't refresh |
 | **In-place ThemeDictionary updates** required | Default adds to MergedDictionaries, not ThemeDictionaries |
 | **Theme persistence** needed | Default doesn't save to settings |
@@ -259,7 +259,7 @@ DaisyThemeManager.CustomThemeApplicator = themeName =>
 ## Summary
 
 | Before CustomThemeApplicator | After |
-|------------------------------|-------|
+| ---------------------------- | ----- |
 | Built-in theme controls don't work with custom resource setups | All controls work seamlessly |
 | Had to build custom theme UI | Use `DaisyThemeDropdown` etc. directly |
 | Theme persistence required separate handling | Persistence built into your applicator |

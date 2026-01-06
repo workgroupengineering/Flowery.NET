@@ -18,7 +18,7 @@ Builds and deploys the Flowery.NET Gallery app to an Android emulator.
 ## Options
 
 | Parameter | Default | Description |
-|-----------|---------|-------------|
+| --------- | ------- | ----------- |
 | `-DeviceName` | `emulator-5554` | Target device ID (use `adb devices` to list) |
 | `-Configuration` | `Debug` | Build configuration (`Debug` or `Release`) |
 

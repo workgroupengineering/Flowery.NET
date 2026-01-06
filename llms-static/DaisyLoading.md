@@ -14,7 +14,7 @@ DaisyLoading provides animated loading indicators with **27 different animation 
 ### DaisyUI Standard Variants
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | **Spinner** | Classic rotating arc animation (default). Smooth 270° arc that rotates continuously. |
 | **Dots** | Three dots bouncing vertically with staggered timing, creating a wave-like effect. |
 | **Ring** | Rotating 90° arc with a subtle background track showing the full circle. |
@@ -25,7 +25,7 @@ DaisyLoading provides animated loading indicators with **27 different animation 
 ### Terminal-Inspired Variants
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | **Orbit** | Dots orbiting around a square border (npm/yarn terminal-style). Three dots with trailing opacity follow the square's perimeter: top → right → bottom → left. |
 | **Snake** | Five segments moving back and forth horizontally with staggered delays, creating a "centipede" or "caterpillar" crawling effect. |
 | **Pulse** | Sonar/heartbeat style - a center dot gently pulses while two rings expand outward and fade, creating a radar ping effect. |
@@ -35,7 +35,7 @@ DaisyLoading provides animated loading indicators with **27 different animation 
 ### Matrix/Colon-Dot Variants
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | **Matrix** | Colon-dotted pattern (`::: :::`) with a smooth wave of brightness traveling left to right. Each "colon" is two vertically stacked dots, grouped in sets of 3 with gaps between groups. |
 | **MatrixInward** | Same colon pattern but the wave starts from the center (inner dots) and moves outward to the edges. Creates a "burst from center" effect. |
 | **MatrixOutward** | Same colon pattern but the wave starts from the edges (outer dots) and converges toward the center. Creates a "closing in" effect. |
@@ -44,7 +44,7 @@ DaisyLoading provides animated loading indicators with **27 different animation 
 ### Special Effect Variants
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | **MatrixRain** | Digital rain inspired by "The Matrix" movie. Four columns of falling dots at different speeds, each with a bright leading dot and dimmer trailing dot. |
 | **Hourglass** | Classic hourglass timer with flowing sand animation. Top sand depletes, stream flows through the middle, bottom sand accumulates. 2-second cycle. |
 | **SignalSweep** | Oscilloscope-style bar sweeping left to right with a fading gradient trail. Includes subtle horizontal grid lines. |
@@ -73,7 +73,7 @@ DaisyLoading is designed to be accessible to users of assistive technologies lik
 ### The AccessibleText Property
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `AccessibleText` | `string` | `"Loading"` | The text announced by screen readers when the control receives focus or is encountered. |
 
 When you change `AccessibleText`, the control automatically updates its `AutomationProperties.Name` so screen readers pick up the new value.
@@ -149,7 +149,7 @@ This ensures that:
 The DaisyLoading theme styles are organized into multiple files for maintainability:
 
 | File | Contents |
-|------|----------|
+| ---- | -------- |
 | `Themes/DaisyLoading.axaml` | Main aggregator with design preview; includes all sub-files |
 | `Themes/DaisyLoading/DaisyLoading.Base.axaml` | `ControlTheme` with default Spinner template, shared spinning animation, size styles, and color styles |
 | `Themes/DaisyLoading/DaisyLoading.Classic.axaml` | Dots, Ring, Ball, Bars, Infinity variants |
@@ -173,7 +173,7 @@ To add a new loading variant:
 All variants scale proportionally across sizes. Canvas-based animations use Viewbox wrapping for smooth scaling.
 
 | Size | Dimensions | Use Case |
-|------|------------|----------|
+| ---- | ---------- | -------- |
 | ExtraSmall | 16×16px | Inline with text, compact buttons |
 | Small | 20×20px | Small UI elements, table cells |
 | Medium | 24×24px | Default, general purpose (recommended) |
@@ -185,7 +185,7 @@ All variants scale proportionally across sizes. Canvas-based animations use View
 Use the `Color` property to apply theme colors. All variants support coloring.
 
 | Color | Description |
-|-------|-------------|
+| ----- | ----------- |
 | `Default` | Base content color (inherits from theme) |
 | `Primary` | Primary brand color |
 | `Secondary` | Secondary brand color |
@@ -246,7 +246,7 @@ Use the `Color` property to apply theme colors. All variants support coloring.
 ## Animation Timing Reference
 
 | Variant | Duration | Notes |
-|---------|----------|-------|
+| ------- | -------- | ----- |
 | Spinner | 0.75s | Single rotation cycle |
 | Dots | 0.6s | Bounce cycle with 0.1s stagger |
 | Ring | 0.75s | Same as Spinner |
@@ -278,7 +278,7 @@ Use the `Color` property to apply theme colors. All variants support coloring.
 ## Property Summary
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Variant` | `DaisyLoadingVariant` | `Spinner` | Animation style (27 options) |
 | `Size` | `DaisySize` | `Medium` | Control dimensions (5 options). Uses shared enum. |
 | `Color` | `DaisyColor` | `Default` | Theme color (9 options). Uses shared enum. |
@@ -287,7 +287,7 @@ Use the `Color` property to apply theme colors. All variants support coloring.
 ## Variant Selection Guide
 
 | Use Case | Recommended Variants |
-|----------|---------------------|
+| -------- | ------------------- |
 | General purpose | `Spinner`, `Ring`, `Dots` |
 | Form submission | `Spinner`, `Pulse`, `Hourglass` |
 | Data fetching | `Dots`, `Wave`, `Matrix`, `RippleMatrix` |

@@ -8,14 +8,14 @@ DaisyCollapse is an `Expander`-based container for revealing content under a cli
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Arrow (default) | Chevron on the right rotates 180° when expanded. |
 | Plus | Plus icon rotates into an “×” when expanded. |
 
 ## Behavior
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `IsExpanded` | Toggles visibility of the content presenter; bound to the header toggle. |
 | `Header` | Shown in the toggle button; can be any content. |
 | `Content` | Shown below the header when expanded; supports any child UI. |

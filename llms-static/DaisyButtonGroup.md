@@ -12,7 +12,7 @@ It also supports non-clickable segments (for counters/labels) by using a `Border
 ## Properties & Events
 
 | Member | Description |
-|---|---|
+|-- |-- |
 | `Variant` (`DaisyButtonVariant`) | Applies a unified color variant to all segments (Default, Primary, Secondary, Accent, etc.). |
 | `Size` (`DaisySize`) | Applies size tokens to all segments (height, padding, font size). |
 | `ButtonStyle` (`DaisyButtonStyle`) | Segment style: `Default`, `Outline`, `Soft`, `Dash` (outer dashed border). |

@@ -3,12 +3,12 @@
 
 # Overview
 
-DaisyDrawer wraps Avalonia’s `SplitView` to create a sidebar drawer. Defaults to an inline drawer on the left with a 300px open width and no compact pane. The template includes a slide-in animation and optional overlay support for overlay mode. Use it to host navigation or settings panels that toggle in/out of view.
+DaisyDrawer wraps Avalonia's `SplitView` to create a sidebar drawer. Defaults to an inline drawer on the left with a 300px open width and no compact pane. The template includes a slide-in animation and optional overlay support for overlay mode. Use it to host navigation or settings panels that toggle in/out of view.
 
 ## Key Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `IsPaneOpen` | Shows/hides the pane. Toggle this to open/close the drawer. |
 | `Pane` / `PaneTemplate` | Content for the sidebar. |
 | `Content` / `ContentTemplate` | Main area content. |

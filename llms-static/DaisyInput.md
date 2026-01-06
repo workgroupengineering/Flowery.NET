@@ -8,7 +8,7 @@ DaisyInput is a styled TextBox with **10 variants** and **4 size presets**. It s
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | Bordered (default) | Subtle 30% opacity border; brightens on focus. |
 | Ghost | No border and transparent background; adds light fill on focus. |
 | Filled | Filled background with bottom border; ideal for material-style forms. |
@@ -20,7 +20,7 @@ DaisyInput is a styled TextBox with **10 variants** and **4 size presets**. It s
 DaisyInput uses **fixed heights** for each size to match DaisyUI's design.
 
 | Size | Height | Font Size | Floating Height | Use Case |
-|------|--------|-----------|-----------------|----------|
+| ---- | ------ | --------- | --------------- | -------- |
 | ExtraSmall | 24 | 10 | 40 | Dense tables/toolbars. |
 | Small | 32 | 12 | 48 | Compact forms. |
 | Medium (default) | 48 | 14 | 56 | General usage. |
@@ -39,7 +39,7 @@ DaisyInput extends `TextBox` - all standard TextBox properties (`Text`, `Waterma
 **DaisyInput-specific properties:**
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Variant` | `DaisyInputVariant` | `Bordered` | Visual style variant (see table above). |
 | `Size` | `DaisySize` | `Medium` | Size preset (see table above). |
 | `Label` | `string?` | `null` | Label text displayed above the input. |

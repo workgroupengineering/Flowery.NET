@@ -23,7 +23,7 @@ Add a project reference or install from NuGet:
 ## Requirements
 
 | Platform | Requirements |
-|----------|-------------|
+| -------- | ----------- |
 | Windows  | .NET 8.0, Windows Forms (included automatically) |
 | macOS    | .NET 8.0, Screen Recording permission in System Preferences |
 | Linux    | .NET 8.0, `scrot` (X11) or `grim` (Wayland) |
@@ -151,7 +151,7 @@ public interface IScreenCaptureService
 ### ScreenCaptureOptions
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `ScrollViewer` | `ScrollViewer?` | `null` | Clips capture to visible viewport |
 | `MaxChunkHeight` | `double` | `800` | Maximum height per chunk |
 | `EnableSmartChunking` | `bool` | `true` | Split at child boundaries vs fixed height |
@@ -162,7 +162,7 @@ public interface IScreenCaptureService
 ### ScreenCaptureResult
 
 | Property | Type | Description |
-|----------|------|-------------|
+| -------- | ---- | ----------- |
 | `Success` | `bool` | Whether capture succeeded |
 | `Chunks` | `IReadOnlyList<byte[]>` | PNG-encoded image data |
 | `ErrorMessage` | `string?` | Error details if failed |

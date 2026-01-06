@@ -8,7 +8,7 @@ DaisyColorGrid is a grid control for displaying and selecting colors from predef
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Color` | `Color` | `Black` | The currently selected color |
 | `ColorIndex` | `int` | `-1` | Index of the selected color in the palette |
 | `Palette` | `ColorCollection?` | `null` | The main color collection to display |
@@ -27,7 +27,7 @@ DaisyColorGrid is a grid control for displaying and selecting colors from predef
 The `ColorCollection` class provides several predefined palettes:
 
 | Palette | Method | Colors | Description |
-|---------|--------|--------|-------------|
+| ------- | ------ | ------ | ----------- |
 | Named Colors | `CreateNamedColors()` | 140+ | All CSS/HTML named colors |
 | Office 2010 | `CreateOffice2010()` | 70 | Microsoft Office 2010 theme colors |
 | Paint | `CreatePaint()` | 48 | MS Paint default palette |

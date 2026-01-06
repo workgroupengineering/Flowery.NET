@@ -8,7 +8,7 @@ DaisyGlass is a frosted-glass container with multiple blur strategies: simulated
 ## Blur Modes
 
 | Mode | Description |
-|------|-------------|
+| ---- | ----------- |
 | `Simulated` | No real blur; uses layered gradients/textures for a lightweight glass look. |
 | `BitmapCapture` (default) | Captures underlying content once and blurs it; good balance of quality/perf. |
 | `SkiaSharp` | GPU blur via Skia; more real-time but experimental. |
@@ -16,7 +16,7 @@ DaisyGlass is a frosted-glass container with multiple blur strategies: simulated
 ## Key Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `EnableBackdropBlur` (bool) | Enables real capture/blur; simulated layers are always rendered. |
 | `BlurMode` | Chooses blur pipeline (Simulated/BitmapCapture/SkiaSharp). |
 | `GlassBlur` | Blur radius/strength. |

@@ -26,7 +26,7 @@
 ## Variant Options
 
 | Variant | Description |
-|---|---|
+|-- |-- |
 | **Bordered** | Default style with neutral border |
 | **Ghost** | Transparent background, shows on focus |
 | **Primary** | Primary color border |
@@ -40,7 +40,7 @@
 ## Size Options
 
 | Size | Height | Use Case |
-|------|--------|----------|
+| ---- | ------ | -------- |
 | ExtraSmall | 24px | Compact tables, dense UIs |
 | Small | 32px | Secondary inputs |
 | Medium | 48px | General purpose (default) |
@@ -169,7 +169,7 @@
 ## Properties
 
 | Property | Type | Default | Description |
-|---|---|---|---|
+|-- |-- |-- |-- |
 | `Value` | decimal? | null | The current numeric value |
 | `Minimum` | decimal | decimal.MinValue | Minimum allowed value |
 | `Maximum` | decimal | decimal.MaxValue | Maximum allowed value |
@@ -221,7 +221,7 @@ string? formatted = myInput.ToFormattedString();      // Uses current NumberBase
 ```
 
 | Method | Returns | Example |
-|--------|---------|---------|
+| ------ | ------- | ------- |
 | `ToHexString(includePrefix)` | Hex string respecting `HexCase` | `"0xFF"` or `"0xff"` |
 | `ToBinaryString(includePrefix)` | Binary string | `"0b1010"` |
 | `ToIPAddressString()` | IPv4 address string | `"192.168.1.1"` |
@@ -263,7 +263,7 @@ if (DecimalExtensions.TryFromColorHexString("#ABC", out decimal parsed))
 ```
 
 | Method | Direction | Example |
-|--------|-----------|---------|
+| ------ | --------- | ------- |
 | `value.ToHexString(includePrefix, uppercase)` | decimal → string | `255m.ToHexString()` → `"0xFF"` |
 | `value.ToBinaryString(includePrefix)` | decimal → string | `10m.ToBinaryString()` → `"0b1010"` |
 | `value.ToOctalString(includePrefix)` | decimal → string | `493m.ToOctalString()` → `"0o755"` |
@@ -293,7 +293,7 @@ if (DecimalExtensions.TryFromColorHexString("#ABC", out decimal parsed))
 The control filters keystrokes in real-time based on `NumberBase`:
 
 | Mode | Allowed Characters | Max Length | Notes |
-|---|---|---|---|
+|-- |-- |-- |-- |
 | **Decimal** | `0-9`, decimal sep, `-`, `e`/`E`, `+`/`-` | ~27 chars | 15 integer + 6 decimal digits by default (prevents overflow) |
 | **Hexadecimal** | `0-9`, `A-F`, `a-f`, `0x` | 18 | `0x` + 16 hex digits (long.MaxValue) |
 | **Binary** | `0`, `1`, `0b` | 66 | `0b` + 64 binary digits |
@@ -315,7 +315,7 @@ When pasting text, the control:
 ## Comparison with DaisyInput
 
 | Feature | DaisyInput | DaisyNumericUpDown |
-|---|---|---|
+|-- |-- |-- |
 | Text entry | Any text | Numbers only (filtered) |
 | Spin buttons | No | Yes (optional) |
 | Min/Max constraints | No | Yes |

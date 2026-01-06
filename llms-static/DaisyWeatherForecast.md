@@ -5,7 +5,7 @@ DaisyWeatherForecast is an `ItemsControl` that renders a row of forecast cards. 
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `TemperatureUnit` | `string` | `"C"` | Temperature unit (C or F) |
 | `ShowPrecipitation` | `bool` | `false` | Show precipitation chance |
 | `ItemsSource` | `IEnumerable` | - | Collection of `ForecastDay` items |

@@ -8,7 +8,7 @@ DaisyModal is an overlay dialog container with backdrop and configurable corner 
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `IsOpen` | Shows/hides the modal and backdrop. |
 | `TopLeftRadius` / `TopRightRadius` / `BottomLeftRadius` / `BottomRightRadius` | Individual corner radii combined via `ModalCornerRadiusConverter`. |
 | `Padding` | Inner spacing for modal content (default 24). |

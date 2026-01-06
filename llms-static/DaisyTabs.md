@@ -8,7 +8,7 @@ DaisyTabs is a styled `TabControl` with four header variants (None, Bordered, Li
 ## Variant Options
 
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | None | Text-only tabs; selected text is bold; no underline/box. |
 | Bordered (default) | Underline on hover/selected. |
 | Lifted | Folder-tab style with top/sides border; selected tab has background. |
@@ -17,7 +17,7 @@ DaisyTabs is a styled `TabControl` with four header variants (None, Bordered, Li
 ## Size Options
 
 | Size | Padding | Font Size |
-|------|---------|-----------|
+| ---- | ------- | --------- |
 | ExtraSmall | 8,4 | 10 |
 | Small | 12,6 | 12 |
 | Medium (default) | 16,8 | 14 |
@@ -28,14 +28,14 @@ DaisyTabs is a styled `TabControl` with four header variants (None, Bordered, Li
 Control tab sizing behavior to prevent layout shifts or create uniform navigation.
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | TabWidthMode | Enum | Auto | `Auto`, `Equal`, or `Fixed` |
 | TabWidth | double | NaN | Fixed width when mode is `Fixed` |
 | TabMinWidth | double | 0 | Minimum width for each tab |
 | TabMaxWidth | double | ∞ | Maximum width for each tab |
 
 | Mode | Behavior |
-|------|----------|
+| ---- | -------- |
 | Auto | Each tab sizes to fit its content (default) |
 | Equal | All tabs use the width of the widest tab |
 | Fixed | All tabs use the specified `TabWidth` value |
@@ -93,7 +93,7 @@ DaisyTabs supports two different tab-color systems:
 Assign a palette color to individual tabs using the `DaisyTabs.TabPaletteColor` attached property. Palette colors are fixed and do not change with themes.
 
 | Palette Value | Description |
-|--------------|-------------|
+| ------------ | ----------- |
 | Default | No custom color |
 | Purple | Purple |
 | Indigo | Indigo |
@@ -155,7 +155,7 @@ When using the context menu, clicking the hollow dot ("Default") resets the tab 
 If you want tab colors to follow the active theme, use `DaisyTabs.TabColor` with `DaisyColor` values:
 
 | DaisyColor | Description |
-|-----------|-------------|
+| --------- | ----------- |
 | Default | No semantic color |
 | Primary | Theme primary |
 | Secondary | Theme secondary |
@@ -171,7 +171,7 @@ If you want tab colors to follow the active theme, use `DaisyTabs.TabColor` with
 Enable a right-click context menu on tabs with close actions and color selection. The menu is **off by default** and only raises events/callbacks - your app handles the actual tab manipulation.
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | EnableTabContextMenu | bool | false | Shows context menu on right-click |
 
 ### Context Menu Items
@@ -188,7 +188,7 @@ When enabled, right-clicking a tab shows:
 DaisyTabs raises events and supports optional callbacks for each action. Use events for standard .NET patterns or callbacks for simpler inline wiring.
 
 | Event | Callback Property | EventArgs | Description |
-|-------|-------------------|-----------|-------------|
+| ----- | ----------------- | --------- | ----------- |
 | CloseTabRequested | CloseTabCallback | DaisyTabEventArgs | User requested closing a tab |
 | CloseOtherTabsRequested | CloseOtherTabsCallback | DaisyTabEventArgs | User requested closing other tabs |
 | CloseTabsToRightRequested | CloseTabsToRightCallback | DaisyTabEventArgs | User requested closing tabs to the right |

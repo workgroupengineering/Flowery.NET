@@ -8,7 +8,7 @@ DaisyThemeRadio is a theme-selecting RadioButton. When checked, it applies its `
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `ThemeName` | Theme to apply when checked (e.g., “Synthwave”, “Retro”). |
 | `Mode` | `Radio` (default) or `Button` display. |
 | `Size` | ExtraSmall–ExtraLarge for button/radio sizing. |

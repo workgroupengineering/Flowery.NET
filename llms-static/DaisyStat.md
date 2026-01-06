@@ -8,7 +8,7 @@ DaisyStat displays a metric with title, value, optional description, figure (ico
 ## DaisyStat Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Title` | Small label above the value. |
 | `Value` | Main metric (large text). |
 | `Description` | Secondary text below the value. |
@@ -21,7 +21,7 @@ DaisyStat displays a metric with title, value, optional description, figure (ico
 ## DaisyStats Container
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Orientation` | Horizontal (default) or Vertical; adds dividers between items. |
 
 ## Quick Examples

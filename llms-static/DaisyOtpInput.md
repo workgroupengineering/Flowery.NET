@@ -8,7 +8,7 @@ DaisyOtpInput is an OTP / verification code input composed of multiple single-ch
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Length` (int) | Number of OTP slots (default 6). |
 | `Value` (string?) | Current OTP value (concatenated from the filled slots). |
 | `AcceptsOnlyDigits` (bool) | When true, non-digit characters are filtered out (default true). |
@@ -21,7 +21,7 @@ DaisyOtpInput is an OTP / verification code input composed of multiple single-ch
 ## Events
 
 | Event | Description |
-|-------|-------------|
+| ----- | ----------- |
 | `Completed` | Raised when `Value.Length == Length`. |
 
 ## Quick Examples

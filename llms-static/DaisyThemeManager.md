@@ -8,7 +8,7 @@ DaisyThemeManager is the central theme loader/applicator for the **35 built-in D
 ## When to Use
 
 | Scenario | Recommended API |
-|----------|-----------------|
+| -------- | --------------- |
 | Switch between built-in themes (Light, Dark, Dracula, etc.) | `DaisyThemeManager.ApplyTheme()` ✓ |
 | Custom theme application strategy (in-place updates, persistence) | Set `DaisyThemeManager.CustomThemeApplicator` |
 | Load custom themes from CSS at runtime | `DaisyThemeLoader.ApplyThemeToApplication()` |
@@ -37,7 +37,7 @@ DaisyThemeLoader.ApplyThemeToApplication(theme);
 ## Key Members
 
 | Member | Description |
-|--------|-------------|
+| ------ | ----------- |
 | `AvailableThemes` | Read-only list of `DaisyThemeInfo` (Name, IsDark) for all bundled themes. |
 | `ApplyTheme(string name)` | Loads `Themes/Palettes/Daisy{name}.axaml`, swaps the palette, updates `RequestedThemeVariant`, and raises `ThemeChanged`. Uses `CustomThemeApplicator` if set. |
 | `SuppressThemeApplication` | When true, `ApplyTheme` only updates internal state without actually applying. Use during initialization. |

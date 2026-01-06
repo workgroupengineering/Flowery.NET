@@ -8,7 +8,7 @@ DaisyToast is a simple toast container (ItemsControl) that stacks toast items su
 ## Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `ToastHorizontalOffset` | Horizontal margin from the aligned edge (default 16). |
 | `ToastVerticalOffset` | Vertical margin from the aligned edge (default 16). |
 | Alignment | Use `HorizontalAlignment`/`VerticalAlignment` on the control to place it (e.g., `BottomRight`). |

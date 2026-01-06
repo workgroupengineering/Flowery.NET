@@ -70,7 +70,7 @@ FloweryScaleManager.MaxScaleFactor = 1.0;  // Maximum 100%
 ### Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `ReferenceWidth` | double | 1920 | Reference width for 100% scale |
 | `ReferenceHeight` | double | 1080 | Reference height for 100% scale |
 | `MinScaleFactor` | double | 0.5 | Minimum scale factor (50%) |
@@ -81,7 +81,7 @@ FloweryScaleManager.MaxScaleFactor = 1.0;  // Maximum 100%
 The following controls implement `IScalableControl` and auto-scale when enabled:
 
 | Control | What Scales |
-|---------|-------------|
+| ------- | ----------- |
 | `DaisyInput` | Label font size, input text font size |
 | `DaisyButton` | Content font size |
 | `DaisySelect` | Font size |
@@ -169,7 +169,7 @@ scaleFactor = clamp(scaleFactor, minScaleFactor, maxScaleFactor)
 **Examples** (with default 1920x1080 reference):
 
 | Window Size | Scale Factor |
-|-------------|--------------|
+| ----------- | ------------ |
 | 1920×1080 | 1.0 (100%) |
 | 1440×900 | 0.75 (75%) |
 | 1280×720 | 0.667 (67%) |
@@ -221,7 +221,7 @@ FloweryScaleManager only scales fonts. Use ScaleExtension for padding, widths, m
 ## Comparison: FloweryScaleManager vs ScaleExtension
 
 | Feature | FloweryScaleManager | ScaleExtension |
-|---------|---------------------|----------------|
+| ------- | ------------------- | -------------- |
 | **Scope** | Auto-scales Daisy control fonts | Scales any property |
 | **Usage** | Attached property on container | Markup extension per property |
 | **Effort** | One line for all children | One binding per property |

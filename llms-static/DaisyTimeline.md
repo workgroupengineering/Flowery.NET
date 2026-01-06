@@ -8,7 +8,7 @@ DaisyTimeline lays out timeline items horizontally or vertically. Each `DaisyTim
 ## DaisyTimeline Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Orientation` | Horizontal (default) or Vertical. |
 | `IsCompact` | Reduces spacing and sizing for dense layouts. |
 | `SnapIcon` | Aligns middle icons to the grid for crisp placement. |
@@ -16,7 +16,7 @@ DaisyTimeline lays out timeline items horizontally or vertically. Each `DaisyTim
 ## DaisyTimelineItem Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `StartContent` | Leading text/label (e.g., year). |
 | `MiddleContent` | Icon or node marker. |
 | `EndContent` | Trailing text/label (e.g., description). |

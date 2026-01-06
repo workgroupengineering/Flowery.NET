@@ -9,7 +9,7 @@ Filled stars are clipped based on `Value` to show partial ratings; clicking upda
 ## Precision Modes
 
 | Mode | Snapping |
-|------|----------|
+| ---- | -------- |
 | Full (default) | Whole stars (1, 2, 3…). |
 | Half | 0.5 increments. |
 | Precise | 0.1 increments. |
@@ -17,7 +17,7 @@ Filled stars are clipped based on `Value` to show partial ratings; clicking upda
 ## Size Options
 
 | Size | Star Size | Use Case |
-|------|-----------|----------|
+| ---- | --------- | -------- |
 | ExtraSmall | 12px | Dense tables/toolbars. |
 | Small | 16px | Compact cards/forms. |
 | Medium (default) | 24px | General usage. |
@@ -42,7 +42,7 @@ Filled stars are clipped based on `Value` to show partial ratings; clicking upda
 DaisyRating includes built-in accessibility for screen readers via the `AccessibleText` property. The automation peer automatically announces the current star count (e.g., "Rating: 3 of 5 stars").
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `AccessibleText` | `string` | `"Rating"` | Context text announced by screen readers (e.g., "Product rating: 4 of 5 stars"). |
 
 ### How It Works

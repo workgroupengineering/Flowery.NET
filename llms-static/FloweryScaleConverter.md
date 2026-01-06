@@ -13,7 +13,7 @@ Both provide **continuous, real-time scaling** as the window resizes, unlike `Fl
 ## Quick Comparison
 
 | Feature | ScaleExtension | FloweryScaleConverter |
-|---------|---------------|----------------------|
+| ------- | ------------- | -------------------- |
 | **XAML Syntax** | `{services:Scale FontTitle}` | Full binding with converter |
 | **Window Detection** | Automatic | Manual (`ElementName=...`) |
 | **Presets** | Built-in semantic names | Not available |
@@ -51,7 +51,7 @@ xmlns:services="clr-namespace:Flowery.Services;assembly=Flowery.NET"
 ### Font Sizes
 
 | Preset | Base | Min | Use Case |
-|--------|------|-----|----------|
+| ------ | ---- | --- | -------- |
 | `FontDisplay` | 32 | 20 | Hero/display text |
 | `FontTitle` | 28 | 18 | Page titles |
 | `FontHeading` | 20 | 14 | Section headings |
@@ -64,7 +64,7 @@ xmlns:services="clr-namespace:Flowery.Services;assembly=Flowery.NET"
 ### Spacing
 
 | Preset | Base | Use Case |
-|--------|------|----------|
+| ------ | ---- | -------- |
 | `SpacingXL` | 40 | Large gaps, section separators |
 | `SpacingLarge` | 28 | Major element spacing |
 | `SpacingMedium` | 20 | Standard padding/margins |
@@ -74,7 +74,7 @@ xmlns:services="clr-namespace:Flowery.Services;assembly=Flowery.NET"
 ### Dimensions
 
 | Preset | Base | Min | Use Case |
-|--------|------|-----|----------|
+| ------ | ---- | --- | -------- |
 | `CardWidth` | 400 | - | Card/container width |
 | `CardHeight` | 120 | 100 | Card/container min height |
 | `IconContainerLarge` | 140 | - | Large icon backgrounds |
@@ -141,7 +141,7 @@ For scenarios where you need explicit control over the binding source or are wor
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `ReferenceWidth` | double | 1920 | Width for 100% scaling (Full HD) |
 | `ReferenceHeight` | double | 1080 | Height for 100% scaling (Full HD) |
 | `MinScaleFactor` | double | 0.5 | Minimum scale (50% of base value) |
@@ -183,7 +183,7 @@ For scenarios where you need explicit control over the binding source or are wor
 With default settings (1920×1080 reference, 0.5 min scale):
 
 | Window Size | Scale Factor | FontTitle (28,18) | CardWidth (400) |
-|-------------|--------------|-------------------|-----------------|
+| ----------- | ------------ | ----------------- | --------------- |
 | 1920×1080 | 1.0 | 28pt | 400px |
 | 1440×810 | 0.75 | 21pt | 300px |
 | 1280×720 | 0.67 | 18.8pt → 18pt (min) | 267px |

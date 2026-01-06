@@ -131,13 +131,13 @@ Brief description of what this control does and when to use it.
 
 ## Variants
 | Variant | Description |
-|---------|-------------|
+| ------- | ----------- |
 | **Primary** | Main action styling |
 | **Ghost**   | Subtle/low-emphasis styling |
 
 ## Sizes
 | Size | Description |
-|------|-------------|
+| ---- | ----------- |
 | Small | Compact UI |
 | Medium | Default |
 
@@ -183,7 +183,7 @@ Best practices:
 ## Related Files
 
 | File | Purpose |
-|------|---------|
+| ---- | ------- |
 | `Utils/generate_site.py` | Builds the static site (default: curated docs) |
 | `Utils/generate_docs.py` | Optional generator for auto-parsed metadata |
 | `llms-static/README.md` | How to write curated docs |

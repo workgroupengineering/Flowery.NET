@@ -5,7 +5,7 @@ This folder contains Noto Sans font files for proper CJK (Chinese, Japanese, Kor
 ## Included Fonts
 
 | File | Purpose | Size |
-|------|---------|------|
+| ---- | ------- | ---- |
 | `NotoSans-Regular.ttf` | Latin, Cyrillic, Greek | ~560KB |
 | `NotoSansSC-Regular.otf` | Simplified Chinese (Standalone) | ~16MB |
 | `NotoSansJP-Regular.otf` | Japanese (Standalone) | ~16MB |

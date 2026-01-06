@@ -16,7 +16,7 @@ This control uses `DaisyThemeManager` internally, which works with Avalonia's `T
 ## Properties & Behavior
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `SelectedTheme` | Name of the currently selected theme. Setting this applies the theme. |
 | ItemsSource | Auto-populated from `DaisyThemeManager.AvailableThemes` with preview brushes. |
 | Sync | Subscribes to `ThemeChanged` to update selection when themes change elsewhere. |

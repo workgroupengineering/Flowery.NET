@@ -8,7 +8,7 @@ DaisyCountdown is a templated numeric timer that can show live clock units (hour
 ## Modes & Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `ClockUnit` (`None`, `Hours`, `Minutes`, `Seconds`) | When set, pulls the current system time for that unit on each tick. Setting `ClockUnit` starts the timer automatically. |
 | `IsCountingDown` (bool) | When true, decrements `Value` on each tick until 0; stops or loops depending on `Loop`. |
 | `Value` (int, 0–999) | Current displayed number; coerced to 0–999. |
@@ -54,7 +54,7 @@ DaisyCountdown is a templated numeric timer that can show live clock units (hour
 DaisyCountdown includes built-in accessibility for screen readers via the `AccessibleText` property. The control uses a live region to announce value changes, and the automation peer provides context about the current value and unit.
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `AccessibleText` | `string` | `"Countdown"` | Context text announced by screen readers (e.g., "Time remaining: 30 seconds"). |
 
 ### How It Works

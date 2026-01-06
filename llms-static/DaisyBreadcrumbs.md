@@ -8,7 +8,7 @@ DaisyBreadcrumbs shows a horizontal trail of navigation steps. It auto-builds `D
 ## Breadcrumb Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Separator` (string, default "/") | Text used between items. Accepts any string (e.g., `›`, `»`, `>`). |
 | `SeparatorOpacity` (double, default 0.5) | Controls the visual weight of the separator glyph. |
 | `Items` | Supply `DaisyBreadcrumbItem` children directly or bind an `ItemsSource`; containers are created automatically. |
@@ -16,7 +16,7 @@ DaisyBreadcrumbs shows a horizontal trail of navigation steps. It auto-builds `D
 ## Item Properties
 
 | Property | Description |
-|----------|-------------|
+| -------- | ----------- |
 | `Content` | The label text; supports templated content. |
 | `Icon` (Geometry) | Optional leading icon; hidden when not set. |
 | `Command` / `CommandParameter` | Invoked on click for non-last items when `IsClickable=True`. |

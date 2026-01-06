@@ -19,7 +19,7 @@ This displays a dropdown with all five sizes (ExtraSmall, Small, Medium, Large, 
 ## Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `SelectedSize` | `DaisySize` | `Medium` | The currently selected size |
 | `Size` | `DaisySize` | `Medium` | The size of the dropdown control itself |
 | `ShowAbbreviations` | `bool` | `false` | Show abbreviations (XS, S, M, L, XL) instead of full names |
@@ -34,7 +34,7 @@ By default, all five sizes are shown. You can customize which sizes appear and w
 ### SizePreviewInfo Properties
 
 | Property | Type | Default | Description |
-|----------|------|---------|-------------|
+| -------- | ---- | ------- | ----------- |
 | `Size` | `DaisySize` | - | The enum value (required) |
 | `Name` | `string` | - | Internal name for localization lookup (e.g., "Small") |
 | `IsVisible` | `bool` | `true` | Set to `false` to hide this size from the dropdown |

@@ -43,7 +43,7 @@ Add your overrides in `App.axaml` before the DaisyUITheme. These will take prece
 Used for buttons, inputs, selects, and other fixed-height controls.
 
 | Token | Default | Used By |
-|-------|---------|---------|
+| ----- | ------- | ------- |
 | `DaisySizeExtraLargeHeight` | 48 | DaisyButton, DaisyInput, DaisySelect, DaisyNumericUpDown |
 | `DaisySizeLargeHeight` | 48 | " |
 | `DaisySizeMediumHeight` | 40 | " |
@@ -55,7 +55,7 @@ Used for buttons, inputs, selects, and other fixed-height controls.
 Specific heights for `DaisyInput` with `LabelPosition="Floating"`. These add headroom for the label to float above the input border.
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyInputFloatingExtraLargeHeight` | 72 |
 | `DaisyInputFloatingLargeHeight` | 72 |
 | `DaisyInputFloatingMediumHeight` | 64 |
@@ -69,7 +69,7 @@ Specific heights for `DaisyInput` with `LabelPosition="Floating"`. These add hea
 Typography scale used across controls for main content.
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisySizeExtraLargeFontSize` | 20 |
 | `DaisySizeLargeFontSize` | 18 |
 | `DaisySizeMediumFontSize` | 14 |
@@ -81,7 +81,7 @@ Typography scale used across controls for main content.
 For hint text, helper text, captions, labels (~0.8x of primary).
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisySizeExtraLargeSecondaryFontSize` | 16 |
 | `DaisySizeLargeSecondaryFontSize` | 14 |
 | `DaisySizeMediumSecondaryFontSize` | 12 |
@@ -93,7 +93,7 @@ For hint text, helper text, captions, labels (~0.8x of primary).
 For very small captions, counters (~0.7x of primary).
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisySizeExtraLargeTertiaryFontSize` | 14 |
 | `DaisySizeLargeTertiaryFontSize` | 12 |
 | `DaisySizeMediumTertiaryFontSize` | 11 |
@@ -105,7 +105,7 @@ For very small captions, counters (~0.7x of primary).
 For section titles and headings (~1.4x of primary).
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisySizeExtraLargeHeaderFontSize` | 28 |
 | `DaisySizeLargeHeaderFontSize` | 24 |
 | `DaisySizeMediumHeaderFontSize` | 20 |
@@ -117,7 +117,7 @@ For section titles and headings (~1.4x of primary).
 Use `FlowerySizeManager.ResponsiveFont` attached property to make TextBlocks respond to global size changes. This subscribes to the `SizeChanged` event and updates font sizes programmatically.
 
 | Tier | Description | XS/S/M/L/XL Sizes |
-|------|-------------|-------------------|
+| ---- | ----------- | ----------------- |
 | `Primary` | Body text | 10/12/14/18/20 |
 | `Secondary` | Hints, captions | 9/10/12/14/16 |
 | `Tertiary` | Very small text | 8/9/11/12/14 |
@@ -138,7 +138,7 @@ Use `FlowerySizeManager.ResponsiveFont` attached property to make TextBlocks res
 Rounded corners for controls.
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisySizeExtraLargeCornerRadius` | 12 |
 | `DaisySizeLargeCornerRadius` | 10 |
 | `DaisySizeMediumCornerRadius` | 8 |
@@ -150,7 +150,7 @@ Rounded corners for controls.
 Horizontal-only padding (vertical is controlled by MinHeight).
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyButtonExtraLargePadding` | 32,0 |
 | `DaisyButtonLargePadding` | 24,0 |
 | `DaisyButtonMediumPadding` | 16,0 |
@@ -162,7 +162,7 @@ Horizontal-only padding (vertical is controlled by MinHeight).
 Horizontal-only padding for text inputs.
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyInputExtraLargePadding` | 20,0 |
 | `DaisyInputLargePadding` | 18,0 |
 | `DaisyInputMediumPadding` | 16,0 |
@@ -174,7 +174,7 @@ Horizontal-only padding for text inputs.
 Both horizontal and vertical padding (tabs don't use fixed height).
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyTabExtraLargePadding` | 18,10 |
 | `DaisyTabLargePadding` | 16,8 |
 | `DaisyTabMediumPadding` | 14,6 |
@@ -186,7 +186,7 @@ Both horizontal and vertical padding (tabs don't use fixed height).
 Badges use a separate, more compact scale.
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyBadgeLargeHeight` | 24 |
 | `DaisyBadgeMediumHeight` | 20 |
 | `DaisyBadgeSmallHeight` | 16 |
@@ -203,7 +203,7 @@ Badges use a separate, more compact scale.
 ### Card Padding
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyCardLargePadding` | 32 |
 | `DaisyCardMediumPadding` | 24 |
 | `DaisyCardSmallPadding` | 16 |
@@ -214,7 +214,7 @@ Badges use a separate, more compact scale.
 General spacing values for layouts.
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisySpacingXL` | 24 |
 | `DaisySpacingLarge` | 16 |
 | `DaisySpacingMedium` | 12 |
@@ -224,7 +224,7 @@ General spacing values for layouts.
 ### Border Thickness
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyBorderThicknessNone` | 0 |
 | `DaisyBorderThicknessThin` | 1 |
 | `DaisyBorderThicknessMedium` | 2 |
@@ -259,7 +259,7 @@ The following controls use design tokens for consistent sizing:
 Outer border size for checkboxes and radio buttons.
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyCheckboxExtraLargeSize` | 40 |
 | `DaisyCheckboxLargeSize` | 32 |
 | `DaisyCheckboxMediumSize` | 24 |
@@ -269,7 +269,7 @@ Outer border size for checkboxes and radio buttons.
 ### Checkmark Icon Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyCheckmarkExtraLargeSize` | 24 |
 | `DaisyCheckmarkLargeSize` | 20 |
 | `DaisyCheckmarkMediumSize` | 16 |
@@ -279,7 +279,7 @@ Outer border size for checkboxes and radio buttons.
 ### Radio Inner Dot Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyRadioDotExtraLargeSize` | 24 |
 | `DaisyRadioDotLargeSize` | 20 |
 | `DaisyRadioDotMediumSize` | 14 |
@@ -291,7 +291,7 @@ Outer border size for checkboxes and radio buttons.
 ### Toggle Switch Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyToggleExtraLargeWidth` | 72 |
 | `DaisyToggleExtraLargeHeight` | 40 |
 | `DaisyToggleLargeWidth` | 60 |
@@ -306,7 +306,7 @@ Outer border size for checkboxes and radio buttons.
 ### Toggle Knob Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyToggleKnobExtraLargeSize` | 32 |
 | `DaisyToggleKnobLargeSize` | 26 |
 | `DaisyToggleKnobMediumSize` | 20 |
@@ -318,7 +318,7 @@ Outer border size for checkboxes and radio buttons.
 ### Progress Bar Heights
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyProgressLargeHeight` | 16 |
 | `DaisyProgressMediumHeight` | 8 |
 | `DaisyProgressSmallHeight` | 4 |
@@ -327,7 +327,7 @@ Outer border size for checkboxes and radio buttons.
 ### Progress Corner Radius
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyProgressLargeCornerRadius` | 8 |
 | `DaisyProgressMediumCornerRadius` | 4 |
 | `DaisyProgressSmallCornerRadius` | 2 |
@@ -338,7 +338,7 @@ Outer border size for checkboxes and radio buttons.
 ### Avatar Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyAvatarExtraLargeSize` | 128 |
 | `DaisyAvatarLargeSize` | 96 |
 | `DaisyAvatarMediumSize` | 48 |
@@ -350,7 +350,7 @@ Outer border size for checkboxes and radio buttons.
 ### Menu Item Padding
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyMenuExtraLargePadding` | 20,16 |
 | `DaisyMenuLargePadding` | 16,12 |
 | `DaisyMenuMediumPadding` | 12,8 |
@@ -360,7 +360,7 @@ Outer border size for checkboxes and radio buttons.
 ### Menu Font Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyMenuExtraLargeFontSize` | 18 |
 | `DaisyMenuLargeFontSize` | 16 |
 | `DaisyMenuMediumFontSize` | 14 |
@@ -372,7 +372,7 @@ Outer border size for checkboxes and radio buttons.
 ### Kbd (Keyboard) Heights
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyKbdExtraLargeHeight` | 40 |
 | `DaisyKbdLargeHeight` | 32 |
 | `DaisyKbdMediumHeight` | 24 |
@@ -382,7 +382,7 @@ Outer border size for checkboxes and radio buttons.
 ### Kbd Padding
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyKbdExtraLargePadding` | 8,0 |
 | `DaisyKbdLargePadding` | 6,0 |
 | `DaisyKbdMediumPadding` | 4,0 |
@@ -392,7 +392,7 @@ Outer border size for checkboxes and radio buttons.
 ### Kbd Font Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyKbdExtraLargeFontSize` | 16 |
 | `DaisyKbdLargeFontSize` | 14 |
 | `DaisyKbdMediumFontSize` | 12 |
@@ -402,7 +402,7 @@ Outer border size for checkboxes and radio buttons.
 ### Kbd Corner Radius
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyKbdExtraLargeCornerRadius` | 6 |
 | `DaisyKbdLargeCornerRadius` | 5 |
 | `DaisyKbdMediumCornerRadius` | 4 |
@@ -412,7 +412,7 @@ Outer border size for checkboxes and radio buttons.
 ### TextArea MinHeight
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyTextAreaExtraLargeMinHeight` | 160 |
 | `DaisyTextAreaLargeMinHeight` | 120 |
 | `DaisyTextAreaMediumMinHeight` | 80 |
@@ -422,7 +422,7 @@ Outer border size for checkboxes and radio buttons.
 ### TextArea Padding
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyTextAreaExtraLargePadding` | 24 |
 | `DaisyTextAreaLargePadding` | 20 |
 | `DaisyTextAreaMediumPadding` | 16 |
@@ -432,7 +432,7 @@ Outer border size for checkboxes and radio buttons.
 ### Input/TextArea Vertical Alignment
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyInputVerticalContentAlignment` | Center |
 | `DaisyTextAreaVerticalContentAlignment` | Top |
 
@@ -441,7 +441,7 @@ Outer border size for checkboxes and radio buttons.
 ### DateTimeline Item Heights
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyDateTimelineExtraLargeHeight` | 130 |
 | `DaisyDateTimelineLargeHeight` | 96 |
 | `DaisyDateTimelineMediumHeight` | 80 |
@@ -451,7 +451,7 @@ Outer border size for checkboxes and radio buttons.
 ### DateTimeline Item Widths
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyDateTimelineExtraLargeItemWidth` | 96 |
 | `DaisyDateTimelineLargeItemWidth` | 80 |
 | `DaisyDateTimelineMediumItemWidth` | 64 |
@@ -461,7 +461,7 @@ Outer border size for checkboxes and radio buttons.
 ### DateTimeline Item Padding
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyDateTimelineExtraLargePadding` | 16,24 |
 | `DaisyDateTimelineLargePadding` | 12,16 |
 | `DaisyDateTimelineMediumPadding` | 8,12 |
@@ -471,7 +471,7 @@ Outer border size for checkboxes and radio buttons.
 ### DateTimeline Corner Radius
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyDateTimelineExtraLargeCornerRadius` | 20 |
 | `DaisyDateTimelineLargeCornerRadius` | 16 |
 | `DaisyDateTimelineMediumCornerRadius` | 12 |
@@ -481,7 +481,7 @@ Outer border size for checkboxes and radio buttons.
 ### DateTimeline Day Number Font Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyDateTimelineExtraLargeDayNumberFontSize` | 32 |
 | `DaisyDateTimelineLargeDayNumberFontSize` | 26 |
 | `DaisyDateTimelineMediumDayNumberFontSize` | 20 |
@@ -491,7 +491,7 @@ Outer border size for checkboxes and radio buttons.
 ### DateTimeline Day Name Font Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyDateTimelineExtraLargeDayNameFontSize` | 15 |
 | `DaisyDateTimelineLargeDayNameFontSize` | 13 |
 | `DaisyDateTimelineMediumDayNameFontSize` | 10 |
@@ -501,7 +501,7 @@ Outer border size for checkboxes and radio buttons.
 ### DateTimeline Month Name Font Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyDateTimelineExtraLargeMonthNameFontSize` | 14 |
 | `DaisyDateTimelineLargeMonthNameFontSize` | 12 |
 | `DaisyDateTimelineMediumMonthNameFontSize` | 10 |
@@ -511,7 +511,7 @@ Outer border size for checkboxes and radio buttons.
 ### DateTimeline Header Font Sizes
 
 | Token | Default |
-|-------|---------|
+| ----- | ------- |
 | `DaisyDateTimelineExtraLargeHeaderFontSize` | 20 |
 | `DaisyDateTimelineLargeHeaderFontSize` | 18 |
 | `DaisyDateTimelineMediumHeaderFontSize` | 16 |
@@ -527,7 +527,7 @@ Tokens for dashboard-style display controls like `DaisyNumberFlow`, counters, an
 ### Display Element (Digit Box) Sizing
 
 | Token | Default | Description |
-|-------|---------|-------------|
+| ----- | ------- | ----------- |
 | `LargeDisplayFontSize` | 36 | Font size for display digits |
 | `LargeDisplayElementHeight` | 86 | Height of each digit box |
 | `LargeDisplayElementWidth` | 58 | Width of each digit box |
@@ -537,7 +537,7 @@ Tokens for dashboard-style display controls like `DaisyNumberFlow`, counters, an
 ### Display Control Buttons
 
 | Token | Default | Description |
-|-------|---------|-------------|
+| ----- | ------- | ----------- |
 | `LargeDisplayButtonSize` | 42 | Width/height of +/- buttons |
 | `LargeDisplayButtonFontSize` | 20 | Font size for +/- symbols |
 | `LargeDisplayButtonCornerRadius` | 8 | Corner radius for buttons |
@@ -546,7 +546,7 @@ Tokens for dashboard-style display controls like `DaisyNumberFlow`, counters, an
 ### Display Container (Outer Wrapper)
 
 | Token | Default | Description |
-|-------|---------|-------------|
+| ----- | ------- | ----------- |
 | `LargeDisplayContainerPadding` | 16 | Inner padding of container |
 | `LargeDisplayContainerCornerRadius` | 16 | Corner radius of container |
 
